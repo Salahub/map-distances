@@ -183,13 +183,16 @@
 \newcommand{\comment}[1]{{\color{steelblue} COMMENT:  {#1}}}
 \newcommand{\TODO}[1]{{\color{brickred} TODO:  {#1}}}
 
-\title{The derivation of genetic map distances from a novel structural genetic model}
+\title{The derivation of genetic map distances and correlation from a novel structural genetic model}
 \author{Chris Salahub \\
 	\textit{University of Waterloo}}
 
 \begin{document}
 	
 \maketitle
+
+\section{Introduction} \label{subsec:intro}
+
 
 
 
@@ -304,7 +307,7 @@ Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ bet
 
 \section{Implications for Correlation} \label{subsec:correlation}
 
-Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{c:multipleTesting:genMod}. Typically, when the notion of the correlation between markers is discussed in a GWAS, what is actually under discussion is the observed correlation matrix of this vector in a particular population (e.g. \cite{cheverud2001}). As a consequence, this quantity is key in the determination of the effective number of tests in GWASs. Despite the prevalence of simulation to compute this matrix in the literature, it can also be determined analytically.
+Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{subsec:intro}. Typically, when the notion of the correlation between markers is discussed in a GWAS, what is actually under discussion is the observed correlation matrix of this vector in a particular population (e.g. \cite{cheverud2001}). As a consequence, this quantity is key in the determination of the effective number of tests in GWASs. Despite the prevalence of simulation to compute this matrix in the literature, it can also be determined analytically.
 
 For clarity, let $\ve{z}$ indicate an instance of the random vector $\ve{Z} = \tr{(Z_1, Z_2, \dots, Z_M)}$. We let the random vector $\ve{Z}$ follow the distribution of the summarized values $\ve{z}$ in a particular population. This population may be real, as is the case when this modelling is used in practice, or purely hypothetical, as will be the case in the following analysis.
 
