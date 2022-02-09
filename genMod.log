@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  9 FEB 2022 12:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  9 FEB 2022 14:35
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -542,7 +542,7 @@ Package rerunfilecheck Info: File `genMod.out' has not changed.
 Here is how much of TeX's memory you used:
  11846 strings out of 478927
  179114 string characters out of 2852535
- 490091 words of memory out of 3000000
+ 490085 words of memory out of 3000000
  29426 multiletter control sequences out of 15000+600000
  419257 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -579,7 +579,7 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Chris/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Chri
 s/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on genMod.pdf (18 pages, 456886 bytes).
+Output written on genMod.pdf (18 pages, 456873 bytes).
 PDF statistics:
  463 PDF objects out of 1000 (max. 8388607)
  80 named destinations out of 1000 (max. 500000)
