@@ -191,7 +191,7 @@
 	
 \maketitle
 
-\section{Introduction} \label{subsec:intro}
+\section{Introduction} \label{sec:intro}
 
 
 
@@ -200,6 +200,8 @@
 	\item Elevate differences
 	\item Emphasize the virtue of the paper: a general introduction that is accessible to any statistician using a general structural framework which makes the identification of assumptions and methodology clear
 \end{itemize}
+
+\section{A structural genetic model} \label{sec:theModel}
 
 A natural motivation for the computation of an effective number of tests is that of genomic association studies, as these studies typically involve large numbers of tests performed on dependent variables. For the purpose of modelling and discussion, we introduce a matrix $\m{G}$ to represent the entire genome of an individual. $\m{G}$ contains both the maternal and paternal variants of all chromosomes placed sequentially, with the maternal variant in one column and the paternal in another. As nucleotides bind uniquely, we can consider recording the pattern only for one of the two DNA strands for each column. This gives $\m{G} = [\ve{g}_1| \ve{g}_2]$ where $\ve{g}_1,\text{ } \ve{g}_2 \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$ would be the base pair sequences of an individual's paternal and maternal genome variants, respectively, if the entire genome were recorded.\footnote{In cells, this is not how genetic information is typically organized. Rather than occurring as one long strand, DNA exists within cells in many contiguous, but separate, sections called \textit{chromosomes}.}
 
@@ -232,7 +234,9 @@ This entire toy model is displayed in Figure \ref{fig:modelDiagram}, with descri
 
 Recall the motivation of the exercise, that of identifying the number of effective tests based on the relationships between them. It should be noted, then, that the numerization and summarization steps are not strictly necessary. Categorical measures of association, such as the $\chi^2$ test, could readily be applied to $\m{T}$, where each possible row combination is treated as a different category. Such measurement would likely be more computationally inefficient, but would entirely circumvent the last two steps of Figure \ref{fig:modelDiagram}. 
 
-\section{Sexual Reproduction} \label{subsec:crossingover}
+\section{Deriving map distances} \label{sec:derivingDists}
+
+\subsection{Sexual reproduction} \label{subsec:crossingover}
 
 An important consequence of the organization of the genome into chromosomes is the \textit{independent assortment} \TODO{Cite this? Where is the principle of independent assortment outlined?} of chromosomes during sexual reproduction. That is, the variant of one chromosome inherited by progeny does not impact the inheritance of another. Within each chromosome, however, the process of \textit{crossing over} presents an additional mechanism of variability.
 
@@ -240,7 +244,7 @@ For clarity, consider briefly the process of meiosis. Recall that there exist tw
 
 The mechanism is slightly more complex. During the production of sex cells used for sexual reproduction by meiosis, the columns of $\m{M}$ and $\m{F}$ may be perturbed. Rather than being inherited by $\m{G}$ in the same form as in $\m{M}$ and $\m{F}$, the physical process of producing sex cells can cause the swapping of column entries of $\m{M}$ and $\m{F}$ for large, contiguous sections of rows, and the resulting swapped columns are then inherited by $\m{G}$ as usual. These swaps are known as cross overs, and are the mechanism behind \textit{genetic recombination}.\footnote{Physically, this process is a result of the condensation of chromosomes of $\m{M}$ and $\m{F}$ into structures called \textit{chromatids} which pair along the centre of a meiosing cell. The resulting proximity creates the opportunity for these variants to physically cross over each other. Occasionally, this occurs in such a way that entire sections of the genome are switched between them. Without the genetic recombination resulting from this, $\m{G}$ would inherit one unmodified variant from each of $\m{M}$ and $\m{F}$, preventing totally new combinations of genetic material from occurring.}
 
-\subsection{Modelling cross overs} \label{subsubsec:modelcrossing}
+\subsection{Modelling cross overs} \label{subsec:modelcrossing}
 
 To model crossing over, begin by making the assumption that crossing over occurs independently for each chromosome, and will affect directly only that chromosome's variants.\footnote{Dependence between cross overs is known as \textit{interference}.} Consider a vector $\ve{h} \in \{1, \dots, C\}^{N_P}$ which denotes the chromosome of each row of $\m{M}$\footnote{Or, equivalently, $\m{F}$.}. For simplicity, assume that for all $i \leq j$, $h_i \leq h_j$, that is all base pairs of a chromosome appear in adjacent rows. As crossing over occurs independently for each chromosome, a crossing over event in chromosome $c$, say, will affect only those rows of $\m{M}$ where $\ve{h} = c$. For the moment, then, consider the case where $\ve{h}$ is a vector of ones, that is the case of a single chromosome.
 
@@ -257,7 +261,7 @@ V_i = \begin{cases}
 
 As we rarely sequence the entire genome of an individual's somatic and sex cells, we will seldom see $\m{M}$ and its recombinant forms. Instead, $\m{S}$ is derived from $\m{G}$ and $\m{M}_S$ and $\m{F}_S$ from $\m{M}$ and $\m{F}$. From this, swaps of the markers of $\m{S}$, $\m{M}_S$, and $\m{F}_S$ between generations are used to estimate the number of sex cells containing recombinant chromosomes.\footnote{The proportion of sex cells produced with such a swap is called the \textit{recombination rate} for the pair of markers.} However, this method tells us nothing of how many cross over events occurred between any two markers. Any odd number of events leads to a swap, while any even number will be undetectable. Under this setting, the true count of indices $i$ for which $v_i = 1$ cannot be known, and hence the $\pi_i$ cannot be estimated individually.
 
-\subsection{Simplifying Assumptions} \label{subsubsec:simplify}
+\subsection{Simplifying Assumptions} \label{subsec:simplify}
 
 Fortunately, if we only care about the recombination of two particular markers on the genome, estimating individual $\pi_i$ values is unnecessary. Consider two such positions, $j$ and $k$ with $j < k$, and note that cross overs beginning at $j+1, j+2, \dots, k-1, k$ all result in these positions being split between variants. Now, motivated by identifiability, assume that $\pi_j = \pi_{j+1} = \cdots = \pi_{k-1} = \pi_k = \pi_{j:k}$. Under this assumption, the number of cross overs beginning in $j+1,j+2,\dots,k-1,k$, is given by the binomial expression
 
@@ -305,15 +309,15 @@ Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ bet
 
 \noindent A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of crossing over events gives us Haldane's formula for the \textit{map distance} in \textit{centiMorgans}. These distance units are defined purely by the assumptions leading to Equation \ref{eq:poissonlim} and the relationship specified in Equation \ref{eq:haldanemap} with the choice of $\beta = \frac{1}{100}$, rather than reflecting a true physical distance.\footnote{One may imagine this distance measure was chosen out of pure convenience. J.B.S. Haldane devised the approximation in 1919, at which point the chemical structure of DNA was still a mystery, but the concept of recombination had been revealed through patterns of inheritance.}
 
-\section{Implications for Correlation} \label{subsec:correlation}
+\section{Genetic correlation} \label{subsec:correlation}
 
-Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{subsec:intro}. Typically, when the notion of the correlation between markers is discussed in a GWAS, what is actually under discussion is the observed correlation matrix of this vector in a particular population (e.g. \cite{cheverud2001}). As a consequence, this quantity is key in the determination of the effective number of tests in GWASs. Despite the prevalence of simulation to compute this matrix in the literature, it can also be determined analytically.
+Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{sec:intro}. Typically, when the notion of the correlation between markers is discussed in a GWAS, what is actually under discussion is the observed correlation matrix of this vector in a particular population (e.g. \cite{cheverud2001}). As a consequence, this quantity is key in the determination of the effective number of tests in GWASs. Despite the prevalence of simulation to compute this matrix in the literature, it can also be determined analytically.
 
 For clarity, let $\ve{z}$ indicate an instance of the random vector $\ve{Z} = \tr{(Z_1, Z_2, \dots, Z_M)}$. We let the random vector $\ve{Z}$ follow the distribution of the summarized values $\ve{z}$ in a particular population. This population may be real, as is the case when this modelling is used in practice, or purely hypothetical, as will be the case in the following analysis.
 
 Return to the annotated matrix $\m{T}$ and consider two markers at row indices $j$ and $k$. Introduce $\ve{c}$, which is defined similarly to $\ve{h}$ earlier, but now indicates chromosomal membership for the markers in $\m{T}$ rather than the base pairs in $\m{G}$. As every marker is contained within a single chromosome, $\ve{c}$ is always unambiguously defined.
 
-There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, we can use the assumptions of Section \ref{subsubsec:modelcrossing} to see immediately that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently with their different chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in centiMorgans. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
+There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, we can use the assumptions of Section \ref{subsec:modelcrossing} to see immediately that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently with their different chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in centiMorgans. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
 
 $$\m{T} = \begin{bmatrix}
   A & a \\
@@ -529,7 +533,7 @@ $$\m{F}_X = \begin{bmatrix}
 
 \noindent In this setting, both indicators defined on $\m{F}_X$ are 0 while both of those defined on $\m{M}_X$ are 1. This immediately gives $\gamma_{\text{back}} = 1$, and so the correlation for the backcross population is given by the exact same expression as that of the intercross population, $Corr(Z_j, Z_K) = I_{h_j = h_k} e^{-2 \beta d(j,k)}$.\footnote{As an aside, note that names \textit{intercross} and \textit{backcross} are references to breeding practices. The $\m{F}$ and $\m{M}$ of the intercross can be thought of as the result of a cross between an individual which is entirely dominant and an individual which is entirely recessive. The in the intercross, two children resulting from this dominant/recessive cross are crossed, while in the backcross, a child is crossed with a parent. Hopefully, one appreciates why such odd patterns of breeding are only pursued in mice.}
 
-\section{Simulating the Model} \label{subsec:sim}
+\section{Simulating the model} \label{subsec:sim}
 
 The model outlined in Figure \ref{fig:modelDiagram} also suggests a straightforward set of structures which can be used for simulation. Motivated by the focus on correlation in determining $M_{eff}$, these simulations focused on simulating the correlation of $\ve{z}$ for both the $F_2$ intercross and $F_2$ backcross populations.
 
@@ -583,6 +587,8 @@ Such simulations are a confirmation of the earlier analysis performed, but were 
 
 \subsection{Implementation}
 
+\TODO{Lose this section?}
+
 In order to make the above procedures repeatable, easily read, and flexible, the code for these simulations was implemented in \R using the S3 class system. The core construct was a class meant to reflect $\m{X}$.
 
 Objects of the \code{genome} class are lists with two elements: \code{alleles} and \code{dists}. The \code{alleles} element is a list of two column matrices, where each matrix represents the value of $\m{X}$ for a particular chromosome. \code{dists} is a list of vectors of the same length as \code{alleles}. Each vector in \code{dists} gives the distances between the alleles in the corresponding element of \code{alleles}. A function called \code{abiogenesis} allows for the convenient creation of a genome through the specification of distances and allele values.
@@ -593,7 +599,7 @@ The correlation of repeated swaps is then computed via \code{popCorrelation}. As
 
 The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. The code for this implementation can be found at https://github.com/Salahub/genetic-model.
 
-\section{Comparing the Model to Reality} \label{subsec:model2real}
+\section{Comparing the model to reality} \label{subsec:model2real}
 
 Though simulation confirms that population correlations generated under the model of sexual reproduction described in \ref{subsec:crossingover} match the predictions of Equation \ref{eq:zcorr}, this does not mean it reflects genetic mechanics with fidelity. Evaluating the extent to which this is the case requires data.
 
@@ -628,9 +634,9 @@ Lingering is the question as to the cause of this discrepancy. Both model specif
 
 It must be noted that this is not a proper line up test following \cite{bujaetal2009}, as the true difference was presented before this line up. Nonetheless, it gives some sense of the typical variation seen under the model. The true difference, in position nine, stands out among these, despite considerable variation in these differences across these simulated data sets. This suggests the crude model used here could be improved. That said, it performs reasonably well, especially given that \cite{haldane1919} proposed the distance measure at its core more than a century ago.
 
-\section{Other Conceptualizations} \label{sec:apply}
+\section{Other conceptualizations} \label{sec:apply}
 
-While the development of the model in Section \ref{c:multipleTesting:genMod} focused on heredity from a given father and mother, a radically simplified model can be considered for a population of unknown heritage. Rather than considering the values in $\m{X}$ for an individual in this population in terms of the parental variants, the possible values can, instead, be considered directly when determining the pairwise relationship between two markers.
+While the development of the model in Section \ref{sec:theModel} focused on heredity from a given father and mother, a radically simplified model can be considered for a population of unknown heritage. Rather than considering the values in $\m{X}$ for an individual in this population in terms of the parental variants, the possible values can, instead, be considered directly when determining the pairwise relationship between two markers.
 
 Recall the simplified two marker versions of $\m{X}$ from Section \ref{subsec:correlation}. Consider a column of $\m{X}$, say $\ve{x}_1$, and note that the two entries of $\ve{x}_1$ only take values in $\{0,1\}$, giving four possible combinations. For every possible combination, there is a corresponding probability of an individual in a population having such a combination on a variant. Suppose these are defined as in Table \ref{tab:r2}.
 

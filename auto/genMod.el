@@ -3,12 +3,12 @@
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("graphicx" "pdftex") ("natbib" "round") ("hyperref" "pdftex" "pagebackref=false")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -92,6 +92,11 @@
     "mutInf"
     "Had"
     "measureAssociation"
+    "lmin"
+    "argmin"
+    "argmax"
+    "arginf"
+    "argsup"
     "intersect"
     "union"
     "Reals"
@@ -102,12 +107,15 @@
     "oldemptyset"
     "emptyset")
    (LaTeX-add-labels
+    "sec:intro"
+    "sec:theModel"
     "eq:indicator"
     "fig:modelDiagram"
+    "sec:derivingDists"
     "subsec:crossingover"
-    "subsubsec:modelcrossing"
+    "subsec:modelcrossing"
     "eq:crossindicator"
-    "subsubsec:simplify"
+    "subsec:simplify"
     "eq:poissonlim"
     "eq:haldanemap"
     "subsec:correlation"
