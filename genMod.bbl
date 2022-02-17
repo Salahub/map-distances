@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -29,6 +29,23 @@ James~M Cheverud, Ty~T Vaughn, L~Susan Pletscher, Andrea~C Peripato, Emily~S
   inbred mice}.
 \newblock \emph{Mammalian Genome}, 12\penalty0 (1):\penalty0 3--12, 2001.
 
+\bibitem[Crow and Kimura(1970)]{crowkimura1970intro}
+James~F Crow and Motoo Kimura.
+\newblock \emph{An introduction to population genetics theory}.
+\newblock {Harper \& Row}, 1970.
+
+\bibitem[Doerge and Churchill(1996)]{doergechurchill1996permutation}
+RW~Doerge and GA~Churchill.
+\newblock Permutation tests for multiple loci affecting a quantitative
+  character.
+\newblock \emph{Genetics}, 142\penalty0 (1):\penalty0 285--294, 1996.
+
+\bibitem[Doerge et~al.(1997)Doerge, Zeng, and Weir]{doergeetal1997search}
+RW~Doerge, ZB~Zeng, and BS~Weir.
+\newblock Statistical issues in the search for genes affecting quantitative
+  traits in experimental populations.
+\newblock \emph{Statistical Science}, pages 195--219, 1997.
+
 \bibitem[Galwey(2009)]{Galwey2009}
 Nicholas~W Galwey.
 \newblock A new measure of the effective number of tests, a practical tool for
@@ -42,11 +59,23 @@ JBS Haldane.
   between the loci of linked factors.
 \newblock \emph{Journal of Genetics}, 8\penalty0 (29):\penalty0 299--309, 1919.
 
+\bibitem[Hasin et~al.(2017)Hasin, Seldin, and Lusis]{hasinetal2017multi}
+Yehudit Hasin, Marcus Seldin, and Aldons Lusis.
+\newblock Multi-omics approaches to disease.
+\newblock \emph{Genome biology}, 18\penalty0 (1):\penalty0 1--15, 2017.
+
 \bibitem[Hill and Robertson(1968)]{hillrobertson1968}
 WG~Hill and Alan Robertson.
 \newblock Linkage disequilibrium in finite populations.
 \newblock \emph{Theoretical and applied genetics}, 38\penalty0 (6):\penalty0
   226--231, 1968.
+
+\bibitem[LaFramboise(2009)]{laframboise2009}
+Thomas LaFramboise.
+\newblock Single nucleotide polymorphism arrays: a decade of biological,
+  computational and technological advances.
+\newblock \emph{Nucleic acids research}, 37\penalty0 (13):\penalty0 4181--4193,
+  2009.
 
 \bibitem[Lander and Botstein(1989)]{LanderBotstein1989}
 Eric~S Lander and David Botstein.
@@ -60,12 +89,25 @@ J~Li and L~Ji.
   eigenvalues of a correlation matrix.
 \newblock \emph{Heredity}, 95\penalty0 (3):\penalty0 221--227, 2005.
 
+\bibitem[Liu(2017)]{liu2017statistical}
+Ben~Hui Liu.
+\newblock \emph{Statistical genomics: linkage, mapping, and QTL analysis}.
+\newblock CRC press, 2017.
+
 \bibitem[Nyholt(2004)]{nyholt2004}
 Dale~R Nyholt.
 \newblock A simple correction for multiple testing for single-nucleotide
   polymorphisms in linkage disequilibrium with each other.
 \newblock \emph{The American Journal of Human Genetics}, 74\penalty0
   (4):\penalty0 765--769, 2004.
+
+\bibitem[Reshef et~al.(2018)Reshef, Reshef, Sabeti, and
+  Mitzenmacher]{reshefetal2018empirical}
+David~N Reshef, Yakir~A Reshef, Pardis~C Sabeti, and Michael Mitzenmacher.
+\newblock An empirical study of the maximal and total information coefficients
+  and leading measures of dependence.
+\newblock \emph{The Annals of Applied Statistics}, 12\penalty0 (1):\penalty0
+  123--155, 2018.
 
 \bibitem[Salyakina et~al.(2005)Salyakina, Seaman, Browning, Dudbridge, and
   M{\"u}ller-Myhsok]{Salyakina2005}
@@ -78,5 +120,15 @@ Daria Salyakina, Shaun~R Seaman, Brian~L Browning, Frank Dudbridge, and Bertram
 David Siegmund and Benjamin Yakir.
 \newblock \emph{The statistics of gene mapping}.
 \newblock Springer Science \& Business Media, 2007.
+
+\bibitem[Visscher and Goddard(2019)]{visschergoddard2019}
+Peter~M Visscher and Michael~E Goddard.
+\newblock {From RA Fisher’s 1918 paper to GWAS a century later}.
+\newblock \emph{Genetics}, 211\penalty0 (4):\penalty0 1125--1130, 2019.
+
+\bibitem[Xu(2013)]{xu2013principles}
+Shizhong Xu.
+\newblock \emph{Principles of statistical genomics}, volume 571.
+\newblock Springer, 2013.
 
 \end{thebibliography}

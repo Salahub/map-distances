@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  9 FEB 2022 14:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  17 FEB 2022 13:00
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -468,85 +468,85 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [1
 
-{C:/Users/Chris/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-<./img/modelDiagram.pdf, id=80, 433.62pt x 72.27pt>
+{C:/Users/Chris/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2]
+<./img/modelDiagram.pdf, id=128, 433.62pt x 72.27pt>
 File: ./img/modelDiagram.pdf Graphic file (type pdf)
 <use ./img/modelDiagram.pdf>
-Package pdftex.def Info: ./img/modelDiagram.pdf  used on input line 229.
+Package pdftex.def Info: ./img/modelDiagram.pdf  used on input line 234.
 (pdftex.def)             Requested size: 433.61894pt x 72.2698pt.
- [2 <./img/modelDiagram.pdf>] [3]
+ [3 <./img/modelDiagram.pdf>] [4]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 268.
+(amsmath)                 on input line 273.
 
-[4] [5] [6] [7] [8] [9] [10] [11]
-<./img/back1.png, id=203, 481.8pt x 481.8pt>
+[5] [6] [7] [8] [9] [10] [11] [12]
+<./img/back1.png, id=242, 481.8pt x 481.8pt>
 File: ./img/back1.png Graphic file (type png)
 <use ./img/back1.png>
-Package pdftex.def Info: ./img/back1.png  used on input line 545.
+Package pdftex.def Info: ./img/back1.png  used on input line 550.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/back2.png, id=204, 481.8pt x 481.8pt>
+<./img/back2.png, id=243, 481.8pt x 481.8pt>
 File: ./img/back2.png Graphic file (type png)
 <use ./img/back2.png>
-Package pdftex.def Info: ./img/back2.png  used on input line 546.
+Package pdftex.def Info: ./img/back2.png  used on input line 551.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/back3.png, id=205, 481.8pt x 481.8pt>
+<./img/back3.png, id=244, 481.8pt x 481.8pt>
 File: ./img/back3.png Graphic file (type png)
 <use ./img/back3.png>
-Package pdftex.def Info: ./img/back3.png  used on input line 547.
+Package pdftex.def Info: ./img/back3.png  used on input line 552.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/inter1.png, id=206, 481.8pt x 481.8pt>
+<./img/inter1.png, id=245, 481.8pt x 481.8pt>
 File: ./img/inter1.png Graphic file (type png)
 <use ./img/inter1.png>
-Package pdftex.def Info: ./img/inter1.png  used on input line 566.
+Package pdftex.def Info: ./img/inter1.png  used on input line 571.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/inter2.png, id=207, 481.8pt x 481.8pt>
+<./img/inter2.png, id=246, 481.8pt x 481.8pt>
 File: ./img/inter2.png Graphic file (type png)
 <use ./img/inter2.png>
-Package pdftex.def Info: ./img/inter2.png  used on input line 567.
+Package pdftex.def Info: ./img/inter2.png  used on input line 572.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/inter3.png, id=208, 481.8pt x 481.8pt>
+<./img/inter3.png, id=247, 481.8pt x 481.8pt>
 File: ./img/inter3.png Graphic file (type png)
 <use ./img/inter3.png>
-Package pdftex.def Info: ./img/inter3.png  used on input line 568.
+Package pdftex.def Info: ./img/inter3.png  used on input line 573.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
- [12] [13 <./img/back1.png> <./img/back2.png> <./img/back3.png> <./img/inter1.p
+ [13 <./img/back1.png> <./img/back2.png> <./img/back3.png>] [14 <./img/inter1.p
 ng> <./img/inter2.png> <./img/inter3.png>]
-<./img/chevCorr.png, id=242, 481.8pt x 481.8pt>
+<./img/chevCorr.png, id=282, 481.8pt x 481.8pt>
 File: ./img/chevCorr.png Graphic file (type png)
 <use ./img/chevCorr.png>
-Package pdftex.def Info: ./img/chevCorr.png  used on input line 611.
+Package pdftex.def Info: ./img/chevCorr.png  used on input line 616.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorrTheory.png, id=243, 481.8pt x 481.8pt>
+<./img/chevCorrTheory.png, id=283, 481.8pt x 481.8pt>
 File: ./img/chevCorrTheory.png Graphic file (type png)
 <use ./img/chevCorrTheory.png>
-Package pdftex.def Info: ./img/chevCorrTheory.png  used on input line 612.
+Package pdftex.def Info: ./img/chevCorrTheory.png  used on input line 617.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorrDiff.png, id=244, 481.8pt x 481.8pt>
+<./img/chevCorrDiff.png, id=284, 481.8pt x 481.8pt>
 File: ./img/chevCorrDiff.png Graphic file (type png)
 <use ./img/chevCorrDiff.png>
-Package pdftex.def Info: ./img/chevCorrDiff.png  used on input line 613.
+Package pdftex.def Info: ./img/chevCorrDiff.png  used on input line 618.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/lineup.png, id=248, 614.295pt x 614.295pt>
+<./img/lineup.png, id=288, 614.295pt x 614.295pt>
 File: ./img/lineup.png Graphic file (type png)
 <use ./img/lineup.png>
-Package pdftex.def Info: ./img/lineup.png  used on input line 629.
+Package pdftex.def Info: ./img/lineup.png  used on input line 634.
 (pdftex.def)             Requested size: 230.36061pt x 230.36005pt.
 
-[14] [15 <./img/chevCorr.png> <./img/chevCorrTheory.png> <./img/chevCorrDiff.pn
-g> <./img/lineup.png>] [16] [17] (genMod.bbl) [18] (genMod.aux)
+[15 <./img/chevCorr.png> <./img/chevCorrTheory.png> <./img/chevCorrDiff.png>]
+[16 <./img/lineup.png>] [17] (genMod.bbl [18]) [19] (genMod.aux)
 Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 05240DE6B7E21385A7E60C0910C8B703;749.
  ) 
 Here is how much of TeX's memory you used:
- 11846 strings out of 478927
- 179114 string characters out of 2852535
- 490085 words of memory out of 3000000
- 29426 multiletter control sequences out of 15000+600000
+ 11883 strings out of 478927
+ 180094 string characters out of 2852535
+ 488448 words of memory out of 3000000
+ 29453 multiletter control sequences out of 15000+600000
  419257 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1219b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1219b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Chris\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -579,9 +579,9 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Chris/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Chri
 s/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on genMod.pdf (18 pages, 456873 bytes).
+Output written on genMod.pdf (19 pages, 467470 bytes).
 PDF statistics:
- 463 PDF objects out of 1000 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
+ 501 PDF objects out of 1000 (max. 8388607)
+ 90 named destinations out of 1000 (max. 500000)
  152 words of extra memory for PDF output out of 10000 (max. 10000000)
 
