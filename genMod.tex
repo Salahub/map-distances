@@ -193,17 +193,31 @@
 
 \section{Introduction} \label{sec:intro}
 
-In the last few decades the field of \emph{genetics}, which investigates of the impact of individual genes, has given way to \emph{genomics}, where the entirety of the genome is considered simultaneously. Facilitated by advances in gene microarrays, it is now routine for researchers to measure nucleotide sequences at hundreds of thousands or millions of positions on a genome \cite{laframboise2009}. This shift has proven trend-setting for other fields, where technological advances are ushering in similar expansions in scope \cite{hasinetal2017multi}. These expansions in measurement have motivated new applications of statistics, and beg for greater participation by statisticians and mathematicians to solve the pressing problems of multiple testing they create \cite{doergeetal1997search, doergechurchill1996permutation, Galwey2009, reshefetal2018empirical}.
 
-Despite this, many of the introductions to the field rely on the models of early pioneers of genetics. The works of Mendel, Pearson, Fisher, Haldane, and others in genetics were groundbreaking, but also occurred well before a modern understanding of DNA or the mechanics of inheritance \cite{visschergoddard2019}. As a result, these models do not provide a modern context. Modern textbooks and papers consequently introduce the structure of DNA and the models describing inheritance in separate sections, if the structure of DNA is addressed at all \cite{crowkimura1970intro, siegmundyakir2007, xu2013principles, liu2017statistical}. Such complete and detailed accounts with the biology and statistics separated are unquestionably important, but fail to present an accessible and unified picture of genomics for researchers with a statistical background.
+Genomics today routinely considers the entirety of a genome to assess the contribution of different genetic regions to observed traits through genetic microarrays. These microarrays simultaneously sequence nucleotides at hundreds of thousands or millions of positions in the search for the regions impacting a trait, the \emph{quantitative trait loci} (QTLs). The scope of these investigations and variety of potential analyses are both daunting for novices, especially those without a background in biology. This complexity makes it difficult to appreciate the set of steps they share.
 
-The goal of this paper is to present a structural model with extraordinary explanatory power in pursuit of this aim. Starting with a matrix representative of the known organization of DNA, each of the steps taken to generate the data of typical genome-wide association study (GWAS) is outlined and named. Arranged in this holistic way, the assumptions and methodology of each step are made more accesible to a statistical audience. Motivating examples similar to those presented in genetics textbooks are used to illustrate the concepts further and link this model to classical settings. Finally, a novel derivation of Haldane's map distance and genetic correlation are presented under a common setting of the model.
+\begin{figure}[!ht]
+  \begin{center}
+  \includegraphics[scale = 1]{./img/modelDiagram.pdf}
+  \caption{A structural model of a GWAS.}
+  \label{fig:modelDiagram}
+\end{center}
+\end{figure}
+
+Drawing on the literature, Figure \ref{fig:modelDiagram} synthesizes these common steps into a general genomic framework. \cite{laframboise2009} details much of the first two, while \cite{cheverud2001, Galwey2009} and others all make use of the additive summary (could also use the dominance summary, any papers doing that?)
+
+\TODO{Move figure one here, trace the literature through each bit. ``Drawing on the literature we've developed...''}
+
+\cite{LanderBotstein1989} for another step
+
+This paper presents a structural model with extraordinary explanatory power in pursuit of this aim. Starting with a matrix representative of the known organization of DNA, each of the steps taken to generate the data of typical genome-wide association study (GWAS) is outlined and named. Arranged in this holistic way, the assumptions and methodology of each step are made more accesible to a statistical audience. Motivating examples similar to those presented in genetics textbooks are used to illustrate the concepts further and link this model to classical settings. Finally, a novel derivation of Haldane's map distance and genetic correlation are presented under a common setting of the model.
 
 \section{A structural genetic model} \label{sec:theModel}
 
 First, consider a few facts about the genome. Genetic information is stored in DNA, a long molecule consisting of a sequence of four \emph{nucleotide bases}: guanine, cytosine, adenine, and thymine. A \emph{diplodic} individual inherits one version or \emph{variant} of a complete DNA sequence from each parent, and so has two copies in all \emph{somatic} (i.e. non-reproductive) cells. Though it can be represented as one long sequence, DNA is actually structured into \emph{chromosomes}, separate strands of DNA which contain only a part of the sequence. As most genetic research concerns diplodic species, this will be implicitly assumed henceforth.
 
-Consider using a matrix $\m{G}$ to represent the entire genome of a individual. $\m{G}$ would contain both the maternal and paternal variants of all chromosomes placed sequentially, with the maternal variant in one column and the paternal in another. As nucleotides bind uniquely, we can record the pattern only for one of the two DNA strands for each column. This gives $\m{G} = [\ve{g}_1| \ve{g}_2]$ where $\ve{g}_1,\text{ } \ve{g}_2 \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$ would be the base pair sequences of an individual's paternal and maternal genome variants, respectively, if the entire genome were recorded.\footnote{In cells, this is not how genetic information is typically organized. Rather than occurring as one long strand, DNA exists within cells in many contiguous, but separate, sections called \textit{chromosomes}.}
+
+The structural model starts with $$\m{G} = [\ve{g}_1| \ve{g}_2],$$ represent the entire genome of a individual. $\m{G}$ would contain both the maternal and paternal variants of all chromosomes placed sequentially, with the maternal variant in one column and the paternal in another. As nucleotides bind uniquely, we can record the pattern only for one of the two DNA strands for each column. This gives where $\ve{g}_1,\text{ } \ve{g}_2 \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$ would be the base pair sequences of an individual's paternal and maternal genome variants, respectively, if the entire genome were recorded.\footnote{In cells, this is not how genetic information is typically organized. Rather than occurring as one long strand, DNA exists within cells in many contiguous, but separate, sections called \textit{chromosomes}.}
 
 Of course, sequencing the entire human genome is rarely done. A genome-wide association study (GWAS) instead deals with a selected subset measuring only segments of genetic material on chromosomes of interest. Call this subset $\m{S} = [\ve{s}_1 | \ve{s}_2]$ where $\ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K, \text{ } K \ll N_P$. In our model, this corresponds to a mapping from $\m{G} \rightarrow \m{S}$ where $K$ rows of $\m{G}$ are chosen or sampled to create $\m{S}$.\footnote{Choosing these rows is one of the key challenges of GWASs, as the true region of interest, or quantitative trait locus, is generally not known in advance.}
 
@@ -223,14 +237,6 @@ is an indicator of the presence of the dominant allele.
 Finally, $\m{X}$ might be converted into a vector $\ve{z} \in \Reals^M$, summarizing each individual's pair of variants into a single vector to use for linear modelling or other analysis. How exactly we perform the mapping $\m{X} \rightarrow \ve{z}$ can differ greatly\footnote{Consider the \textit{dominance mapping} of $z_i = \max\{x_{i1}, x_{i2}\}$ or the \textit{homozygous mapping} of $z_i = I_{x_{i1} = x_{i2}}$.}, but a very common choice is the \textit{additive map} $\ve{z} = \ve{x}_1 + \ve{x}_2$ with $\ve{x}_1$ and $\ve{x}_2$ given according to Equation \ref{eq:indicator}. This choice means $\ve{z} \in \{0,1,2\}^M$, and $z_i$ is equal to the count of copies of $A$ at the $i^{\text{th}}$ marker across both of an individual's variants.
 
 This entire toy model is displayed in Figure \ref{fig:modelDiagram}, with descriptive names added to each mapping. In the first step, $\m{G} \rightarrow \m{S}$, we \textit{select} segments of the entire genome to obtain the marker sequences or interest. The next step, $\m{S} \rightarrow \m{T}$, \textit{annotates} the chosen markers by indicating which of the common alleles is present for that marker. These annotations are then converted to numeric values, or \textit{encoded}, in the step $\m{T} \rightarrow \m{X}$. Finally, we \textit{summarize} the matrix $\m{X}$ into a vector $\ve{z}$ with some row-wise operation. Each of these italicized steps could be performed in a number of ways, with consequences on the final quantification of the genome's relevant features.
-
-\begin{figure}[!ht]
-  \begin{center}
-  \includegraphics[scale = 1]{./img/modelDiagram.pdf}
-  \caption{A diagram of the model described.}
-  \label{fig:modelDiagram}
-\end{center}
-\end{figure}
 
 Recall the motivation of the exercise, that of identifying the number of effective tests based on the relationships between them. It should be noted, then, that the numerization and summarization steps are not strictly necessary. Categorical measures of association, such as the $\chi^2$ test, could readily be applied to $\m{T}$, where each possible row combination is treated as a different category. Such measurement would likely be more computationally inefficient, but would entirely circumvent the last two steps of Figure \ref{fig:modelDiagram}. 
 
@@ -620,9 +626,9 @@ Luckily, \cite{cheverud2001} cites earlier work by \cite{cheverudetal2001} in wh
   \label{fig:corr2real}
 \end{figure}
 
-While the theoretical and experimental matrices look rather similar structurally, with similar trends and local patterns, the difference indicates rather clearly that the theoretical correlation tends to underestimate the actual correlation between $z_j$ and $z_k$. In a few cases this underestimation is rather severe.
+The theoretical and experimental matrices look rather similar structurally, with similar trends and local patterns. Taking the difference suggests that theoretical correlation tends to overestimate the actual correlation between $z_j$ and $z_k$. In a few cases this underestimation is rather severe. \TODO{Is it severe? Think about this shading more carefully: scaled, CI, p-val, or the like}
 
-Lingering is the question as to the cause of this discrepancy. Both model specification and random variation under the model could potentially account for this discrepancy. In order to give a greater sense of how atypical the observed difference is, we might wish to display the true difference alongside differences for data sets simulated under the model. Following the line up test described in \cite{bujaetal2009}, Figure \ref{fig:lineup} results.
+Both model specification and random variation under the model could potentially account for this discrepancy. In order to give a greater sense of how atypical the observed difference is, we might wish to display the true difference alongside differences for data sets simulated under the model. Following the line up test described in \cite{bujaetal2009}, Figure \ref{fig:lineup} results.
 
 \begin{figure}[htp]
   \begin{center}
@@ -634,7 +640,7 @@ Lingering is the question as to the cause of this discrepancy. Both model specif
 
 It must be noted that this is not a proper line up test following \cite{bujaetal2009}, as the true difference was presented before this line up. Nonetheless, it gives some sense of the typical variation seen under the model. The true difference, in position nine, stands out among these, despite considerable variation in these differences across these simulated data sets. This suggests the crude model used here could be improved. That said, it performs reasonably well, especially given that \cite{haldane1919} proposed the distance measure at its core more than a century ago.
 
-\section{Other conceptualizations} \label{sec:apply}
+\section{Other views} \label{sec:apply}
 
 While the development of the model in Section \ref{sec:theModel} focused on heredity from a given father and mother, a radically simplified model can be considered for a population of unknown heritage. Rather than considering the values in $\m{X}$ for an individual in this population in terms of the parental variants, the possible values can, instead, be considered directly when determining the pairwise relationship between two markers.
 
@@ -704,6 +710,12 @@ $$\lim_{k \rightarrow \infty} \left [ 1 - p_r(d) \right ]^{2k} r^2_0 = 0$$
 In this manner, strongly associated markers $A$ and $B$ become less associated over time in the absence of selection pressures in sexual reproduction and survival, as noted in \cite{siegmundyakir2007}. This makes the use of $r^2$ under any model with recombination problematic, as its use requires the specification of an initial condition and generation of interest. \cite{LiJi2005} simulate data using given $p_A$, $p_B$, and $r^2$ values to determine $p_{AB}$ and generate a population which matches $p_A$, $p_B$, and $p_{AB}$. This method therefore ignores the population characteristics of the parents and offspring, instead providing only a snapshot of the population characteristics at a particular time.
 
 It is therefore far more natural to use a distance in these studies. Whether reported in centiMorgans, base pairs, or some other measure, these measures remain constant over generations, and govern the dynamics of recombination.
+
+\section{Conclusion} \label{sec:conclusion}
+
+Despite this, many of the introductions to the field rely on the models of early pioneers of genetics. The works of Mendel, Pearson, Fisher, Haldane, and others in genetics were groundbreaking, but also occurred well before a modern understanding of DNA or the mechanics of inheritance \cite{visschergoddard2019}. As a result, these models do not provide a modern context. Modern textbooks and papers consequently introduce the structure of DNA and the models describing inheritance in separate sections, if the structure of DNA is addressed at all \cite{crowkimura1970intro, siegmundyakir2007, xu2013principles, liu2017statistical}. Such complete and detailed accounts with the biology and statistics separated are unquestionably important, but fail to present an accessible and unified picture of genomics for researchers with a statistical background. \TODO{Move to conclusion: ``this model provides a map to help understand larger works''}
+
+ shift has proven trend-setting for other fields, where technological advances are ushering in similar expansions in scope \cite{hasinetal2017multi} \TODO{Cut this bit out, why are you referencing outside fields?}
 
 \bibliographystyle{plainnat}
 \renewcommand*{\bibname}{References} % use title "References" for bibliography

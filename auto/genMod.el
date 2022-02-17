@@ -103,9 +103,9 @@
     "emptyset")
    (LaTeX-add-labels
     "sec:intro"
+    "fig:modelDiagram"
     "sec:theModel"
     "eq:indicator"
-    "fig:modelDiagram"
     "sec:derivingDists"
     "subsec:crossingover"
     "subsec:modelcrossing"
@@ -133,7 +133,8 @@
     "sec:apply"
     "tab:r2"
     "subsec:inlit"
-    "eq:rsq")
+    "eq:rsq"
+    "sec:conclusion")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")
    (LaTeX-add-amsthm-newtheorems
