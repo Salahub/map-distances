@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -58,11 +58,23 @@ Yehudit Hasin, Marcus Seldin, and Aldons Lusis.
 \newblock Multi-omics approaches to disease.
 \newblock \emph{Genome biology}, 18\penalty0 (1):\penalty0 1--15, 2017.
 
+\bibitem[Heather and Chain(2016)]{heatherchain2016sequencers}
+James~M Heather and Benjamin Chain.
+\newblock The sequence of sequencers: The history of sequencing dna.
+\newblock \emph{Genomics}, 107\penalty0 (1):\penalty0 1--8, 2016.
+
 \bibitem[Hill and Robertson(1968)]{hillrobertson1968}
 WG~Hill and Alan Robertson.
 \newblock Linkage disequilibrium in finite populations.
 \newblock \emph{Theoretical and applied genetics}, 38\penalty0 (6):\penalty0
   226--231, 1968.
+
+\bibitem[Koboldt et~al.(2013)Koboldt, Steinberg, Larson, Wilson, and
+  Mardis]{koboldtetal2013next}
+Daniel~C Koboldt, Karyn~Meltz Steinberg, David~E Larson, Richard~K Wilson, and
+  Elaine~R Mardis.
+\newblock The next-generation sequencing revolution and its impact on genomics.
+\newblock \emph{Cell}, 155\penalty0 (1):\penalty0 27--38, 2013.
 
 \bibitem[LaFramboise(2009)]{laframboise2009}
 Thomas LaFramboise.
@@ -87,6 +99,11 @@ J~Li and L~Ji.
 Ben~Hui Liu.
 \newblock \emph{Statistical genomics: linkage, mapping, and QTL analysis}.
 \newblock CRC press, 1998.
+
+\bibitem[NCBI(2021)]{NCBIdbSNP}
+NCBI.
+\newblock {NCBI dbSNP Build 155}, 2021.
+\newblock URL \url{https://www.ncbi.nlm.nih.gov/projects/SNP/snp_summary.cgi}.
 
 \bibitem[Nyholt(2004)]{nyholt2004}
 Dale~R Nyholt.
