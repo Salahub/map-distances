@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  25 FEB 2022 13:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  25 FEB 2022 15:26
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -547,7 +547,7 @@ Here is how much of TeX's memory you used:
  29466 multiletter control sequences out of 15000+600000
  418922 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1224b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1219b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -578,7 +578,7 @@ fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Chris/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Chris/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Chris/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (21 pages, 483136 bytes).
+Output written on genMod.pdf (21 pages, 483149 bytes).
 PDF statistics:
  545 PDF objects out of 1000 (max. 8388607)
  97 named destinations out of 1000 (max. 500000)
