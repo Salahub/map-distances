@@ -206,15 +206,13 @@ Genetic research today routinely considers the entirety of a genome to identify 
 
 To aid in this, Figure \ref{fig:modelDiagram} draws on the literature to present a simple structural model of the process taken in a GWAS to convert raw SNP measurements to a form which can be used to identify QTLs. It identifies four key steps (\emph{selection}, \emph{annotation}, \emph{encoding}, and \emph{summarization}) between five increasingly abstract representations of the genome, where the genome is defined by \cite{doergeetal1997search} as all heritable material passed from parent to offspring. By highlighting the abstractions and steps in plain language, this simplified model provides a convenient map to guide the understanding of GWAS.
 
-Starting with $\m{G}$, the whole genome of an individual organism, the \emph{select} step chooses which regions to measured. In human studies this is supported by SNP databases such as \cite{NCBIdbSNP} which document hundreds of millions of common SNPs in the human genome. Only a small proportion of these are estimated to occur in greater than 1\% of the population, leading \cite{koboldtetal2013next} to suggest that most of the common SNP variations have already been sequenced and catalogued. This gives roughly 15 million SNPs to chose from, with \cite{laframboise2009} reporting that modern SNP microarray platforms can simultaneously identify several million SNPs. The third generation of genome sequencing technologies allows for entire genomes to be sequenced, as noted in \cite{heatherchain2016sequencers, hasinetal2017multi}, but the challenges of the still young chemistry of genome sequencing and decades of work cataloguing SNPs and innovating SNP microarray methods . \cite{laframboise2009} outlines the chemistry of the dominant means of selection, \emph{SNP microarrays}. These microarrays use a   The  \cite{laframboise2009} details the importance of modern SNP microarrays in the selection step. Iterative improvements in computational methods have led to the identification of roughly one million SNPs which can be used to survey the whole genome due to \emph{linkage disequilibrium}, essentially the correlation between positions on the genome. \cite{hasinetal2017multi} expand this in light of modern \emph{next-generation sequencing} (NGS) methods.
+Starting with $\m{G}$, the whole genome of an individual organism, the \emph{select} step chooses which regions to measure, $\m{S}$. In human studies this is supported by SNP databases such as \cite{NCBIdbSNP} which document hundreds of millions of common SNPs in the human genome. Only a small proportion of these are estimated to occur frequently enough in the population to be useful in a GWAS, perhaps 15 million according to \cite{koboldtetal2013next}. As modern SNP arrays can simultaneously identify roughly one million of these per array cheaply and reliably, see \cite{laframboise2009, tametal2019benefits}, most GWAS will choose an array's worth of SNPs to measure. Inference to regions outside of those in $\m{S}$ is made using \emph{linkage disequilibrium}, effectively the correlation between regions of the genome. While third generation genome sequencing technologies allow for entire genomes to be sequenced, as noted in \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}, persistent high costs of next generation technologies and more than a decade of SNP microarray development leave microarrays as the dominant measurement method.
 
-\cite{hasinetal2017multi} also provide justification for the relationship between animal models and human research.
+After selecting SNPs to obtain $\m{S}$, researchers must \emph{annotate} the raw data. The raw signal produced by an SNP microarray is fluorescence, with different levels of fluorescence corresponding to a different genotypes. Converting the fluorescent areas of an array to a genotype is a challenging problem and has developed in tandem with the arrays themselves. Early models used non-parametric clustering techniques on the signal from several microarray pores, but more complex hidden Markov and Bayesian models have also been developed. \cite{laframboise2009} details some of these and their development. Whichever method is used, the selected regions are assigned genotypes in $\m{T}$ denoted with capital or lowercase letters at each SNP, as in \cite{siegmundyakir2007, visschergoddard2019}.
 
-Drawing on the literature, Figure \ref{fig:modelDiagram} synthesizes these common steps into a general genomic framework. \cite{laframboise2009} details much of the first two, while \cite{cheverud2001, Galwey2009} and others all make use of the additive summary (could also use the dominance summary, any papers doing that?)
+Finally, relationships between $\m{T}$ and an observed trait or within $\m{T}$ itself are quantified by converting each annotated SNP to a number. To do this, first \emph{encode} each SNP variant with a numeric value and then \emph{summarize} the pairs at each location into a single number. Typically no distinction is made between these steps: \cite{LanderBotstein1989, cheverud2001, siegmundyakir2007} detail the \emph{dominance} and \emph{additive} summaries by moving directly from a genotype to a single number. It is useful for clarity and generality to separate the distinct steps involved in this process, however.
 
-\cite{LanderBotstein1989} for another step
-
-This paper presents a structural model with extraordinary explanatory power in pursuit of this aim. Starting with a matrix representative of the known organization of DNA, each of the steps taken to generate the data of typical genome-wide association study (GWAS) is outlined and named. Arranged in this holistic way, the assumptions and methodology of each step are made more accesible to a statistical audience. Motivating examples similar to those presented in genetics textbooks are used to illustrate the concepts further and link this model to classical settings. Finally, a novel derivation of Haldane's map distance and genetic correlation are presented under a common setting of the model.
+This paper presents the details of this structural model. By using mathematical notation for each of the abstractions, a framework with extraordinary explanatory power is devised. Section \ref{sec:theModel} provides a detailed explanation of the model with all the necessary notation. The model is then used in a novel derivation of the Haldane \emph{map distance}, a common measure used to locate SNPs, in Section \ref{sec:derivingDists}. Further explanatory power is demonstrated in Section \ref{sec:correlation}, where the model is used to derive the correlation between markers under classic breeding population settings. This results in a convenient expression of the correlation between markers in any genetic study. Finally, Section \ref{sec:model2real} compares the results of this derivation directly to panel data in mice.
 
 \section{A structural genetic model} \label{sec:theModel}
 
@@ -244,7 +242,9 @@ This entire toy model is displayed in Figure \ref{fig:modelDiagram}, with descri
 
 Recall the motivation of the exercise, that of identifying the number of effective tests based on the relationships between them. It should be noted, then, that the numerization and summarization steps are not strictly necessary. Categorical measures of association, such as the $\chi^2$ test, could readily be applied to $\m{T}$, where each possible row combination is treated as a different category. Such measurement would likely be more computationally inefficient, but would entirely circumvent the last two steps of Figure \ref{fig:modelDiagram}. 
 
-\section{Deriving map distances} \label{sec:derivingDists}
+\section{Deriving map distance} \label{sec:derivingDists}
+
+The typical derivation of map distance is based on Haldane's original differential equation, as in \cite{kosambi1943estimation} and \cite{xu2013principles}. A novel derivation based on the model from Figure \ref{fig:modelDiagram} is presented here.
 
 \subsection{Sexual reproduction} \label{subsec:crossingover}
 
@@ -319,7 +319,7 @@ Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ bet
 
 \noindent A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of crossing over events gives us Haldane's formula for the \textit{map distance} in \textit{centiMorgans}. These distance units are defined purely by the assumptions leading to Equation \ref{eq:poissonlim} and the relationship specified in Equation \ref{eq:haldanemap} with the choice of $\beta = \frac{1}{100}$, rather than reflecting a true physical distance.\footnote{One may imagine this distance measure was chosen out of pure convenience. J.B.S. Haldane devised the approximation in 1919, at which point the chemical structure of DNA was still a mystery, but the concept of recombination had been revealed through patterns of inheritance.}
 
-\section{Genetic correlation} \label{subsec:correlation}
+\section{Genetic correlation} \label{sec:correlation}
 
 Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{sec:intro}. Typically, when the notion of the correlation between markers is discussed in a GWAS, what is actually under discussion is the observed correlation matrix of this vector in a particular population (e.g. \cite{cheverud2001}). As a consequence, this quantity is key in the determination of the effective number of tests in GWASs. Despite the prevalence of simulation to compute this matrix in the literature, it can also be determined analytically.
 
@@ -591,9 +591,9 @@ For both populations, 100,000 individuals were simulated under three separate se
   \label{fig:intersim}
 \end{figure}
 
-The patterns present in Figures \ref{fig:backsim} and \ref{fig:intersim} are exactly as expected from Section \ref{subsec:correlation}. There is an almost perfect similarity between the backcross and intercross design, with only small local variations present between them, in particular for setting (a). All settings show a clear maximum along the main diagonal and a regular decay for off-diagonal elements. Indeed, setting (b) demonstrates how this decay is faster for more distantly spaced markers than nearer ones with its distinct fan pattern. Setting (c) additionally demonstrates the lack of correlation between different chromosomes with its striking block structure for both the backcross and the intercross.
+The patterns present in Figures \ref{fig:backsim} and \ref{fig:intersim} are exactly as expected from Section \ref{sec:correlation}. There is an almost perfect similarity between the backcross and intercross design, with only small local variations present between them, in particular for setting (a). All settings show a clear maximum along the main diagonal and a regular decay for off-diagonal elements. Indeed, setting (b) demonstrates how this decay is faster for more distantly spaced markers than nearer ones with its distinct fan pattern. Setting (c) additionally demonstrates the lack of correlation between different chromosomes with its striking block structure for both the backcross and the intercross.
 
-Such simulations are a confirmation of the earlier analysis performed, but were much more time consuming than using the analytical results. This suggests that the current standard method of simulating large populations is a rather inefficient way of achieving the same result as the analytical prescription of Section \ref{subsec:correlation}. Conveniently, the prescription ignores the particular setting: both the backcross and intercross behave identically when viewed through the lens of correlation.
+Such simulations are a confirmation of the earlier analysis performed, but were much more time consuming than using the analytical results. This suggests that the current standard method of simulating large populations is a rather inefficient way of achieving the same result as the analytical prescription of Section \ref{sec:correlation}. Conveniently, the prescription ignores the particular setting: both the backcross and intercross behave identically when viewed through the lens of correlation.
 
 \subsection{Implementation}
 
@@ -609,7 +609,7 @@ The correlation of repeated swaps is then computed via \code{popCorrelation}. As
 
 The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. The code for this implementation can be found at https://github.com/Salahub/genetic-model.
 
-\section{Comparing the model to reality} \label{subsec:model2real}
+\section{Comparing the model to reality} \label{sec:model2real}
 
 Though simulation confirms that population correlations generated under the model of sexual reproduction described in \ref{subsec:crossingover} match the predictions of Equation \ref{eq:zcorr}, this does not mean it reflects genetic mechanics with fidelity. Evaluating the extent to which this is the case requires data.
 
@@ -638,7 +638,7 @@ Both model specification and random variation under the model could potentially 
   \begin{center}
     \includegraphics[width = 0.5\textwidth]{./img/lineup.png}
   \end{center}
-  \caption{A line up of twenty five differences of correlation matrices, one of which is the true difference from \cite{cheverudetal2001} and the others generated using Section \ref{subsec:correlation}.}
+  \caption{A line up of twenty five differences of correlation matrices, one of which is the true difference from \cite{cheverudetal2001} and the others generated using Section \ref{sec:correlation}.}
   \label{fig:lineup}
 \end{figure}
 
@@ -648,7 +648,7 @@ It must be noted that this is not a proper line up test following \cite{bujaetal
 
 While the development of the model in Section \ref{sec:theModel} focused on heredity from a given father and mother, a radically simplified model can be considered for a population of unknown heritage. Rather than considering the values in $\m{X}$ for an individual in this population in terms of the parental variants, the possible values can, instead, be considered directly when determining the pairwise relationship between two markers.
 
-Recall the simplified two marker versions of $\m{X}$ from Section \ref{subsec:correlation}. Consider a column of $\m{X}$, say $\ve{x}_1$, and note that the two entries of $\ve{x}_1$ only take values in $\{0,1\}$, giving four possible combinations. For every possible combination, there is a corresponding probability of an individual in a population having such a combination on a variant. Suppose these are defined as in Table \ref{tab:r2}.
+Recall the simplified two marker versions of $\m{X}$ from Section \ref{sec:correlation}. Consider a column of $\m{X}$, say $\ve{x}_1$, and note that the two entries of $\ve{x}_1$ only take values in $\{0,1\}$, giving four possible combinations. For every possible combination, there is a corresponding probability of an individual in a population having such a combination on a variant. Suppose these are defined as in Table \ref{tab:r2}.
 
 \begin{table}[!ht]
   \centering

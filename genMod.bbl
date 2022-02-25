@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{24}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -76,6 +76,11 @@ Daniel~C Koboldt, Karyn~Meltz Steinberg, David~E Larson, Richard~K Wilson, and
 \newblock The next-generation sequencing revolution and its impact on genomics.
 \newblock \emph{Cell}, 155\penalty0 (1):\penalty0 27--38, 2013.
 
+\bibitem[Kosambi(1943)]{kosambi1943estimation}
+DD~Kosambi.
+\newblock The estimation of map distance from recombination values.
+\newblock \emph{Annals of Eugenics}, 12\penalty0 (1):\penalty0 172--175, 1943.
+
 \bibitem[LaFramboise(2009)]{laframboise2009}
 Thomas LaFramboise.
 \newblock Single nucleotide polymorphism arrays: a decade of biological,
@@ -123,6 +128,23 @@ Daria Salyakina, Shaun~R Seaman, Brian~L Browning, Frank Dudbridge, and Bertram
 David Siegmund and Benjamin Yakir.
 \newblock \emph{The statistics of gene mapping}.
 \newblock Springer Science \& Business Media, 2007.
+
+\bibitem[Tam et~al.(2019)Tam, Patel, Turcotte, Boss{\'e}, Par{\'e}, and
+  Meyre]{tametal2019benefits}
+Vivian Tam, Nikunj Patel, Michelle Turcotte, Yohan Boss{\'e}, Guillaume
+  Par{\'e}, and David Meyre.
+\newblock Benefits and limitations of genome-wide association studies.
+\newblock \emph{Nature Reviews Genetics}, 20\penalty0 (8):\penalty0 467--484,
+  2019.
+
+\bibitem[Uffelmann et~al.(2021)Uffelmann, Huang, Munung, de~Vries, Okada,
+  Martin, Martin, Lappalainen, and Posthuma]{uffelmannetal2021gwas}
+Emil Uffelmann, Qin~Qin Huang, Nchangwi~Syntia Munung, Jantina de~Vries,
+  Yukinori Okada, Alicia~R Martin, Hilary~C Martin, Tuuli Lappalainen, and
+  Danielle Posthuma.
+\newblock Genome-wide association studies.
+\newblock \emph{Nature Reviews Methods Primers}, 1\penalty0 (1):\penalty0
+  1--21, 2021.
 
 \bibitem[Visscher and Goddard(2019)]{visschergoddard2019}
 Peter~M Visscher and Michael~E Goddard.
