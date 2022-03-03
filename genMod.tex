@@ -194,7 +194,7 @@
 \section{Introduction} \label{sec:intro}
 
 
-Genetic research today routinely considers the entirety of a genome to identify the regions most strongly associated with measured physical traits. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many sequences of nucleotides at known positions on the genome are measured. Often \emph{single nucleotide polymorphisms} (SNPs), i.e. single nucleotide substitutions in a known sequence at a known position, are of interest. This is a complicated task, and so requires interested researchers to sort through decades of both biological and statistical research before understanding genomics today.
+Genetic research today routinely considers the entirety of a genome to identify the regions most strongly associated with measured physical traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Often \emph{single nucleotide polymorphisms} (SNPs), i.e. single nucleotide substitutions in a known sequence at a known position, are chosen as markers. This is a complicated task, and so requires interested researchers to sort through decades of both biological and statistical research before understanding genomics today.
 
 \begin{figure}[!ht]
   \begin{center}
@@ -327,194 +327,172 @@ For clarity, let $\ve{z}$ indicate an instance of the random vector $\ve{Z} = \t
 
 Return to the annotated matrix $\m{T}$ and consider two markers at row indices $j$ and $k$. Introduce $\ve{c}$, which is defined similarly to $\ve{h}$ earlier, but now indicates chromosomal membership for the markers in $\m{T}$ rather than the base pairs in $\m{G}$. As every marker is contained within a single chromosome, $\ve{c}$ is always unambiguously defined.
 
-There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, we can use the assumptions of Section \ref{subsec:modelcrossing} to see immediately that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently with their different chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in centiMorgans. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
+There are two cases. Either $j$ and $k$ are on the same chromosome, that is $h_j = h_k$, or they are not, and so $h_j \neq h_k$. If these markers are not on the same chromosome, we can use the assumptions of Section \ref{subsec:modelcrossing} to see immediately that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently with their different chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in centiMorgans. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
 
 $$\m{T} = \begin{bmatrix}
   A & a \\
   b & B \\
 \end{bmatrix},$$
 
-\noindent where the letters placed above are merely demonstrative and it must be understood that their case is arbitrary. A simplified version of $\m{X}$ follows immediately from this $\m{T}$. Consider
+\noindent where the letters placed above are merely demonstrative. A simplified version of $\m{X}$ follows immediately from this $\m{T}$. Consider
 
 $$\m{X} = \begin{bmatrix}
   x_{j1} & x_{j2} \\
   x_{k1} & x_{k2} \\
 \end{bmatrix},$$
 
-\noindent with all entries in $\{0,1\}$. As was the case for $\ve{z}$, we can treat these lowercase entries as realizations of random variables $X_{ij}$, $i,j \in \{1,2\}$.\footnote{No additional notation is used to denote whether $\m{X}$ is the random matrix or a realization, as this distinction is not relevant in the analysis presented here.} Using this form of $\m{X}$, we can consider $Cor(Z_j, Z_k)$ for the population resulting from an arbitrary cross of two parents. For ease of notation, and without a loss of generality, suppose $j = 1$ and $k = 2$. Then $\m{X}$ implies a $\ve{Z}$ of
-
-$$\ve{Z} = \begin{bmatrix} Z_1 \\ Z_2 \end{bmatrix} = \begin{bmatrix}
-  X_{11} + X_{12} \\
-  X_{21} + X_{22} \\
+\noindent with all entries in $\{0,1\}$. As was the case for $\ve{z}$, we can treat these lowercase entries as realizations of random variables $X_{rs}$, $r \in \{j,k\}, s \in \{1,2\}$.\footnote{No additional notation is used to denote whether $\m{X}$ is the random matrix or a realization, as this distinction is not relevant in the analysis presented here.} Using this form of $\m{X}$, we can consider $Cor(Z_j, Z_k)$ for the population resulting from an arbitrary cross of two parents. Then $\m{X}$ implies a $\ve{Z}$ of
+$$\ve{Z} = \begin{bmatrix} Z_j \\ Z_k \end{bmatrix} = \begin{bmatrix}
+  X_{j1} + X_{j2} \\
+  X_{k1} + X_{k2} \\
 \end{bmatrix}.$$
-
-\noindent The distribution of these $X_{ij}$ is entirely determined by the mechanics of sexual reproduction outlined in Section \ref{subsec:crossingover} and the genotype of the parents crossed to create $\m{X}$. Recall $\m{M}$ and $\m{F}$ introduced alongside sexual reproduction. Introduce simplified, annotated forms of these matrices here to represent the paternal and maternal encodings
-
+The mechanics of sexual reproduction outlined in Section \ref{subsec:crossingover} and the genotype of the parents crossed to create $\m{X}$ determine the distribution of $Z_j$ and $Z_k$. Recall $\m{M}$ and $\m{F}$ introduced alongside sexual reproduction. Introduce simplified, annotated forms of these matrices here to represent the paternal and maternal encodings
 $$\m{F}_X = \begin{bmatrix}
-  f_{11} & f_{12} \\
-  f_{21} & f_{22} \\
+  f_{j1} & f_{j2} \\
+  f_{k1} & f_{k2} \\
 \end{bmatrix}, \text{ and }
 \m{M}_X = \begin{bmatrix}
-  m_{11} & m_{12} \\
-  m_{21} & m_{22} \\
+  m_{j1} & m_{j2} \\
+  m_{k1} & m_{k2} \\
 \end{bmatrix},$$
+where all entries are once again in $\{0,1\}$. Begin by assuming that $\m{F}_X$ and $\m{M}_X$ are known constants\footnote{There are many theoretical populatins where this is true, such as the $F_2$ intercross, where $f_{11} = m_{11} = f_{21} = m_{21} = 1$ and $f_{12} = m_{12} = f_{22} = m_{22} = 0$.}, and the statistical properties of $\ve{Z}$ result purely from the mechanics of reproduction.
 
-\noindent where all entries are once again in $\{0,1\}$. Note that these entries, unlike those in $\m{X}$ and $\ve{Z}$, will never be treated as random. It is assumed that $\m{F}_X$ and $\m{M}_X$ are known constants for any particular setting\footnote{One such setting is the $F_2$ intercross, where $f_{11} = m_{11} = f_{21} = m_{21} = 1$ and $f_{12} = m_{12} = f_{22} = m_{22} = 0$.}, and the statistical properties of $\ve{Z}$ result purely from the mechanics of reproduction.
-
-Begin by considering the expectation of $\ve{Z}$. Due to independent assortment of chromosomes, $X_{11}$ is equally likely to be either $f_{11}$ or $f_{12}$, and so takes a uniform distribution over these two possibilities. A similar logic for all other $X_{ij}$ applies, and so
-
+Begin by considering the expectation of $\ve{Z}$. Due to the independent assortment of chromosomes, $X_{j1}$ is equally likely to be either $f_{j1}$ or $f_{j2}$, and so takes a uniform distribution over these two possibilities. A similar logic for all other entries in $\m{X}$ applies, and so
 \begin{equation*}
   \begin{split}
     E[\ve{Z}] & = {\begin{bmatrix}
-        E[X_{11}] + E[X_{12}] \\
-        E[X_{21}] + E[X_{22}] \\
+        E[X_{j1}] + E[X_{j2}] \\
+        E[X_{k1}] + E[X_{k2}] \\
       \end{bmatrix}} \\
     & \\
     & = {\frac{1}{2}\begin{bmatrix}
-        f_{11} + f_{12} + m_{11} + m_{12} \\
-        f_{21} + f_{22} + m_{21} + m_{22} \\
+        f_{j1} + f_{j2} + m_{j1} + m_{j2} \\
+        f_{k1} + f_{k2} + m_{k1} + m_{k2} \\
       \end{bmatrix}}, \\
   \end{split}
 \end{equation*}
-
-\noindent from which it follows
-
+from which it follows
 \begin{equation*}
   \begin{split}
-    Var(Z_1) & = E[(X_{11} + X_{12})^2] - E[Z_1]^2 \\
-    & = \frac{1}{4}\left [ (f_{11} + m_{11})^2 + (f_{12} + m_{11})^2 + (f_{11} + m_{12})^2 + (f_{12} + m_{12})^2 \right ] \\
-    & \hspace{0.5cm} - \frac{1}{4}(f_{11} + f_{12} + m_{11} + m_{12})^2. \\
+    Var(Z_j) & = E[(X_{j1} + X_{j2})^2] - E[Z_j]^2 \\
+    & = \frac{1}{4}\left [ (f_{j1} + m_{j1})^2 + (f_{j2} + m_{j1})^2 + (f_{j1} + m_{j2})^2 + (f_{j2} + m_{j2})^2 \right ] \\
+    & \hspace{0.5cm} - \frac{1}{4}(f_{j1} + f_{j2} + m_{j1} + m_{j2})^2. \\
   \end{split}
 \end{equation*}
-
-\noindent This can be simplified to give
-
+This can be simplified to give
 \begin{equation} \label{eq:z1var}
-  Var(Z_1) = \frac{1}{4} \left [ (f_{11} - f_{12})^2 + (m_{11} - m_{12})^2 \right ].
+  Var(Z_j) = \frac{1}{4} \left [ (f_{j1} - f_{j2})^2 + (m_{j1} - m_{j2})^2 \right ].
 \end{equation}
-
-\noindent Analogously,
-
+Analogously,
 \begin{equation} \label{eq:z2var}
-  Var(Z_2) = \frac{1}{4} \left [ (f_{21} - f_{22})^2 + (m_{21} - m_{22})^2 \right ].
+  Var(Z_k) = \frac{1}{4} \left [ (f_{k1} - f_{k2})^2 + (m_{k1} - m_{k2})^2 \right ].
 \end{equation}
-
-\noindent Finally, considering the covariance:
-
+Considering the covariance:
 \begin{equation} \label{eq:covstep1}
   \begin{split}
-    Cov(Z_1, Z_2) & = Cov(X_{11} + X_{12}, X_{21} + X_{22}) \\
+    Cov(Z_j, Z_k) & = Cov(X_{j1} + X_{j2}, X_{k1} + X_{k2}) \\
     & \\
-    & = Cov(X_{11}, X_{21}) + Cov(X_{11}, X_{22}) + Cov(X_{12}, X_{21}) + Cov(X_{21}, X_{22}). \\
+    & =  Cov(X_{j1}, X_{k1}) + Cov(X_{j1}, X_{k2}) + Cov(X_{j2}, X_{k1}) + Cov(X_{j2}, X_{k2}). \\
   \end{split}
 \end{equation}
+So the covariance is re-expressed as a sum of four terms, each of which can then be considered in turn.
 
-\noindent So the covariance is re-expressed as a sum of four terms, each of which can then be considered in turn.
+This can be further simplified by considering $Cov(X_{j1}, X_{k2})$ and $Cov(X_{j2}, X_{k1})$. Both of these terms measure the covariance between values on the diagonals of $\m{X}$, that is the covariance between the maternally and paternally donated variants of the genome inherited from $\m{F}_X$ and $\m{M}_X$, respectively. These covariances therefore measure the degree of \emph{inbreeding} in a population, the degree to which parents tend to have the same genotype. The restricted setting of known parents derived here makes these diagonal values independent of each other and therefore uncorrelated, which can be confirmed by tedious algebra. Explicitly, $Cov(X_{j1}, X_{k2}) = Cov(X_{j2}, X_{k1}) = 0$. In unrestricted settings \cite{crowkimura1970intro} quantify this with the coefficient $r$ under \emph{assortative mating}, the tendency of individuals to choose mates with a similar phenotype.  
 
-Further simplifying this sum, these terms can be placed into two pairs. The first pair, $Cov(X_{11}, X_{22})$ and $Cov(X_{12}, X_{21})$, measure the covariance of values on the diagonals of $\m{X}$. Consequently, they measure the covariance between marker encodings on different chromosomes, one inherited from $\m{F}_X$ and the other from $\m{M}_X$. As chromosomes assort and are are inherited independently from each parent, the diagonal $X_{ij}$ values are independent of each other and therefore have zero covariance.\footnote{Tedious algebra confirms this logic, though it is not included here.} Explicitly,  $Cov(X_{11}, X_{22}) = Cov(X_{12}, X_{21}) = 0$.
+The second pair of terms, $Cov(X_{j1}, X_{k1})$ and $Cov(X_{j2}, X_{k2})$, measure the covariance of encodings on the same variant, and so cannot be so easily reduced. Instead, consider $Cov(X_{j1}, X_{k1})$ and expand:
+$$Cov(X_{j1}, X_{k1}) = E[X_{j1} X_{k1}] - E[X_{j1}]E[X_{k1}].$$
+The independent inheritance of variants from a parent gives $E[X_{j1}] = \frac{1}{2}(f_{j1} + f_{j2})$ and $E[X_{k1}] = \frac{1}{2}(f_{k1} + f_{k2})$. Next consider $E[X_{j1} X_{k1}]$.
 
-The second pair of terms, $Cov(X_{11}, X_{21})$ and $Cov(X_{12}, X_{22})$, measure the covariance of encodings on the same chromosome, and so cannot be so easily reduced. Instead, consider $Cov(X_{11}, X_{21})$ and rewrite
-
-$$Cov(X_{11}, X_{21}) = E[X_{11} X_{21}] - E[X_{11}]E[X_{21}].$$
-
-\noindent Recognize that $E[X_{11}] = \frac{1}{2}(f_{11} + f_{12})$ and $E[X_{21}] = \frac{1}{2}(f_{21} + f_{22})$ by the logic of independent assortment. Next, to evaluate $E[X_{11} X_{21}]$, consider the four possible values of this product.
-
-A cross over may occur in $\m{F}_X$ with probability $p_r(d)$, or it may not occur. Independently, either of the two chromosomes, recombinant or not, may be passed on with equal probability. So, the offspring with $\m{X}$ can inherit either the first or the second variant, and either of these variants may be recombinant or not. Mathematically:
-
-$$E[X_{11} X_{21}] = (1 - p_r(d)) \left ( \frac{1}{2} f_{11} f_{21} + \frac{1}{2} f_{12} f_{22} \right ) + p_r(d) \left ( \frac{1}{2} f_{11} f_{22} + \frac{1}{2} f_{12} f_{21} \right ).$$
-
-\noindent Combining this with the expectations of $X_{11}$ and $X_{21}$, gives
-
+There are four possible values of $X_{j1} X_{k1}$, corresponding to inheritance of either of the two parental variants with or without recombination. If no recombination occurs, an event with probability $1 - p_r(d)$, either $f_{j1} f_{k1}$ or $f_{j2} f_{k2}$ is inherited with equal probability. If a cross over between $j$ and $k$ leads to recombination, then either $f_{j1} f_{k2}$ or $f_{j2} f_{k1}$ is passed on with equal probability. Accounting for these four possibilities gives
+$$E[X_{j1} X_{k1}] = (1 - p_r(d)) \left ( \frac{1}{2} f_{j1} f_{k1} + \frac{1}{2} f_{j2} f_{k2} \right ) + p_r(d) \left ( \frac{1}{2} f_{j1} f_{k2} + \frac{1}{2} f_{j2} f_{k1} \right ).$$
+Combining this with the expectations of $X_{j1}$ and $X_{k1}$ gives
 \begin{equation} \label{eq:covstep2}
   \begin{split}
-    Cov(X_{11}, X_{21}) & = E[X_{11} X_{21}] - E[X_{11}]E[X_{21}] \\
+    Cov(X_{j1}, X_{k1}) & = E[X_{j1} X_{k1}] - E[X_{j1}]E[X_{k1}] \\
     & \\
-    & = (1 - p_r(d)) \left ( \frac{1}{2} f_{11} f_{21} + \frac{1}{2} f_{12} f_{22} \right ) + p_r(d) \left ( \frac{1}{2} f_{12} f_{21} + \frac{1}{2} f_{11} f_{22} \right ) \\
-    & \hspace{0.5cm} - \frac{1}{4} (f_{11} + f_{12})(f_{21} + f_{22}) \\
+    & = (1 - p_r(d)) \left ( \frac{1}{2} f_{j1} f_{k1} + \frac{1}{2} f_{j2} f_{k2} \right ) + p_r(d) \left ( \frac{1}{2} f_{j2} f_{k1} + \frac{1}{2} f_{j1} f_{k2} \right ) \\
+    & \hspace{0.5cm} - \frac{1}{4} (f_{j1} + f_{j2})(f_{k1} + f_{k2}) \\
     & \\
-    & = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (f_{11}f_{21} + f_{12}f_{22} - f_{12}f_{21} - f_{11}f_{22}) \\
+    & = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (f_{j1}f_{k1} + f_{j2}f_{k2} - f_{j2}f_{k1} - f_{j1}f_{k2}) \\
     & \\
-    & = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (f_{11} - f_{12})(f_{21} - f_{22}) .\\
+    & = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (f_{j1} - f_{j2})(f_{k1} - f_{k2}) .\\
   \end{split}
 \end{equation}
-
-\noindent The same logic can be applied to $Cov(X_{12}, X_{22})$ to obtain
-
+The same logic can be applied to $Cov(X_{j2}, X_{k2})$ to obtain
 \begin{equation} \label{eq:covstep3}
-  Cov(X_{12}, X_{22}) = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (m_{11} - m_{12})(m_{21} - m_{22}).
+  Cov(X_{j2}, X_{k2}) = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (m_{j1} - m_{j2})(m_{k1} - m_{k2}).
 \end{equation}
-
-\noindent We obtain the covariance of $Z_1$ and $Z_2$ by combining the above with Equation \ref{eq:covstep1}. Substituting Equations \ref{eq:covstep2} and \ref{eq:covstep3} and the zeros corresponding to covariances between chromosomes gives
-
+We obtain the covariance of $Z_j$ and $Z_k$ by adding the above and Equation \ref{eq:covstep1}. Substituting Equations \ref{eq:covstep2} and \ref{eq:covstep3} and $Cov(X_{j1}, X_{k2}) = Cov(X_{j2}, X_{k1}) = 0$ gives
 \begin{equation} \label{eq:cov}
-  Cov(Z_1, Z_2) = \frac{1}{4} (1 - 2 p_r(d)) \left [ (f_{11} - f_{12})(f_{21} - f_{22}) + (m_{11} - m_{12})(m_{21} - m_{22}) \right ].
+  Cov(Z_j, Z_k) = \frac{1}{4} (1 - 2 p_r(d)) \left [ (f_{j1} - f_{j2})(f_{k1} - f_{k2}) + (m_{j1} - m_{j2})(m_{k1} - m_{k2}) \right ].
 \end{equation}
-
-\noindent Finally, Equations \ref{eq:z1var}, \ref{eq:z2var}, and \ref{eq:cov} can be combined to determine the correlation:
-
+Finally, Equations \ref{eq:z1var}, \ref{eq:z2var}, and \ref{eq:cov} can be combined to determine the correlation:
 \begin{equation} \label{eq:precorr}
   \begin{split}
-    Corr(Z_1, Z_2) & = \frac{Cov(Z_1, Z_2)}{\sqrt{Var(Z_1) Var(Z_2)}}\\
+    Corr(Z_j, Z_k) & = \frac{Cov(Z_j, Z_k)}{\sqrt{Var(Z_j) Var(Z_k)}}\\
     & \\
-    & = \frac{ \frac{1}{4} (1 - 2 p_r(d)) \left [ (f_{11} - f_{12})(f_{21} - f_{22}) + (m_{11} - m_{12})(m_{21} - m_{22}) \right ] }{ \frac{1}{4} \sqrt{ \left [ (f_{11} - f_{12})^2 + (m_{11} - m_{12})^2 \right ] \left [ (f_{21} - f_{22})^2 + (m_{21} - m_{22})^2 \right ] }} \\
+    & = \frac{ \frac{1}{4} (1 - 2 p_r(d)) \left [ (f_{j1} - f_{j2})(f_{k1} - f_{k2}) + (m_{j1} - m_{j2})(m_{k1} - m_{k2}) \right ] }{ \frac{1}{4} \sqrt{ \left [ (f_{j1} - f_{j2})^2 + (m_{j1} - m_{j2})^2 \right ] \left [ (f_{k1} - f_{k2})^2 + (m_{k1} - m_{k2})^2 \right ] }} \\
     & \\
-    & = (1 - 2 p_r(d)) \frac{ (f_{11} - f_{12})(f_{21} - f_{22}) + (m_{11} - m_{12})(m_{21} - m_{22}) }{ \sqrt{ \left [ (f_{11} - f_{12})^2 + (m_{11} - m_{12})^2 \right ] \left [ (f_{21} - f_{22})^2 + (m_{21} - m_{22})^2 \right ] }} \\
+    & = (1 - 2 p_r(d)) \frac{ (f_{j1} - f_{j2})(f_{k1} - f_{k2}) + (m_{j1} - m_{j2})(m_{k1} - m_{k2}) }{ \sqrt{ \left [ (f_{j1} - f_{j2})^2 + (m_{j1} - m_{j2})^2 \right ] \left [ (f_{k1} - f_{k2})^2 + (m_{k1} - m_{k2})^2 \right ] }} \\
     & \\
     & := (1 - 2 p_r(d)) \gamma .\\
   \end{split}
 \end{equation}
-
-\noindent So, the correlation is seen to be a product between $(1-2 p_r(d))$, which depends on the markers in question, and a factor $\gamma$, which depends on the parents being crossed. Substituting Equation \ref{eq:haldanemap} into Equation \ref{eq:precorr}:
+So, the correlation is seen to be a product of $(1-2 p_r(d))$, which depends on the markers in question, and a factor $\gamma$, which depends on the parents being crossed. An even simpler expression is obtained by substituting the Haldane recombination probability from Equation \ref{eq:haldanemap} in place of $p_r(d)$:
 
 \begin{equation} \label{eq:corrdist}
   \begin{split}
-    Corr(Z_1, Z_2) & = (1 - 2 p_r(d)) \gamma \\
+    Corr(Z_j, Z_k) & = (1 - 2 p_r(d)) \gamma \\
     & \\
     & = \left ( 1 - 2 \left [ \frac{1}{2} \left ( 1 - e^{-2 \beta d} \right ) \right ] \right ) \gamma \\
     & \\
     & = \gamma e^{-2 \beta d}, \\
   \end{split}
 \end{equation}
+and so the using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(1,2)$ with a constant $\gamma$ determined by the parents being crossed.
 
-\noindent an so finally it is clear the correlation between $Z_1$ and $Z_2$ is dictated by an exponential decay in $d(1,2)$ under the Haldane model.
+As $f_{rs}, m_{rs} \in \{0, 1\}$, the differences used to determine $\gamma$ are all either -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, those most of these are not unique.
 
-However, the constraint that $f_{ij}, m_{ij} \in \{0, 1\}$ means that $\gamma$ can be rewritten slightly. Recognizing that the pairwise differences in Equation \ref{eq:precorr} are equivalent to indicators of inequality between terms. That is, $f_{11} - f_{12} = I_{f_{11} \neq f_{12}}$ and similarly for the other terms. $\gamma$ can be expressed as
+%However, the constraint that $f_{ij}, m_{ij} \in \{0, 1\}$ means that $\gamma$ can be rewritten slightly. Recognizing that the pairwise differences in Equation \ref{eq:precorr} are equivalent to indicators of inequality between terms. That is, $f_{11} - f_{12} = I_{f_{11} \neq f_{12}}$ and similarly for the other terms. $\gamma$ can be expressed as
 
-$$\gamma =  \frac{ I_{f_{11} \neq f_{12}} I_{f_{21} \neq f_{22}} + I_{m_{11} \neq m_{12}}I_{m_{21} \neq m_{22}} }{ \sqrt{ \left ( I_{f_{11} \neq f_{12}} + I_{m_{11} \neq m_{12}} \right ) \left ( I_{f_{21} \neq f_{22}} + I_{m_{21} \neq m_{22}} \right ) }},$$
+%$$\gamma =  \frac{ I_{f_{11} \neq f_{12}} I_{f_{21} \neq f_{22}} + I_{m_{11} \neq m_{12}}I_{m_{21} \neq m_{22}} }{ \sqrt{ \left ( I_{f_{11} \neq f_{12}} + I_{m_{11} \neq m_{12}} \right ) \left ( I_{f_{21} \neq f_{22}} + I_{m_{21} \neq m_{22}} \right ) }},$$
 
-\noindent which, while not much easier to write, is conceptually clearer. The binary nature of each $f_{ij}$ and $m_{ij}$ leaves only 16 distinct crosses, and so 16 values of $\gamma$. These are enumerated in in Table \ref{tab:gamma}.
+%\noindent which, while not much easier to write, is conceptually clearer. The binary nature of each $f_{ij}$ and $m_{ij}$ leaves only 16 distinct crosses, and so 16 values of $\gamma$. These are enumerated in in Table \ref{tab:gamma}.
 
-\begin{table}[!ht]
-  \centering
-  \caption{An enumeration of the possible values of the indicators and $\gamma$.}
-  \label{tab:gamma}
-  \begin{tabular}{|c c c c|c|} \hline
-    $I_{f_{11} \neq f_{12}}$ & $I_{f_{21} \neq f_{22}}$ & $I_{m_{11} \neq m_{12}}$ & $I_{m_{21} \neq m_{22}}$ & $\gamma$ \\ \hline
-    0 & 0 & 0 & 0 & 0 \\ \hline
-    0 & 0 & 0 & 1 & 0 \\ \hline 
-    0 & 0 & 1 & 0 & 0 \\ \hline
-    0 & 0 & 1 & 1 & 1 \\ \hline
-    0 & 1 & 0 & 0 & 0 \\ \hline
-    0 & 1 & 0 & 1 & 0 \\ \hline
-    0 & 1 & 1 & 0 & 0 \\ \hline
-    0 & 1 & 1 & 1 & $1 / \sqrt{2}$ \\ \hline
-    1 & 0 & 0 & 0 & 0 \\ \hline
-    1 & 0 & 0 & 1 & 0 \\ \hline
-    1 & 0 & 1 & 0 & 0 \\ \hline
-    1 & 0 & 1 & 1 & $1 / \sqrt{2}$ \\ \hline
-    1 & 1 & 0 & 0 & 1 \\ \hline
-    1 & 1 & 0 & 1 & $1 / \sqrt{2}$ \\ \hline
-    1 & 1 & 1 & 0 & $1 / \sqrt{2}$ \\ \hline
-    1 & 1 & 1 & 1 & 1 \\ \hline
-  \end{tabular}
-\end{table}   
+%\begin{table}[!ht]
+%  \centering
+%  \caption{An enumeration of the possible values of the indicators and $\gamma$.}
+%  \label{tab:gamma}
+%  \begin{tabular}{|c c c c|c|} \hline
+%    $I_{f_{11} \neq f_{12}}$ & $I_{f_{21} \neq f_{22}}$ & $I_{m_{11} \neq m_{12}}$ & $I_{m_{21} \neq m_{22}}$ & $\gamma$ \\ \hline
+%    0 & 0 & 0 & 0 & 0 \\ \hline
+%    0 & 0 & 0 & 1 & 0 \\ \hline 
+%    0 & 0 & 1 & 0 & 0 \\ \hline
+%    0 & 0 & 1 & 1 & 1 \\ \hline
+%    0 & 1 & 0 & 0 & 0 \\ \hline
+%    0 & 1 & 0 & 1 & 0 \\ \hline
+%    0 & 1 & 1 & 0 & 0 \\ \hline
+%    0 & 1 & 1 & 1 & $1 / \sqrt{2}$ \\ \hline
+%    1 & 0 & 0 & 0 & 0 \\ \hline
+%    1 & 0 & 0 & 1 & 0 \\ \hline
+%    1 & 0 & 1 & 0 & 0 \\ \hline
+%    1 & 0 & 1 & 1 & $1 / \sqrt{2}$ \\ \hline
+%    1 & 1 & 0 & 0 & 1 \\ \hline
+%    1 & 1 & 0 & 1 & $1 / \sqrt{2}$ \\ \hline
+%    1 & 1 & 1 & 0 & $1 / \sqrt{2}$ \\ \hline
+%    1 & 1 & 1 & 1 & 1 \\ \hline
+%  \end{tabular}
+%\end{table}   
 
-Surprisingly, many of the possible crosses admit a $\gamma$ value of zero, suggesting that for a slight majority of possible population designs, markers will be uncorrelated. A second critical observation is that, for the non-zero correlation populations, the structure is dictated by $1 - 2p_r(d)$, which may be modified by a factor of $\frac{1}{\sqrt{2}}$. This implies that the only relevant process for modelling correlation in this model is the probability of cross overs between given markers.
+%Surprisingly, many of the possible crosses admit a $\gamma$ value of zero, suggesting that for a slight majority of possible population designs, markers will be uncorrelated. A second critical observation is that, for the non-zero correlation populations, the structure is dictated by $1 - 2p_r(d)$, which may be modified by a factor of $\frac{1}{\sqrt{2}}$. This implies that the only relevant process for modelling correlation in this model is the probability of cross overs between given markers.
 
-Recalling that the primary indices 1 and 2 were a notational convenience to replace the arbitrary indices $j$ and $k$ on the same chromosome, this pairwise result can be immediately generalized to the correlation matrix $\ve{Z}$ for an entire GWAS. For markers on the same chromosome, non-trivial correlations will behave like $1 - 2p_r(d)$, where $d$ indicates the pairwise distance between markers. Based on the independence of different chromosomes, the correlations will be zero for any pair $j$ and $k$ not on the same chromosome.
+Recalling that $j$ and $k$ were restricted to be markers on the same chromosome, this pairwise result can be immediately generalized to the correlation matrix $\ve{Z}$ for the markers measured on an entire genome. For markers on the same chromosome, non-trivial correlations will be proportional to $1 - 2p_r(d)$ where $p_r(d)$ indicates the probability of recombination as a function of the distance between markers. Based on the independent assortment of different chromosomes, the correlations will be zero for any pair $j$ and $k$ not on the same chromosome.
 
-In other words, if $h_j - h_k$, Equation \ref{eq:corrdist} dictates the correlation between $Z_j$ and $Z_k$. On the other hand, if $h_j \neq h_k$ the correlation between $Z_j$ and $Z_k$ will be zero. This implies a superimposed block diagonal structure, corresponding to the chromosomes, on an exponential decay. In a mathematically general form
-
+In other words, if $h_j = h_k$, Equation \ref{eq:precorr} dictates the correlation between $Z_j$ and $Z_k$. On the other hand, if $h_j \neq h_k$ the correlation between $Z_j$ and $Z_k$ will be zero. This implies a block diagonal structure corresponding to the chromosomes with correlations dictated by the probability of recombination within each chromosome. Most generally
+\begin{equation} \label{eq:zcorr_gen}
+  Corr(Z_j, Z_k) = \ind{h_k}{\{h_j\}} \gamma (1 - 2p_r(d)),
+\end{equation}
+and under the Haldane model Equation \ref{eq:corrdist} gives
 \begin{equation} \label{eq:zcorr}
   Corr(Z_j, Z_k) = \ind{h_k}{\{h_j\}} \gamma e^{-2 \beta d(j,k)}.
 \end{equation}
@@ -528,7 +506,7 @@ $$\m{F}_X = \m{M}_X = \begin{bmatrix}
   1 & 0 \\
 \end{bmatrix}$$
 
-\noindent and so corresponds to the setting where all the indicators in $\gamma$ are 1. Therefore, $\gamma_{\text{inter}} = 1$ and so the correlation for an intercross population is given by $Corr(Z_j, Z_K) = I_{h_j = h_k} e^{-2 \beta d(j,k)}$.
+\noindent and so corresponds to the setting where all the differences in $\gamma$ are 1. Therefore, $\gamma_{\text{inter}} = 1$ and so the correlation for an intercross population is given by $Corr(Z_j, Z_K) = I_{h_j = h_k} e^{-2 \beta d(j,k)}$.
 
 For the \textit{$F_2$ backcross}, a slightly different setting is used. Here we have a cross between $\m{M}_X$ and $\m{F}_X$ defined as
 
@@ -541,7 +519,40 @@ $$\m{F}_X = \begin{bmatrix}
   1 & 0 \\
 \end{bmatrix}.$$
 
-\noindent In this setting, both indicators defined on $\m{F}_X$ are 0 while both of those defined on $\m{M}_X$ are 1. This immediately gives $\gamma_{\text{back}} = 1$, and so the correlation for the backcross population is given by the exact same expression as that of the intercross population, $Corr(Z_j, Z_K) = I_{h_j = h_k} e^{-2 \beta d(j,k)}$.\footnote{As an aside, note that names \textit{intercross} and \textit{backcross} are references to breeding practices. The $\m{F}$ and $\m{M}$ of the intercross can be thought of as the result of a cross between an individual which is entirely dominant and an individual which is entirely recessive. The in the intercross, two children resulting from this dominant/recessive cross are crossed, while in the backcross, a child is crossed with a parent. Hopefully, one appreciates why such odd patterns of breeding are only pursued in mice.}
+\noindent In this setting, both differences defined on $\m{F}_X$ are 0 while both of those defined on $\m{M}_X$ are 1. This immediately gives $\gamma_{\text{back}} = 1$, and so the correlation for the backcross population is given by the exact same expression as that of the intercross population, $Corr(Z_j, Z_K) = I_{h_j = h_k} e^{-2 \beta d(j,k)}$.\footnote{As an aside, note that names \textit{intercross} and \textit{backcross} are references to breeding practices. The $\m{F}$ and $\m{M}$ of the intercross can be thought of as the result of a cross between an individual which is entirely dominant and an individual which is entirely recessive. The in the intercross, two children resulting from this dominant/recessive cross are crossed, while in the backcross, a child is crossed with a parent. Hopefully, one appreciates why such odd patterns of breeding are only pursued in mice.}
+
+Other interesting cases involve
+$$\m{F}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix} \text{ or } \m{M}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix},$$
+as these can result in $\gamma < 0$, and so a negative correlation. For example, if we have
+$$\m{F}_X = \m{M}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix},$$
+then $\gamma = -1$, while taking
+$$\m{F}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
+  0 & 1 \\
+  0 & 1 \\
+\end{bmatrix},$$
+gives $\gamma = -\frac{1}{\sqrt{2}}$.
+
+Many other settings lead to no measured correlation. Take
+$$\m{F}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
+  0 & 1 \\
+  0 & 1 \\
+\end{bmatrix},$$
+the only possible negative $\gamma$ value, and therefore the only possible setting to lead to negative correlation.
 
 \section{Simulating the model} \label{subsec:sim}
 
