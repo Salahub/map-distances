@@ -194,7 +194,7 @@
 \section{Introduction} \label{sec:intro}
 
 
-Genetic research today routinely considers the entirety of a genome to identify the regions most strongly associated with measured physical traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Often \emph{single nucleotide polymorphisms} (SNPs), i.e. single nucleotide substitutions in a known sequence at a known position, are chosen as markers. This is a complicated task, and so requires interested researchers to sort through decades of both biological and statistical research before understanding genomics today.
+Genetic research today routinely considers the entirety of a genome to identify the regions most strongly related to measured physical traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Extracting useful results from markers and measured traits is a complicated task, and interested researchers must sort through decades of both biological and statistical research before understanding genomics today.
 
 \begin{figure}[!ht]
   \begin{center}
@@ -204,11 +204,11 @@ Genetic research today routinely considers the entirety of a genome to identify 
 \end{center}
 \end{figure}
 
-To aid in this, Figure \ref{fig:modelDiagram} draws on the literature to present a simple structural model of the process taken in a GWAS to convert raw SNP measurements to a form which can be used to identify QTLs. It identifies four key steps (\emph{selection}, \emph{annotation}, \emph{encoding}, and \emph{summarization}) between five increasingly abstract representations of the genome, where the genome is defined by \cite{doergeetal1997search} as all heritable material potentially passed from parent to offspring. By highlighting the abstractions and steps in plain language, this simplified model provides a convenient map to guide the understanding of GWAS.
+To aid in this, Figure \ref{fig:modelDiagram} draws on the literature to present a simple structural model of the process taken in GWAS to convert raw marker measurements into a form which can be used to identify QTLs. It identifies four key steps (\emph{selection}, \emph{annotation}, \emph{encoding}, and \emph{summarization}) between five increasingly abstract representations of the genome, where the genome is defined by \cite{doergeetal1997search} as all heritable material potentially passed from parent to offspring. By highlighting the abstractions and steps in plain language, this simplified model provides a convenient map to guide the understanding of GWAS.
 
-Starting with $\m{G}$, the whole genome of an individual organism, the \emph{select} step chooses which regions to measure, $\m{S}$. In human studies this is supported by SNP databases such as \cite{NCBIdbSNP} which document hundreds of millions of common SNPs in the human genome. Only a small proportion of these are estimated to occur frequently enough in the population to be useful in a GWAS, perhaps 15 million according to \cite{koboldtetal2013next}. As modern SNP arrays can simultaneously identify roughly one million of these per array, see \cite{laframboise2009, tametal2019benefits}, most GWAS will choose an array's worth of SNPs to measure. Inference to regions outside of those in $\m{S}$ is made using \emph{linkage disequilibrium}, effectively the correlation between regions of the genome. While third generation genome sequencing technologies allow for entire genomes to be sequenced, as noted in \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}, persistent high costs of next generation technologies and more than a decade of SNP microarray development leave microarrays as the dominant measurement method.
+Starting with $\m{G}$, the whole genome of an individual organism, the \emph{select} step chooses which regions to measure, $\m{S}$. Often \emph{single nucleotide polymorphisms} (SNPs), i.e. single nucleotide substitutions in a known sequence at a known position, are used. In human studies this is supported by SNP databases such as \cite{NCBIdbSNP} which document hundreds of millions of common SNPs in the human genome. Only a small proportion of these are estimated to occur frequently enough in the population to be useful in a GWAS, perhaps 15 million according to \cite{koboldtetal2013next}. Modern SNP arrays can simultaneously identify roughly one million of these per array, see \cite{laframboise2009, tametal2019benefits}, and most GWAS will measure an array's worth of SNPs. \emph{Linkage disequilibrium}, effectively the correlation between regions of the genome, facilitates inference to regions outside of those selected in $\m{S}$. While third generation genome sequencing technologies allow for entire genomes to be sequenced, as noted in \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}, persistent high costs of next generation technologies and more than a decade of SNP microarray development leave microarrays as the dominant measurement method.
 
-After selecting SNPs to obtain $\m{S}$, researchers must \emph{annotate} the raw data. The raw signal produced by an SNP microarray is fluorescence, with different degrees of fluorescence corresponding to a different genotypes. Converting the fluorescent areas of an array to a genotype is a challenging problem and has developed in tandem with the arrays themselves. Early models used non-parametric clustering techniques on the signal from several microarray pores, but more complex hidden Markov and Bayesian models have also been developed. \cite{laframboise2009} details some of these and their development. Whatever method is used, the selected regions are assigned genotypes in $\m{T}$ denoted with capital or lowercase letters at each SNP, as in \cite{siegmundyakir2007, visschergoddard2019}.
+After selecting SNPs to obtain $\m{S}$, researchers must \emph{annotate} the raw data. The raw signal produced by an SNP microarray is fluorescence, with different degrees of fluorescence corresponding to a different genotypes. Converting the fluorescent areas of an array to a genotype is a challenging problem and has developed in tandem with the arrays themselves. Early models used non-parametric clustering techniques on the signal from several microarray pores, but more complex hidden Markov and Bayesian models have also been developed. \cite{laframboise2009} details some of these. Whatever method is used, the selected regions are assigned genotypes in $\m{T}$ denoted with capital or lowercase letters at each SNP, as in \cite{siegmundyakir2007, visschergoddard2019}.
 
 Finally, relationships between $\m{T}$ and an observed trait or within $\m{T}$ itself are quantified by converting each annotated SNP to a number. To do this, GWAS first \emph{encode} each SNP variant with a numeric value and then \emph{summarize} the pairs at each location into a number. Typically no distinction is made between these steps: \cite{LanderBotstein1989, cheverud2001, siegmundyakir2007} detail the \emph{dominance} and \emph{additive} summaries by moving directly from a genotype to a numeric value. It is useful for clarity and full generality to separate the two distinct steps involved in this process, however.
 
@@ -219,7 +219,9 @@ This paper presents the details of this structural model. By using mathematical 
 First, consider a few facts about the genome. Genetic information is stored in DNA, a long molecule consisting of a sequence of four \emph{nucleotide bases}: guanine, cytosine, adenine, and thymine. A \emph{diplodic} individual inherits one version or \emph{variant} of a complete DNA sequence from each parent, and so has two copies in all \emph{somatic} (i.e. non-reproductive) cells. Though it can be represented as one long sequence, DNA is actually structured into \emph{chromosomes}, separate strands of DNA which contain only a part of the sequence. As most genetic research concerns diplodic species, this will be implicitly assumed henceforth.
 
 
-The structural model starts with $$\m{G} = [\ve{g}_1| \ve{g}_2],$$ represent the entire genome of a individual. $\m{G}$ would contain both the maternal and paternal variants of all chromosomes placed sequentially, with the maternal variant in one column and the paternal in another. As nucleotides bind uniquely, we can record the pattern only for one of the two DNA strands for each column. This gives where $\ve{g}_1,\text{ } \ve{g}_2 \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$ would be the base pair sequences of an individual's paternal and maternal genome variants, respectively, if the entire genome were recorded.\footnote{In cells, this is not how genetic information is typically organized. Rather than occurring as one long strand, DNA exists within cells in many contiguous, but separate, sections called \textit{chromosomes}.}
+The structural model starts with
+$$\m{G} = [\ve{g}_1| \ve{g}_2], \text{ } \ve{g}_1, \ve{g}_2 \in \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$$
+represent the entire genome of a individual. $\m{G}$ would contain both the maternal and paternal variants of all chromosomes placed sequentially, with the maternal variant in one column and the paternal in another. As nucleotides bind uniquely, we can record the pattern only for one of the two DNA strands for each column. This gives where $\ve{g}_1,\text{ } \ve{g}_2 \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$ would be the base pair sequences of an individual's paternal and maternal genome variants, respectively, if the entire genome were recorded.\footnote{In cells, this is not how genetic information is typically organized. Rather than occurring as one long strand, DNA exists within cells in many contiguous, but separate, sections called \textit{chromosomes}.}
 
 Of course, sequencing the entire human genome is rarely done. A genome-wide association study (GWAS) instead deals with a selected subset measuring only segments of genetic material on chromosomes of interest. Call this subset $\m{S} = [\ve{s}_1 | \ve{s}_2]$ where $\ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K, \text{ } K \ll N_P$. In our model, this corresponds to a mapping from $\m{G} \rightarrow \m{S}$ where $K$ rows of $\m{G}$ are chosen or sampled to create $\m{S}$.\footnote{Choosing these rows is one of the key challenges of GWASs, as the true region of interest, or quantitative trait locus, is generally not known in advance.}
 
@@ -635,32 +637,56 @@ Luckily, \cite{cheverud2001} cites earlier work by \cite{cheverudetal2001} in wh
 
 \begin{figure}[htp]
   \begin{center}
-    \begin{tabular}{ccc}
+    \begin{tabular}{cc}
       \includegraphics[width = 0.300\textwidth]{./img/chevCorr.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/chevCorrTheory.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/chevCorrDiff.png} \\
+      \includegraphics[width = 0.300\textwidth]{./img/chevCorrTheory.png} \\
       {\footnotesize Experiment} &
-      {\footnotesize Theory} &
-      {\footnotesize Experiment minus theory} \\
+      {\footnotesize Theory}
     \end{tabular}
   \end{center}
-  \caption{Experimental and theoretical correlation matrices for an $F_2$ intercross population and their difference.}
+  \caption{Experimental and theoretical correlation matrices for an $F_2$ intercross population.}
   \label{fig:corr2real}
 \end{figure}
 
 The theoretical and experimental matrices look rather similar structurally, with similar trends and local patterns. Taking the difference suggests that theoretical correlation tends to overestimate the actual correlation between $z_j$ and $z_k$. In a few cases this underestimation is rather severe. \TODO{Is it severe? Think about this shading more carefully: scaled, CI, p-val, or the like}
 
-Both model specification and random variation under the model could potentially account for this discrepancy. In order to give a greater sense of how atypical the observed difference is, we might wish to display the true difference alongside differences for data sets simulated under the model. Following the line up test described in \cite{bujaetal2009}, Figure \ref{fig:lineup} results.
+\begin{figure}[htp]
+  \begin{center}
+      \includegraphics[width = 0.7\textwidth]{./img/chevCorrTest.png}
+  \end{center}
+  \caption{The correlation test plot for data from \cite{cheverudetal2001} compared to simulations under theory.}
+  \label{fig:corrTestPlot}
+\end{figure}
+
+That said, it performs reasonably well, especially given that \cite{haldane1919} proposed the distance measure at its core more than a century ago.
 
 \begin{figure}[htp]
   \begin{center}
-    \includegraphics[width = 0.5\textwidth]{./img/lineup.png}
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb.png} &
+      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_sim.png} \\
+      {\footnotesize Observed} &
+      {\footnotesize Simulated}
+    \end{tabular}
   \end{center}
-  \caption{A line up of twenty five differences of correlation matrices, one of which is the true difference from \cite{cheverudetal2001} and the others generated using Section \ref{sec:correlation}.}
-  \label{fig:lineup}
+  \caption{Observed and simulated correlations for the JAX BSB panel from the Mouse Genome Database.}
+  \label{fig:jaxbsb}
 \end{figure}
 
-It must be noted that this is not a proper line up test following \cite{bujaetal2009}, as the true difference was presented before this line up. Nonetheless, it gives some sense of the typical variation seen under the model. The true difference, in position nine, stands out among these, despite considerable variation in these differences across these simulated data sets. This suggests the crude model used here could be improved. That said, it performs reasonably well, especially given that \cite{haldane1919} proposed the distance measure at its core more than a century ago.
+
+\begin{figure}[htp]
+  \begin{center}
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.300\textwidth]{./img/uclabsb.png} &
+      \includegraphics[width = 0.300\textwidth]{./img/uclabsb_sim.png} \\
+      {\footnotesize Observed} &
+      {\footnotesize Simulated}
+    \end{tabular}
+  \end{center}
+  \caption{Observed and simulated correlations for the UCLA BSB panel from the Mouse Genome Database.}
+  \label{fig:uclabsb}
+\end{figure}
+
 
 \section{Other views} \label{sec:apply}
 
