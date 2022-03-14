@@ -265,49 +265,50 @@ where $\ve{m}_1, \ve{m}_2, \ve{f}_1, \ve{f}_2 \in \mathcal{B}^{N_P}$. These repr
 
 The real mechanism is much more complex. During meiosis, the production of sex cells, the columns of $\m{M}$ and $\m{F}$ are perturbed. Rather than being inherited by $\m{G}$ in the same form as in $\m{M}$ and $\m{F}$, regions in $\ve{f}_1$ may swap with regions in $\ve{f_2}$ and the same may occur with $\ve{m}_1$ and $\ve{m}_2$. This occurs either due to the \emph{independent assortment of chromosomes} or due to the \emph{crossing over} of variants.
 
-Independent assortment is a direct consequence of the structure of the genome in somatic cells. Each chromosome is a separate molecule and so when sex cells are created, the parental variant inherited by offspring is independent of other chromosomes. This means that the paternal and maternal variants of a chromosome are equally likely to be passed on regardless of the variant another chromosome passes on.
+Independent assortment is a direct consequence of the structure of the genome in somatic cells. Each chromosome is a separate molecule and so when sex cells are created, the parental variant inherited by offspring is independent of other chromosomes. This means that both the paternal and maternal variants of a chromosome are equally likely to be passed on regardless of the variant another chromosome passes on.
 
 Additionally, these variants may not be inherited identically as they appear in $\m{M}$ or $\m{F}$. There is a chance that the variants in a parent physically cross over each other while separating to form sex cells. Occasionally, this crossing results in a swap of the entire chromosome on either side of the cross, creating two completely new variants to pass on.
 
-
-the physical process of producing sex cells cause the swapping of column entries of $\m{M}$ and $\m{F}$ for large, contiguous sections of rows, and the resulting swapped columns are then inherited by $\m{G}$ as usual. These swaps are known as cross overs\fobotnote{Physically, this process is a result of the condensation of chromosomes of $\m{M}$ and $\m{F}$ into structures called \textit{chromatids} which pair along the centre of a meiosing cell. The resulting proximity creates the opportunity for these variants to physically cross over each other. Occasionally, this occurs in such a way that entire sections of the genome are switched between them. Without the genetic recombination resulting from this, $\m{G}$ would inherit one unmodified variant from each of $\m{M}$ and $\m{F}$, preventing totally new combinations of genetic material from occurring.}
-
-These variants are not
-
-
 \subsection{Modelling cross overs} \label{subsec:modelcrossing}
 
-To model crossing over, begin by making the assumption that crossing over occurs independently for each chromosome, and will affect directly only that chromosome's variants.\footnote{Dependence between cross overs is known as \textit{interference}.} Consider a vector $\ve{h} \in \{1, \dots, C\}^{N_P}$ which denotes the chromosome of each row of $\m{M}$\footnote{Or, equivalently, $\m{F}$.}. For simplicity, assume that for all $i \leq j$, $h_i \leq h_j$, that is all base pairs of a chromosome appear in adjacent rows. As crossing over occurs independently for each chromosome, a crossing over event in chromosome $c$, say, will affect only those rows of $\m{M}$ where $\ve{h} = c$. For the moment, then, consider the case where $\ve{h}$ is a vector of ones, that is the case of a single chromosome.
+Both crossing over and the independent assortment of chromosomes occur within each parental genome regardless of the genome of the other parent, and so only one of the two needs to be considered in modeling cross overs. Suppose it is $\m{M}$.
 
-Under this setting, let a cross over begin at the $i^{\text{th}}$ base pair. That is to say, suppose the chromosomes physically cross at the $i^{\text{th}}$ base pair.\footnote{We have an additional simplfying assumption here: that the chromosome will always be aligned such that the $i^{\text{th}}$ position on one variant will match with the $i^{\text{th}}$ on the other during a cross over.} Each variant is consquently separated into two parts: the part up to, but not including, the $i^{\text{th}}$ base pair, and the part from the $i^{\text{th}}$ base pair until the end. These two parts are then swapped between the variants, so that the first part of one variant forms a new chromosome with the second part of the other. Whenever the verb ``begin'' is used in the context of an index in a cross over, it will refer to this conceptualization, which corresponds to a swap of the values in the first $i-1$ rows of $\m{M}$. In order to track cross overs, introduce an indicator vector $\ve{v} = \tr{(v_1, \dots, v_{N_P})}$ where
+We start with the assumption that genetic recombination is totally independent between chromosomes. Specifically, chromosomes not only assort independently but crossing over occurs independently on each chromosome and will affect only that chromosome's variants. This assumption can be thought of as a slightly stronger version of independent assortment. Therefore consider a vector
+$$\ve{h} \in \{1, 2, \dots, C\}^{N_P}$$
+for $C \in \Naturals$ which denotes the chromosomal membership of each row of $\m{M}$. Motivated by the structure of the genome, for all $i \leq j$ set $h_i \leq h_j$. In other words all base pairs of a chromosome appear in adjacent rows with some specified ordering of the chromosomes. Assuming cross overs occur independently for each chromosome, a cross over in chromosome $c$, say, will affect only those rows of $\m{M}$ where $\ve{h} = c$. For simplicity, then, consider the case where $\ve{h}$ is a vector of ones, that is the case of a single chromosome. Any result derived for a single chromosome can then be extended to the entire genome by considering every other chromosome in the same way.
 
+For this single chromosome, consider a cross over beginning at the $i^{\text{th}}$ base pair. This means the two variants of the chromosome physically cross at the $i^{\text{th}}$ base pair. Assume that the variants are always perfectly aligned so that the $i^{\text{th}}$ position on one variant will match with the $i^{\text{th}}$ on the other during a cross over. Each variant is consquently separated into two parts: the part up to, but not including, the $i^{\text{th}}$ base pair, and the part from the $i^{\text{th}}$ base pair until the end. These two parts are then swapped between the variants, so that the first part of one variant forms a new chromosome with the second part of the other. Whenever the verb ``begin'' is used in the context of the index of a cross over, it will refer to this sort of crossing: a swap of the values in the first $i-1$ rows of $\m{M}$. Introduce an indicator vector
+$$\ve{v} = \tr{(v_1, \dots, v_{N_P})}$$
+where
 \begin{equation} \label{eq:crossindicator}
 V_i = \begin{cases}
   1 & \text{ if a cross over beginning at base pair } i \text{ occurs}, \\
   0 & \text{ otherwise},
 \end{cases}
 \end{equation}
+and define $\sv{\pi}$ so that $\pi_i = P(V_i = 1)$. This can be done without loss of generality, as the order of crossing over events in time does not affect the final chromosome. Any chromosome in a sex cell for which any cross overs have occurred is called \textit{recombinant}.
 
-\noindent and define $\sv{\pi}$ so that $\pi_i = P(V_i = 1)$. This can be done without loss of generality, as the order of crossing over events does not affect the final chromosome in this setting. Any chromosome in a sex cell for which a cross over has occurred is known as \textit{recombinant}.
+As we rarely sequence the entire genome of an individual's somatic and sex cells, we will seldom see $\m{M}$ and its recombinant forms. Instead, just as $\m{S}$ is derived from $\m{G}$, $\m{M}_S$ and $\m{F}_S$ are derived from $\m{M}$ and $\m{F}$ respectively. Swaps of the markers of $\m{M}_S$ and $\m{F}_S$ appearing in $\m{S}$ are then used to estimate the number of sex cells containing recombinant chromosomes. The proportion of sex cells produced with such a swap is called the \textit{recombination rate} for the pair of markers.
 
-As we rarely sequence the entire genome of an individual's somatic and sex cells, we will seldom see $\m{M}$ and its recombinant forms. Instead, $\m{S}$ is derived from $\m{G}$ and $\m{M}_S$ and $\m{F}_S$ from $\m{M}$ and $\m{F}$. From this, swaps of the markers of $\m{S}$, $\m{M}_S$, and $\m{F}_S$ between generations are used to estimate the number of sex cells containing recombinant chromosomes.\footnote{The proportion of sex cells produced with such a swap is called the \textit{recombination rate} for the pair of markers.} However, this method tells us nothing of how many cross over events occurred between any two markers. Any odd number of events leads to a swap, while any even number will be undetectable. Under this setting, the true count of indices $i$ for which $v_i = 1$ cannot be known, and hence the $\pi_i$ cannot be estimated individually.
+However, the recombination rate for a pair of markers tells us nothing of how many cross over events occurred between them. Any odd number of events leads to a swap, while any even number will be undetectable. With this restricted view, the true count of indices $i$ for which $v_i = 1$ cannot be known, and hence the $\pi_i$ cannot be estimated individually.
 
 \subsection{Simplifying Assumptions} \label{subsec:simplify}
 
-Fortunately, if we only care about the recombination of two particular markers on the genome, estimating individual $\pi_i$ values is unnecessary. Consider two such positions, $j$ and $k$ with $j < k$, and note that cross overs beginning at $j+1, j+2, \dots, k-1, k$ all result in these positions being split between variants. Now, motivated by identifiability, assume that $\pi_j = \pi_{j+1} = \cdots = \pi_{k-1} = \pi_k = \pi_{j:k}$. Under this assumption, the number of cross overs beginning in $j+1,j+2,\dots,k-1,k$, is given by the binomial expression
+Fortunately, if the recombination of two particular markers on the genome is all we care about, estimating individual $\pi_i$ values is unnecessary. Consider two such positions, $j$ and $k$ with $j < k$, and note that cross overs beginning at any of $j+1, j+2, \dots, k-1, k$ all result in these positions being split between variants. For identifiability assume that $\pi_j = \pi_{j+1} = \cdots = \pi_{k-1} = \pi_k = \pi_{j:k}$. Let $N_c$ be a random variable counting the number of cross overs beginning in $\{j+1,j+2,\dots,k-1,k\}$. Then
+$$P(N_c = n_c) = {k - j \choose n_c} \pi_{j:k}^{n_c} (1-\pi_{j:k})^{k - j - n_c}$$
+if we assume the cross overs occur independently. For convenience, let $r = k - j$ and $\pi = \pi_{j:k}$, which gives
+\begin{equation} \label{eq:binomialDist}
+  P(N_c = n_c) = {r \choose n_c} \pi^{n_c} (1-\pi)^{r - n_c},
+\end{equation}
+where $r$ is a unitless count of base pairs between positions $j$ and $k$.
 
-$$P(N_c = n_c) = {k - j \choose n_c} \pi_{j:k}^{n_c} (1-\pi_{j:k})^{k - j - n_c},$$
-
-\noindent where $N_c$ is a random variable giving the count of cross overs in the region. For convenience, let $r = k - j$ and $\pi = \pi_{j:k}$, which gives
-
-$$P(N_c = n_c) = {r \choose n_c} \pi^{n_c} (1-\pi)^{r - n_c}.$$
-
-\noindent Note here that $r$ is a unitless count of base pairs between positions $j$ and $k$. Recognizing that markers are often separated by a great number of base pairs, and so $r$ will typically be very large, we next take the limit of this expression as $r \rightarrow \infty$:
-
+Recall that $N_P = 3,234,830,000$ in humans. This large number of base pairs spread over the 23 human chromosomes means that two markers will typically be separated by a great number of base pairs, and so $r$ will be very large. Therefore, consider the limit of this expression as $r \rightarrow \infty$:
 $$\lim_{r \rightarrow \infty} P(N_c = n_c) = \lim_{r \rightarrow \infty} {r \choose n_c} \pi^{n_c} (1-\pi)^{r - n_c}.$$
+At this point, a substitution can be made:
+$$\pi = \frac{\beta d(j,k)}{r} := \frac{\beta d}{r},$$
+with $\beta, d(j,k) \in \Reals$. This substitution reparametrizes the probability $\pi$ with a rate parameter, $\beta$, a distance measure, $d(j,k)$, and the $r$ base pairs separating $j$ and $k$. As the units of $\beta$ and $d$ will always result in a unitless product, the choices of $\beta$ and $d$ are a matter of individual discretion. Any distance $d$ can be chosen and will invoke a corresponding $\beta$. If physical distance, for example in angstroms, were used, then $\beta$ would correspond to a rate of cross overs per unit length. One could alternatively use $d(j,k)=k-j$ and use a rate per base pair. As such a substitution is arbitrary, it gives a great deal of flexibility to choose a convenient set of units for measurement or understanding.
 
-\noindent At this point, an arbitrary substitution can be made. Consider the substitution $\pi = \frac{\beta d(j,k)}{r} := \frac{\beta d}{r}$. By this substitution, the probability $\pi$ is reparameterized by a rate parameter, $\beta$, a distance measure, $d(j,k)$, and the $r$ base pairs separating $j$ and $k$. As the units of $\beta$ and $d$ will always result in a unitless product, the choices of $\beta$ and $d$ are a matter of individual discretion. Any convenient distance $d$ can be chosen and will invoke a corresponding $\beta$. If physical distance, for example in angstroms, were used, then $\beta$ would correspond to a rate of cross overs per unit length. One could alternatively use $d(j,k)=k-j$ to get a rate per base pair. As such a substitution is arbitrary, it gives a great deal of flexibility to choose a convenient set of units for measurement or understanding. Performing the substitution,
-
+The substitution also leads to a substantial simplifcation, as
 \begin{equation} \label{eq:poissonlim}
   \begin{split}
     \lim_{r \rightarrow \infty} P(N_c = n_c) & = \lim_{r \rightarrow \infty} \frac{r(r-1)\dots (r-n_c)}{n_c!} \left ( \frac{\beta d}{r} \right )^{n_c} \left ( 1-\frac{\beta d}{r} \right )^{r - n_c} \\
@@ -321,11 +322,9 @@ $$\lim_{r \rightarrow \infty} P(N_c = n_c) = \lim_{r \rightarrow \infty} {r \cho
     & = \frac{(\beta d)^{n_c}}{n_c!} e^{-\beta d}, \\
   \end{split}
 \end{equation}
-
 \noindent which is the Poisson limit theorem for the binomial distribution.
 
-Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ between variants, while if $N_c$ is even, there will be no resultant swap. Define the recombination probability $p_r(d)$, which gives the probability of observing a swap for positions $j$ and $k$ with distance $d(j,k) := d$ between them. Then $p_r(d)$ is given by a sum of all odd terms of the above distribution. Therefore,
-
+Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ between variants, while if $N_c$ is even, there will be no swap in the chromosome passed on. Define the recombination probability $p_r(d)$, which gives the probability of observing a swap for positions $j$ and $k$ with distance $d(j,k) := d$ between them. Then $p_r(d)$ is given by a sum of all odd terms from Equation \ref{eq:binomialDist}. Taking the simplification of Equation \ref{eq:poissonlim} gives
 \begin{equation} \label{eq:haldanemap}
   \begin{split}
     p_r(d) & = \sum_{l = 0}^{\infty} \frac{(\beta d)^{2l + 1}}{(2l + 1)!} e^{-\beta d} \\
@@ -337,32 +336,27 @@ Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ bet
     & = \frac{1}{2} \left ( 1 - e^{-2 \beta d} \right ) .\\
   \end{split}
 \end{equation}
-
-\noindent A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of crossing over events gives us Haldane's formula for the \textit{map distance} in \textit{centiMorgans}. These distance units are defined purely by the assumptions leading to Equation \ref{eq:poissonlim} and the relationship specified in Equation \ref{eq:haldanemap} with the choice of $\beta = \frac{1}{100}$, rather than reflecting a true physical distance.\footnote{One may imagine this distance measure was chosen out of pure convenience. J.B.S. Haldane devised the approximation in 1919, at which point the chemical structure of DNA was still a mystery, but the concept of recombination had been revealed through patterns of inheritance.}
+A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of crossing over events gives us Haldane's formula for the \textit{map distance} in \textit{centiMorgans}. By accounting for the structure of the genome and making a number of simplifying assumptions, the model from Section \ref{sec:theModel} gives a classic result of genetics without any reference to the population-level differential equation used in its original derivation. This comforting result can be taken a step further to compute new theoretical results. 
 
 \section{Genetic correlation} \label{sec:correlation}
 
-Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{sec:intro}. Typically, when the notion of the correlation between markers is discussed in a GWAS, what is actually under discussion is the observed correlation matrix of this vector in a particular population (e.g. \cite{cheverud2001}). As a consequence, this quantity is key in the determination of the effective number of tests in GWASs. Despite the prevalence of simulation to compute this matrix in the literature, it can also be determined analytically.
+\cite{cheverud2001, LiJi2005, Galwey2009} all present results based on the \emph{correlation between markers}. Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{sec:intro}. For these papers, the \emph{correlation between markers} refers to the observed correlation matrix of the vector $\ve{z}$ in a particular population. While the motivation of these authors is adjustment for multiple dependent testing, the importance of correlation in defining linkage disequilibrium makes the correlation structure of the genome a matter of general interest. Using the model of Section \ref{sec:theModel} and results of Section \ref{sec:derivingDists} this matrix can be determined analytically.
 
 For clarity, let $\ve{z}$ indicate an instance of the random vector $\ve{Z} = \tr{(Z_1, Z_2, \dots, Z_M)}$. We let the random vector $\ve{Z}$ follow the distribution of the summarized values $\ve{z}$ in a particular population. This population may be real, as is the case when this modelling is used in practice, or purely hypothetical, as will be the case in the following analysis.
 
 Return to the annotated matrix $\m{T}$ and consider two markers at row indices $j$ and $k$. Introduce $\ve{c}$, which is defined similarly to $\ve{h}$ earlier, but now indicates chromosomal membership for the markers in $\m{T}$ rather than the base pairs in $\m{G}$. As every marker is contained within a single chromosome, $\ve{c}$ is always unambiguously defined.
 
-There are two cases. Either $j$ and $k$ are on the same chromosome, that is $h_j = h_k$, or they are not, and so $h_j \neq h_k$. If these markers are not on the same chromosome, we can use the assumptions of Section \ref{subsec:modelcrossing} to see immediately that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently with their different chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in centiMorgans. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
-
+There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, the assumptions of Section \ref{subsec:modelcrossing} dictate that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently alongside their respective chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in centiMorgans in Equation \ref{eq:haldanemap}. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
 $$\m{T} = \begin{bmatrix}
   A & a \\
   b & B \\
 \end{bmatrix},$$
-
-\noindent where the letters placed above are merely demonstrative. A simplified version of $\m{X}$ follows immediately from this $\m{T}$. Consider
-
+where the letters placed above are merely demonstrative. A simplified version of $\m{X}$ follows immediately from this $\m{T}$. Consider
 $$\m{X} = \begin{bmatrix}
   x_{j1} & x_{j2} \\
   x_{k1} & x_{k2} \\
 \end{bmatrix},$$
-
-\noindent with all entries in $\{0,1\}$. As was the case for $\ve{z}$, we can treat these lowercase entries as realizations of random variables $X_{rs}$, $r \in \{j,k\}, s \in \{1,2\}$.\footnote{No additional notation is used to denote whether $\m{X}$ is the random matrix or a realization, as this distinction is not relevant in the analysis presented here.} Using this form of $\m{X}$, we can consider $Cor(Z_j, Z_k)$ for the population resulting from an arbitrary cross of two parents. Then $\m{X}$ implies a $\ve{Z}$ of
+with all entries in $\{0,1\}$. As was the case for $\ve{z}$, we can treat these lowercase entries as realizations of random variables $X_{rs}$, $r \in \{j,k\}, s \in \{1,2\}$. Consider $Cor(Z_j, Z_k)$ for the population resulting from an arbitrary cross of two parents. Then $\m{X}$ implies a $\ve{Z}$ of
 $$\ve{Z} = \begin{bmatrix} Z_j \\ Z_k \end{bmatrix} = \begin{bmatrix}
   X_{j1} + X_{j2} \\
   X_{k1} + X_{k2} \\
@@ -376,9 +370,9 @@ $$\m{F}_X = \begin{bmatrix}
   m_{j1} & m_{j2} \\
   m_{k1} & m_{k2} \\
 \end{bmatrix},$$
-where all entries are once again in $\{0,1\}$. Begin by assuming that $\m{F}_X$ and $\m{M}_X$ are known constants\footnote{There are many theoretical populatins where this is true, such as the $F_2$ intercross, where $f_{11} = m_{11} = f_{21} = m_{21} = 1$ and $f_{12} = m_{12} = f_{22} = m_{22} = 0$.}, and the statistical properties of $\ve{Z}$ result purely from the mechanics of reproduction.
+where all entries are once again in $\{0,1\}$. Begin by assuming that $\m{F}_X$ and $\m{M}_X$ are known constants. There are theoretical populatins where this is true such as the $F_2$ intercross, where $f_{11} = m_{11} = f_{21} = m_{21} = 1$ and $f_{12} = m_{12} = f_{22} = m_{22} = 0$. Further assume that the variation in $\ve{Z}$ results purely from the recombination by crossing over and independent assortment.
 
-Begin by considering the expectation of $\ve{Z}$. Due to the independent assortment of chromosomes, $X_{j1}$ is equally likely to be either $f_{j1}$ or $f_{j2}$, and so takes a uniform distribution over these two possibilities. A similar logic for all other entries in $\m{X}$ applies, and so
+Begin with the expectation of $\ve{Z}$. Assuming no preferential inheritance of either variant, $X_{j1}$ is equally likely to be either $f_{j1}$ or $f_{j2}$ and so takes a uniform distribution over these two possibilities. A similar logic for all other entries in $\m{X}$ applies, and so
 \begin{equation*}
   \begin{split}
     E[\ve{Z}] & = {\begin{bmatrix}
@@ -396,6 +390,7 @@ from which it follows
 \begin{equation*}
   \begin{split}
     Var(Z_j) & = E[(X_{j1} + X_{j2})^2] - E[Z_j]^2 \\
+    & \\ 
     & = \frac{1}{4}\left [ (f_{j1} + m_{j1})^2 + (f_{j2} + m_{j1})^2 + (f_{j1} + m_{j2})^2 + (f_{j2} + m_{j2})^2 \right ] \\
     & \hspace{0.5cm} - \frac{1}{4}(f_{j1} + f_{j2} + m_{j1} + m_{j2})^2. \\
   \end{split}
@@ -416,13 +411,13 @@ Considering the covariance:
     & =  Cov(X_{j1}, X_{k1}) + Cov(X_{j1}, X_{k2}) + Cov(X_{j2}, X_{k1}) + Cov(X_{j2}, X_{k2}). \\
   \end{split}
 \end{equation}
-So the covariance is re-expressed as a sum of four terms, each of which can then be considered in turn.
+So the covariance is re-expressed as a sum of four terms, each of which can be considered in turn.
 
-This can be further simplified by considering $Cov(X_{j1}, X_{k2})$ and $Cov(X_{j2}, X_{k1})$. Both of these terms measure the covariance between values on the diagonals of $\m{X}$, that is the covariance between the maternally and paternally donated variants of the genome inherited from $\m{F}_X$ and $\m{M}_X$, respectively. These covariances therefore measure the degree of \emph{inbreeding} in a population, the degree to which parents tend to have the same genotype. The restricted setting of known parents derived here makes these diagonal values independent of each other and therefore uncorrelated, which can be confirmed by tedious algebra. Explicitly, $Cov(X_{j1}, X_{k2}) = Cov(X_{j2}, X_{k1}) = 0$. In unrestricted settings \cite{crowkimura1970intro} quantify this with the coefficient $r$ under \emph{assortative mating}, the tendency of individuals to choose mates with a similar phenotype.  
+This can be further simplified by considering $Cov(X_{j1}, X_{k2})$ and $Cov(X_{j2}, X_{k1})$. Both of these terms measure the covariance between values on the diagonals of $\m{X}$, that is the covariance between the maternally and paternally donated variants of the genome inherited from $\m{F}_X$ and $\m{M}_X$, respectively. These covariances therefore measure the amount of \emph{inbreeding} in a population, that is the degree to which parents tend to have the same genotype. In settings with unknown parents or when a population is being considered \cite{crowkimura1970intro} quantify these covariances with the coefficient $r$. With known parents, as in our case, these diagonal values are independent of each other and therefore uncorrelated. This can be confirmed by tedious algebra. Explicitly, $Cov(X_{j1}, X_{k2}) = Cov(X_{j2}, X_{k1}) = 0$. 
 
-The second pair of terms, $Cov(X_{j1}, X_{k1})$ and $Cov(X_{j2}, X_{k2})$, measure the covariance of encodings on the same variant, and so cannot be so easily reduced. Instead, consider $Cov(X_{j1}, X_{k1})$ and expand:
+The second pair of terms, $Cov(X_{j1}, X_{k1})$ and $Cov(X_{j2}, X_{k2})$, measure the covariance of encodings on the same variant, and so cannot be so easily dismissed. Instead, consider $Cov(X_{j1}, X_{k1})$ and expand:
 $$Cov(X_{j1}, X_{k1}) = E[X_{j1} X_{k1}] - E[X_{j1}]E[X_{k1}].$$
-The independent inheritance of variants from a parent gives $E[X_{j1}] = \frac{1}{2}(f_{j1} + f_{j2})$ and $E[X_{k1}] = \frac{1}{2}(f_{k1} + f_{k2})$. Next consider $E[X_{j1} X_{k1}]$.
+The equal probabiliy of inheritance of variants gives $E[X_{j1}] = \frac{1}{2}(f_{j1} + f_{j2})$ and $E[X_{k1}] = \frac{1}{2}(f_{k1} + f_{k2})$. Next consider $E[X_{j1} X_{k1}]$.
 
 There are four possible values of $X_{j1} X_{k1}$, corresponding to inheritance of either of the two parental variants with or without recombination. If no recombination occurs, an event with probability $1 - p_r(d)$, either $f_{j1} f_{k1}$ or $f_{j2} f_{k2}$ is inherited with equal probability. If a cross over between $j$ and $k$ leads to recombination, then either $f_{j1} f_{k2}$ or $f_{j2} f_{k1}$ is passed on with equal probability. Accounting for these four possibilities gives
 $$E[X_{j1} X_{k1}] = (1 - p_r(d)) \left ( \frac{1}{2} f_{j1} f_{k1} + \frac{1}{2} f_{j2} f_{k2} \right ) + p_r(d) \left ( \frac{1}{2} f_{j1} f_{k2} + \frac{1}{2} f_{j2} f_{k1} \right ).$$
@@ -459,8 +454,7 @@ Finally, Equations \ref{eq:z1var}, \ref{eq:z2var}, and \ref{eq:cov} can be combi
     & := (1 - 2 p_r(d)) \gamma .\\
   \end{split}
 \end{equation}
-So, the correlation is seen to be a product of $(1-2 p_r(d))$, which depends on the markers in question, and a factor $\gamma$, which depends on the parents being crossed. An even simpler expression is obtained by substituting the Haldane recombination probability from Equation \ref{eq:haldanemap} in place of $p_r(d)$:
-
+So, the correlation is a product of $(1-2 p_r(d))$, which depends on the markers in question, and a factor $\gamma$, which depends on the parents being crossed. An even simpler expression is obtained by substituting the Haldane recombination probability from Equation \ref{eq:haldanemap} in place of $p_r(d)$:
 \begin{equation} \label{eq:corrdist}
   \begin{split}
     Corr(Z_j, Z_k) & = (1 - 2 p_r(d)) \gamma \\
@@ -470,9 +464,8 @@ So, the correlation is seen to be a product of $(1-2 p_r(d))$, which depends on 
     & = \gamma e^{-2 \beta d}, \\
   \end{split}
 \end{equation}
-and so the using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(1,2)$ with a constant $\gamma$ determined by the parents being crossed.
-
-As $f_{rs}, m_{rs} \in \{0, 1\}$, the differences used to determine $\gamma$ are all either -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, those most of these are not unique.
+and so using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(j,k)$ with an intercept $\gamma$ determined by the parents being crossed. Noted that as $f_{rs}, m_{rs} \in \{0, 1\}$, the differences defining $\gamma$ are all either -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, though most of these are not unique. Indeed there are only five possibilities:
+$$\gamma \in \left \{-1, -\frac{1}{\sqrt{2}}, 0, \frac{1}{\sqrt{2}}, 1 \right \}.$$
 
 %However, the constraint that $f_{ij}, m_{ij} \in \{0, 1\}$ means that $\gamma$ can be rewritten slightly. Recognizing that the pairwise differences in Equation \ref{eq:precorr} are equivalent to indicators of inequality between terms. That is, $f_{11} - f_{12} = I_{f_{11} \neq f_{12}}$ and similarly for the other terms. $\gamma$ can be expressed as
 
