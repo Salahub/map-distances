@@ -218,25 +218,31 @@ This paper presents the details of this structural model. By using mathematical 
 \section{A structural genetic model} \label{sec:theModel}
 
 The structural model starts with
-$$\m{G} = [\ve{g}_1| \ve{g}_2], \text{ } \ve{g}_1, \ve{g}_2 \in \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$$
-represent the entire genome of a individual. $\m{G}$ would contain both the maternal and paternal variants of all chromosomes placed sequentially, with the maternal variant in one column and the paternal in another. As nucleotides bind uniquely, we can record the pattern only for one of the two DNA strands for each column. This gives where $\ve{g}_1,\text{ } \ve{g}_2 \in \mathcal{B}^{N_P} = \{\text{adenine, guanine, cytosine, thymine}\}^{3,234,830,000}$ would be the base pair sequences of an individual's paternal and maternal genome variants, respectively, if the entire genome were recorded.\footnote{In cells, this is not how genetic information is typically organized. Rather than occurring as one long strand, DNA exists within cells in many contiguous, but separate, sections called \textit{chromosomes}.}
+$$\m{G} = [\ve{g}_1| \ve{g}_2], \text{ } \ve{g}_1, \ve{g}_2 \in \mathcal{B}^{N_P}$$
+where $\mathcal{B} = \{\text{adenine, guanine, cytosine, thymine}\}$ is the set of nucleotide bases and $N_P$ is the length of the genome, in humans $N_P = 3,234,830,000$. $\m{G}$ represents the whole genome of an individual, with both the maternal and paternal variants of all chromosomes placed sequentially in adjacent columns. Both of these variants are complete, double-stranded sequences of DNA, but nucleotides pair uniquely. Adenine binds exclusively with thymine and guanine exclusively binds with cytosine. Therefore $\ve{g}_1$ and $\ve{g}_2$ record the pattern only for one of the two DNA strands for each column, the complementary strand being implied by this sequence.
 
-Of course, sequencing the entire human genome is rarely done. A genome-wide association study (GWAS) instead deals with a selected subset measuring only segments of genetic material on chromosomes of interest. Call this subset $\m{S} = [\ve{s}_1 | \ve{s}_2]$ where $\ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K, \text{ } K \ll N_P$. In our model, this corresponds to a mapping from $\m{G} \rightarrow \m{S}$ where $K$ rows of $\m{G}$ are chosen or sampled to create $\m{S}$.\footnote{Choosing these rows is one of the key challenges of GWASs, as the true region of interest, or quantitative trait locus, is generally not known in advance.}
+Rather than address the whole genome, GWAS typically deal with a selected subset of segments on chromosomes of interest. This is represented by
+$$\m{S} = [\ve{s}_1 | \ve{s}_2], \text{ } \ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K$$
+with $K \ll N_P$. This corresponds to a mapping from $\m{G} \rightarrow \m{S}$ where $K$ rows of $\m{G}$ are chosen or sampled to create $\m{S}$. These rows are not typically selected at random, but are motivated by previous work and databases of SNPs and other known markers. Most commonly, then, the mapping $\m{G} \rightarrow \m{S}$ is a selection of $M < K$ disjoint sequences from $\m{G}$. 
 
-Note that these rows are not selected at random. GWASs typically focus on the measurement of \textit{markers}: contiguous DNA sequences with a known location and length on the genome. Consequently, the mapping $\m{G} \rightarrow \m{S}$ takes the form of the selection of $M < K$ disjoint blocks of adjacent rows of $\m{G}$. 
+In the case of SNPs, the markers are most often \textit{biallelic}, i.e. the population is dominated by two different sequences or \textit{alleles} at the marker. These are often denoted using two different letters, such as $A$ and $B$, or analogously the uppercase and lowercase version of the same letter, such as $A$ and $a$. Converting the measured markers to letters is called annotation, which maps $\m{S} \rightarrow \m{T}$ with
+$$\m{T} = [\ve{t}_1 | \ve{t}_2], \text{ } \ve{t}_1, \text{ } \ve{t}_2 \in \{A,a\}^M.$$
+Denoting the $i^{\text{th}}$ position of $\ve{t}_j$ as $t_{ij}$, $t_{lj} = A$ and $t_{mj} = A$ do not represent identical sequences at positions $l$ and $m$. Instead this indicates that the sequences annotated by the capital at each position are present at their respective positions.
 
-These markers are commonly chosen to be \textit{biallelic} as well, that is having two primary variants or \textit{alleles} in the population which are traditionally denoted by a capital and lowercase letter, such as $A$ and $a$. Thus we can annotate the genome, which maps $\m{S} \rightarrow \m{T}$ with $\m{T} = [\ve{t}_1 | \ve{t}_2]$ such that $\ve{t}_1, \text{ } \ve{t}_2 \in \{A,a\}^M$. If we denote the $i^{\text{th}}$ position of $\ve{t}_j$ as $t_{ij}$, note that $t_{lj} = A$ and $t_{mj} = A$ does not mean that they represent the same sequence in $\m{S}$, but instead indicates that the respective dominant alleles are present at these positions.\footnote{Dominant here is meant in the genetic sense, rather than to suggest a relative frequency.}
-
-Next, the annotated variants in $\m{T}$ might be converted to a numeric form. This numeric conversion is a mapping $\m{T} \rightarrow \m{X}$, with $\m{X} := [\ve{x}_1 | \ve{x}_2]$ where $\ve{x}_1, \text{ } \ve{x}_2 \in \Reals^M$. A common choice is $\ve{x}_j \in \{0,1\}^M$ where
+These annotated variants in $\m{T}$ might next be converted to a numeric form. This is a mapping $\m{T} \rightarrow \m{X}$ such that
+$$\m{X} := [\ve{x}_1 | \ve{x}_2], \text{ } \ve{x}_1, \text{ } \ve{x}_2 \in \Reals^M.$$
+Commonly this is even more restricted with $\ve{x}_j \in \{0,1\}^M$ where
 \begin{equation} \label{eq:indicator}
 x_{ij} = \begin{cases}
   1, & \text{ if } t_{ij} = A \\
   0, & \text{ if } t_{ij} = a
 \end{cases},
 \end{equation}
-is an indicator of the presence of the dominant allele.
+is an indicator of the presence of the allele denoted with a capital.
 
-Finally, $\m{X}$ might be converted into a vector $\ve{z} \in \Reals^M$, summarizing each individual's pair of variants into a single vector to use for linear modelling or other analysis. How exactly we perform the mapping $\m{X} \rightarrow \ve{z}$ can differ greatly\footnote{Consider the \textit{dominance mapping} of $z_i = \max\{x_{i1}, x_{i2}\}$ or the \textit{homozygous mapping} of $z_i = I_{x_{i1} = x_{i2}}$.}, but a very common choice is the \textit{additive map} $\ve{z} = \ve{x}_1 + \ve{x}_2$ with $\ve{x}_1$ and $\ve{x}_2$ given according to Equation \ref{eq:indicator}. This choice means $\ve{z} \in \{0,1,2\}^M$, and $z_i$ is equal to the count of copies of $A$ at the $i^{\text{th}}$ marker across both of an individual's variants.
+Finally, $\m{X}$ may be converted into a vector
+$$\ve{z} \in \Reals^M$$
+summarizing the individual's inherited variants. There are many common mappings $\m{X} \rightarrow \ve{z}$. The \textit{dominance mapping} takes $z_i = \max\{x_{i1}, x_{i2}\}$, the \textit{homozygous mapping} uses $z_i = I_{x_{i1} = x_{i2}}$, and the \textit{additive map} is $\ve{z} = \ve{x}_1 + \ve{x}_2$, where $\ve{x}_1$ and $\ve{x}_2$ are given according to Equation \ref{eq:indicator}. The additive map gives $\ve{z} \in \{0,1,2\}^M$, and $z_i$ is equal to the count of copies of $A$ at the $i^{\text{th}}$ marker across both of an individual's variants.
 
 This entire toy model is displayed in Figure \ref{fig:modelDiagram}, with descriptive names added to each mapping. In the first step, $\m{G} \rightarrow \m{S}$, we \textit{select} segments of the entire genome to obtain the marker sequences or interest. The next step, $\m{S} \rightarrow \m{T}$, \textit{annotates} the chosen markers by indicating which of the common alleles is present for that marker. These annotations are then converted to numeric values, or \textit{encoded}, in the step $\m{T} \rightarrow \m{X}$. Finally, we \textit{summarize} the matrix $\m{X}$ into a vector $\ve{z}$ with some row-wise operation. Each of these italicized steps could be performed in a number of ways, with consequences on the final quantification of the genome's relevant features.
 
