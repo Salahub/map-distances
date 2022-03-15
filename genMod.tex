@@ -464,8 +464,66 @@ So, the correlation is a product of $(1-2 p_r(d))$, which depends on the markers
     & = \gamma e^{-2 \beta d}, \\
   \end{split}
 \end{equation}
-and so using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(j,k)$ with an intercept $\gamma$ determined by the parents being crossed. Noted that as $f_{rs}, m_{rs} \in \{0, 1\}$, the differences defining $\gamma$ are all either -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, though most of these are not unique. Indeed there are only five possibilities:
+and so using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(j,k)$ with an intercept $\gamma$ determined by the parents being crossed. Noted that as $f_{rs}, m_{rs} \in \{0, 1\}$, the differences defining $\gamma$ are all either -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, though most of these are not unique. Indeed, across all 81 combinations
 $$\gamma \in \left \{-1, -\frac{1}{\sqrt{2}}, 0, \frac{1}{\sqrt{2}}, 1 \right \}.$$
+A number of population settings for $\gamma$ are of particular interest due to their use throughout history in mouse breeding experiments.
+
+The first of these is the the \textit{$F_2$ intercross} design. \emph{Cross} here is short for sexual reproduction, not crossing over. This design considers the population resulting from the cross of $\m{M}_X$ and $\m{F}_X$ with
+$$\m{F}_X = \m{M}_X = \begin{bmatrix}
+  1 & 0 \\
+  1 & 0 \\
+\end{bmatrix}.$$
+This corresponds to a setting where all the differences in $\gamma$ are 1 and so $\gamma_{\text{inter}} = 1$.
+
+The next is the \textit{$F_2$ backcross}. Here we have a cross between $\m{M}_X$ and $\m{F}_X$ defined as
+$$\m{F}_X = \begin{bmatrix}
+  f & f \\
+  f & f \\
+\end{bmatrix}, \text{ and }
+\m{M}_X = \begin{bmatrix}
+  1 & 0 \\
+  1 & 0 \\
+\end{bmatrix}.$$
+where $f \in \{0,1\}$. In this setting, both differences defined on $\m{F}_X$ are 0 while both of those defined on $\m{M}_X$ are 1. This gives $\gamma_{\text{back}} = 1$, the same as that of the intercross population.
+
+Other interesting cases without historical names involve
+$$\m{F}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix} \text{ or } \m{M}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix},$$
+as these can result in $\gamma < 0$, and so a negative correlation. For example, if we have
+$$\m{F}_X = \m{M}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix},$$
+then $\gamma = -1$, while taking
+$$\m{F}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
+  0 & 1 \\
+  0 & 1 \\
+\end{bmatrix},$$
+gives $\gamma = -\frac{1}{\sqrt{2}}$. Many other settings lead to no measured correlation. Take
+$$\m{F}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
+  1 & 1 \\
+  0 & 0 \\
+\end{bmatrix},$$
+or
+$$\m{F}_X = \begin{bmatrix}
+  0 & 1 \\
+  1 & 0 \\
+\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
+  1 & 1 \\
+  0 & 0 \\
+\end{bmatrix},$$
+for example.
 
 %However, the constraint that $f_{ij}, m_{ij} \in \{0, 1\}$ means that $\gamma$ can be rewritten slightly. Recognizing that the pairwise differences in Equation \ref{eq:precorr} are equivalent to indicators of inequality between terms. That is, $f_{11} - f_{12} = I_{f_{11} \neq f_{12}}$ and similarly for the other terms. $\gamma$ can be expressed as
 
@@ -500,80 +558,17 @@ $$\gamma \in \left \{-1, -\frac{1}{\sqrt{2}}, 0, \frac{1}{\sqrt{2}}, 1 \right \}
 
 %Surprisingly, many of the possible crosses admit a $\gamma$ value of zero, suggesting that for a slight majority of possible population designs, markers will be uncorrelated. A second critical observation is that, for the non-zero correlation populations, the structure is dictated by $1 - 2p_r(d)$, which may be modified by a factor of $\frac{1}{\sqrt{2}}$. This implies that the only relevant process for modelling correlation in this model is the probability of cross overs between given markers.
 
-Recalling that $j$ and $k$ were restricted to be markers on the same chromosome, this pairwise result can be immediately generalized to the correlation matrix $\ve{Z}$ for the markers measured on an entire genome. For markers on the same chromosome, non-trivial correlations will be proportional to $1 - 2p_r(d)$ where $p_r(d)$ indicates the probability of recombination as a function of the distance between markers. Based on the independent assortment of different chromosomes, the correlations will be zero for any pair $j$ and $k$ not on the same chromosome.
+Finally, these results can be extended to the whole genome. Recalling that $j$ and $k$ were restricted to be markers on the same chromosome, this pairwise result can be generalized to the correlation matrix of $\ve{Z}$ for the markers measured on an entire genome. For markers on the same chromosome, non-trivial correlations will be proportional to $1 - 2p_r(d)$, where $p_r(d)$ is the probability of recombination as a function of the distance between markers. Based on the independent assortment of different chromosomes, the correlations will be zero for any pair $j$ and $k$ not on the same chromosome.
 
-In other words, if $h_j = h_k$, Equation \ref{eq:precorr} dictates the correlation between $Z_j$ and $Z_k$. On the other hand, if $h_j \neq h_k$ the correlation between $Z_j$ and $Z_k$ will be zero. This implies a block diagonal structure corresponding to the chromosomes with correlations dictated by the probability of recombination within each chromosome. Most generally
+In other words, if $c_j = c_k$, Equation \ref{eq:precorr} dictates the correlation between $Z_j$ and $Z_k$. On the other hand, if $c_j \neq c_k$ the correlation between $Z_j$ and $Z_k$ will be zero. This implies a block diagonal structure corresponding to the chromosomes with correlations dictated by the probability of recombination within each chromosome. Most generally
 \begin{equation} \label{eq:zcorr_gen}
-  Corr(Z_j, Z_k) = \ind{h_k}{\{h_j\}} \gamma (1 - 2p_r(d)),
+  Corr(Z_j, Z_k) = \ind{c_k}{\{c_j\}} \gamma (1 - 2p_r(d)),
 \end{equation}
 and under the Haldane model Equation \ref{eq:corrdist} gives
 \begin{equation} \label{eq:zcorr}
-  Corr(Z_j, Z_k) = \ind{h_k}{\{h_j\}} \gamma e^{-2 \beta d(j,k)}.
+  Corr(Z_j, Z_k) = \ind{c_k}{\{c_j\}} \gamma e^{-2 \beta d(j,k)}.
 \end{equation}
 
-\noindent There are two particular population structures for which $\gamma$ is of interest, due to their popularity.\footnote{The populations of these crosses are entirely hypothetical in humans, but through successive inbreeding over many generations such homogeneity is commonly created in mouse models.}
-
-First, consider the \textit{$F_2$ intercross} design. This design considers the population resulting from the cross of $\m{M}_X$ and $\m{F}_X$ with
-
-$$\m{F}_X = \m{M}_X = \begin{bmatrix}
-  1 & 0 \\
-  1 & 0 \\
-\end{bmatrix}$$
-
-\noindent and so corresponds to the setting where all the differences in $\gamma$ are 1. Therefore, $\gamma_{\text{inter}} = 1$ and so the correlation for an intercross population is given by $Corr(Z_j, Z_K) = I_{h_j = h_k} e^{-2 \beta d(j,k)}$.
-
-For the \textit{$F_2$ backcross}, a slightly different setting is used. Here we have a cross between $\m{M}_X$ and $\m{F}_X$ defined as
-
-$$\m{F}_X = \begin{bmatrix}
-  f & f \\
-  f & f \\
-\end{bmatrix}, \text{ and }
-\m{M}_X = \begin{bmatrix}
-  1 & 0 \\
-  1 & 0 \\
-\end{bmatrix}.$$
-
-\noindent In this setting, both differences defined on $\m{F}_X$ are 0 while both of those defined on $\m{M}_X$ are 1. This immediately gives $\gamma_{\text{back}} = 1$, and so the correlation for the backcross population is given by the exact same expression as that of the intercross population, $Corr(Z_j, Z_K) = I_{h_j = h_k} e^{-2 \beta d(j,k)}$.\footnote{As an aside, note that names \textit{intercross} and \textit{backcross} are references to breeding practices. The $\m{F}$ and $\m{M}$ of the intercross can be thought of as the result of a cross between an individual which is entirely dominant and an individual which is entirely recessive. The in the intercross, two children resulting from this dominant/recessive cross are crossed, while in the backcross, a child is crossed with a parent. Hopefully, one appreciates why such odd patterns of breeding are only pursued in mice.}
-
-Other interesting cases involve
-$$\m{F}_X = \begin{bmatrix}
-  0 & 1 \\
-  1 & 0 \\
-\end{bmatrix} \text{ or } \m{M}_X = \begin{bmatrix}
-  0 & 1 \\
-  1 & 0 \\
-\end{bmatrix},$$
-as these can result in $\gamma < 0$, and so a negative correlation. For example, if we have
-$$\m{F}_X = \m{M}_X = \begin{bmatrix}
-  0 & 1 \\
-  1 & 0 \\
-\end{bmatrix},$$
-then $\gamma = -1$, while taking
-$$\m{F}_X = \begin{bmatrix}
-  0 & 1 \\
-  1 & 0 \\
-\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
-  0 & 1 \\
-  0 & 1 \\
-\end{bmatrix},$$
-gives $\gamma = -\frac{1}{\sqrt{2}}$.
-
-Many other settings lead to no measured correlation. Take
-$$\m{F}_X = \begin{bmatrix}
-  0 & 1 \\
-  1 & 0 \\
-\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
-  1 & 1 \\
-  0 & 0 \\
-\end{bmatrix},$$
-or
-$$\m{F}_X = \begin{bmatrix}
-  0 & 1 \\
-  1 & 0 \\
-\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
-  1 & 1 \\
-  0 & 0 \\
-\end{bmatrix},$$
 
 \section{Simulating the model} \label{subsec:sim}
 

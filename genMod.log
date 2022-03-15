@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  14 MAR 2022 19:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  14 MAR 2022 21:33
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -482,72 +482,72 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                 on input line 298.
 
 [6] [7] [8] [9] [10] [11] [12]
-<./img/back1.png, id=249, 481.8pt x 481.8pt>
+<./img/back1.png, id=241, 481.8pt x 481.8pt>
 File: ./img/back1.png Graphic file (type png)
 <use ./img/back1.png>
-Package pdftex.def Info: ./img/back1.png  used on input line 587.
+Package pdftex.def Info: ./img/back1.png  used on input line 582.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/back2.png, id=250, 481.8pt x 481.8pt>
+<./img/back2.png, id=242, 481.8pt x 481.8pt>
 File: ./img/back2.png Graphic file (type png)
 <use ./img/back2.png>
-Package pdftex.def Info: ./img/back2.png  used on input line 588.
+Package pdftex.def Info: ./img/back2.png  used on input line 583.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/back3.png, id=251, 481.8pt x 481.8pt>
+<./img/back3.png, id=243, 481.8pt x 481.8pt>
 File: ./img/back3.png Graphic file (type png)
 <use ./img/back3.png>
-Package pdftex.def Info: ./img/back3.png  used on input line 589.
+Package pdftex.def Info: ./img/back3.png  used on input line 584.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/inter1.png, id=252, 481.8pt x 481.8pt>
+<./img/inter1.png, id=244, 481.8pt x 481.8pt>
 File: ./img/inter1.png Graphic file (type png)
 <use ./img/inter1.png>
-Package pdftex.def Info: ./img/inter1.png  used on input line 608.
+Package pdftex.def Info: ./img/inter1.png  used on input line 603.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/inter2.png, id=253, 481.8pt x 481.8pt>
+<./img/inter2.png, id=245, 481.8pt x 481.8pt>
 File: ./img/inter2.png Graphic file (type png)
 <use ./img/inter2.png>
-Package pdftex.def Info: ./img/inter2.png  used on input line 609.
+Package pdftex.def Info: ./img/inter2.png  used on input line 604.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/inter3.png, id=254, 481.8pt x 481.8pt>
+<./img/inter3.png, id=246, 481.8pt x 481.8pt>
 File: ./img/inter3.png Graphic file (type png)
 <use ./img/inter3.png>
-Package pdftex.def Info: ./img/inter3.png  used on input line 610.
+Package pdftex.def Info: ./img/inter3.png  used on input line 605.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
  [13 <./img/back1.png> <./img/back2.png> <./img/back3.png>] [14 <./img/inter1.p
 ng> <./img/inter2.png> <./img/inter3.png>]
-<./img/chevCorr.png, id=289, 481.8pt x 481.8pt>
+<./img/chevCorr.png, id=282, 481.8pt x 481.8pt>
 File: ./img/chevCorr.png Graphic file (type png)
 <use ./img/chevCorr.png>
-Package pdftex.def Info: ./img/chevCorr.png  used on input line 653.
+Package pdftex.def Info: ./img/chevCorr.png  used on input line 648.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorrTheory.png, id=290, 481.8pt x 481.8pt>
+<./img/chevCorrTheory.png, id=283, 481.8pt x 481.8pt>
 File: ./img/chevCorrTheory.png Graphic file (type png)
 <use ./img/chevCorrTheory.png>
-Package pdftex.def Info: ./img/chevCorrTheory.png  used on input line 654.
+Package pdftex.def Info: ./img/chevCorrTheory.png  used on input line 649.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorrTest.png, id=291, 722.7pt x 722.7pt>
+<./img/chevCorrTest.png, id=284, 722.7pt x 722.7pt>
 File: ./img/chevCorrTest.png Graphic file (type png)
 <use ./img/chevCorrTest.png>
-Package pdftex.def Info: ./img/chevCorrTest.png  used on input line 667.
+Package pdftex.def Info: ./img/chevCorrTest.png  used on input line 662.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
-<./img/jaxbsb.png, id=298, 542.025pt x 542.025pt>
+<./img/jaxbsb.png, id=291, 542.025pt x 542.025pt>
 File: ./img/jaxbsb.png Graphic file (type png)
 <use ./img/jaxbsb.png>
-Package pdftex.def Info: ./img/jaxbsb.png  used on input line 678.
+Package pdftex.def Info: ./img/jaxbsb.png  used on input line 673.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/jaxbsb_sim.png, id=299, 542.025pt x 542.025pt>
+<./img/jaxbsb_sim.png, id=292, 542.025pt x 542.025pt>
 File: ./img/jaxbsb_sim.png Graphic file (type png)
 <use ./img/jaxbsb_sim.png>
-Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 679.
+Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 674.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb.png, id=300, 542.025pt x 542.025pt>
+<./img/uclabsb.png, id=293, 542.025pt x 542.025pt>
 File: ./img/uclabsb.png Graphic file (type png)
 <use ./img/uclabsb.png>
-Package pdftex.def Info: ./img/uclabsb.png  used on input line 692.
+Package pdftex.def Info: ./img/uclabsb.png  used on input line 687.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb_sim.png, id=301, 542.025pt x 542.025pt>
+<./img/uclabsb_sim.png, id=294, 542.025pt x 542.025pt>
 File: ./img/uclabsb_sim.png Graphic file (type png)
 <use ./img/uclabsb_sim.png>
-Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 693.
+Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 688.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
 
 [15 <./img/chevCorr.png (PNG copy)> <./img/chevCorrTheory.png (PNG copy)>]
@@ -558,44 +558,41 @@ Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 533EA9F44A19E5CDAD81BDF98077F0B8;781.
  ) 
 Here is how much of TeX's memory you used:
- 11916 strings out of 478927
- 180935 string characters out of 2852535
+ 11910 strings out of 478927
+ 180866 string characters out of 2852535
  488873 words of memory out of 3000000
- 29487 multiletter control sequences out of 15000+600000
- 418922 words of font info for 83 fonts, out of 8000000 for 9000
+ 29484 multiletter control sequences out of 15000+600000
+ 417970 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1427b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1427b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmbx7.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Chris/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Chris/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Chris/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Chris/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users
-/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb
+/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Chris/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Chris/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Chris/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Chris/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Use
+rs/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb
 ><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mr10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmr12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr5.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Chris/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Chris/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Chris/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Chris/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users
-/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmti12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmti8.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Chris/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (22 pages, 880188 bytes).
+mr12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr17.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr5.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Chris/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Chris/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Chris/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Chris
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Use
+rs/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pf
+b><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmti12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/symbols/msbm10.pfb>
+Output written on genMod.pdf (22 pages, 849575 bytes).
 PDF statistics:
- 536 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
+ 517 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
  175 words of extra memory for PDF output out of 10000 (max. 10000000)
 
