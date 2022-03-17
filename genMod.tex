@@ -572,7 +572,21 @@ and under the Haldane model Equation \ref{eq:corrdist} gives
 
 \section{Simulating the model} \label{subsec:sim}
 
-The model outlined in Figure \ref{fig:modelDiagram} also suggests a straightforward set of structures which can be used for simulation. Motivated by the focus on correlation in determining $M_{eff}$, these simulations focused on simulating the correlation of $\ve{z}$ for both the $F_2$ intercross and $F_2$ backcross populations.
+The correlation results of Equation \ref{eq:zcorr} are simulated by combining the model in Section \ref{sec:theModel} with the map distance derivation of Equation \ref{eq:haldanemap}. A structure which mirrors $\m{T}$ is first created. It consists of annotated biallelic markers on separate chromosomes at distances given in centiMorgans. A populaton can be generated from a pair of these annotation matrices with genetic recombination dictated only by independent assortment and crossing over, with the details matching those in Section \ref{sec:theModel}. Each individual genome generated can then be encoded and summarized before the population-wide correlation matrix is computed.
+
+Previous literature can be use to motivating the particular simulation settings. both the $F_2$ intercross and $F_2$ backcross populations.
+
+\cite{Galwey2009}, \cite{nyholt2004}, and \cite{Salyakina2005}, the structure of selected markers is motivated by previous work. As a consequence, these studies typically only view one chromosome, indeed one small section of a chromosome, associated with a phenotype. Additionally, the markers within this segment are typically not evenly spaced, a situation similar to setting (b) from Section \ref{subsec:sim}. Typically, these distances are not reported in centimorgans, but instead in base pairs.
+
+In contrast, simulation studies seem to be characterized by equidistant measurements on one or several chromosomes. \cite{cheverud2001} performs simulation on a single chromosome with equidistant markers, and records the results for several distances. This is of the same form as setting (a) from Section \ref{subsec:sim}. \cite{LanderBotstein1989} examines a case of 12 chromosomes with markers spaced every 20 cM along each, which is a specific case of setting (c).
+
+Departing from a reference to distances in centimorgans or base pairs, \cite{LiJi2005} set their simulation scenarios using the genetic $r^2$ measure, defined by \cite{hillrobertson1968} as
+
+\begin{equation} \label{eq:rsq}
+  r^2 = \frac{\left ( p_{AB} p_{ab} - p_{Ab} p_{aB} \right )^2}{{p_A (1 - p_A) p_B (1 - p_B)}} = \frac{\left ( p_{AB} - p_A p_B \right )^2}{p_A (1 - p_A) p_B (1 - p_B)},
+\end{equation}
+
+\noindent which is exactly Pearson's product moment correlation for the two by two contingency table case. In adopting this measure to define their simulation settings, \cite{LiJi2005} use different language than other studies. Their simulation is described as an investigation of ten independent regions within which five markers are placed such that adjacent markers have an $r^2$ of 0.8 between them. Despite this difference in language, this design is clearly analogous to setting (c) from Section \ref{subsec:sim}.
 
 For both populations, 100,000 individuals were simulated under three separate settings. In all settings, the simulated genomes consisted of 20 markers with differing structure. In the first setting, call it setting (a), the simplest possible case was examined: that of markers spaced evenly along a single chromosome. A distance of distance of 15 cM between adjacent markers was chosen for this setting. Setting (b) also investigated markers on a single chromosome, but these markers were no longer equidistant. Instead, markers one through six were separated by adjacent distances of 2 cM. 6 through 11 by adjacent distances of 5 cM, and similarly 11 through 16 were separated by 10 cM and 16 through 20 by 20 cM. Finally, in setting (c) a genome of two chromosomes was investigated, with the markers on the first placed 5 cM apart and those on the second 15 cM apart. The resulting correlation matrices for these settings are displayed in Figure \ref{fig:backsim} for the $F_2$ backcross population and Figure \ref{fig:intersim} for the $F_2$ intercross population.
 
@@ -634,7 +648,7 @@ The function \code{sex} is then used to cross any pair of \code{genome} objects 
 
 The correlation of repeated swaps is then computed via \code{popCorrelation}. As the choice of scoring is at the discretion of the analyst, it accepts not only a list of \code{genome} objects representing the result of repeated crosses, but also a scoring function which accepts a single \code{genome} and returns a $\ve{z}$ value. By default, the additive scoring of $\ve{z} = \ve{x}_1 + \ve{x}_2$ is used.
 
-The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. The code for this implementation can be found at https://github.com/Salahub/genetic-model.
+The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. 
 
 \section{Comparing the model to reality} \label{sec:model2real}
 
