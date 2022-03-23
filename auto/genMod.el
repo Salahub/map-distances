@@ -125,18 +125,14 @@
     "eq:corrdist"
     "eq:zcorr_gen"
     "eq:zcorr"
-    "subsec:sim"
-    "eq:rsq"
-    "fig:backsim"
-    "fig:intersim"
+    "sec:sim"
+    "fig:paperSims"
+    "fig:paperTheory"
     "sec:model2real"
     "fig:corr2real"
     "fig:corrTestPlot"
     "fig:jaxbsb"
     "fig:uclabsb"
-    "sec:apply"
-    "tab:r2"
-    "subsec:inlit"
     "sec:conclusion")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")

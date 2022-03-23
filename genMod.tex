@@ -292,7 +292,7 @@ As we rarely sequence the entire genome of an individual's somatic and sex cells
 
 However, the recombination rate for a pair of markers tells us nothing of how many cross over events occurred between them. Any odd number of events leads to a swap, while any even number will be undetectable. With this restricted view, the true count of indices $i$ for which $v_i = 1$ cannot be known, and hence the $\pi_i$ cannot be estimated individually.
 
-\subsection{Simplifying Assumptions} \label{subsec:simplify}
+\subsection{Simplifying assumptions} \label{subsec:simplify}
 
 Fortunately, if the recombination of two particular markers on the genome is all we care about, estimating individual $\pi_i$ values is unnecessary. Consider two such positions, $j$ and $k$ with $j < k$, and note that cross overs beginning at any of $j+1, j+2, \dots, k-1, k$ all result in these positions being split between variants. For identifiability assume that $\pi_j = \pi_{j+1} = \cdots = \pi_{k-1} = \pi_k = \pi_{j:k}$. Let $N_c$ be a random variable counting the number of cross overs beginning in $\{j+1,j+2,\dots,k-1,k\}$. Then
 $$P(N_c = n_c) = {k - j \choose n_c} \pi_{j:k}^{n_c} (1-\pi_{j:k})^{k - j - n_c}$$
@@ -302,7 +302,7 @@ if we assume the cross overs occur independently. For convenience, let $r = k - 
 \end{equation}
 where $r$ is a unitless count of base pairs between positions $j$ and $k$.
 
-Recall that $N_P = 3,234,830,000$ in humans. This large number of base pairs spread over the 23 human chromosomes means that two markers will typically be separated by a great number of base pairs, and so $r$ will be very large. Therefore, consider the limit of this expression as $r \rightarrow \infty$:
+Recall that $N_P = 3,234,830,000$ in humans. This large number of base pairs spread over the 23 human chromosomes means that two markers will typically be separated by a great number of base pairs, and so $r$ will be very large. Indeed, examples in \cite{nyholt2004}, \cite{Salyakina2005}, and \cite{Galwey2009} typically have thousands or tens of thousands of base pairs between marker locations. Therefore, consider the limit of this expression as $r \rightarrow \infty$:
 $$\lim_{r \rightarrow \infty} P(N_c = n_c) = \lim_{r \rightarrow \infty} {r \choose n_c} \pi^{n_c} (1-\pi)^{r - n_c}.$$
 At this point, a substitution can be made:
 $$\pi = \frac{\beta d(j,k)}{r} := \frac{\beta d}{r},$$
@@ -336,7 +336,7 @@ Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ bet
     & = \frac{1}{2} \left ( 1 - e^{-2 \beta d} \right ) .\\
   \end{split}
 \end{equation}
-A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of crossing over events gives us Haldane's formula for the \textit{map distance} in \textit{centiMorgans}. By accounting for the structure of the genome and making a number of simplifying assumptions, the model from Section \ref{sec:theModel} gives a classic result of genetics without any reference to the population-level differential equation used in its original derivation. This comforting result can be taken a step further to compute new theoretical results. 
+A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of crossing over events gives us Haldane's formula for the \textit{map distance} in \textit{centiMorgans} or cM. By accounting for the structure of the genome and making a number of simplifying assumptions, the model from Section \ref{sec:theModel} gives a classic result of genetics without any reference to the population-level differential equation used in its original derivation. This comforting result can be taken a step further to compute new theoretical results. 
 
 \section{Genetic correlation} \label{sec:correlation}
 
@@ -346,7 +346,7 @@ For clarity, let $\ve{z}$ indicate an instance of the random vector $\ve{Z} = \t
 
 Return to the annotated matrix $\m{T}$ and consider two markers at row indices $j$ and $k$. Introduce $\ve{c}$, which is defined similarly to $\ve{h}$ earlier, but now indicates chromosomal membership for the markers in $\m{T}$ rather than the base pairs in $\m{G}$. As every marker is contained within a single chromosome, $\ve{c}$ is always unambiguously defined.
 
-There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, the assumptions of Section \ref{subsec:modelcrossing} dictate that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently alongside their respective chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in centiMorgans in Equation \ref{eq:haldanemap}. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
+There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, the assumptions of Section \ref{subsec:modelcrossing} dictate that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently alongside their respective chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in cM in Equation \ref{eq:haldanemap}. Denote the dominant and recessive alleles with $A$ and $a$ respectively for $j$ and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
 $$\m{T} = \begin{bmatrix}
   A & a \\
   b & B \\
@@ -570,85 +570,65 @@ and under the Haldane model Equation \ref{eq:corrdist} gives
 \end{equation}
 
 
-\section{Simulating the model} \label{subsec:sim}
+\section{Simulating the model} \label{sec:sim}
 
-The correlation results of Equation \ref{eq:zcorr} are simulated by combining the model in Section \ref{sec:theModel} with the map distance derivation of Equation \ref{eq:haldanemap}. A structure which mirrors $\m{T}$ is first created. It consists of annotated biallelic markers on separate chromosomes at distances given in centiMorgans. A populaton can be generated from a pair of these annotation matrices with genetic recombination dictated only by independent assortment and crossing over, with the details matching those in Section \ref{sec:theModel}. Each individual genome generated can then be encoded and summarized before the population-wide correlation matrix is computed.
+The correlation results of Equation \ref{eq:zcorr} are simulated by combining the model in Section \ref{sec:theModel} with the map distance derivation of Equation \ref{eq:haldanemap}. A structure which mirrors $\m{T}$ is first created. It consists of two columns of annotated biallelic markers. These may be on separate chromosomes with intra-chromosome distances specified together with a function to generate recombination probabilities given a distance. By default, these distances and probabilities are cM and Equation \ref{eq:haldanemap}. A populaton can be generated from a pair of these matrices with genetic recombination dictated only by independent assortment and crossing over, with the details matching those in Section \ref{sec:theModel}. Each individual genome generated can then be encoded and summarized before the population-wide correlation matrix is computed.
 
-Previous literature can be use to motivating the particular simulation settings. both the $F_2$ intercross and $F_2$ backcross populations.
+Previous literature motivates particular simulation settings. \cite{cheverud2001} investigates the correlation matrix by simulating a single chromosome with equidistant markers. All combinations of chromosome lengths of 50, 75, and 100 cM with markers equidistant at 50, 25, 12.5, and 6.25 cM were simulated for populations of 500 $F_2$ intercross offspring. \cite{LanderBotstein1989} instead simulates twelve chromosomes of length 100 cM with markers every 20 cM along each for a population of 250 $F_2$ backcross offspring.
 
-\cite{Galwey2009}, \cite{nyholt2004}, and \cite{Salyakina2005}, the structure of selected markers is motivated by previous work. As a consequence, these studies typically only view one chromosome, indeed one small section of a chromosome, associated with a phenotype. Additionally, the markers within this segment are typically not evenly spaced, a situation similar to setting (b) from Section \ref{subsec:sim}. Typically, these distances are not reported in centimorgans, but instead in base pairs.
+Departing from a reference to distances in cM or base pairs, \cite{LiJi2005} set their simulation scenarios using the genetic $r^2$ measure as defined in \cite{hillrobertson1968}. This measure is exactly Pearson's product moment correlation for the two by two contingency table case.
+%\begin{equation} \label{eq:rsq}
+%  r^2 = \frac{\left ( p_{AB} p_{ab} - p_{Ab} p_{aB} \right )^2}{{p_A (1 - p_A) p_B (1 - p_B)}} = \frac{\left ( p_{AB} - p_A p_B \right )^2}{p_A (1 - p_A) p_B (1 - p_B)},
+%\end{equation}
+This difference is meaningful, as \cite{siegmundyakir2007} note that $r^2$ is not constant over generations. After $k$ generations it is given by
+$$r_k^2 = \left [ 1 - p_r \right ]^{2k}  r^2_0$$
+for two markers with $r^2 = r^2_0$ initially and a probability of recombination of $p_r$. Unlike cM or base pairs, which are constant over generations, $r^2$ eventually goes to zero.
 
-In contrast, simulation studies seem to be characterized by equidistant measurements on one or several chromosomes. \cite{cheverud2001} performs simulation on a single chromosome with equidistant markers, and records the results for several distances. This is of the same form as setting (a) from Section \ref{subsec:sim}. \cite{LanderBotstein1989} examines a case of 12 chromosomes with markers spaced every 20 cM along each, which is a specific case of setting (c).
+Nonetheless, \cite{LiJi2005} investigate 10 ``independent regions'' within each of which 5 markers are placed such that adjacent markers have an $r^2$ of 0.8 between them. This design is analogous to that of \cite{LanderBotstein1989}, despite the difference in language and description.
 
-Departing from a reference to distances in centimorgans or base pairs, \cite{LiJi2005} set their simulation scenarios using the genetic $r^2$ measure, defined by \cite{hillrobertson1968} as
-
-\begin{equation} \label{eq:rsq}
-  r^2 = \frac{\left ( p_{AB} p_{ab} - p_{Ab} p_{aB} \right )^2}{{p_A (1 - p_A) p_B (1 - p_B)}} = \frac{\left ( p_{AB} - p_A p_B \right )^2}{p_A (1 - p_A) p_B (1 - p_B)},
-\end{equation}
-
-\noindent which is exactly Pearson's product moment correlation for the two by two contingency table case. In adopting this measure to define their simulation settings, \cite{LiJi2005} use different language than other studies. Their simulation is described as an investigation of ten independent regions within which five markers are placed such that adjacent markers have an $r^2$ of 0.8 between them. Despite this difference in language, this design is clearly analogous to setting (c) from Section \ref{subsec:sim}.
-
-For both populations, 100,000 individuals were simulated under three separate settings. In all settings, the simulated genomes consisted of 20 markers with differing structure. In the first setting, call it setting (a), the simplest possible case was examined: that of markers spaced evenly along a single chromosome. A distance of distance of 15 cM between adjacent markers was chosen for this setting. Setting (b) also investigated markers on a single chromosome, but these markers were no longer equidistant. Instead, markers one through six were separated by adjacent distances of 2 cM. 6 through 11 by adjacent distances of 5 cM, and similarly 11 through 16 were separated by 10 cM and 16 through 20 by 20 cM. Finally, in setting (c) a genome of two chromosomes was investigated, with the markers on the first placed 5 cM apart and those on the second 15 cM apart. The resulting correlation matrices for these settings are displayed in Figure \ref{fig:backsim} for the $F_2$ backcross population and Figure \ref{fig:intersim} for the $F_2$ intercross population.
+Some of the simulations of \cite{cheverud2001} and \cite{LanderBotstein1989} were recreated using the implementation detailed above. Specifically, these were the 100 cM chromosome with 6.25 cM separated markers of \cite{cheverud2001} and the twelve 100 cM chromosomes with 20 cM separated markers of \cite{LanderBotstein1989}. A comparison of the simulated and theoretical matrices for the \cite{cheverud2001} setting is shown in Figure \ref{fig:paperSims}, while Figure \ref{fig:paperTheory} shows these matrices for the \cite{LanderBotstein1989} setting.
 
 \begin{figure}[htp]
   \begin{center}
-    \begin{tabular}{ccc}
-      \includegraphics[width = 0.300\textwidth]{./img/back1.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/back2.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/back3.png} \\
-      {\footnotesize (a) Single chromosome,} &
-      {\footnotesize (b) Single chromosome,} &
-      {\footnotesize (c) Two chromosomes,} \\
-      {\footnotesize markers 15 cM apart} &
-      {\footnotesize markers 2, 5, 10, } &
-      {\footnotesize markers 5 and 15 cM} \\
-      &
-      {\footnotesize and 20 cM apart} &
-      {\footnotesize apart} \\ 
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.4\textwidth]{./img/chevSim.png} &
+      \includegraphics[width = 0.4\textwidth]{./img/chevSimTheory.png} \\
+      {\footnotesize (a) Simulated} &
+      {\footnotesize (b) Theoretical} \\
     \end{tabular}
   \end{center}
-  \caption{$F_2$ backcross correlation matrices for the three settings simulated.}
-  \label{fig:backsim}
+  \caption{$F_2$ intercross of 100 cM chromosome markers 6.25 cM apart.}
+  \label{fig:paperSims}
 \end{figure}
 
 \begin{figure}[htp]
   \begin{center}
-    \begin{tabular}{ccc}
-      \includegraphics[width = 0.300\textwidth]{./img/inter1.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/inter2.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/inter3.png} \\
-      {\footnotesize (a) Single chromosome,} &
-      {\footnotesize (b) Single chromosome,} &
-      {\footnotesize (c) Two chromosomes,} \\
-      {\footnotesize markers 15 cM apart} &
-      {\footnotesize markers 2, 5, 10, } &
-      {\footnotesize markers 5 and 15 cM} \\
-      &
-      {\footnotesize and 20 cM apart} &
-      {\footnotesize apart} \\ 
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.4\textwidth]{./img/LBSim.png} &
+      \includegraphics[width = 0.4\textwidth]{./img/LBSimTheory.png} \\
+      {\footnotesize (a) Simulated} &
+      {\footnotesize (b) Theoretical} \\
     \end{tabular}
   \end{center}
-  \caption{$F_2$ intercross correlation matrices for the three settings simulated.}
-  \label{fig:intersim}
+  \caption{$F_2$ backcross of twelve 100 cM chromosomes markers 20 cM apart.}
+  \label{fig:paperTheory}
 \end{figure}
 
-The patterns present in Figures \ref{fig:backsim} and \ref{fig:intersim} are exactly as expected from Section \ref{sec:correlation}. There is an almost perfect similarity between the backcross and intercross design, with only small local variations present between them, in particular for setting (a). All settings show a clear maximum along the main diagonal and a regular decay for off-diagonal elements. Indeed, setting (b) demonstrates how this decay is faster for more distantly spaced markers than nearer ones with its distinct fan pattern. Setting (c) additionally demonstrates the lack of correlation between different chromosomes with its striking block structure for both the backcross and the intercross.
+%The patterns present in Figures \ref{fig:backsim} and \ref{fig:intersim} are exactly as expected from Section \ref{sec:correlation}. There is an almost perfect similarity between the backcross and intercross design, with only small local variations present between them, in particular for setting (a). All settings show a clear maximum along the main diagonal and a regular decay for off-diagonal elements. Indeed, setting (b) demonstrates how this decay is faster for more distantly spaced markers than nearer ones with its distinct fan pattern. Setting (c) additionally demonstrates the lack of correlation between different chromosomes with its striking block structure for both the backcross and the intercross.
 
-Such simulations are a confirmation of the earlier analysis performed, but were much more time consuming than using the analytical results. This suggests that the current standard method of simulating large populations is a rather inefficient way of achieving the same result as the analytical prescription of Section \ref{sec:correlation}. Conveniently, the prescription ignores the particular setting: both the backcross and intercross behave identically when viewed through the lens of correlation.
+%Such simulations are a confirmation of the earlier analysis performed, but were much more time consuming than using the analytical results. This suggests that the current standard method of simulating large populations is a rather inefficient way of achieving the same result as the analytical prescription of Section \ref{sec:correlation}. Conveniently, the prescription ignores the particular setting: both the backcross and intercross behave identically when viewed through the lens of correlation.
 
-\subsection{Implementation}
+%\subsection{Implementation}
 
-\TODO{Lose this section?}
+%In order to make the above procedures repeatable, easily read, and flexible, the code for these simulations was implemented in \R using the S3 class system. The core construct was a class meant to reflect $\m{X}$.
 
-In order to make the above procedures repeatable, easily read, and flexible, the code for these simulations was implemented in \R using the S3 class system. The core construct was a class meant to reflect $\m{X}$.
+%Objects of the \code{genome} class are lists with two elements: \code{alleles} and \code{dists}. The \code{alleles} element is a list of two column matrices, where each matrix represents the value of $\m{X}$ for a particular chromosome. \code{dists} is a list of vectors of the same length as \code{alleles}. Each vector in \code{dists} gives the distances between the alleles in the corresponding element of \code{alleles}. A function called \code{abiogenesis} allows for the convenient creation of a genome through the specification of distances and allele values.
 
-Objects of the \code{genome} class are lists with two elements: \code{alleles} and \code{dists}. The \code{alleles} element is a list of two column matrices, where each matrix represents the value of $\m{X}$ for a particular chromosome. \code{dists} is a list of vectors of the same length as \code{alleles}. Each vector in \code{dists} gives the distances between the alleles in the corresponding element of \code{alleles}. A function called \code{abiogenesis} allows for the convenient creation of a genome through the specification of distances and allele values.
+%The function \code{sex} is then used to cross any pair of \code{genome} objects with the use of a \code{meiosis} helper function. \code{sex} accepts an arbitrary distance function which is passed to \code{meiosis} to convert the \code{dists} elements of the \code{genome}s into probabilities of crossing over. By default, the Haldane map distance conversion of Equation \ref{eq:haldanemap} is used. Random Bernoulli trials for each of these probabilities then determines the locations of cross over events, and sections of the columns of \code{alleles} are swapped accordingly.
 
-The function \code{sex} is then used to cross any pair of \code{genome} objects with the use of a \code{meiosis} helper function. \code{sex} accepts an arbitrary distance function which is passed to \code{meiosis} to convert the \code{dists} elements of the \code{genome}s into probabilities of crossing over. By default, the Haldane map distance conversion of Equation \ref{eq:haldanemap} is used. Random Bernoulli trials for each of these probabilities then determines the locations of cross over events, and sections of the columns of \code{alleles} are swapped accordingly.
+%The correlation of repeated swaps is then computed via \code{popCorrelation}. As the choice of scoring is at the discretion of the analyst, it accepts not only a list of \code{genome} objects representing the result of repeated crosses, but also a scoring function which accepts a single \code{genome} and returns a $\ve{z}$ value. By default, the additive scoring of $\ve{z} = \ve{x}_1 + \ve{x}_2$ is used.
 
-The correlation of repeated swaps is then computed via \code{popCorrelation}. As the choice of scoring is at the discretion of the analyst, it accepts not only a list of \code{genome} objects representing the result of repeated crosses, but also a scoring function which accepts a single \code{genome} and returns a $\ve{z}$ value. By default, the additive scoring of $\ve{z} = \ve{x}_1 + \ve{x}_2$ is used.
-
-The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. 
+%The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. 
 
 \section{Comparing the model to reality} \label{sec:model2real}
 
@@ -684,8 +664,8 @@ That said, it performs reasonably well, especially given that \cite{haldane1919}
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_sim.png} \\
+      \includegraphics[width = 0.400\textwidth]{./img/jaxbsb.png} &
+      \includegraphics[width = 0.400\textwidth]{./img/jaxbsb_sim.png} \\
       {\footnotesize Observed} &
       {\footnotesize Simulated}
     \end{tabular}
@@ -698,8 +678,8 @@ That said, it performs reasonably well, especially given that \cite{haldane1919}
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.300\textwidth]{./img/uclabsb.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/uclabsb_sim.png} \\
+      \includegraphics[width = 0.400\textwidth]{./img/uclabsb.png} &
+      \includegraphics[width = 0.400\textwidth]{./img/uclabsb_sim.png} \\
       {\footnotesize Observed} &
       {\footnotesize Simulated}
     \end{tabular}
@@ -709,76 +689,76 @@ That said, it performs reasonably well, especially given that \cite{haldane1919}
 \end{figure}
 
 
-\section{Other views} \label{sec:apply}
+%\section{Other views} \label{sec:apply}
 
-While the development of the model in Section \ref{sec:theModel} focused on heredity from a given father and mother, a radically simplified model can be considered for a population of unknown heritage. Rather than considering the values in $\m{X}$ for an individual in this population in terms of the parental variants, the possible values can, instead, be considered directly when determining the pairwise relationship between two markers.
+%While the development of the model in Section \ref{sec:theModel} focused on heredity from a given father and mother, a radically simplified model can be considered for a population of unknown heritage. Rather than considering the values in $\m{X}$ for an individual in this population in terms of the parental variants, the possible values can, instead, be considered directly when determining the pairwise relationship between two markers.
 
-Recall the simplified two marker versions of $\m{X}$ from Section \ref{sec:correlation}. Consider a column of $\m{X}$, say $\ve{x}_1$, and note that the two entries of $\ve{x}_1$ only take values in $\{0,1\}$, giving four possible combinations. For every possible combination, there is a corresponding probability of an individual in a population having such a combination on a variant. Suppose these are defined as in Table \ref{tab:r2}.
+%Recall the simplified two marker versions of $\m{X}$ from Section \ref{sec:correlation}. Consider a column of $\m{X}$, say $\ve{x}_1$, and note that the two entries of $\ve{x}_1$ only take values in $\{0,1\}$, giving four possible combinations. For every possible combination, there is a corresponding probability of an individual in a population having such a combination on a variant. Suppose these are defined as in Table \ref{tab:r2}.
 
-\begin{table}[!ht]
-  \centering
-  \begin{tabular}{c c| c c| c}
-    & \multicolumn{1}{c}{} & \multicolumn{2}{c}{$x_{11}$} & \\ \cline{3-4}
-    & & 0 & 1 & \underline{Marginal} \\ \cline{2-4}
-    \multirow{2}{*}{$x_{21}$} & \multicolumn{1}{|c|}{0} & $p_{ab}$ & $p_{Ab}$ & $1-p_B$ \\
-    & \multicolumn{1}{|c|}{1} & $p_{aB}$ & $p_{AB}$ & $p_B$ \\ \cline{2-4}
-    & \multicolumn{1}{c}{Marginal} & \multicolumn{1}{c}{$1 - p_A$} & \multicolumn{1}{c}{$p_A$} &  \\ 
-  \end{tabular}
-  \caption{Probabilities of combinations of $\ve{x}_1$ in a population of individuals.}
-  \label{tab:r2}
-\end{table}
+%\begin{table}[!ht]
+%  \centering
+%  \begin{tabular}{c c| c c| c}
+%    & \multicolumn{1}{c}{} & \multicolumn{2}{c}{$x_{11}$} & \\ \cline{3-4}
+%    & & 0 & 1 & \underline{Marginal} \\ \cline{2-4}
+%    \multirow{2}{*}{$x_{21}$} & \multicolumn{1}{|c|}{0} & $p_{ab}$ & $p_{Ab}$ & $1-p_B$ \\
+%    & \multicolumn{1}{|c|}{1} & $p_{aB}$ & $p_{AB}$ & $p_B$ \\ \cline{2-4}
+%    & \multicolumn{1}{c}{Marginal} & \multicolumn{1}{c}{$1 - p_A$} & \multicolumn{1}{c}{$p_A$} &  \\ 
+%  \end{tabular}
+%  \caption{Probabilities of combinations of $\ve{x}_1$ in a population of individuals.}
+%  \label{tab:r2}
+%\end{table}
 
-This conceptualization, which does not directly consider the parentage of a population, is dominant in the literature.
+%This conceptualization, which does not directly consider the parentage of a population, is dominant in the literature.
 
-\subsection{Settings in the Literature} \label{subsec:inlit}
+%\subsection{Settings in the Literature} \label{subsec:inlit}
 
-Despite this difference, the settings introduced in Section \ref{subsec:sim} occur commonly in the literature. Among studies focusing on real data, including \cite{Galwey2009}, \cite{nyholt2004}, and \cite{Salyakina2005}, the structure of selected markers is motivated by previous work. As a consequence, these studies typically only view one chromosome, indeed one small section of a chromosome, associated with a phenotype. Additionally, the markers within this segment are typically not evenly spaced, a situation similar to setting (b) from Section \ref{subsec:sim}. Typically, these distances are not reported in centimorgans, but instead in base pairs.
+%Despite this difference, the settings introduced in Section \ref{subsec:sim} occur commonly in the literature. Among studies focusing on real data, including \cite{Galwey2009}, \cite{nyholt2004}, and \cite{Salyakina2005}, the structure of selected markers is motivated by previous work. As a consequence, these studies typically only view one chromosome, indeed one small section of a chromosome, associated with a phenotype. Additionally, the markers within this segment are typically not evenly spaced, a situation similar to setting (b) from Section \ref{subsec:sim}. Typically, these distances are not reported in centimorgans, but instead in base pairs.
 
-In contrast, simulation studies seem to be characterized by equidistant measurements on one or several chromosomes. \cite{cheverud2001} performs simulation on a single chromosome with equidistant markers, and records the results for several distances. This is of the same form as setting (a) from Section \ref{subsec:sim}. \cite{LanderBotstein1989} examines a case of 12 chromosomes with markers spaced every 20 cM along each, which is a specific case of setting (c).
+%In contrast, simulation studies seem to be characterized by equidistant measurements on one or several chromosomes. \cite{cheverud2001} performs simulation on a single chromosome with equidistant markers, and records the results for several distances. This is of the same form as setting (a) from Section \ref{subsec:sim}. \cite{LanderBotstein1989} examines a case of 12 chromosomes with markers spaced every 20 cM along each, which is a specific case of setting (c).
 
-Departing from a reference to distances in centimorgans or base pairs, \cite{LiJi2005} set their simulation scenarios using the genetic $r^2$ measure, defined by \cite{hillrobertson1968} as
+%Departing from a reference to distances in centimorgans or base pairs, \cite{LiJi2005} set their simulation scenarios using the genetic $r^2$ measure, defined by \cite{hillrobertson1968} as
 
-\begin{equation} \label{eq:rsq}
-  r^2 = \frac{\left ( p_{AB} p_{ab} - p_{Ab} p_{aB} \right )^2}{{p_A (1 - p_A) p_B (1 - p_B)}} = \frac{\left ( p_{AB} - p_A p_B \right )^2}{p_A (1 - p_A) p_B (1 - p_B)},
-\end{equation}
+%\begin{equation} \label{eq:rsq}
+%  r^2 = \frac{\left ( p_{AB} p_{ab} - p_{Ab} p_{aB} \right )^2}{{p_A (1 - p_A) p_B (1 - p_B)}} = \frac{\left ( p_{AB} - p_A p_B \right )^2}{p_A (1 - p_A) p_B (1 - p_B)},
+%\end{equation}
 
-\noindent which is exactly Pearson's product moment correlation for the two by two contingency table case. In adopting this measure to define their simulation settings, \cite{LiJi2005} use different language than other studies. Their simulation is described as an investigation of ten independent regions within which five markers are placed such that adjacent markers have an $r^2$ of 0.8 between them. Despite this difference in language, this design is clearly analogous to setting (c) from Section \ref{subsec:sim}.
+%\noindent which is exactly Pearson's product moment correlation for the two by two contingency table case. In adopting this measure to define their simulation settings, \cite{LiJi2005} use different language than other studies. Their simulation is described as an investigation of ten independent regions within which five markers are placed such that adjacent markers have an $r^2$ of 0.8 between them. Despite this difference in language, this design is clearly analogous to setting (c) from Section \ref{subsec:sim}.
 
-The use of $r^2$ by \cite{LiJi2005} to specify their population parameters is somewhat curious, however. $r^2$ presents difficulties for measuring genetic distance over generations in any model including recombination. Consider $p_{AB}$, $p_A$, and $p_B$ and their relationship over generations. Without selection in survival or mating, $p_A$ and $p_B$ will remain constant, while $p_{AB}$ will change.
+%The use of $r^2$ by \cite{LiJi2005} to specify their population parameters is somewhat curious, however. $r^2$ presents difficulties for measuring genetic distance over generations in any model including recombination. Consider $p_{AB}$, $p_A$, and $p_B$ and their relationship over generations. Without selection in survival or mating, $p_A$ and $p_B$ will remain constant, while $p_{AB}$ will change.
 
-Suppose we have an offspring with
-$$\m{G} = \begin{bmatrix}
-  1 & g_{12} \\
-  1 & g_{22} \\
-\end{bmatrix}.$$
-There are two possibilities for $\m{M}$ which could result in this particular $\m{G}$ when the independence of variant heritability is considered:
-$$\m{M} = \begin{bmatrix}
-  1 & g_{12} \\
-  1 & g_{22} \\
-\end{bmatrix}, \text{ or }
-\m{M} = \begin{bmatrix}
-  g_{11} & 1 \\
-  1 & g_{22} \\
-\end{bmatrix}.$$
-In the first of these two $\m{M}$ configurations, $\m{G}$ results if no recombination occurs, while in the second $\m{G}$ results if recombination occurs. The first configuration occurs with probability $p_{AB}$ and is passed on with probability $1 - p_r(d)$, as recombination disturbs the necessary variant. The second configuration occurs with probability $p_Ap_B$ and is passed on with probability $p_r(d)$.
+%Suppose we have an offspring with
+%$$\m{G} = \begin{bmatrix}
+%  1 & g_{12} \\
+%  1 & g_{22} \\
+%\end{bmatrix}.$$
+%There are two possibilities for $\m{M}$ which could result in this particular $\m{G}$ when the independence of variant heritability is considered:
+%$$\m{M} = \begin{bmatrix}
+%  1 & g_{12} \\
+%  1 & g_{22} \\
+%\end{bmatrix}, \text{ or }
+%\m{M} = \begin{bmatrix}
+%  g_{11} & 1 \\
+%  1 & g_{22} \\
+%\end{bmatrix}.$$
+%In the first of these two $\m{M}$ configurations, $\m{G}$ results if no recombination occurs, while in the second $\m{G}$ results if recombination occurs. The first configuration occurs with probability $p_{AB}$ and is passed on with probability $1 - p_r(d)$, as recombination disturbs the necessary variant. The second configuration occurs with probability $p_Ap_B$ and is passed on with probability $p_r(d)$.
 
-Denoting $p_{AB,k}$ as the value of $p_{AB}$ at generation $k$, we then write
+%Denoting $p_{AB,k}$ as the value of $p_{AB}$ at generation $k$, we then write
 
-$$p_{AB,k} = [1 - p_r(d)] p_{AB,k-1} + p_r(d) p_A p_B,$$
+%$$p_{AB,k} = [1 - p_r(d)] p_{AB,k-1} + p_r(d) p_A p_B,$$
 
-\noindent from which it can easily be derived that
+%\noindent from which it can easily be derived that
 
-$$r^2_k = \left [ 1 - p_r(d) \right ]^2 r^2_{k-1} =  \left [ 1 - p_r(d) \right ]^{2k} r^2_0$$
+%$$r^2_k = \left [ 1 - p_r(d) \right ]^2 r^2_{k-1} =  \left [ 1 - p_r(d) \right ]^{2k} r^2_0$$
 
-\noindent and so
+%\noindent and so
 
-$$\lim_{k \rightarrow \infty} \left [ 1 - p_r(d) \right ]^{2k} r^2_0 = 0$$
+%$$\lim_{k \rightarrow \infty} \left [ 1 - p_r(d) \right ]^{2k} r^2_0 = 0$$
 
-\noindent whenever $p_r(d) > 0$.
+%\noindent whenever $p_r(d) > 0$.
 
-In this manner, strongly associated markers $A$ and $B$ become less associated over time in the absence of selection pressures in sexual reproduction and survival, as noted in \cite{siegmundyakir2007}. This makes the use of $r^2$ under any model with recombination problematic, as its use requires the specification of an initial condition and generation of interest. \cite{LiJi2005} simulate data using given $p_A$, $p_B$, and $r^2$ values to determine $p_{AB}$ and generate a population which matches $p_A$, $p_B$, and $p_{AB}$. This method therefore ignores the population characteristics of the parents and offspring, instead providing only a snapshot of the population characteristics at a particular time.
+%In this manner, strongly associated markers $A$ and $B$ become less associated over time in the absence of selection pressures in sexual reproduction and survival, as noted in \cite{siegmundyakir2007}. This makes the use of $r^2$ under any model with recombination problematic, as its use requires the specification of an initial condition and generation of interest. \cite{LiJi2005} simulate data using given $p_A$, $p_B$, and $r^2$ values to determine $p_{AB}$ and generate a population which matches $p_A$, $p_B$, and $p_{AB}$. This method therefore ignores the population characteristics of the parents and offspring, instead providing only a snapshot of the population characteristics at a particular time.
 
-It is therefore far more natural to use a distance in these studies. Whether reported in centiMorgans, base pairs, or some other measure, these measures remain constant over generations, and govern the dynamics of recombination.
+%It is therefore far more natural to use a distance in these studies. Whether reported in centiMorgans, base pairs, or some other measure, these measures remain constant over generations, and govern the dynamics of recombination.
 
 \section{Conclusion} \label{sec:conclusion}
 
