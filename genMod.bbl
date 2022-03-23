@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,6 +12,14 @@ Themistocles~L Assimes, I-T Lee, Jyh-Ming Juang, Xiuqing Guo, Tzung-Dau Wang,
 \newblock Genetics of coronary artery disease in taiwan: a cardiometabochip
   study by the taichi consortium.
 \newblock \emph{PLoS One}, 11\penalty0 (3):\penalty0 e0138014, 2016.
+
+\bibitem[Bult et~al.(2019)Bult, Blake, Smith, Kadin, Richardson, and
+  Database~Group]{bultetal2019mouse}
+Carol~J Bult, Judith~A Blake, Cynthia~L Smith, James~A Kadin, Joel~E
+  Richardson, and the Mouse~Genome Database~Group.
+\newblock Mouse genome database (mgd) 2019.
+\newblock \emph{Nucleic acids research}, 47\penalty0 (D1):\penalty0 D801--D806,
+  2019.
 
 \bibitem[Cheverud(2001)]{cheverud2001}
 James~M Cheverud.
@@ -38,18 +46,17 @@ RW~Doerge, ZB~Zeng, and BS~Weir.
   traits in experimental populations.
 \newblock \emph{Statistical Science}, pages 195--219, 1997.
 
+\bibitem[Fisler et~al.(1993)Fisler, Warden, Pace, and Lusis]{fisleretal1993bsb}
+Janis~S Fisler, Craig~H Warden, Mario~J Pace, and Aldons~J Lusis.
+\newblock Bsb: a new mouse model of multigenic obesity.
+\newblock \emph{Obesity research}, 1\penalty0 (4):\penalty0 271--280, 1993.
+
 \bibitem[Galwey(2009)]{Galwey2009}
 Nicholas~W Galwey.
 \newblock A new measure of the effective number of tests, a practical tool for
   comparing families of non-independent significance tests.
 \newblock \emph{Genetic Epidemiology}, 33\penalty0 (7):\penalty0 559--568,
   2009.
-
-\bibitem[Haldane(1919)]{haldane1919}
-JBS Haldane.
-\newblock The combination of linkage values and the calculation of distances
-  between the loci of linked factors.
-\newblock \emph{Journal of Genetics}, 8\penalty0 (29):\penalty0 299--309, 1919.
 
 \bibitem[Hasin et~al.(2017)Hasin, Seldin, and Lusis]{hasinetal2017multi}
 Yehudit Hasin, Marcus Seldin, and Aldons Lusis.
@@ -103,6 +110,13 @@ Ben~Hui Liu.
 \newblock \emph{Statistical genomics: linkage, mapping, and QTL analysis}.
 \newblock CRC press, 1998.
 
+\bibitem[Montagutelli et~al.(1996)Montagutelli, Turner, and
+  Nadeau]{montagutellietal1996epistatic}
+Xavier Montagutelli, Rowena Turner, and Joseph~H Nadeau.
+\newblock Epistatic control of non-mendelian inheritance in mouse interspecific
+  crosses.
+\newblock \emph{Genetics}, 143\penalty0 (4):\penalty0 1739--1752, 1996.
+
 \bibitem[NCBI(2021)]{NCBIdbSNP}
 NCBI.
 \newblock {NCBI dbSNP Build 155}, 2021.
@@ -148,6 +162,12 @@ Emil Uffelmann, Qin~Qin Huang, Nchangwi~Syntia Munung, Jantina de~Vries,
 Peter~M Visscher and Michael~E Goddard.
 \newblock {From RA Fisher’s 1918 paper to GWAS a century later}.
 \newblock \emph{Genetics}, 211\penalty0 (4):\penalty0 1125--1130, 2019.
+
+\bibitem[Watkins-Chow and Pavan(2008)]{watkinsetal2008genomic}
+Dawn~E Watkins-Chow and William~J Pavan.
+\newblock Genomic copy number and expression variation within the c57bl/6j
+  inbred mouse strain.
+\newblock \emph{Genome research}, 18\penalty0 (1):\penalty0 60--66, 2008.
 
 \bibitem[Xu(2013)]{xu2013principles}
 Shizhong Xu.

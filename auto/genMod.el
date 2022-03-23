@@ -129,10 +129,10 @@
     "fig:chevSims"
     "fig:LBSims"
     "sec:model2real"
-    "fig:corr2real"
-    "fig:corrTestPlot"
     "fig:jaxbsb"
     "fig:uclabsb"
+    "fig:corr2real"
+    "fig:corrTestPlot"
     "sec:conclusion")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")

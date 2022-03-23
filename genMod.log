@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  23 MAR 2022 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  23 MAR 2022 18:17
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -504,57 +504,57 @@ Package pdftex.def Info: ./img/LBSim.png  used on input line 610.
 (pdftex.def)             Requested size: 184.28568pt x 184.28421pt.
  [13] [14 <./img/chevSimTheory.png> <./img/chevSim.png> <./img/LBSimTheory.png>
  <./img/LBSim.png>]
-<./img/chevCorr.png, id=302, 481.8pt x 481.8pt>
-File: ./img/chevCorr.png Graphic file (type png)
-<use ./img/chevCorr.png>
-Package pdftex.def Info: ./img/chevCorr.png  used on input line 646.
-(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorrTheory.png, id=303, 481.8pt x 481.8pt>
-File: ./img/chevCorrTheory.png Graphic file (type png)
-<use ./img/chevCorrTheory.png>
-Package pdftex.def Info: ./img/chevCorrTheory.png  used on input line 647.
-(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorrTest.png, id=304, 722.7pt x 722.7pt>
-File: ./img/chevCorrTest.png Graphic file (type png)
-<use ./img/chevCorrTest.png>
-Package pdftex.def Info: ./img/chevCorrTest.png  used on input line 660.
-(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
-<./img/jaxbsb.png, id=311, 542.025pt x 542.025pt>
+<./img/jaxbsb.png, id=327, 542.025pt x 542.025pt>
 File: ./img/jaxbsb.png Graphic file (type png)
 <use ./img/jaxbsb.png>
-Package pdftex.def Info: ./img/jaxbsb.png  used on input line 671.
+Package pdftex.def Info: ./img/jaxbsb.png  used on input line 650.
 (pdftex.def)             Requested size: 184.28568pt x 184.28606pt.
-<./img/jaxbsb_sim.png, id=312, 542.025pt x 542.025pt>
+<./img/jaxbsb_sim.png, id=328, 542.025pt x 542.025pt>
 File: ./img/jaxbsb_sim.png Graphic file (type png)
 <use ./img/jaxbsb_sim.png>
-Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 672.
+Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 651.
 (pdftex.def)             Requested size: 184.28568pt x 184.28606pt.
-<./img/uclabsb.png, id=313, 542.025pt x 542.025pt>
+<./img/uclabsb.png, id=331, 542.025pt x 542.025pt>
 File: ./img/uclabsb.png Graphic file (type png)
 <use ./img/uclabsb.png>
-Package pdftex.def Info: ./img/uclabsb.png  used on input line 685.
+Package pdftex.def Info: ./img/uclabsb.png  used on input line 664.
 (pdftex.def)             Requested size: 184.28568pt x 184.28606pt.
-<./img/uclabsb_sim.png, id=314, 542.025pt x 542.025pt>
+<./img/uclabsb_sim.png, id=332, 542.025pt x 542.025pt>
 File: ./img/uclabsb_sim.png Graphic file (type png)
 <use ./img/uclabsb_sim.png>
-Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 686.
+Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 665.
 (pdftex.def)             Requested size: 184.28568pt x 184.28606pt.
- [15 <./img/chevCorr.png (PNG copy)> <./img/chevCorrTheory.png (PNG copy)>] [16
- <./img/chevCorrTest.png (PNG copy)>] [17 <./img/jaxbsb.png (PNG copy)> <./img/
-jaxbsb_sim.png (PNG copy)> <./img/uclabsb.png (PNG copy)> <./img/uclabsb_sim.pn
-g (PNG copy)>] (genMod.bbl
-[18]) [19] (genMod.aux)
+<./img/chevCorrTheory.png, id=343, 481.8pt x 481.8pt>
+File: ./img/chevCorrTheory.png Graphic file (type png)
+<use ./img/chevCorrTheory.png>
+Package pdftex.def Info: ./img/chevCorrTheory.png  used on input line 679.
+(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
+<./img/chevCorr.png, id=344, 481.8pt x 481.8pt>
+File: ./img/chevCorr.png Graphic file (type png)
+<use ./img/chevCorr.png>
+Package pdftex.def Info: ./img/chevCorr.png  used on input line 680.
+(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
+ [15] [16 <./img/jaxbsb.png (PNG copy)> <./img/jaxbsb_sim.png (PNG copy)> <./im
+g/uclabsb.png (PNG copy)> <./img/uclabsb_sim.png (PNG copy)>]
+<./img/chevCorrTest.png, id=375, 722.7pt x 722.7pt>
+File: ./img/chevCorrTest.png Graphic file (type png)
+<use ./img/chevCorrTest.png>
+Package pdftex.def Info: ./img/chevCorrTest.png  used on input line 695.
+(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
+ [17 <./img/chevCorrTheory.png (PNG copy)> <./img/chevCorr.png (PNG copy)>] [18
+ <./img/chevCorrTest.png (PNG copy)>]
+(genMod.bbl [19] [20]) [21] (genMod.aux)
 Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 3CD54E6F8E334869AFCB8F1CC7B861FA;594.
  ) 
 Here is how much of TeX's memory you used:
- 11879 strings out of 478927
- 180488 string characters out of 2852535
- 487765 words of memory out of 3000000
- 29463 multiletter control sequences out of 15000+600000
+ 11893 strings out of 478927
+ 180885 string characters out of 2852535
+ 488178 words of memory out of 3000000
+ 29472 multiletter control sequences out of 15000+600000
  417970 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1427b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1427b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -579,9 +579,9 @@ rs/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pf
 b><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (19 pages, 835262 bytes).
+Output written on genMod.pdf (21 pages, 894018 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
+ 554 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
