@@ -584,35 +584,39 @@ This difference is meaningful, as \cite{siegmundyakir2007} note that $r^2$ is no
 $$r_k^2 = \left [ 1 - p_r \right ]^{2k}  r^2_0$$
 for two markers with $r^2 = r^2_0$ initially and a probability of recombination of $p_r$. Unlike cM or base pairs, which are constant over generations, $r^2$ eventually goes to zero.
 
-Nonetheless, \cite{LiJi2005} simulate 10 independent regions within each of which 5 markers are placed such that adjacent markers have an $r^2$ of 0.8 between them. This design is analogous to that of \cite{LanderBotstein1989}, despite the difference in language and description.
+Nonetheless, \cite{LiJi2005} simulate 10 independent regions within each of which 5 markers are placed such that adjacent markers have an $r^2$ of 0.8 between them. This design is analogous to that of \cite{LanderBotstein1989}, despite the difference in description.
 
-Some of the simulations of \cite{cheverud2001} and \cite{LanderBotstein1989} were recreated using the implementation detailed above. Specifically, these were the 100 cM chromosome with 6.25 cM separated markers of \cite{cheverud2001} and the twelve 100 cM chromosomes with 20 cM separated markers of \cite{LanderBotstein1989}. A comparison of the simulated and theoretical matrices for the \cite{cheverud2001} setting is shown in Figure \ref{fig:paperSims}, while Figure \ref{fig:paperTheory} shows these matrices for the \cite{LanderBotstein1989} setting.
-
-\begin{figure}[htp]
-  \begin{center}
-    \begin{tabular}{cc}
-      \includegraphics[width = 0.4\textwidth]{./img/chevSim.png} &
-      \includegraphics[width = 0.4\textwidth]{./img/chevSimTheory.png} \\
-      {\footnotesize (a) Simulated} &
-      {\footnotesize (b) Theoretical} \\
-    \end{tabular}
-  \end{center}
-  \caption{$F_2$ intercross of 100 cM chromosome markers 6.25 cM apart.}
-  \label{fig:paperSims}
-\end{figure}
+Some of the simulations of \cite{cheverud2001} and \cite{LanderBotstein1989} were recreated using the implementation detailed above. Specifically, these were the 100 cM chromosome with 6.25 cM separated markers of \cite{cheverud2001} and the twelve 100 cM chromosomes with 20 cM separated markers of \cite{LanderBotstein1989}. The resulting correlation matrices and theoretical correlation matrices are visualized side by side using heatmaps in Figures \ref{fig:chevSims} and \ref{fig:LBSims}. In each heat map, the position of a square corresponds to the position of the corresponding correlation in the correlation matrix, and darker squares have a larger magnitude of correlation than lighter squares. Blue squares indicate negative correlation while red squares indicate a positive correlation.
 
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.4\textwidth]{./img/LBSim.png} &
-      \includegraphics[width = 0.4\textwidth]{./img/LBSimTheory.png} \\
-      {\footnotesize (a) Simulated} &
-      {\footnotesize (b) Theoretical} \\
+      \includegraphics[width = 0.4\textwidth]{./img/chevSimTheory.png} &
+      \includegraphics[width = 0.4\textwidth]{./img/chevSim.png} \\
+      {\footnotesize (a) Theoretical} &
+      {\footnotesize (b) Simulated} \\
     \end{tabular}
   \end{center}
-  \caption{$F_2$ backcross of twelve 100 cM chromosomes markers 20 cM apart.}
-  \label{fig:paperTheory}
+  \caption{The correlation matrices of a population of 500 $F_2$ intercross offspring measured on a 100 cM chromosome with markers each 6.25 cM apart.}
+  \label{fig:chevSims}
 \end{figure}
+
+Figure \ref{fig:chevSims}(a) displays a pattern of constant off-diagonal lines of decreasing value, as expected from Equation \ref{eq:haldanemap}. Roughly the same pattern is seen in Figure \ref{fig:chevSims}(b), though it is much noisier. Rather than having clear constant lines along each off-diagonal, Figure \ref{fig:chevSims}(b) has regions of similar values which occur across several off-diagonal lines. This leads to the appearance of large squares of more strongly related values, a pattern absent from Figure \ref{fig:chevSims}(a).
+
+\begin{figure}[htp]
+  \begin{center}
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.4\textwidth]{./img/LBSimTheory.png} &
+      \includegraphics[width = 0.4\textwidth]{./img/LBSim.png} \\
+      {\footnotesize (a) Theoretical} &
+      {\footnotesize (b) Simulated} \\
+    \end{tabular}
+  \end{center}
+  \caption{The correlation matrices of a population of 250 $F_2$ backcross offspring measured on twelve 100 cM chromosomes with markers 20 cM apart on each.}
+  \label{fig:LBSims}
+\end{figure}
+
+A more interesting noise pattern is seen between chromosomes in the \cite{LanderBotstein1989} setting, where both negative and positive correlations are observed. While the 
 
 %The patterns present in Figures \ref{fig:backsim} and \ref{fig:intersim} are exactly as expected from Section \ref{sec:correlation}. There is an almost perfect similarity between the backcross and intercross design, with only small local variations present between them, in particular for setting (a). All settings show a clear maximum along the main diagonal and a regular decay for off-diagonal elements. Indeed, setting (b) demonstrates how this decay is faster for more distantly spaced markers than nearer ones with its distinct fan pattern. Setting (c) additionally demonstrates the lack of correlation between different chromosomes with its striking block structure for both the backcross and the intercross.
 
