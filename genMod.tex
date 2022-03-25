@@ -642,7 +642,7 @@ Though simulation confirms that population correlations generated under the mode
 
 \cite{bultetal2019mouse} provides annotation data for more than a dozen mouse panels, the populations resulting from the cross of inbred strains, alongside the references needed to determine cM distances between the markers measured on these panels. All of these resources are publicly provided at www.informatics.jax.org.
 
-Restricting these panels to only those with mostly complete observations leaves several complete data sets to choose from. Two of these panels investigate the BSB cross, first introduced in \cite{fisleretal1993bsb} to investigate obestiy and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}. These two panels were selected for comparison to simulation due to their high data quality and relevance. Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} display a comparison between the observed correlations computed from the MGD panel data and the correlation simulated as in Section \ref{sec:sim}. Just as in Figure \ref{fig:LBSims}, reference lines have been added to both figures to indicate the chromosomes.
+Restricting these panels to only those with mostly complete observations leaves several complete data sets to choose from. Two of these panels investigate the BSB cross, first introduced in \cite{fisleretal1993bsb} to investigate obestiy and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}. These two panels were selected for comparison to simulation due to their high data quality and relevance. Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} display a comparison between the observed correlations computed from the MGD panel data and the correlation simulated as in Section \ref{sec:sim}. Just as in Figure \ref{fig:LBSims}, reference lines have been added to all sub-figures to indicate the chromosomes.
 
 \begin{figure}[htp]
   \begin{center}
@@ -651,11 +651,11 @@ Restricting these panels to only those with mostly complete observations leaves 
       \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_sim.png} &
       \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_quant.png} \\
       {\footnotesize (a) Observed} &
-      {\footnotesize (b) Simulated} &
-      {\footnotesize (c) Quantiles} \\                            
+      {\footnotesize (b) Simulated example} &
+      {\footnotesize (c) Observed quantiles} \\                            
     \end{tabular}
   \end{center}
-  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_JAX_BSB_Panel.rpt}{JAX BSB panel} from the Mouse Genome Database.}
+  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_JAX_BSB_Panel.rpt}{JAX BSB panel} from the Mouse Genome Database. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
   \label{fig:jaxbsb}
 \end{figure}
 
@@ -667,11 +667,11 @@ Restricting these panels to only those with mostly complete observations leaves 
       \includegraphics[width = 0.300\textwidth]{./img/uclabsb_sim.png} &
       \includegraphics[width = 0.300\textwidth]{./img/uclabsb_quant.png} \\
       {\footnotesize (a) Observed} &
-      {\footnotesize (b) Simulated} &
-      {\footnotesize (c) Quantiles} \\
+      {\footnotesize (b) Simulated example} &
+      {\footnotesize (c) Observed quantiles} \\
     \end{tabular}
   \end{center}
-  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_UCLA_BSB_Panel.rpt}{UCLA BSB panel} from the Mouse Genome Database.}
+  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_UCLA_BSB_Panel.rpt}{UCLA BSB panel} from the Mouse Genome Database. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
   \label{fig:uclabsb}
 \end{figure}
 

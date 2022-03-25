@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  24 MAR 2022 11:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  24 MAR 2022 17:54
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -554,13 +554,16 @@ Package pdftex.def Info: ./img/chevCorrTest.png  used on input line 703.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
  [17 <./img/chevCorrTheory.png (PNG copy)> <./img/chevCorr.png (PNG copy)>] [18
  <./img/chevCorrTest.png (PNG copy)>] [19] (genMod.bbl [20]) [21] (genMod.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 3CD54E6F8E334869AFCB8F1CC7B861FA;594.
  ) 
 Here is how much of TeX's memory you used:
  11907 strings out of 478927
  181250 string characters out of 2852535
- 488178 words of memory out of 3000000
+ 488680 words of memory out of 3000000
  29484 multiletter control sequences out of 15000+600000
  417970 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -589,7 +592,7 @@ rs/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pf
 b><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (21 pages, 952686 bytes).
+Output written on genMod.pdf (21 pages, 953668 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  82 named destinations out of 1000 (max. 500000)
