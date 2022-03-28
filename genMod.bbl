@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -27,18 +27,16 @@ James~M Cheverud.
   genome scans.
 \newblock \emph{Heredity}, 87\penalty0 (1):\penalty0 52--58, 2001.
 
-\bibitem[Cheverud et~al.(2001)Cheverud, Vaughn, Pletscher, Peripato, Adams,
-  Erikson, and King-Ellison]{cheverudetal2001}
-James~M Cheverud, Ty~T Vaughn, L~Susan Pletscher, Andrea~C Peripato, Emily~S
-  Adams, Christopher~F Erikson, and Kelly~J King-Ellison.
-\newblock {Genetic architecture of adiposity in the cross of LG/J and SM/J
-  inbred mice}.
-\newblock \emph{Mammalian Genome}, 12\penalty0 (1):\penalty0 3--12, 2001.
-
 \bibitem[Crow and Kimura(1970)]{crowkimura1970intro}
 James~F Crow and Motoo Kimura.
 \newblock \emph{An introduction to population genetics theory}.
 \newblock {Harper \& Row}, 1970.
+
+\bibitem[Dejager et~al.(2009)Dejager, Libert, and
+  Montagutelli]{dejageretal2009mspretus}
+Lien Dejager, Claude Libert, and Xavier Montagutelli.
+\newblock Thirty years of mus spretus: a promising future.
+\newblock \emph{Trends in Genetics}, 25\penalty0 (5):\penalty0 234--241, 2009.
 
 \bibitem[Doerge et~al.(1997)Doerge, Zeng, and Weir]{doergeetal1997search}
 RW~Doerge, ZB~Zeng, and BS~Weir.
@@ -73,6 +71,12 @@ WG~Hill and Alan Robertson.
 \newblock Linkage disequilibrium in finite populations.
 \newblock \emph{Theoretical and applied genetics}, 38\penalty0 (6):\penalty0
   226--231, 1968.
+
+\bibitem[JAX(2022)]{C57BL6J}
+JAX.
+\newblock {JAX Stock #000664}.
+\newblock Technical report, The Jackson Laboratory, 2022.
+\newblock URL \url{https://www.jax.org/strain/000664}.
 
 \bibitem[Koboldt et~al.(2013)Koboldt, Steinberg, Larson, Wilson, and
   Mardis]{koboldtetal2013next}
@@ -110,13 +114,6 @@ Ben~Hui Liu.
 \newblock \emph{Statistical genomics: linkage, mapping, and QTL analysis}.
 \newblock CRC press, 1998.
 
-\bibitem[Montagutelli et~al.(1996)Montagutelli, Turner, and
-  Nadeau]{montagutellietal1996epistatic}
-Xavier Montagutelli, Rowena Turner, and Joseph~H Nadeau.
-\newblock Epistatic control of non-mendelian inheritance in mouse interspecific
-  crosses.
-\newblock \emph{Genetics}, 143\penalty0 (4):\penalty0 1739--1752, 1996.
-
 \bibitem[NCBI(2021)]{NCBIdbSNP}
 NCBI.
 \newblock {NCBI dbSNP Build 155}, 2021.
@@ -128,6 +125,14 @@ Dale~R Nyholt.
   polymorphisms in linkage disequilibrium with each other.
 \newblock \emph{The American Journal of Human Genetics}, 74\penalty0
   (4):\penalty0 765--769, 2004.
+
+\bibitem[Rowe et~al.(1994)Rowe, Nadeau, Turner, Frankel, Letts, Eppig, Ko,
+  Thurston, and Birkenmeier]{roweetal1994jaxbsb}
+LB~Rowe, JH~Nadeau, R~Turner, WN~Frankel, VA~Letts, JT~Eppig, MSH Ko,
+  SJ~Thurston, and EH~Birkenmeier.
+\newblock Maps from two interspecific backcross dna panels available as a
+  community genetic mapping resource.
+\newblock \emph{Mammalian Genome}, 5\penalty0 (5):\penalty0 253--274, 1994.
 
 \bibitem[Salyakina et~al.(2005)Salyakina, Seaman, Browning, Dudbridge, and
   M{\"u}ller-Myhsok]{Salyakina2005}
@@ -163,11 +168,14 @@ Peter~M Visscher and Michael~E Goddard.
 \newblock {From RA Fisher’s 1918 paper to GWAS a century later}.
 \newblock \emph{Genetics}, 211\penalty0 (4):\penalty0 1125--1130, 2019.
 
-\bibitem[Watkins-Chow and Pavan(2008)]{watkinsetal2008genomic}
-Dawn~E Watkins-Chow and William~J Pavan.
-\newblock Genomic copy number and expression variation within the c57bl/6j
-  inbred mouse strain.
-\newblock \emph{Genome research}, 18\penalty0 (1):\penalty0 60--66, 2008.
+\bibitem[Welch et~al.(1996)Welch, Xia, Shechter, Farese, Mehrabian, Mehdizadeh,
+  Warden, and Lusis]{welchetal1996uclabsb}
+Carrie~L Welch, Yu-Rong Xia, Ishaiahu Shechter, Robert Farese, Margarete
+  Mehrabian, Shahab Mehdizadeh, Craig~H Warden, and Aldons~J Lusis.
+\newblock Genetic regulation of cholesterol homeostasis: chromosomal
+  organization of candidate genes.
+\newblock \emph{Journal of Lipid Research}, 37\penalty0 (7):\penalty0
+  1406--1421, 1996.
 
 \bibitem[Xu(2013)]{xu2013principles}
 Shizhong Xu.

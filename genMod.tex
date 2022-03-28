@@ -638,11 +638,14 @@ A more interesting noise pattern is seen between chromosomes outside the darker 
 
 \section{Comparing the model to reality} \label{sec:model2real}
 
-Though simulation confirms that population correlations generated under the model of Section \ref{sec:theModel} match the predictions of Equation \ref{eq:zcorr}, this does not mean it reflects genetic mechanics with fidelity. Evaluating the extent to which this is the case requires data. As \cite{LanderBotstein1989} and \cite{cheverud2001} only perform simulations, other sources are required. Consider \cite{cheverudetal2001} and \cite{bultetal2019mouse}.
+Though simulation confirms that population correlations generated under the model of Section \ref{sec:theModel} match the predictions of Equation \ref{eq:zcorr}, this does not mean it reflects genetic mechanics with fidelity. Evaluating the extent to which this is the case requires data. As \cite{LanderBotstein1989} and \cite{cheverud2001} only perform simulations, other sources are required.
 
 \cite{bultetal2019mouse} provides annotation data for more than a dozen mouse populations resulting from crosses of inbred strains, alongside the references needed to determine cM distances between the markers measured in these experiments. All of these resources are publicly provided at www.informatics.jax.org.
 
-Considering only those experiments with mostly complete observations leaves several complete data sets to choose from. Two of these investigate the BSB cross, first introduced in \cite{fisleretal1993bsb} to investigate obestiy and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}. These two experiments were selected for comparison to simulation due to their high data quality and relevance. Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} display a comparison between the observed correlations computed from the MGD experimental cross data and the correlation simulated as in Section \ref{sec:sim}. Just as in Figure \ref{fig:LBSims}, reference lines have been added to all sub-figures to indicate the chromosomes.
+Considering only those experiments with mostly complete observations leaves several complete data sets to choose from. Two of these investigate an identical population setting: the \emph{BSB mouse cross} of \cite{fisleretal1993bsb}. BSB mice are those resulting from the $F_2$ backcross of the C57BL/6J and {\it Mus Spretus} mouse strains, detailed respectively in \cite{C57BL6J} and \cite{dejageretal2009mspretus}. Both of these data sets
+%The BSB cross was first introduced in \cite{fisleretal1993bsb} to investigate obesity and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}.
+
+These two experiments were selected for comparison to simulation due to their high data quality and relevance. Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} display a comparison between the observed correlations computed from the MGD experimental cross data and the correlation simulated as in Section \ref{sec:sim}. Just as in Figure \ref{fig:LBSims}, reference lines have been added to all sub-figures to indicate the chromosomes.
 
 \begin{figure}[htp]
   \begin{center}
@@ -655,7 +658,7 @@ Considering only those experiments with mostly complete observations leaves seve
       {\footnotesize (c) Observed quantiles} \\                            
     \end{tabular}
   \end{center}
-  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_JAX_BSB_Panel.rpt}{JAX BSB panel} from the Mouse Genome Database. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
+  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_JAX_BSB_Panel.rpt}{JAX BSB panel} from the Mouse Genome Database and \cite{roweetal1994jaxbsb}. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
   \label{fig:jaxbsb}
 \end{figure}
 
@@ -671,7 +674,7 @@ Considering only those experiments with mostly complete observations leaves seve
       {\footnotesize (c) Observed quantiles} \\
     \end{tabular}
   \end{center}
-  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_UCLA_BSB_Panel.rpt}{UCLA BSB panel} from the Mouse Genome Database. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
+  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_UCLA_BSB_Panel.rpt}{UCLA BSB panel} from the Mouse Genome Database and \cite{welchetal1996uclabsb}. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
   \label{fig:uclabsb}
 \end{figure}
 
@@ -695,40 +698,40 @@ The most striking feature of both Figure \ref{fig:jaxbsb}(a) and Figure \ref{fig
 
 Both of these experiments were rather small, the JAX BSB cross has 94 animals while the UCLA BSB cross consists of 67.
 
-\cite{cheverud2001} cites \cite{cheverudetal2001} in which two inbred mouse strains were crossed to breed an $F_2$ intercross population of 510 individuals. It is of particular interest because \cite{cheverud2001} reproduces the correlation matrix of $\ve{z}$ under the additive mapping for the population, providing the opportunity to compare Equation \ref{eq:zcorr} to observed correlations generated from a real cross. Figure \ref{fig:corr2real} displays this comparison.
+%\cite{cheverud2001} cites \cite{cheverudetal2001} in which two inbred mouse strains were crossed to breed an $F_2$ intercross population of 510 individuals. It is of particular interest because \cite{cheverud2001} reproduces the correlation matrix of $\ve{z}$ under the additive mapping for the population, providing the opportunity to compare Equation \ref{eq:zcorr} to observed correlations generated from a real cross. Figure \ref{fig:corr2real} displays this comparison.
 
-\begin{figure}[htp]
-  \begin{center}
-    \begin{tabular}{cc}
-      \includegraphics[width = 0.300\textwidth]{./img/chevCorrTheory.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/chevCorr.png} \\
-      {\footnotesize (a) Theory} &
-      {\footnotesize (b) Experiment} \\
-    \end{tabular}
-  \end{center}
-  \caption{Experimental and theoretical correlation matrices for the $F_2$ intercross population of \cite{cheverudetal2001}.}
-  \label{fig:corr2real}
-\end{figure}
+%\begin{figure}[htp]
+%  \begin{center}
+%    \begin{tabular}{cc}
+%      \includegraphics[width = 0.300\textwidth]{./img/chevCorrTheory.png} &
+%      \includegraphics[width = 0.300\textwidth]{./img/chevCorr.png} \\
+%      {\footnotesize (a) Theory} &
+%      {\footnotesize (b) Experiment} \\
+%    \end{tabular}
+%  \end{center}
+%  \caption{Experimental and theoretical correlation matrices for the $F_2$ intercross population of \cite{cheverudetal2001}.}
+%  \label{fig:corr2real}
+%\end{figure}
 
-Just as in the comparison of simulation and theory, the theoretical and experimental matrices look similar structurally. As markers are no longer equidistant, a more complicated structure is seen in Figure \ref{fig:corr2real}(a) than the constant off-diagonal lines of Figure \ref{fig:chevSims}(a). Nonetheless, the general patterns predicted by theory seem to be present in Figure \ref{fig:corr2real}(b), suggesting an agreement between experiment and theory.
+%Just as in the comparison of simulation and theory, the theoretical and experimental matrices look similar structurally. As markers are no longer equidistant, a more complicated structure is seen in Figure \ref{fig:corr2real}(a) than the constant off-diagonal lines of Figure \ref{fig:chevSims}(a). Nonetheless, the general patterns predicted by theory seem to be present in Figure \ref{fig:corr2real}(b), suggesting an agreement between experiment and theory.
 
-Evaluating this agreement more rigorously requires a distribution of these correlations under the model of Section \ref{sec:theModel}. Rather than make any parametric assumptions and noting the close agreement between theory and simulation in Section \ref{sec:sim}, repeated simulation of the cross of \cite{cheverudetal2001} was used to obtain an empirical distribution of these correlations. 10,000 simulated populations the 510 $F_2$ intercross mice of \cite{cheverudetal2001} were created and the correlation matrices under the additive map computed for each. The resulting 10,000 matrices provide the distribution for each pairwise correlation, which can then be compared to the experimental values.
+%Evaluating this agreement more rigorously requires a distribution of these correlations under the model of Section \ref{sec:theModel}. Rather than make any parametric assumptions and noting the close agreement between theory and simulation in Section \ref{sec:sim}, repeated simulation of the cross of \cite{cheverudetal2001} was used to obtain an empirical distribution of these correlations. 10,000 simulated populations the 510 $F_2$ intercross mice of \cite{cheverudetal2001} were created and the correlation matrices under the additive map computed for each. The resulting 10,000 matrices provide the distribution for each pairwise correlation, which can then be compared to the experimental values.
 
-\begin{figure}[htp]
-  \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/chevCorrTest.png}
-  \end{center}
-  \caption{The correlation test plot for data from \cite{cheverudetal2001} compared to simulations under theory.}
-  \label{fig:corrTestPlot}
-\end{figure}
+%\begin{figure}[htp]
+%  \begin{center}
+%      \includegraphics[width = 0.7\textwidth]{./img/chevCorrTest.png}
+%  \end{center}
+%  \caption{The correlation test plot for data from \cite{cheverudetal2001} compared to simulations under theory.}
+%  \label{fig:corrTestPlot}
+%\end{figure}
 
-The \emph{correlation test plot} in Figure \ref{fig:corrTestPlot} was devised to help in this comparison. It is composed of 64 panels arranged in a square array. Each panel above the diagonal displays a kernel density estimate of the distribution of the corresponding pairwise correlation. A black line is added at the theoretical correlation value from Equation \ref{eq:haldanemap} and a red line is added at the correlation value reported in \cite{cheverud2001} and the density is shaded grey outside this line relative to the peak of the density. The names of the markers measured are placed along the diagonal so that the panel in the $i, j$ position of the array represents the correlation between the markers in the $i^{\text{th}}$ and $j^{\text{th}}$ positions along the diagonal.
+%The \emph{correlation test plot} in Figure \ref{fig:corrTestPlot} was devised to help in this comparison. It is composed of 64 panels arranged in a square array. Each panel above the diagonal displays a kernel density estimate of the distribution of the corresponding pairwise correlation. A black line is added at the theoretical correlation value from Equation \ref{eq:haldanemap} and a red line is added at the correlation value reported in \cite{cheverud2001} and the density is shaded grey outside this line relative to the peak of the density. The names of the markers measured are placed along the diagonal so that the panel in the $i, j$ position of the array represents the correlation between the markers in the $i^{\text{th}}$ and $j^{\text{th}}$ positions along the diagonal.
 
-Below the diagonal, the number of simulated correlations less than or equal to the experimental correlation for the corresponding pair is displayed. Unadjusted 95\% confidence regions determine the colouring: experimental values greater than 9,750 simulated values or more are shaded red while those greater than or equal to 250 simulated values or less are shaded blue.
+%Below the diagonal, the number of simulated correlations less than or equal to the experimental correlation for the corresponding pair is displayed. Unadjusted 95\% confidence regions determine the colouring: experimental values greater than 9,750 simulated values or more are shaded red while those greater than or equal to 250 simulated values or less are shaded blue.
 
-An important insight gained from the correlation test plot is the strong agreement of simulation and theory as shown in the panels above the diagonal. The simulated correlations form symmetric, unimodal distributions centred on the theoretical values for all pairs. Such an observation is a stronger indication of the suitability of the theoretical model than earlier comparisons due to the thousands of repeated simulations performed here. These panels also indicate that the observed correlations are similar to the model, though the model typically overestimates the correlation.
+%An important insight gained from the correlation test plot is the strong agreement of simulation and theory as shown in the panels above the diagonal. The simulated correlations form symmetric, unimodal distributions centred on the theoretical values for all pairs. Such an observation is a stronger indication of the suitability of the theoretical model than earlier comparisons due to the thousands of repeated simulations performed here. These panels also indicate that the observed correlations are similar to the model, though the model typically overestimates the correlation.
 
-This observations can be refined using the panels below the diagonal. These make it clearer that the model tends to overestimate compared to the results of \cite{cheverud2001}. All but three of the observed correlations are below the centre of the simulated distribution. Moreover, the extreme values outside of a single test 95\% confidence region are dominantly shaded blue, indicating a value much lower than expected. It is important to note that fewer values would be shaded if these regions were adjusted for the multiple testing implicit in the plot.
+%This observations can be refined using the panels below the diagonal. These make it clearer that the model tends to overestimate compared to the results of \cite{cheverud2001}. All but three of the observed correlations are below the centre of the simulated distribution. Moreover, the extreme values outside of a single test 95\% confidence region are dominantly shaded blue, indicating a value much lower than expected. It is important to note that fewer values would be shaded if these regions were adjusted for the multiple testing implicit in the plot.
 
 
 

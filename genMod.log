@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.1.6)  28 MAR 2022 11:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.1.6)  28 MAR 2022 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,68 +462,60 @@ Package pdftex.def Info: ./img/LBSim.png  used on input line 610.
 (pdftex.def)             Requested size: 184.28568pt x 184.28421pt.
  [13] [14 <./img/chevSimTheory.png> <./img/chevSim.png> <./img/LBSimTheory.png 
 (PNG copy)> <./img/LBSim.png (PNG copy)>]
-<./img/jaxbsb.png, id=329, 542.025pt x 542.025pt>
+<./img/jaxbsb.png, id=323, 542.025pt x 542.025pt>
 File: ./img/jaxbsb.png Graphic file (type png)
 <use ./img/jaxbsb.png>
-Package pdftex.def Info: ./img/jaxbsb.png  used on input line 650.
+Package pdftex.def Info: ./img/jaxbsb.png  used on input line 653.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/jaxbsb_sim.png, id=330, 542.025pt x 542.025pt>
+<./img/jaxbsb_sim.png, id=324, 542.025pt x 542.025pt>
 File: ./img/jaxbsb_sim.png Graphic file (type png)
 <use ./img/jaxbsb_sim.png>
-Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 651.
+Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 654.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/jaxbsb_quant.png, id=331, 542.025pt x 542.025pt>
+<./img/jaxbsb_quant.png, id=325, 542.025pt x 542.025pt>
 File: ./img/jaxbsb_quant.png Graphic file (type png)
 <use ./img/jaxbsb_quant.png>
-Package pdftex.def Info: ./img/jaxbsb_quant.png  used on input line 652.
+Package pdftex.def Info: ./img/jaxbsb_quant.png  used on input line 655.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb.png, id=334, 542.025pt x 542.025pt>
+<./img/uclabsb.png, id=332, 542.025pt x 542.025pt>
 File: ./img/uclabsb.png Graphic file (type png)
 <use ./img/uclabsb.png>
-Package pdftex.def Info: ./img/uclabsb.png  used on input line 666.
+Package pdftex.def Info: ./img/uclabsb.png  used on input line 669.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb_sim.png, id=335, 542.025pt x 542.025pt>
+<./img/uclabsb_sim.png, id=333, 542.025pt x 542.025pt>
 File: ./img/uclabsb_sim.png Graphic file (type png)
 <use ./img/uclabsb_sim.png>
-Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 667.
+Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 670.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb_quant.png, id=336, 542.025pt x 542.025pt>
+<./img/uclabsb_quant.png, id=334, 542.025pt x 542.025pt>
 File: ./img/uclabsb_quant.png Graphic file (type png)
 <use ./img/uclabsb_quant.png>
-Package pdftex.def Info: ./img/uclabsb_quant.png  used on input line 668.
+Package pdftex.def Info: ./img/uclabsb_quant.png  used on input line 671.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/bsbCorrDist.png, id=339, 722.7pt x 722.7pt>
+<./img/bsbCorrDist.png, id=341, 722.7pt x 722.7pt>
 File: ./img/bsbCorrDist.png Graphic file (type png)
 <use ./img/bsbCorrDist.png>
-Package pdftex.def Info: ./img/bsbCorrDist.png  used on input line 680.
+Package pdftex.def Info: ./img/bsbCorrDist.png  used on input line 683.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
-<./img/bsbCorrTest.png, id=340, 722.7pt x 722.7pt>
+<./img/bsbCorrTest.png, id=342, 722.7pt x 722.7pt>
 File: ./img/bsbCorrTest.png Graphic file (type png)
 <use ./img/bsbCorrTest.png>
-Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 688.
+Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 691.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
 
 [15] [16 <./img/jaxbsb.png (PNG copy)> <./img/jaxbsb_sim.png (PNG copy)> <./img
 /jaxbsb_quant.png (PNG copy)> <./img/uclabsb.png (PNG copy)> <./img/uclabsb_sim
 .png (PNG copy)> <./img/uclabsb_quant.png (PNG copy)>] [17 <./img/bsbCorrDist.p
-ng (PNG copy)>] [18 <./img/bsbCorrTest.png (PNG copy)>]
-<./img/chevCorrTheory.png, id=379, 481.8pt x 481.8pt>
-File: ./img/chevCorrTheory.png Graphic file (type png)
-<use ./img/chevCorrTheory.png>
-Package pdftex.def Info: ./img/chevCorrTheory.png  used on input line 703.
-(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorr.png, id=380, 481.8pt x 481.8pt>
-File: ./img/chevCorr.png Graphic file (type png)
-<use ./img/chevCorr.png>
-Package pdftex.def Info: ./img/chevCorr.png  used on input line 704.
-(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/chevCorrTest.png, id=394, 722.7pt x 722.7pt>
-File: ./img/chevCorrTest.png Graphic file (type png)
-<use ./img/chevCorrTest.png>
-Package pdftex.def Info: ./img/chevCorrTest.png  used on input line 719.
-(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
- [19 <./img/chevCorrTheory.png (PNG copy)> <./img/chevCorr.png (PNG copy)>] [20
- <./img/chevCorrTest.png (PNG copy)>] [21] (./genMod.bbl [22]
+ng (PNG copy)>] [18 <./img/bsbCorrTest.png (PNG copy)>] (./genMod.bbl [19]
+! You can't use `macro parameter character #' in horizontal mode.
+l.77 \newblock {JAX Stock #
+                           000664}.
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+[20]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
@@ -531,24 +523,24 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 825.
- [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 825.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 828.
+ [21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 828.
  (./genMod.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 825.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 825.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 828.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 828.
 Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 3CD54E6F8E334869AFCB8F1CC7B861FA;594.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 825.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 828.
  ) 
 Here is how much of TeX's memory you used:
- 8561 strings out of 492982
- 126473 string characters out of 6134897
- 220591 words of memory out of 5000000
- 11903 multiletter control sequences out of 15000+600000
+ 8544 strings out of 492982
+ 126067 string characters out of 6134897
+ 221453 words of memory out of 5000000
+ 11892 multiletter control sequences out of 15000+600000
  18180 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,22n,43p,1439b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,22n,43p,1439b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
@@ -569,10 +561,10 @@ ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (23 pages, 1016149 bytes).
+Output written on genMod.pdf (21 pages, 899119 bytes).
 PDF statistics:
- 557 PDF objects out of 1000 (max. 8388607)
- 481 compressed objects within 5 object streams
- 86 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 515 PDF objects out of 1000 (max. 8388607)
+ 444 compressed objects within 5 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
