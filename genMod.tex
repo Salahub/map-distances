@@ -616,7 +616,7 @@ Figure \ref{fig:chevSims}(a) displays a pattern of constant off-diagonal lines o
   \label{fig:LBSims}
 \end{figure}
 
-Figure \ref{fig:LBSims} displays the \cite{LanderBotstein1989} setting with the addition of guide lines to aid in reading the plot. These guide lines extend from labels on the top and left sides of the plot to indicate the chromosome of each marker. Along the diagonal, darker square borders indicate the correlations within each chromosome to distinguish these intra-chromosome correlations from inter-chromosome correlations outside of them. As suggested by Equation \ref{eq:haldanemap} and shown in Figure \ref{fig:LBSims}(a), Figure \ref{fig:LBSims}(b) has a stark block diagonal structure which agrees with these dark borders. The simulation therefore agrees very well with theory in this aspect. Within the chromosomes, there is also good agreement between Figure \ref{fig:LBSims}(a) and Figure \ref{fig:LBSims}(b). Both have decreasing correlations along the off-diagonal lines, with Figure \ref{fig:LBSims}(b) displaying similar departures from Figure \ref{fig:LBSims}(a) as Figure \ref{fig:chevSims}(b) does from Figure \ref{fig:chevSims}(a).
+Figure \ref{fig:LBSims} displays the \cite{LanderBotstein1989} setting with the addition of guide lines to aid in reading the plot. These guide lines extend from labels on the top and left sides of the plot to indicate the chromosome of each marker. These lines create square borders along the diagonal which distinguish the intra-chromosome correlations within their borders from the inter-chromosome correlations outside of them. As suggested by Equation \ref{eq:haldanemap} and shown in Figure \ref{fig:LBSims}(a), Figure \ref{fig:LBSims}(b) has a stark block diagonal structure which agrees with these dark borders. The simulation therefore agrees very well with theory in this aspect. Within the chromosomes, there is also good agreement between Figure \ref{fig:LBSims}(a) and Figure \ref{fig:LBSims}(b). Both have decreasing correlations along the off-diagonal lines, with Figure \ref{fig:LBSims}(b) displaying similar departures from Figure \ref{fig:LBSims}(a) as Figure \ref{fig:chevSims}(b) does from Figure \ref{fig:chevSims}(a).
 
 A more interesting noise pattern is seen between chromosomes outside the darker borders in Figure \ref{fig:LBSims}(b). Unlike the strictly positive correlations seen in Figure \ref{fig:chevSims}, both negative and positive correlations are observed. Though many chromosomes show consistent patterns between their markers, with all correlations either positive or negative as between chromosomes 9 and 6 or 11 and 12, many have more complicated relationships. Between chromosomes 7 and 3, for example, both negative and positive correlations are observed between markers which are larger than the smallest intra-chromosomal correlations within 2.
 
@@ -640,12 +640,14 @@ A more interesting noise pattern is seen between chromosomes outside the darker 
 
 Though simulation confirms that population correlations generated under the model of Section \ref{sec:theModel} match the predictions of Equation \ref{eq:zcorr}, this does not mean it reflects genetic mechanics with fidelity. Evaluating the extent to which this is the case requires data. As \cite{LanderBotstein1989} and \cite{cheverud2001} only perform simulations, other sources are required.
 
-\cite{bultetal2019mouse} provides annotation data for more than a dozen mouse populations resulting from crosses of inbred strains, alongside the references needed to determine cM distances between the markers measured in these experiments. All of these resources are publicly provided at www.informatics.jax.org.
+The Mouse Genome Database of \cite{bultetal2019mouse} provides annotation data for more than a dozen mouse populations resulting from crosses of known strains, alongside the references needed to determine cM distances between markers measured in these experiments. All of these resources are publicly provided at the Mouse Genome Informatics website: \href{www.informatics.jax.org}{www.informatics.jax.org}.
 
-Considering only those experiments with mostly complete observations leaves several complete data sets to choose from. Two of these investigate an identical population setting: the \emph{BSB mouse cross} of \cite{fisleretal1993bsb}. BSB mice are those resulting from the $F_2$ backcross of the C57BL/6J and {\it Mus Spretus} mouse strains, detailed respectively in \cite{C57BL6J} and \cite{dejageretal2009mspretus}. Both of these data sets
-%The BSB cross was first introduced in \cite{fisleretal1993bsb} to investigate obesity and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}.
+Considering only those experiments with complete observations leaves several data sets. Two of these investigate an identical population setting: the \emph{BSB mouse cross} of \cite{fisleretal1993bsb}. BSB mice are those resulting from the $F_2$ backcross of the C57BL/6J and {\it Mus Spretus} mouse strains, detailed respectively in \cite{C57BL6J} and \cite{dejageretal2009mspretus}. The first of these crosses is the \emph{JAX BSB} cross of \cite{roweetal1994jaxbsb} and the second is the \emph{UCLA BSB} cross of \cite{welchetal1996uclabsb}. Both were downloaded from \href{http://www.informatics.jax.org/downloads/reports/index.html}{http://www.informatics.jax.org/downloads/reports/index.html}.
+% The BSB cross was first introduced in \cite{fisleretal1993bsb} to investigate obesity and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}.
 
-These two experiments were selected for comparison to simulation due to their high data quality and relevance. Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} display a comparison between the observed correlations computed from the MGD experimental cross data and the correlation simulated as in Section \ref{sec:sim}. Just as in Figure \ref{fig:LBSims}, reference lines have been added to all sub-figures to indicate the chromosomes.
+The data sets require further cleaning before being used, however. First, any markers which do not have a known position along a chromosome in cMs are removed for both data sets. Following that, any individual mice with incomplete data are dropped from the panel. For the JAX BSB data this leaves 94 mice annotated at 1496 markers while the UCLA BSB data has 66 mice annotated at 111 markers. The correlation matrices for these data sets are displayed in Figures \ref{fig:jaxbsb}(a) and \ref{fig:uclabsb}(a) respectively.
+
+The cM positions of these markers were used to simulate 10,000 crosses under each of the JAX BSB and UCLA BSB settings using the methods of Section \ref{sec:sim}. Figures \ref{fig:jaxbsb}(b) and \ref{fig:uclabsb}(b) display example correlation matrices from one such simulated population. For each setting, the quantile of the each experimental pairwise correlation was then computed using the 10,000 simulated crosses. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) display those quantiles which are less than 250 in blue and those which are greater than 9,750 in red for their respective settings. These correspond to unadjusted 95\% confidence rejection regions for each correlation.
 
 \begin{figure}[htp]
   \begin{center}
@@ -653,12 +655,12 @@ These two experiments were selected for comparison to simulation due to their hi
       \includegraphics[width = 0.300\textwidth]{./img/jaxbsb.png} &
       \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_sim.png} &
       \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_quant.png} \\
-      {\footnotesize (a) Observed} &
+      {\footnotesize (a) Experiment} &
       {\footnotesize (b) Simulated example} &
       {\footnotesize (c) Observed quantiles} \\                            
     \end{tabular}
   \end{center}
-  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_JAX_BSB_Panel.rpt}{JAX BSB panel} from the Mouse Genome Database and \cite{roweetal1994jaxbsb}. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
+  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_JAX_BSB_Panel.rpt}{MGD JAX BSB cross} from \cite{roweetal1994jaxbsb}. (c) displays quantiles determined from 10,000 simulated crosses, those quantiles less than 250 are shaded blue and those greater than 9,750 are shaded red.}
   \label{fig:jaxbsb}
 \end{figure}
 
@@ -669,14 +671,24 @@ These two experiments were selected for comparison to simulation due to their hi
       \includegraphics[width = 0.300\textwidth]{./img/uclabsb.png} &
       \includegraphics[width = 0.300\textwidth]{./img/uclabsb_sim.png} &
       \includegraphics[width = 0.300\textwidth]{./img/uclabsb_quant.png} \\
-      {\footnotesize (a) Observed} &
+      {\footnotesize (a) Experiment} &
       {\footnotesize (b) Simulated example} &
       {\footnotesize (c) Observed quantiles} \\
     \end{tabular}
   \end{center}
-  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_UCLA_BSB_Panel.rpt}{UCLA BSB panel} from the Mouse Genome Database and \cite{welchetal1996uclabsb}. Quantiles are determined from 10,000 simulated crosses and coloured blue if the observed value is greater than or equal to 250 or fewer simulated values and coloured red if the observed value is greater than or equal to 9,750 or more simulated values.}
+  \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_UCLA_BSB_Panel.rpt}{MGD UCLA BSB cross} from \cite{welchetal1996uclabsb}. (c) displays quantiles determined from 10,000 simulated crosses, those quantiles less than 250 are shaded blue and those greater than 9,750 are shaded red.}
   \label{fig:uclabsb}
 \end{figure}
+
+Qualitatively, the simulated examples show good agreement to experimental results. In both Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} the patterns of correlation between chromosomes are similar between experiment and simluation of the model from Section \ref{sec:theModel}. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) additionally suggest that these patterns are little more than noise. The regions of unusually strong correlations shaded in red do not appear to follow any clear pattern, nor do the patterns of unusually weak correlations shaded in blue.
+
+The similarity continues within chromosomes. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) are generally not shaded within chromosomes. in particular close to the diagonal. The most noteworthy pattern in either occurs in the corners of the diagonal squares corresponding to chromosomes in Figure \ref{fig:jaxbsb}(c). Many of these corners are shaded blue, suggesting these distant intra-chromosome correlations are less than might be expected in the JAX BSB cross for many chromosomes. The pattern of shading is suggestive of further block structures within chromosomes, those are contiguous sections of chromosomes fit well by the model which have more complex dynamics between them.
+
+\cite{bromanetal2002crossover} analyzes this additional complexity in the \cite{roweetal1994jaxbsb} experiment, the basis of the JAX BSB data.
+
+It is important not to interpret this pattern, however. It is not repeated in Figure \ref{fig:uclabsb} and the quantile regions which are shaded have not been adjusted to account for the many multiple tests performed in each plot.
+
+Each simulation generated 80 BSB mice and then computed the correlation matrix across 
 
 \begin{figure}[htp]
   \begin{center}
@@ -691,6 +703,14 @@ These two experiments were selected for comparison to simulation due to their hi
       \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest.png}
   \end{center}
   \caption{The correlation test plot for the JAX and UCLA BSB crosses. The top panels show the distributions in detail with both crosses marked by black lines and their means marked by a red line, the bottom panels give the quantile of the corresponding mean over 10,000 simulated crosses.}
+  \label{fig:bsbcorrTest}
+\end{figure}
+
+\begin{figure}[htp]
+  \begin{center}
+      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest2.png}
+  \end{center}
+  \caption{Adding chromosome 18's three common markers to Figure \ref{fig:bsbcorrTest}.}
   \label{fig:bsbcorrTest}
 \end{figure}
 

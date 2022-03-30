@@ -133,8 +133,6 @@
     "fig:uclabsb"
     "fig:bsbcorrDist"
     "fig:bsbcorrTest"
-    "fig:corr2real"
-    "fig:corrTestPlot"
     "sec:conclusion")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")
