@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,6 +12,12 @@ Themistocles~L Assimes, I-T Lee, Jyh-Ming Juang, Xiuqing Guo, Tzung-Dau Wang,
 \newblock Genetics of coronary artery disease in taiwan: a cardiometabochip
   study by the taichi consortium.
 \newblock \emph{PLoS One}, 11\penalty0 (3):\penalty0 e0138014, 2016.
+
+\bibitem[Broman et~al.(2002)Broman, Rowe, Churchill, and
+  Paigen]{bromanetal2002crossover}
+Karl~W Broman, Lucy~B Rowe, Gary~A Churchill, and Ken Paigen.
+\newblock Crossover interference in the mouse.
+\newblock \emph{Genetics}, 160\penalty0 (3):\penalty0 1123--1131, 2002.
 
 \bibitem[Bult et~al.(2019)Bult, Blake, Smith, Kadin, Richardson, and
   Database~Group]{bultetal2019mouse}

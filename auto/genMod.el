@@ -131,6 +131,7 @@
     "sec:model2real"
     "fig:jaxbsb"
     "fig:uclabsb"
+    "fig:bsbcommon"
     "fig:bsbcorrDist"
     "fig:bsbcorrTest"
     "sec:conclusion")

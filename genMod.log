@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  29 MAR 2022 16:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  30 MAR 2022 17:05
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -538,27 +538,39 @@ File: ./img/uclabsb_quant.png Graphic file (type png)
 <use ./img/uclabsb_quant.png>
 Package pdftex.def Info: ./img/uclabsb_quant.png  used on input line 673.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/bsbCorrDist.png, id=347, 722.7pt x 722.7pt>
-File: ./img/bsbCorrDist.png Graphic file (type png)
-<use ./img/bsbCorrDist.png>
-Package pdftex.def Info: ./img/bsbCorrDist.png  used on input line 687.
-(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
-<./img/bsbCorrTest.png, id=348, 722.7pt x 722.7pt>
-File: ./img/bsbCorrTest.png Graphic file (type png)
-<use ./img/bsbCorrTest.png>
-Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 695.
-(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
-<./img/bsbCorrTest2.png, id=349, 722.7pt x 722.7pt>
-File: ./img/bsbCorrTest2.png Graphic file (type png)
-<use ./img/bsbCorrTest2.png>
-Package pdftex.def Info: ./img/bsbCorrTest2.png  used on input line 703.
-(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
 
 [15] [16 <./img/jaxbsb.png (PNG copy)> <./img/jaxbsb_sim.png (PNG copy)> <./img
 /jaxbsb_quant.png (PNG copy)> <./img/uclabsb.png (PNG copy)> <./img/uclabsb_sim
-.png (PNG copy)> <./img/uclabsb_quant.png (PNG copy)>] [17 <./img/bsbCorrDist.p
-ng (PNG copy)>] [18 <./img/bsbCorrTest.png (PNG copy)>] [19 <./img/bsbCorrTest2
-.png (PNG copy)>] [20] (genMod.bbl [21]) [22] (genMod.aux)
+.png (PNG copy)> <./img/uclabsb_quant.png (PNG copy)>]
+<./img/jaxbsb_common.png, id=377, 542.025pt x 542.025pt>
+File: ./img/jaxbsb_common.png Graphic file (type png)
+<use ./img/jaxbsb_common.png>
+Package pdftex.def Info: ./img/jaxbsb_common.png  used on input line 696.
+(pdftex.def)             Requested size: 184.28568pt x 184.28606pt.
+<./img/uclabsb_common.png, id=378, 542.025pt x 542.025pt>
+File: ./img/uclabsb_common.png Graphic file (type png)
+<use ./img/uclabsb_common.png>
+Package pdftex.def Info: ./img/uclabsb_common.png  used on input line 697.
+(pdftex.def)             Requested size: 184.28568pt x 184.28606pt.
+<./img/bsbCorrDist.png, id=387, 722.7pt x 722.7pt>
+File: ./img/bsbCorrDist.png Graphic file (type png)
+<use ./img/bsbCorrDist.png>
+Package pdftex.def Info: ./img/bsbCorrDist.png  used on input line 710.
+(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
+<./img/bsbCorrTest.png, id=388, 722.7pt x 722.7pt>
+File: ./img/bsbCorrTest.png Graphic file (type png)
+<use ./img/bsbCorrTest.png>
+Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 718.
+(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
+<./img/bsbCorrTest2.png, id=389, 722.7pt x 722.7pt>
+File: ./img/bsbCorrTest2.png Graphic file (type png)
+<use ./img/bsbCorrTest2.png>
+Package pdftex.def Info: ./img/bsbCorrTest2.png  used on input line 726.
+(pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
+ [17] [18 <./img/jaxbsb_common.png (PNG copy)> <./img/uclabsb_common.png (PNG c
+opy)>] [19 <./img/bsbCorrDist.png (PNG copy)>] [20 <./img/bsbCorrTest.png (PNG 
+copy)>] [21 <./img/bsbCorrTest2.png (PNG copy)>] (genMod.bbl [22]) [23] (genMod
+.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -566,13 +578,13 @@ Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 3CD54E6F8E334869AFCB8F1CC7B861FA;594.
  ) 
 Here is how much of TeX's memory you used:
- 11913 strings out of 478927
- 181307 string characters out of 2852535
- 488612 words of memory out of 3000000
- 29487 multiletter control sequences out of 15000+600000
+ 11934 strings out of 478927
+ 181846 string characters out of 2852535
+ 488843 words of memory out of 3000000
+ 29503 multiletter control sequences out of 15000+600000
  417970 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1427b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1427b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -597,9 +609,9 @@ rs/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pf
 b><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (22 pages, 1092926 bytes).
+Output written on genMod.pdf (23 pages, 1128496 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 85 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 578 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

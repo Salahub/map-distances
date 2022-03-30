@@ -682,13 +682,28 @@ The cM positions of these markers were used to simulate 10,000 crosses under eac
 
 Qualitatively, the simulated examples show good agreement to experimental results. In both Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} the patterns of correlation between chromosomes are similar between experiment and simluation of the model from Section \ref{sec:theModel}. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) additionally suggest that these patterns are little more than noise. The regions of unusually strong correlations shaded in red do not appear to follow any clear pattern, nor do the patterns of unusually weak correlations shaded in blue.
 
-The similarity continues within chromosomes. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) are generally not shaded within chromosomes. in particular close to the diagonal. The most noteworthy pattern in either occurs in the corners of the diagonal squares corresponding to chromosomes in Figure \ref{fig:jaxbsb}(c). Many of these corners are shaded blue, suggesting these distant intra-chromosome correlations are less than might be expected in the JAX BSB cross for many chromosomes. The pattern of shading is suggestive of further block structures within chromosomes, those are contiguous sections of chromosomes fit well by the model which have more complex dynamics between them.
+The similarity continues within chromosomes. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) are generally not shaded within chromosomes. in particular close to the diagonal. The most noteworthy pattern in either occurs in the corners of the diagonal squares corresponding to chromosomes in Figure \ref{fig:jaxbsb}(c). Many of these corners are shaded blue, suggesting these distant intra-chromosome correlations are less than might be expected in the JAX BSB cross for many chromosomes. The pattern of shading is suggestive of block structures within chromosomes where contiguous sections are fit well by the model but may have more complex dynamics between them. 
 
-\cite{bromanetal2002crossover} analyzes this additional complexity in the \cite{roweetal1994jaxbsb} experiment, the basis of the JAX BSB data.
+A likely culprit is the assumption of independent cross overs. \cite{bromanetal2002crossover} evaluated the pattern of cross overs in the \cite{roweetal1994jaxbsb} experiment, the basis of the JAX BSB data. Their results suggest that there is some \emph{interference} between cross overs, that they are not fully independent. In particular they found that cross overs rarely occur within 20 cM of each other, and that it is rare to observe more than 2 cross overs on the same chromosome in a single meiosis event. These empirical results will have little impact on the correlation between markers with short distances between them, as more than one cross over event is unlikely to occur between these. Markers separated by longer distances are impacted by this observed interference to a greater extent. Triple crosses in particular may be rarer than expected under the model of independence, and so these markers are more likely to be separated, resulting in a lower correlation than under independence.
 
-It is important not to interpret this pattern, however. It is not repeated in Figure \ref{fig:uclabsb} and the quantile regions which are shaded have not been adjusted to account for the many multiple tests performed in each plot.
+It is important not to over-interpret this pattern, however. It is not repeated in Figure \ref{fig:uclabsb} and the quantile regions which are shaded have not been adjusted to account for the many multiple tests performed in each plot.
 
-Each simulation generated 80 BSB mice and then computed the correlation matrix across 
+In an effort to gain deeper insight, the common markers measured between the UCLA BSB and JAX BSB cross were identified and the correlation matrices recomputed. The correlations for these common markers are displayed in Figure \ref{fig:bsbcommon}. Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 are noteworthy among the autosomal chromosomes for having several markers measured in common.
+
+\begin{figure}[htp]
+  \begin{center}
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.400\textwidth]{./img/jaxbsb_common.png} &
+      \includegraphics[width = 0.400\textwidth]{./img/uclabsb_common.png} \\
+      {\footnotesize (a) JAX BSB cross} &
+      {\footnotesize (b) UCLA BSB cross} \\
+    \end{tabular}
+  \end{center}
+  \caption{Observed pairwise correlations for the marker positions measured in both \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}.}
+  \label{fig:bsbcommon}
+\end{figure}
+
+Consider the eight markers in common on chromosomes 2 and 4.
 
 \begin{figure}[htp]
   \begin{center}
