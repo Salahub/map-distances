@@ -640,12 +640,12 @@ A more interesting noise pattern is seen between chromosomes outside the darker 
 
 Though simulation confirms that population correlations generated under the model of Section \ref{sec:theModel} match the predictions of Equation \ref{eq:zcorr}, this does not mean it reflects genetic mechanics with fidelity. Evaluating the extent to which this is the case requires data. As \cite{LanderBotstein1989} and \cite{cheverud2001} only perform simulations, other sources are required.
 
-The Mouse Genome Database of \cite{bultetal2019mouse} provides annotation data for more than a dozen mouse populations resulting from crosses of known strains, alongside the references needed to determine cM distances between markers measured in these experiments. All of these resources are publicly provided at the Mouse Genome Informatics website: \href{www.informatics.jax.org}{www.informatics.jax.org}.
+The Mouse Genome Database (MGD) of \cite{bultetal2019mouse} provides annotation data for more than a dozen mouse populations resulting from crosses of known strains, alongside the references needed to determine cM distances between markers measured in these experiments. All of these resources are publicly provided at the Mouse Genome Informatics website: \href{www.informatics.jax.org}{www.informatics.jax.org}.
 
 Considering only those experiments with complete observations leaves several data sets. Two of these investigate an identical population setting: the \emph{BSB mouse cross} of \cite{fisleretal1993bsb}. BSB mice are those resulting from the $F_2$ backcross of the C57BL/6J and {\it Mus Spretus} mouse strains, detailed respectively in \cite{C57BL6J} and \cite{dejageretal2009mspretus}. The first of these crosses is the \emph{JAX BSB} cross of \cite{roweetal1994jaxbsb} and the second is the \emph{UCLA BSB} cross of \cite{welchetal1996uclabsb}. Both were downloaded from \href{http://www.informatics.jax.org/downloads/reports/index.html}{http://www.informatics.jax.org/downloads/reports/index.html}.
 % The BSB cross was first introduced in \cite{fisleretal1993bsb} to investigate obesity and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}.
 
-The data sets require further cleaning before being used, however. First, any markers which do not have a known position along a chromosome in cMs are removed for both data sets. Following that, any individual mice with incomplete data are dropped from the panel. For the JAX BSB data this leaves 94 mice annotated at 1496 markers while the UCLA BSB data has 66 mice annotated at 111 markers. The correlation matrices for these data sets are displayed in Figures \ref{fig:jaxbsb}(a) and \ref{fig:uclabsb}(a) respectively.
+The data sets require further cleaning before being used, however. First, any markers which do not have a known position along a chromosome in cMs are removed for both data sets. Following that, any individual mice with incomplete data are excluded. For the JAX BSB data this leaves 94 mice annotated at 1496 markers while the UCLA BSB data has 66 mice annotated at 111 markers. The correlation matrices for these data sets are displayed in Figures \ref{fig:jaxbsb}(a) and \ref{fig:uclabsb}(a) respectively.
 
 The cM positions of these markers were used to simulate 10,000 crosses under each of the JAX BSB and UCLA BSB settings using the methods of Section \ref{sec:sim}. Figures \ref{fig:jaxbsb}(b) and \ref{fig:uclabsb}(b) display example correlation matrices from one such simulated population. For each setting, the quantile of the each experimental pairwise correlation was then computed using the 10,000 simulated crosses. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) display those quantiles which are less than 250 in blue and those which are greater than 9,750 in red for their respective settings. These correspond to unadjusted 95\% confidence rejection regions for each correlation.
 
@@ -684,17 +684,15 @@ Qualitatively, the simulated examples show good agreement to experimental result
 
 The similarity continues within chromosomes. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) are generally not shaded within chromosomes. in particular close to the diagonal. The most noteworthy pattern in either occurs in the corners of the diagonal squares corresponding to chromosomes in Figure \ref{fig:jaxbsb}(c). Many of these corners are shaded blue, suggesting these distant intra-chromosome correlations are less than might be expected in the JAX BSB cross for many chromosomes. The pattern of shading is suggestive of block structures within chromosomes where contiguous sections are fit well by the model but may have more complex dynamics between them. 
 
-A likely culprit is the assumption of independent cross overs. \cite{bromanetal2002crossover} evaluated the pattern of cross overs in the \cite{roweetal1994jaxbsb} experiment, the basis of the JAX BSB data. Their results suggest that there is some \emph{interference} between cross overs, that they are not fully independent. In particular they found that cross overs rarely occur within 20 cM of each other, and that it is rare to observe more than 2 cross overs on the same chromosome in a single meiosis event. These empirical results will have little impact on the correlation between markers with short distances between them, as more than one cross over event is unlikely to occur between these. Markers separated by longer distances are impacted by this observed interference to a greater extent. Triple crosses in particular may be rarer than expected under the model of independence, and so these markers are more likely to be separated, resulting in a lower correlation than under independence.
+A likely culprit is the assumption of independent cross overs. \cite{bromanetal2002crossover} evaluated the pattern of cross overs in the \cite{roweetal1994jaxbsb} experiment, the basis of the JAX BSB data. Their results suggest that there is some \emph{interference} between cross overs, that they are not fully independent. Most mouse chromosomes are much less than 100 cM in length, yet cross overs rarely occur within 20 cM of each other and fewer cross overs than expected occur on the same chromosome in a single meiosis event. This interference will have little impact on the correlation between markers with short distances between them, as more than one cross over event is unlikely to occur in a short interval. Markers separated by longer distances are impacted by this observed interference to a greater extent, as the observed number of double cross overs will be less than expected. This increases chance that distant markers will be separated in meiosis by a single crossover, leading to a weaker correlation than predicted.
 
-It is important not to over-interpret this pattern, however. It is not repeated in Figure \ref{fig:uclabsb} and the quantile regions which are shaded have not been adjusted to account for the many multiple tests performed in each plot.
-
-In an effort to gain deeper insight, the common markers measured between the UCLA BSB and JAX BSB cross were identified and the correlation matrices recomputed. The correlations for these common markers are displayed in Figure \ref{fig:bsbcommon}. Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 are noteworthy among the autosomal chromosomes for having several markers measured in common.
+That said, it is important not to over-interpret this pattern. It is not repeated in Figure \ref{fig:uclabsb} and the shading of quantile has not been adjusted to account for the many multiple tests performed in each plot. In order to get a greater sense of this experimental departure from theory, the common markers measured between the UCLA BSB and JAX BSB data were identified and the correlation matrices computed for these common locations. By having two experimental replicates the impact of one unusual measurement is reduced. These correlations are displayed in Figure \ref{fig:bsbcommon}.
 
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.400\textwidth]{./img/jaxbsb_common.png} &
-      \includegraphics[width = 0.400\textwidth]{./img/uclabsb_common.png} \\
+      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_common.png} &
+      \includegraphics[width = 0.300\textwidth]{./img/uclabsb_common.png} \\
       {\footnotesize (a) JAX BSB cross} &
       {\footnotesize (b) UCLA BSB cross} \\
     \end{tabular}
@@ -703,35 +701,64 @@ In an effort to gain deeper insight, the common markers measured between the UCL
   \label{fig:bsbcommon}
 \end{figure}
 
-Consider the eight markers in common on chromosomes 2 and 4.
+Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 have several. Of particular interest is chromosome 2, which has a very different pattern in Figure \ref{fig:bsbcommon}(a) than in Figure \ref{fig:bsbcommon}(b).
+
+A more detailed exploration is given by simulation. The common markers on chromosomes 2 and 4 were used to generate 10,000 simulated crosses of 80 mice, the average of the JAX and UCLA BSB cross populations. For any pair of markers the resulting distributions can then be compared to the experimental results of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb} using the two-by-two layouts of Figure \ref{fig:2by2}.
+
+\begin{figure}[htp]
+  \begin{center}
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.300\textwidth]{./img/bsbCorr2by2.png} &
+      \includegraphics[width = 0.300\textwidth]{./img/bsbCorrTest2by2.png} \\
+      {\footnotesize (a) Correlation distribution plot} &
+      {\footnotesize (b) Correlation test plot} \\
+    \end{tabular}
+  \end{center}
+  \caption{The correlation plots.}
+  \label{fig:2by2}
+\end{figure}
+
+Each of the two subplots of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared. Above the diagonal a distribution is displayed, in both cases the kernel density estimate of the correlation over the 10,000 simulated crosses of 80 mice. Below the diagonal a numeric summary with some informative shading is displayed.
+
+Figure \ref{fig:2by2}(a) displays the kernel density estimate on a plot reflecting the range of possible correlations in the upper cell and the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon} in the lower cell. A solid black line at the theoretical value predicted by Equation \ref{eq:haldanemap} and dashed red line at the observed mean are also added to the upper cell. Figure \ref{fig:2by2}(b) displays the kernel density estimate in more detail by placing the kernel density estimate in a plot with limits set by the estimate in the upper cell. Two solid lines are added at the correlations computed from the JAX and UCLA BSB data and a thicker red line is added at their mean, below which the density is shaded. The lower cell of Figure \ref{fig:2by2}(b) communicates the quantile of this red line, or how many simulated correlations fall in the shaded region. As in Figures \ref{fig:uclabsb} and \ref{fig:jaxbsb}, this cell is shaded blue if the quantile is less than 250 and red if it is greater than 9,750.
+
+For the two markers being compared in particular in Figure \ref{fig:2by2}, D2Mit19 and D2Mit22, a number of aspects are of note. Figure \ref{fig:2by2} again demonstrates the close agreement of simulation and theory and communicates the spread of the markers. Across all simulations a relatively strong and positive correlation was observed which was always above 0.5. The lower panel provides the mean information at a glance in the same way as earlier correlation plots. Figure \ref{fig:2by2} compares the experimental results to this simulated distribution and finds good agreement between the simulated and experimental values. A more interesting feature to note is the roughness of the kernel density estimate, which suggests a discrete distribution of correlations. Rather, it seems the population of 80 mice can have only certain values for the correlation between these markers in simulation.
+
+By expanding the pairwise units of Figure \ref{fig:2by2} into larger arrays, the distributions of all pairwise correlations for the common markers on chromosomes 2 and 4 between the JAX and UCLA BSB crosses can be viewed. Along the diagonal, all eight marker symbols are displayed. For any cell, the corresponding pair of markers can be found by tracing along the row and column until the diagonal is reached. Interpretation then follows as in the two-by-two case. In an array, the entire pattern can also be seen at a glance, especially using the lower cells. This can then guide inspection of the upper panels. Such an expansion of Figure \ref{fig:2by2}(a) gives the \emph{correlation distribution plot} of Figure \ref{fig:bsbcorrDist}, while for Figure \ref{fig:2by2}(b) the \emph{correlation test plot} of Figure \ref{fig:bsbcorrTest} results.
 
 \begin{figure}[htp]
   \begin{center}
       \includegraphics[width = 0.7\textwidth]{./img/bsbCorrDist.png}
   \end{center}
-  \caption{The distribution of correlations for the common markers in the JAX and UCLA BSB cross experiments and their means over 10,000 simulated crosses.}
+  \caption{The \emph{correlation distribution plot} for the common markers in the JAX and UCLA BSB cross experiments and their means over 10,000 simulated crosses.}
   \label{fig:bsbcorrDist}
 \end{figure}
+
+The construction of Figure \ref{fig:bsbcorrDist} is motivated by the correlation matrices seen in Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}. Indeed, the cells of the matrix of plots below the diagonal in Figure \ref{fig:bsbcorrDist} reports the mean correlation across all simulated crosses for the corresponding pair of markers given by the marker names along the diagonal. These cells are then shaded using the same divergent palette as earlier figures. It therefore serves as a more detailed version of lower part of the the earlier correlation heatmaps.
 
 \begin{figure}[htp]
   \begin{center}
       \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest.png}
   \end{center}
-  \caption{The correlation test plot for the JAX and UCLA BSB crosses. The top panels show the distributions in detail with both crosses marked by black lines and their means marked by a red line, the bottom panels give the quantile of the corresponding mean over 10,000 simulated crosses.}
+  \caption{The correlation test plot for the JAX and UCLA BSB crosses. The upper cells show the distributions in detail with both crosses marked by black lines and their means marked by a red line, the bottom cells give the quantile of the corresponding mean over 10,000 simulated crosses.}
   \label{fig:bsbcorrTest}
 \end{figure}
+
+The cells above the diagonal display kernel density estimates of the distribution of correlations across all 10,000 simulated crosses. Plotted over these are several lines. The first is a reference line at zero to add context to the density. A dashed red line indicates the theoretical correlation and a dashed black line indicates the mean correlation reported in the lower cells. In this way the correlation distribution plot provides information not only about the correlation structure of the data, but also about the variation expected under a simulation.
+
+The distributions of the pairwise correlations are generally symmetric, unimodal and centred about the theoretical predictions. For markers close together with strong correlations between them, there appears to be some roughness to the density estimate, but for all others the densities appear smooth. The \emph{correlation test plot} of Figure \ref{fig:bsbcorrTest} shows these densities in greater detail and displays the experimental results alongside the simulated distribution.
+
+To see these densities in greater detail and how the experimental results compare, the plot bounds of the uppers cells can be set by each density, rather than globally. Lines for each experimental result and their mean can then be added. The lower cells can be made more informative by reporting the quantile of the mean and then shaded as in Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) to display significant quantiles. 
 
 \begin{figure}[htp]
   \begin{center}
       \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest2.png}
   \end{center}
   \caption{Adding chromosome 18's three common markers to Figure \ref{fig:bsbcorrTest}.}
-  \label{fig:bsbcorrTest}
+  \label{fig:bsbcorrTestBig}
 \end{figure}
 
 The most striking feature of both Figure \ref{fig:jaxbsb}(a) and Figure \ref{fig:uclabsb}(a) is the block diagonal structure consistent with the independent assortment of chromosomes. The chromosomes form clear blocks with strong intra-chromosome correlations and weaker, noisier inter-chromosome correlations. Both of these data sets additionally show large correlations close to the diagonal and smaller correlations moving away from the diagonal within chromosomes. Between the chromosomes, an almost identical pattern of patches is observed in both. All of these patterns are mimicked by the simulation, showing prominently in Figures \ref{fig:jaxbsb}(b) and \ref{fig:uclabsb}(b).
-
-Both of these experiments were rather small, the JAX BSB cross has 94 animals while the UCLA BSB cross consists of 67.
 
 %\cite{cheverud2001} cites \cite{cheverudetal2001} in which two inbred mouse strains were crossed to breed an $F_2$ intercross population of 510 individuals. It is of particular interest because \cite{cheverud2001} reproduces the correlation matrix of $\ve{z}$ under the additive mapping for the population, providing the opportunity to compare Equation \ref{eq:zcorr} to observed correlations generated from a real cross. Figure \ref{fig:corr2real} displays this comparison.
 

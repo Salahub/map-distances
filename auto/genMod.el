@@ -132,8 +132,10 @@
     "fig:jaxbsb"
     "fig:uclabsb"
     "fig:bsbcommon"
+    "fig:2by2"
     "fig:bsbcorrDist"
     "fig:bsbcorrTest"
+    "fig:bsbcorrTestBig"
     "sec:conclusion")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")
