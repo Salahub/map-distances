@@ -191,6 +191,10 @@
 	
 \maketitle
 
+\begin{abstract}
+  A structural model of the genome is devised. Under common assumptions, a first-principles derivation of the Haldane map distance and genetic correlation is completed under this model. The results of the model are compared to real data resulting from the BSB mouse cross. Correlation test plots are motivated and used to facilitate this comparison, which indicates a close agreement of the model and reality.
+\end{abstract}
+
 \section{Introduction} \label{sec:intro}
 
 Genetic research today routinely considers the entirety of a genome to identify the regions most strongly related to measured physical traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Extracting useful results from markers and measured traits is a complicated task which has motivated decades of statistical and biological research. Interested individuals are left to sort through this research in order to understand genomics.
@@ -734,7 +738,7 @@ By expanding the pairwise units of Figure \ref{fig:2by2} into larger arrays, the
   \label{fig:bsbcorrDist}
 \end{figure}
 
-The construction of Figure \ref{fig:bsbcorrDist} is motivated by the correlation matrices seen in Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}. Indeed, the cells of the matrix of plots below the diagonal in Figure \ref{fig:bsbcorrDist} reports the mean correlation across all simulated crosses for the corresponding pair of markers given by the marker names along the diagonal. These cells are then shaded using the same divergent palette as earlier figures. It therefore serves as a more detailed version of lower part of the the earlier correlation heatmaps.
+In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are all symmetric and unimodal centred at the theoretical correlation. Indeed, the mean correlation across all simulations agrees with theory to two significant figures for all pairwise correlations. The variation of the distribution seems highly dependent on the proximity of a pair of markers. Markers which are close together and have a high correlation display very little variation across the simulations relative to markers which are further apart on the same chromosome or are independent. Additionally, many of these close markers have a roughness in their kernel density estimates indicative of a discrete distribution. Figure \ref{fig:bsbcorrTest} shows this more clearly.
 
 \begin{figure}[htp]
   \begin{center}
@@ -744,11 +748,10 @@ The construction of Figure \ref{fig:bsbcorrDist} is motivated by the correlation
   \label{fig:bsbcorrTest}
 \end{figure}
 
-The cells above the diagonal display kernel density estimates of the distribution of correlations across all 10,000 simulated crosses. Plotted over these are several lines. The first is a reference line at zero to add context to the density. A dashed red line indicates the theoretical correlation and a dashed black line indicates the mean correlation reported in the lower cells. In this way the correlation distribution plot provides information not only about the correlation structure of the data, but also about the variation expected under a simulation.
+The roughness noted in Figure \ref{fig:bsbcorrDist} is one of the defining characteristics of Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to take only seven values across the population. Moreover these values appear to be the same for both pairs. This suggests the correlation for highly associated markers does not take continuous values, but rather can only take one of several values for a population. This is unsurprising, as to some extent the correlation counts the number of cross over events which occur in a population, and for highly associated markers only a few are likely to occur. The peak at 1 corresponds to no pairs being separated in the population, the next highest at 0.975 with one separation, and so on. This discrete pattern, coupled with the short range leading to a small bandwidth, causes the kernel density estimate to accentuate this discrete nature. That this roughness appears for moderately close markers confirms this.
 
-The distributions of the pairwise correlations are generally symmetric, unimodal and centred about the theoretical predictions. For markers close together with strong correlations between them, there appears to be some roughness to the density estimate, but for all others the densities appear smooth. The \emph{correlation test plot} of Figure \ref{fig:bsbcorrTest} shows these densities in greater detail and displays the experimental results alongside the simulated distribution.
+In the lower cells, the lack of shading suggests close agreement of the model to reality. Only two of the comparisons have means in a rejection region, almost all of the others are 
 
-To see these densities in greater detail and how the experimental results compare, the plot bounds of the uppers cells can be set by each density, rather than globally. Lines for each experimental result and their mean can then be added. The lower cells can be made more informative by reporting the quantile of the mean and then shaded as in Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) to display significant quantiles. 
 
 \begin{figure}[htp]
   \begin{center}

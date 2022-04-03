@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  2 APR 2022 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  3 APR 2022 08:08
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -469,7 +469,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <./img/modelDiagram.pdf, id=43, 433.62pt x 72.27pt>
 File: ./img/modelDiagram.pdf Graphic file (type pdf)
 <use ./img/modelDiagram.pdf>
-Package pdftex.def Info: ./img/modelDiagram.pdf  used on input line 200.
+Package pdftex.def Info: ./img/modelDiagram.pdf  used on input line 204.
 (pdftex.def)             Requested size: 433.61894pt x 72.2698pt.
 
 [1
@@ -479,145 +479,147 @@ ram.pdf>] [2] [3] [4] [5]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 298.
+(amsmath)                 on input line 302.
 
-[6] [7] [8] [9] [10] [11] [12]
-<./img/chevSimTheory.png, id=263, 481.8pt x 481.8pt>
+[6] [7] [8] [9] [10] [11] [12] [13]
+<./img/chevSimTheory.png, id=271, 481.8pt x 481.8pt>
 File: ./img/chevSimTheory.png Graphic file (type png)
 <use ./img/chevSimTheory.png>
-Package pdftex.def Info: ./img/chevSimTheory.png  used on input line 594.
+Package pdftex.def Info: ./img/chevSimTheory.png  used on input line 598.
 (pdftex.def)             Requested size: 184.28568pt x 184.28421pt.
-<./img/chevSim.png, id=264, 481.8pt x 481.8pt>
+<./img/chevSim.png, id=272, 481.8pt x 481.8pt>
 File: ./img/chevSim.png Graphic file (type png)
 <use ./img/chevSim.png>
-Package pdftex.def Info: ./img/chevSim.png  used on input line 595.
+Package pdftex.def Info: ./img/chevSim.png  used on input line 599.
 (pdftex.def)             Requested size: 184.28568pt x 184.28421pt.
-<./img/LBSimTheory.png, id=270, 481.8pt x 481.8pt>
+<./img/LBSimTheory.png, id=278, 481.8pt x 481.8pt>
 File: ./img/LBSimTheory.png Graphic file (type png)
 <use ./img/LBSimTheory.png>
-Package pdftex.def Info: ./img/LBSimTheory.png  used on input line 609.
+Package pdftex.def Info: ./img/LBSimTheory.png  used on input line 613.
 (pdftex.def)             Requested size: 184.28568pt x 184.28421pt.
-<./img/LBSim.png, id=271, 481.8pt x 481.8pt>
+<./img/LBSim.png, id=279, 481.8pt x 481.8pt>
 File: ./img/LBSim.png Graphic file (type png)
 <use ./img/LBSim.png>
-Package pdftex.def Info: ./img/LBSim.png  used on input line 610.
+Package pdftex.def Info: ./img/LBSim.png  used on input line 614.
 (pdftex.def)             Requested size: 184.28568pt x 184.28421pt.
- [13] [14 <./img/chevSimTheory.png> <./img/chevSim.png> <./img/LBSimTheory.png 
+ [14 <./img/chevSimTheory.png> <./img/chevSim.png>] [15 <./img/LBSimTheory.png 
 (PNG copy)> <./img/LBSim.png (PNG copy)>]
-<./img/jaxbsb.png, id=329, 542.025pt x 542.025pt>
+<./img/jaxbsb.png, id=335, 542.025pt x 542.025pt>
 File: ./img/jaxbsb.png Graphic file (type png)
 <use ./img/jaxbsb.png>
-Package pdftex.def Info: ./img/jaxbsb.png  used on input line 655.
+Package pdftex.def Info: ./img/jaxbsb.png  used on input line 659.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/jaxbsb_sim.png, id=330, 542.025pt x 542.025pt>
+<./img/jaxbsb_sim.png, id=336, 542.025pt x 542.025pt>
 File: ./img/jaxbsb_sim.png Graphic file (type png)
 <use ./img/jaxbsb_sim.png>
-Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 656.
+Package pdftex.def Info: ./img/jaxbsb_sim.png  used on input line 660.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/jaxbsb_quant.png, id=331, 542.025pt x 542.025pt>
+<./img/jaxbsb_quant.png, id=337, 542.025pt x 542.025pt>
 File: ./img/jaxbsb_quant.png Graphic file (type png)
 <use ./img/jaxbsb_quant.png>
-Package pdftex.def Info: ./img/jaxbsb_quant.png  used on input line 657.
+Package pdftex.def Info: ./img/jaxbsb_quant.png  used on input line 661.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb.png, id=338, 542.025pt x 542.025pt>
+<./img/uclabsb.png, id=344, 542.025pt x 542.025pt>
 File: ./img/uclabsb.png Graphic file (type png)
 <use ./img/uclabsb.png>
-Package pdftex.def Info: ./img/uclabsb.png  used on input line 671.
+Package pdftex.def Info: ./img/uclabsb.png  used on input line 675.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb_sim.png, id=339, 542.025pt x 542.025pt>
+<./img/uclabsb_sim.png, id=345, 542.025pt x 542.025pt>
 File: ./img/uclabsb_sim.png Graphic file (type png)
 <use ./img/uclabsb_sim.png>
-Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 672.
+Package pdftex.def Info: ./img/uclabsb_sim.png  used on input line 676.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb_quant.png, id=340, 542.025pt x 542.025pt>
+<./img/uclabsb_quant.png, id=346, 542.025pt x 542.025pt>
 File: ./img/uclabsb_quant.png Graphic file (type png)
 <use ./img/uclabsb_quant.png>
-Package pdftex.def Info: ./img/uclabsb_quant.png  used on input line 673.
+Package pdftex.def Info: ./img/uclabsb_quant.png  used on input line 677.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
 
-[15] [16 <./img/jaxbsb.png (PNG copy)> <./img/jaxbsb_sim.png (PNG copy)> <./img
-/jaxbsb_quant.png (PNG copy)> <./img/uclabsb.png (PNG copy)> <./img/uclabsb_sim
-.png (PNG copy)> <./img/uclabsb_quant.png (PNG copy)>]
-<./img/jaxbsb_common.png, id=377, 542.025pt x 542.025pt>
+[16 <./img/jaxbsb.png (PNG copy)> <./img/jaxbsb_sim.png (PNG copy)> <./img/jaxb
+sb_quant.png (PNG copy)>]
+<./img/jaxbsb_common.png, id=379, 542.025pt x 542.025pt>
 File: ./img/jaxbsb_common.png Graphic file (type png)
 <use ./img/jaxbsb_common.png>
-Package pdftex.def Info: ./img/jaxbsb_common.png  used on input line 694.
+Package pdftex.def Info: ./img/jaxbsb_common.png  used on input line 698.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/uclabsb_common.png, id=378, 542.025pt x 542.025pt>
+<./img/uclabsb_common.png, id=380, 542.025pt x 542.025pt>
 File: ./img/uclabsb_common.png Graphic file (type png)
 <use ./img/uclabsb_common.png>
-Package pdftex.def Info: ./img/uclabsb_common.png  used on input line 695.
+Package pdftex.def Info: ./img/uclabsb_common.png  used on input line 699.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
- [17 <./img/jaxbsb_common.png (PNG copy)> <./img/uclabsb_common.png (PNG copy)>
-]
-<./img/bsbCorr2by2.png, id=400, 361.35pt x 361.35pt>
+ [17 <./img/uclabsb.png (PNG copy)> <./img/uclabsb_sim.png (PNG copy)> <./img/u
+clabsb_quant.png (PNG copy)>]
+<./img/bsbCorr2by2.png, id=402, 361.35pt x 361.35pt>
 File: ./img/bsbCorr2by2.png Graphic file (type png)
 <use ./img/bsbCorr2by2.png>
-Package pdftex.def Info: ./img/bsbCorr2by2.png  used on input line 711.
+Package pdftex.def Info: ./img/bsbCorr2by2.png  used on input line 715.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
-<./img/bsbCorrTest2by2.png, id=401, 361.35pt x 361.35pt>
+<./img/bsbCorrTest2by2.png, id=403, 361.35pt x 361.35pt>
 File: ./img/bsbCorrTest2by2.png Graphic file (type png)
 <use ./img/bsbCorrTest2by2.png>
-Package pdftex.def Info: ./img/bsbCorrTest2by2.png  used on input line 712.
+Package pdftex.def Info: ./img/bsbCorrTest2by2.png  used on input line 716.
 (pdftex.def)             Requested size: 138.21777pt x 138.21867pt.
- [18 <./img/bsbCorr2by2.png (PNG copy)> <./img/bsbCorrTest2by2.png (PNG copy)>]
-<./img/bsbCorrDist.png, id=424, 722.7pt x 722.7pt>
+ [18 <./img/jaxbsb_common.png (PNG copy)> <./img/uclabsb_common.png (PNG copy)>
+ <./img/bsbCorr2by2.png (PNG copy)> <./img/bsbCorrTest2by2.png (PNG copy)>]
+<./img/bsbCorrDist.png, id=426, 722.7pt x 722.7pt>
 File: ./img/bsbCorrDist.png Graphic file (type png)
 <use ./img/bsbCorrDist.png>
-Package pdftex.def Info: ./img/bsbCorrDist.png  used on input line 731.
+Package pdftex.def Info: ./img/bsbCorrDist.png  used on input line 735.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
- [19 <./img/bsbCorrDist.png (PNG copy)>]
-<./img/bsbCorrTest.png, id=436, 722.7pt x 722.7pt>
+<./img/bsbCorrTest.png, id=429, 722.7pt x 722.7pt>
 File: ./img/bsbCorrTest.png Graphic file (type png)
 <use ./img/bsbCorrTest.png>
-Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 741.
+Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 745.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
- [20 <./img/bsbCorrTest.png (PNG copy)>]
-<./img/bsbCorrTest2.png, id=444, 722.7pt x 722.7pt>
+ [19] [20 <./img/bsbCorrDist.png (PNG copy)>] [21 <./img/bsbCorrTest.png (PNG c
+opy)>]
+<./img/bsbCorrTest2.png, id=450, 722.7pt x 722.7pt>
 File: ./img/bsbCorrTest2.png Graphic file (type png)
 <use ./img/bsbCorrTest2.png>
-Package pdftex.def Info: ./img/bsbCorrTest2.png  used on input line 755.
+Package pdftex.def Info: ./img/bsbCorrTest2.png  used on input line 759.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
- [21 <./img/bsbCorrTest2.png (PNG copy)>] (genMod.bbl [22] [23]) [24] (genMod.a
+ [22 <./img/bsbCorrTest2.png (PNG copy)>] (genMod.bbl [23] [24]) [25] (genMod.a
 ux)
 Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 3CD54E6F8E334869AFCB8F1CC7B861FA;594.
  ) 
 Here is how much of TeX's memory you used:
- 11952 strings out of 478927
- 182272 string characters out of 2852535
- 489174 words of memory out of 3000000
- 29517 multiletter control sequences out of 15000+600000
- 417970 words of font info for 80 fonts, out of 8000000 for 9000
+ 11957 strings out of 478927
+ 182315 string characters out of 2852535
+ 489177 words of memory out of 3000000
+ 29519 multiletter control sequences out of 15000+600000
+ 418577 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1427b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1427b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmbx7.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Chris/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Chris/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Chris/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Chris/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Use
-rs/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb
+/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Chris/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Chris/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Chris/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Chris/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users
+/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb
 ><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mr12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmr17.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr5.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr7.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Chris/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Chris/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Chris/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Chris/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Use
-rs/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pf
-b><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (24 pages, 1158317 bytes).
+mr10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr17.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr5.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Chris/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Chris/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Chris/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Chris/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
+/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmti12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/symbols/msbm10.pfb>
+Output written on genMod.pdf (25 pages, 1186478 bytes).
 PDF statistics:
- 616 PDF objects out of 1000 (max. 8388607)
- 90 named destinations out of 1000 (max. 500000)
+ 632 PDF objects out of 1000 (max. 8388607)
+ 91 named destinations out of 1000 (max. 500000)
  171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
