@@ -750,8 +750,7 @@ In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are
 
 The roughness noted in Figure \ref{fig:bsbcorrDist} is one of the defining characteristics of Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to take only seven values across the population. Moreover these values appear to be the same for both pairs. This suggests the correlation for highly associated markers does not take continuous values, but rather can only take one of several values for a population. This is unsurprising, as to some extent the correlation counts the number of cross over events which occur in a population, and for highly associated markers only a few are likely to occur. The peak at 1 corresponds to no pairs being separated in the population, the next highest at 0.975 with one separation, and so on. This discrete pattern, coupled with the short range leading to a small bandwidth, causes the kernel density estimate to accentuate this discrete nature. That this roughness appears for moderately close markers confirms this.
 
-In the lower cells, the lack of shading suggests close agreement of the model to reality. Only two of the comparisons have means in a rejection region, almost all of the others are 
-
+In the lower cells, the lack of shading suggests close agreement of the model to reality. Only two of the comparisons have means in a rejection region, and both were correlations involving the marker D4Mit19. The corresponding cells above the diagonal additionally show much less variation in the correlation estimates between the JAX and UCLA BSB data than most other cells, which suggests that there may be more complexity in the inheritance of this marker or on chromosome 4 generally. By adding chromosome 18, this is interrogated further in Figure \ref{fig:bsbcorrTestBig}.
 
 \begin{figure}[htp]
   \begin{center}
@@ -761,7 +760,7 @@ In the lower cells, the lack of shading suggests close agreement of the model to
   \label{fig:bsbcorrTestBig}
 \end{figure}
 
-The most striking feature of both Figure \ref{fig:jaxbsb}(a) and Figure \ref{fig:uclabsb}(a) is the block diagonal structure consistent with the independent assortment of chromosomes. The chromosomes form clear blocks with strong intra-chromosome correlations and weaker, noisier inter-chromosome correlations. Both of these data sets additionally show large correlations close to the diagonal and smaller correlations moving away from the diagonal within chromosomes. Between the chromosomes, an almost identical pattern of patches is observed in both. All of these patterns are mimicked by the simulation, showing prominently in Figures \ref{fig:jaxbsb}(b) and \ref{fig:uclabsb}(b).
+Indeed, chromosome 4 is noteworthy for the poorer fit of the model to its correlations than in the case of the other two chromosomes.
 
 %\cite{cheverud2001} cites \cite{cheverudetal2001} in which two inbred mouse strains were crossed to breed an $F_2$ intercross population of 510 individuals. It is of particular interest because \cite{cheverud2001} reproduces the correlation matrix of $\ve{z}$ under the additive mapping for the population, providing the opportunity to compare Equation \ref{eq:zcorr} to observed correlations generated from a real cross. Figure \ref{fig:corr2real} displays this comparison.
 

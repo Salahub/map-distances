@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  3 APR 2022 08:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  4 APR 2022 16:30
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -573,10 +573,10 @@ Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 745.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
  [19] [20 <./img/bsbCorrDist.png (PNG copy)>] [21 <./img/bsbCorrTest.png (PNG c
 opy)>]
-<./img/bsbCorrTest2.png, id=450, 722.7pt x 722.7pt>
+<./img/bsbCorrTest2.png, id=448, 722.7pt x 722.7pt>
 File: ./img/bsbCorrTest2.png Graphic file (type png)
 <use ./img/bsbCorrTest2.png>
-Package pdftex.def Info: ./img/bsbCorrTest2.png  used on input line 759.
+Package pdftex.def Info: ./img/bsbCorrTest2.png  used on input line 757.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
  [22 <./img/bsbCorrTest2.png (PNG copy)>] (genMod.bbl [23] [24]) [25] (genMod.a
 ux)
@@ -590,7 +590,7 @@ Here is how much of TeX's memory you used:
  29519 multiletter control sequences out of 15000+600000
  418577 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1427b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1427b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -617,9 +617,9 @@ i10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (25 pages, 1186478 bytes).
+Output written on genMod.pdf (25 pages, 1184690 bytes).
 PDF statistics:
- 632 PDF objects out of 1000 (max. 8388607)
+ 626 PDF objects out of 1000 (max. 8388607)
  91 named destinations out of 1000 (max. 500000)
  171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
