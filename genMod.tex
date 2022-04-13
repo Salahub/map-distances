@@ -740,21 +740,47 @@ In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are
 
 \begin{figure}[htp]
   \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest.png}
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.300\textwidth]{./img/strngDen.png} &
+      \includegraphics[width = 0.300\textwidth]{./img/strngBarNoCol.png} \\
+      {\footnotesize (a) Kernel density estimate} &
+      {\footnotesize (b) Barplot of values} \\
+    \end{tabular}
+  \end{center}
+  \caption{The distribution of the correlation between markers D2Mit22 and a over 10,000 simulated BSB crosses.}
+  \label{fig:discrete}
+\end{figure}
+
+\begin{figure}[htp]
+  \begin{center}
+    \begin{tabular}{cc}
+      \includegraphics[width = 0.300\textwidth]{./img/strngBar.png} &
+      \includegraphics[width = 0.300\textwidth]{./img/strngBarClose.png} \\
+      {\footnotesize (a) } &
+      {\footnotesize (b) Colours} \\
+    \end{tabular}
+  \end{center}
+  \caption{The distribution of the correlation between markers D2Mit22 and a over 10,000 simulated BSB crosses.}
+  \label{fig:bardetail}
+\end{figure}
+
+The roughness noted in Figure \ref{fig:bsbcorrDist} is one of the defining characteristics of Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to cluster around seven values across the population. Moreover these values appear to be the same for both pairs. This suggests the correlation for highly associated markers does not take continuous values, but rather can only take one of several values for a population. Using bar plots, the discrete distribution of the correlation of D2Mit22 and a can be seen directly in Figure \ref{fig:discrete}.
+
+As the parents of this cross are known, the correlation is effectively a count of the number of cross overs which have occurred in a population. For highly associated markers only a few are likely to occur. Each peak in the KDEs for the closely related pairs D2Mit22/a and Nppa/D4Mit14 corresponds to hypothetical correlations resulting from no cross overs, one cross over, two cross overs, and so on. For example, the peak at 1 corresponds to populations in which no marker pairs are separated and the peak at 0.975 corresponds to populations with exactly one individual having separated markers. The following peaks at lower values similarly correspond to increasing numbers of individuals with separated markers. This discrete pattern is present in all plots, but the short range and small number of potential values in the case of close associaton leads to the selection of a small bandwidth, therefore accentuating the discrete nature in the KDE. That roughness appears somewhat for moderately close markers supports this.
+
+\begin{figure}[htp]
+  \begin{center}
+      \includegraphics[width = 0.7\textwidth]{./img/meanSim.png}
   \end{center}
   \caption{The correlation test plot for the JAX and UCLA BSB crosses. The upper cells show the distributions of correlations over 10,000 simulated crosses in detail with both experimental results marked by black lines and their mean marked by a red line. The bottom cells give the quantile of the corresponding mean over the 10,000 simulated crosses.}
   \label{fig:bsbcorrTest}
 \end{figure}
 
-The roughness noted in Figure \ref{fig:bsbcorrDist} is one of the defining characteristics of Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to take only seven values across the population. Moreover these values appear to be the same for both pairs. This suggests the correlation for highly associated markers does not take continuous values, but rather can only take one of several values for a population. This is unsurprising when considered in a different light.
-
-As the parents of this cross are known, the correlation is effectively a count of the number of cross overs which have occurred in a population. For highly associated markers only a few are likely to occur. Each peak in the KDEs for the closely related pairs D2Mit22/a and Nppa/D4Mit14 corresponds to hypothetical correlations resulting from no cross overs, one cross over, two cross overs, and so on. For example, the peak at 1 corresponds to populations in which no marker pairs are separated and the peak at 0.975 corresponds to populations with exactly one individual having separated markers. The following peaks at lower values similarly correspond to increasing numbers of individuals with separated markers. This discrete pattern is present in all plots, but the short range and small number of potential values in the case of close associaton leads to the selection of a small bandwidth, therefore accentuating the discrete nature in the KDE. That roughness appears somewhat for moderately close markers supports this.
-
 In the lower cells, the lack of shading suggests close agreement of the model to reality. Only two of the comparisons have means in a rejection region, and both are correlations on chromosome 4. The corresponding cells above the diagonal show much less variation between the JAX and UCLA BSB data than most other cells. Indeed, the two seem to have almost identical correlation values. This suggests that there may be more complexity in chromosome 4 than is captured by the model, potentially due to cross over interference as in Figure \ref{fig:jaxbsb}. This hypothesis is bolstered when chromosome 18 is added in Figure \ref{fig:bsbcorrTestBig}.
 
 \begin{figure}[htp]
   \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest2.png}
+      \includegraphics[width = 0.7\textwidth]{./img/meanSimBig.png}
   \end{center}
   \caption{Adding chromosome 18's three common markers to Figure \ref{fig:bsbcorrTest}.}
   \label{fig:bsbcorrTestBig}

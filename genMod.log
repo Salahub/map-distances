@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  7 APR 2022 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  12 APR 2022 15:59
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -568,30 +568,52 @@ File: ./img/bsbCorrDist.png Graphic file (type png)
 Package pdftex.def Info: ./img/bsbCorrDist.png  used on input line 733.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
  [19 <./img/bsbCorrDist.png (PNG copy)>]
-<./img/bsbCorrTest.png, id=433, 722.7pt x 722.7pt>
-File: ./img/bsbCorrTest.png Graphic file (type png)
-<use ./img/bsbCorrTest.png>
-Package pdftex.def Info: ./img/bsbCorrTest.png  used on input line 743.
+<./img/strngDen.png, id=433, 481.8pt x 481.8pt>
+File: ./img/strngDen.png Graphic file (type png)
+<use ./img/strngDen.png>
+Package pdftex.def Info: ./img/strngDen.png  used on input line 744.
+(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
+<./img/strngBarNoCol.png, id=434, 481.8pt x 481.8pt>
+File: ./img/strngBarNoCol.png Graphic file (type png)
+<use ./img/strngBarNoCol.png>
+Package pdftex.def Info: ./img/strngBarNoCol.png  used on input line 745.
+(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
+<./img/strngBar.png, id=435, 481.8pt x 481.8pt>
+File: ./img/strngBar.png Graphic file (type png)
+<use ./img/strngBar.png>
+Package pdftex.def Info: ./img/strngBar.png  used on input line 757.
+(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
+<./img/strngBarClose.png, id=436, 481.8pt x 481.8pt>
+File: ./img/strngBarClose.png Graphic file (type png)
+<use ./img/strngBarClose.png>
+Package pdftex.def Info: ./img/strngBarClose.png  used on input line 758.
+(pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
+ [20 <./img/strngDen.png> <./img/strngBarNoCol.png> <./img/strngBar.png (PNG co
+py)> <./img/strngBarClose.png (PNG copy)>]
+<./img/meanSim.png, id=448, 722.7pt x 722.7pt>
+File: ./img/meanSim.png Graphic file (type png)
+<use ./img/meanSim.png>
+Package pdftex.def Info: ./img/meanSim.png  used on input line 773.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
- [20 <./img/bsbCorrTest.png (PNG copy)>]
-<./img/bsbCorrTest2.png, id=442, 722.7pt x 722.7pt>
-File: ./img/bsbCorrTest2.png Graphic file (type png)
-<use ./img/bsbCorrTest2.png>
-Package pdftex.def Info: ./img/bsbCorrTest2.png  used on input line 757.
+ [21 <./img/meanSim.png (PNG copy)>]
+<./img/meanSimBig.png, id=455, 722.7pt x 722.7pt>
+File: ./img/meanSimBig.png Graphic file (type png)
+<use ./img/meanSimBig.png>
+Package pdftex.def Info: ./img/meanSimBig.png  used on input line 783.
 (pdftex.def)             Requested size: 322.50345pt x 322.49922pt.
- [21 <./img/bsbCorrTest2.png (PNG copy)>] (genMod.bbl [22] [23]) [24] (genMod.a
-ux)
+ [22 <./img/meanSimBig.png (PNG copy)>] (genMod.bbl [23] [24])
+[25] (genMod.aux)
 Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 3CD54E6F8E334869AFCB8F1CC7B861FA;594.
  ) 
 Here is how much of TeX's memory you used:
- 11956 strings out of 478927
- 182308 string characters out of 2852535
- 489266 words of memory out of 3000000
- 29519 multiletter control sequences out of 15000+600000
+ 11985 strings out of 478927
+ 182909 string characters out of 2852535
+ 489511 words of memory out of 3000000
+ 29542 multiletter control sequences out of 15000+600000
  418577 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1415b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1415b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -618,9 +640,9 @@ i10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (24 pages, 1182756 bytes).
+Output written on genMod.pdf (25 pages, 1244321 bytes).
 PDF statistics:
- 606 PDF objects out of 1000 (max. 8388607)
- 90 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 620 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
