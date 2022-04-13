@@ -703,8 +703,9 @@ That said, it is important not to over-interpret this pattern. It is not repeate
 \end{figure}
 Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 have several.
 
-A more detailed exploration is given by further simulation. The common markers on chromosomes 2 and 4 were used to generate 10,000 simulated crosses of 80 mice, the average of the JAX and UCLA BSB cross populations. Additionally, 10,000 populations of each of the JAX and UCLA crosses were simulated. For any pair of markers the resulting distributions can then be compared to the experimental results of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb} using the two-by-two layouts of Figure \ref{fig:2by2}.
+A more detailed exploration is given by further simulation. The common markers on chromosomes 2 and 4 were used to generate 10,000 simulated crosses of 80 mice, the average of the JAX and UCLA BSB cross populations. Correlation matrices were computed for each population. Additionally, 10,000 populations of each of the JAX and UCLA crosses were simulated independently, and the average of these correlation matrices computed for each pair. As the JAX and UCLA crosses were carried out far from each other years apart, these experiments are assumed to be independent.
 
+For any pair of markers this gives two resulting distributions. One showing the typical variation to be expected from repeated crosses and one showing how that variation changes when averaged across two populations. Both of these are compared to the experimental results of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb} using the two-by-two layouts of Figure \ref{fig:2by2}.
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{ccc}
@@ -728,7 +729,6 @@ A more detailed exploration is given by further simulation. The common markers o
   \caption{The pairwise units used to construct the correlation }
   \label{fig:2by2}
 \end{figure}
-
 Each of the two subplots of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared. Above the diagonal a distribution is displayed, in both cases the kernel density estimate (KDE) of the correlation over the 10,000 simulated crosses of 80 mice. Below the diagonal a numeric summary with some informative shading is displayed.
 
 Figure \ref{fig:2by2}(a) displays the KDE on a plot reflecting the range of possible correlations in the upper cell and adds a solid black line at the theoretical value predicted by Equation \ref{eq:haldanemap} and dashed red line at the mean over all simulations. The lower cell reports the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
