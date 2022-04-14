@@ -694,18 +694,18 @@ That said, it is important not to over-interpret this pattern. It is not repeate
     \begin{tabular}{cc}
       \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_common.png} &
       \includegraphics[width = 0.300\textwidth]{./img/uclabsb_common.png} \\
-      {\footnotesize (a) JAX BSB cross} &
-      {\footnotesize (b) UCLA BSB cross} \\
+      {\footnotesize (a) JAX BSB data} &
+      {\footnotesize (b) UCLA BSB data} \\
     \end{tabular}
   \end{center}
-  \caption{Observed pairwise correlations for the marker positions measured in \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}.}
+  \caption{Pairwise correlations for the common marker positions of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}.}
   \label{fig:bsbcommon}
 \end{figure}
 Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 have several.
 
 A more detailed exploration is given by further simulation. The common markers on chromosomes 2 and 4 were used to generate 10,000 simulated crosses of 80 mice, the average of the JAX and UCLA BSB cross populations. Correlation matrices were computed for each population. Additionally, 10,000 populations of each of the JAX and UCLA crosses were simulated independently, and the average of these correlation matrices computed for each pair. As the JAX and UCLA crosses were carried out far from each other years apart, these experiments are assumed to be independent.
 
-For any pair of markers this gives two resulting distributions. One showing the typical variation to be expected from repeated crosses and one showing how that variation changes when averaged across two populations. Both of these are compared to the experimental results of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb} using the two-by-two layouts of Figure \ref{fig:2by2}.
+For any pair of markers this gives two resulting distributions. One showing the distribution of correlation over repeated crosses and one showing the distribution of the correlations averaged across two populations. Both of these are compared to the JAX and UCLA data using the two-by-two layouts of Figure \ref{fig:2by2}.
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{ccc}
@@ -713,43 +713,111 @@ For any pair of markers this gives two resulting distributions. One showing the 
       \includegraphics[width = 0.25\textwidth]{./img/bsbCorrTest2by2a.png} &
       \includegraphics[width = 0.25\textwidth]{./img/bsbCorrTest2by2.png} \\
       {\footnotesize (a) Distribution of correlations} &
-      {\footnotesize (b) Quantile of the mean of the} &
-      {\footnotesize (c) Quantile of the mean of the} \\
+      {\footnotesize (b) JAX and BSB correlations against} &
+      {\footnotesize (c) JAX and BSB correlations against} \\
       &
-      {\footnotesize JAX and UCLA correlations} &
-      {\footnotesize JAX and UCLA correlations} \\
-      &
-      {\footnotesize against simulated} &
-      {\footnotesize against the mean of} \\
-      &
-      {\footnotesize populations of 80} &
-      {\footnotesize two simulated populations} \\
+      {\footnotesize simulated populations of 80} &
+      {\footnotesize paired populations of 66 and 94} \\
     \end{tabular}
   \end{center}
-  \caption{The pairwise units used to construct the correlation }
+  \caption{The pairwise units used to construct the correlation distribution and correlation test plots.}
   \label{fig:2by2}
 \end{figure}
-Each of the two subplots of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared. Above the diagonal a distribution is displayed, in both cases the kernel density estimate (KDE) of the correlation over the 10,000 simulated crosses of 80 mice. Below the diagonal a numeric summary with some informative shading is displayed.
+Each subplot of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared, in this case Nppa and D4Mit14. Above the diagonal a distribution is displayed, in all cases the kernel density estimate (KDE) of the distribution of interest. Below the diagonal a numeric summary with some informative shading is displayed.
 
-Figure \ref{fig:2by2}(a) displays the KDE on a plot reflecting the range of possible correlations in the upper cell and adds a solid black line at the theoretical value predicted by Equation \ref{eq:haldanemap} and dashed red line at the mean over all simulations. The lower cell reports the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
+Figure \ref{fig:2by2}(a) displays the KDE on a plot reflecting the range of possible correlations in the upper cell. The solid black line in this cell is drawn at the theoretical value predicted by Equation \ref{eq:haldanemap} and the dashed red line at the mean over all simulations. The lower cell reports the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
 
 Figure \ref{fig:2by2}(b) displays the KDE in more detail by placing it in a plot with limits set by the estimate in the upper cell. Two solid lines are added at the correlations computed from the JAX and UCLA BSB data and a thicker red line is added at their mean, below which the density is shaded. The lower cell of Figure \ref{fig:2by2}(b) communicates the quantile of this red line, that is how many simulated correlations fall in the shaded region. As in Figures \ref{fig:uclabsb} and \ref{fig:jaxbsb}, this cell is shaded blue if the quantile is less than 250 and red if it is greater than 9,750.
 
-For the two markers being compared in particular in Figure \ref{fig:2by2}, Nppa and D4Mit4, a number of aspects are of note. Figure \ref{fig:2by2}(a) reiterates the close agreement of simulation and theory. The simulated mean line and the theoretical value are identical at 0.83. This is reasonably consist across all simulations, the KDE shows universally strong, positive correlations above 0.5. Figure \ref{fig:2by2}(b) compares the experimental results to this simulated distribution and finds good agreement between the simulated and experimental values. A more interesting feature to note is the roughness of the kernel density estimate, which suggests a discrete distribution of correlations. It seems the population of 80 mice can have only certain values for the correlation between these markers.
+Figure \ref{fig:2by2}(c) is identical to \ref{fig:2by2}(b), but with a more appropriate KDE. To model the distribution of the mean of the JAX and UCLA correlations for a marker, 10,000 independent BSB crosses of both 66 and 94 mice were simulated. For each independent pair, the correlation is computed on both populations and averaged. This gives 10,000 realizations of the average correlation of the JAX and UCLA data under the model and so a more appropriate quantile value. Additional information is encoded by line type. The JAX correlation is marked with a dashed line while the UCLA data is marked with a dot-dashed line.
+
+Figure \ref{fig:2by2} facilitates a critical assessment of the model's fit for Nppa and D4Mit4. Figure \ref{fig:2by2}(a) reiterates the close agreement of simulation and theory: the simulated mean and the theoretical value are both at 0.95. Across all simulations, the KDE shows universally strong, positive correlations above 0.5. The experimental values do not seem out of the ordinary range of these simulated correlations in Figure \ref{fig:2by2}(b), nor does their mean. This suggests the model works well for this pair. Figure \ref{fig:2by2}(c) reinforces this conclusion. The quantile of the mean is near the centre to the distribution of analogous means of paired, independent populations.
+
+The subplots of Figure \ref{fig:2by2} are expanded into larger displays by adding more markers along the diagonal, treating the original subplots as single pairwise units repeated over the larger array. Expanding to include all common markers on chromosomes 2 and 4 between the JAX and UCLA BSB data gives an eight by eight matrix. Along the diagonal, all eight marker symbols are displayed. For any cell, the corresponding pair of markers is found by tracing along its row and column until the diagonal is reached. Interpretation then follows as in the two-by-two case. In an array, the pattern across all markers can be seen at a glance, especially in the lower cells, which can then guide the inspection of specific pairs in more detail. Such an expansion of Figure \ref{fig:2by2}(a) gives the \emph{correlation distribution plot} of Figure \ref{fig:bsbcorrDist}, while for Figure \ref{fig:2by2}(c) the \emph{correlation test plot} of Figure \ref{fig:bsbcorrTest} results.
+
+\begin{figure}[htp]
+  \begin{center}
+      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrDist.png}
+  \end{center}
+  \caption{The \emph{correlation distribution plot} for 10,000 simulated BSB crosses of the common markers on chromosomes 2 and 4 in the JAX and UCLA data.}
+  \label{fig:bsbcorrDist}
+\end{figure}
+
+In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are generally symmetric and unimodal with centres at the theoretical correlation. Indeed, the means of simulated correlations agree with theory to two decimals for all pairwise correlations. The shape and spread of the distribution of correlations seems highly dependent on the proximity of a pair of markers. Markers which are close together in cM and have a high correlation display very little variation across the simulations relative to markers which are further apart on the same chromosome or are on different chromosomes. Additionally, the KDEs of the close markers have separate peaks and roughness indicative of clusters of correlation values. Figure \ref{fig:bsbcorrTest} shows this as well, but it has been smoothed somewhat by averaging.
+
+\begin{figure}[htp]
+  \begin{center}
+      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest.png}
+  \end{center}
+  \caption{The \emph{correlation test plot} for the JAX and UCLA BSB crosses. The upper cells show the distribution of 10,000 simulated averaged correlations between the JAX and UCLA BSB crosses. The experimental results are marked by black lines and their mean marked by a red line. The dashed line presents the  The bottom cells give the quantile of the corresponding mean over the 10,000 simulated crosses.}
+  \label{fig:bsbcorrTest}
+\end{figure}
+
+Of the twenty eight lower cells, six are shaded. The first of these, between markers D2Mit22 and a, is perhaps misleading. The observed quantiles are computed by counting the values less than or equal to that observed, but this pair has an observed mean correlation of 1. It is therefore necessarily larger than or equal to all other mean correlations, despite having an identical correlation as 291 simulated means. This shading should therefore be ignored, as the value is not so unusual.
+
+All of the remaining shaded cells, with lower correlations than expected, involve chromosome 4 alone. Moreoever, the black lines showing the independent experimental observations for these pairwise correlations are much less variable than other cells. They are almost identical between experiments. It was noted earlier in the discussing of Figure \ref{fig:jaxbsb} that the model used to compute these correlations does not account for cross over interference. The consistent departure of markers on chromosome 4 from the expectations of the model therefore suggests that chromosome 4 may experience stronger cross over intereference. This hypothesis is bolstered when chromosome 18 is added in Figure \ref{fig:bsbcorrTestBig}.
+
+\begin{figure}[htp]
+  \begin{center}
+      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTestBig.png}
+  \end{center}
+  \caption{Adding chromosome 18's three common markers to Figure \ref{fig:bsbcorrTest}.}
+  \label{fig:bsbcorrTestBig}
+\end{figure}
+
+It is harder to read the cells with chromosome 18 added, but only one cell within chromosome 18 is shaded. The shaded pair, D18Mit14 and D18Mit33, does not show the close agreement over experiments as do the significant pairs of chromosome 4. Chromosome 4 is therefore noteworthy for the poorer fit of the model to its correlations and the consistency of these correlations over independent experiments.
+
+This demonstrates the value of the correlation test plot in Figure \ref{fig:bsbcorrTest} as a diagnostic. Repeated simulation under a model with no interference is used to create the distributions seen in the upper cells. Any departure from these distributions, especially a departure consistent over multiple experiments, shows where this model is inadequate. This further suggests that these regions may have more cross over interference or generally more complex dynamics than others where the model fits well, and may be a priority for future measurement or research into more complicated inheritance patterns.
+
+\subsection{The impact of cross overs on correlation} \label{subsec:corrCountCO}
+
+Another complexity is the roughness noted in Figure \ref{fig:bsbcorrDist} and repeated to a lesser extent in Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to cluster around the same seven values across the population in Figure \ref{fig:bsbcorrDist}. This suggests the correlations for highly associated markers do not take continuous values, but rather only take one of several values for a population. This is confirmed in Figure \ref{fig:discrete} with a KDE and bar plot of correlations between Nppa and D4Mit14 placed side-by-side.
 
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
       \includegraphics[width = 0.300\textwidth]{./img/strngDen.png} &
       \includegraphics[width = 0.300\textwidth]{./img/strngBarNoCol.png} \\
-      {\footnotesize (a) Kernel density estimate} &
-      {\footnotesize (b) Barplot of values} \\
+      {\footnotesize (a) KDE} &
+      {\footnotesize (b) Bar plot} \\
     \end{tabular}
   \end{center}
   \caption{The distribution of the correlation between markers Nppa and D4Mit14 over 10,000 simulated BSB crosses.}
   \label{fig:discrete}
 \end{figure}
 
+The bar plot in Figure \ref{fig:discrete}(b) places lines with lengths proportional to the number of observed populations with a given correlation at the corresponding point on the horizontal axis. Seven clear clusters are visible, and a handful of lines suggest an eighth if a larger sample were simulated. The first of these from the right is at 1, and is a single line rather than a collection of lines. The peaks of each of the following groups of lines correspond to the peaks in Figure \ref{fig:discrete}(a). This pattern can be explained by the features of the backcross being simulated and the equation for sample correlation.
+
+Recall that these correlations result from the simulation of the BSB cross, a specific backcross. In general, the backcross of the marker summaries $Z_j$ and $Z_k$ under the additive map can be modelled by the sexual reproduction of the annotated matrices
+$$\m{F}_X = \begin{bmatrix}
+  f & f \\
+  f & f \\
+\end{bmatrix} \text{ and }
+\m{M}_X = \begin{bmatrix}
+  1 & 0 \\
+  1 & 0 \\
+\end{bmatrix}.$$
+Without loss of generality, take $f = 1$. Absent cross overs there are only two possible values for $\ve{z}$: $\tr{(1,1)}$ and $\tr{(2,2)}$. Both of these values of $\ve{z}$ are equally likely, as the inherited variants are independently donated by each parent. Regardless of which is inherited, $Z_{ij} = Z_{ik}$ for the $i^{\text{th}}$ offspring in a population of $n$. The correlation, given by
+\begin{equation} \label{eq:sampleCorr}
+Corr(Z_j, Z_k) = \frac{\sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j} \bar{z}_{k}}{\sqrt{ \left ( \sum_{i = 1}^n z_{ij}^2 - n \bar{z}_{j}^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}
+\end{equation}
+where $\bar{x}_l = \frac{1}{n} \sum_{i = 1}^n x_{il}$, is always 1 in this case.
+
+Suppose one cross over occurs and is inherited by the $n^{\text{th}}$ offspring, however. Then there is one individual in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. Noting the symmetry of this problem, take the first and consider $Z_k$ as the \emph{reference marker}. That is, we will assume the individual with $\ve{z} = \tr{(1,2)}$ would have been $\ve{z} = \tr{(2,2)}$ without a cross over. Let the correlation is given by Equation \ref{eq:sampleCorr} give the correlation of this reference case. With this single cross over, any sum over $z_{ij}$ in this equation will change.
+
+The sum $\sum_{i = 1}^n z_{ji}$ decreases by 1 as the $n^{text{th}}$ term goes from 2 to 1. Therefore the product $n \bar{z}_{j}$ will decrease by one. Similarly, the sum
+$$\sum_{i = 1}^n z_{ij}^2$$
+will decrease by 3. Finally, the cross sum
+$$\sum_{i = 1}^n z_{ji} z_{ki},$$
+will decrease by 2, as in the reference case the $n^{\text{th}}$ term is given by $2 \times 2$, but with a cross over the term decreases to $2 \times 1$. Together, these change Equation \ref{eq:sampleCorr} to
+$$\frac{ \left ( \sum_{i = 1}^n z_{ij} z_{ik} - 2 \right ) - \left( n \bar{z}_{j} - 1 \right ) \bar{z}_{k}}{\sqrt{ \left ( \left [ \sum_{i = 1}^n z_{ij}^2 - 3 \right ] -  n \left [ \bar{z}_{j} - \frac{1}{n} \right ]^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}$$
+
+$$= \frac{ \left ( \sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j}\bar{z}_{k} \right ) - \left ( 2 - \bar{z_k} \right )}{\sqrt{ \left ( \left [ \sum_{i = 1}^n z_{ij}^2 -  n\bar{z}^2_{j} \right ] - \left [ 3 - 2 \bar{z}_j + \frac{1}{n} \right ] \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}},$$
+
+$$= \frac{ \left ( \sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j}\bar{z}_{k} \right ) - \left ( 2 - \bar{z_k} \right )}{\sqrt{ \left ( \left [ \sum_{i = 1}^n z_{ij}^2 -  n\bar{z}^2_{j} \right ] - \left [ 3 - 2 \bar{z}_k + \frac{1}{n} \right ] \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}},$$
+and so the correlation is impacted by the mean of the reference marker and the sample size for each cross over! As $\bar{z}_k \in [1, 2]$, this will always decrease the correlation. The decrease will change, however, with the reference mean $\bar{z}_k$.
+
+This logic can be extended to multiple cross overs. Using the concept of a reference marker, the correlations were computed as above for the cases of zero, one, two, three, and four cross overs for a selection of seven mean additive scores. Figure \ref{fig:bardetail} displays these settings with coloured lines in the bar plot of Figure \ref{fig:discrete}(b).
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
@@ -762,44 +830,7 @@ For the two markers being compared in particular in Figure \ref{fig:2by2}, Nppa 
   \caption{The distribution of the correlation between markers Nppa and D4Mit14 over 10,000 simulated BSB crosses.}
   \label{fig:bardetail}
 \end{figure}
-
-Figure \ref{fig:2by2} can be expanded into a larger display by considering it a single pairwise unit to repeat over a larger array. Consider doing this for all common markers on chromosomes 2 and 4 between the JAX and UCLA BSB data. Along the diagonal, all eight marker symbols are displayed. For any cell, the corresponding pair of markers can be found by tracing along the row and column until the diagonal is reached. Interpretation then follows as in the two-by-two case. In an array, the entire pattern can also be seen at a glance, especially in the lower cells, which can then guide inspection of the upper cells in more detail. Such an expansion of Figure \ref{fig:2by2}(a) gives the \emph{correlation distribution plot} of Figure \ref{fig:bsbcorrDist}, while for Figure \ref{fig:2by2}(b) the \emph{correlation test plot} of Figure \ref{fig:bsbcorrTest} results.
-
-\begin{figure}[htp]
-  \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrDist.png}
-  \end{center}
-  \caption{The \emph{correlation distribution plot} for the common markers in the JAX and UCLA BSB cross compared to 10,000 simulated BSB crosses.}
-  \label{fig:bsbcorrDist}
-\end{figure}
-
-In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are all symmetric and unimodal with centres at the theoretical correlation. Indeed, the mean correlation across all simulations agrees with theory to two significant figures for all pairwise correlations. The variation of the distribution seems highly dependent on the proximity of a pair of markers. Markers which are close together and have a high correlation display very little variation across the simulations relative to markers which are further apart on the same chromosome or are independent. Additionally, many of these close markers have a roughness in their KDEs indicative of a discrete distribution. Figure \ref{fig:bsbcorrTest} shows this more clearly.
-
-The roughness noted in Figure \ref{fig:bsbcorrDist} is one of the defining characteristics of Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to cluster around seven values across the population. Moreover these values appear to be the same for both pairs. This suggests the correlation for highly associated markers does not take continuous values, but rather can only take one of several values for a population. Using bar plots, the discrete distribution of the correlation of D2Mit22 and a can be seen directly in Figure \ref{fig:discrete}.
-
-As the parents of this cross are known, the correlation is effectively a count of the number of cross overs which have occurred in a population. For highly associated markers only a few are likely to occur. Each peak in the KDEs for the closely related pairs D2Mit22/a and Nppa/D4Mit14 corresponds to hypothetical correlations resulting from no cross overs, one cross over, two cross overs, and so on. For example, the peak at 1 corresponds to populations in which no marker pairs are separated and the peak at 0.975 corresponds to populations with exactly one individual having separated markers. The following peaks at lower values similarly correspond to increasing numbers of individuals with separated markers. This discrete pattern is present in all plots, but the short range and small number of potential values in the case of close associaton leads to the selection of a small bandwidth, therefore accentuating the discrete nature in the KDE. That roughness appears somewhat for moderately close markers supports this.
-
-\begin{figure}[htp]
-  \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest.png}
-  \end{center}
-  \caption{The correlation test plot for the JAX and UCLA BSB crosses. The upper cells show the distributions of correlations over 10,000 simulated crosses in detail with both experimental results marked by black lines and their mean marked by a red line. The bottom cells give the quantile of the corresponding mean over the 10,000 simulated crosses.}
-  \label{fig:bsbcorrTest}
-\end{figure}
-
-In the lower cells, the lack of shading suggests close agreement of the model to reality. Only two of the comparisons have means in a rejection region, and both are correlations on chromosome 4. The corresponding cells above the diagonal show much less variation between the JAX and UCLA BSB data than most other cells. Indeed, the two seem to have almost identical correlation values. This suggests that there may be more complexity in chromosome 4 than is captured by the model, potentially due to cross over interference as in Figure \ref{fig:jaxbsb}. This hypothesis is bolstered when chromosome 18 is added in Figure \ref{fig:bsbcorrTestBig}.
-
-\begin{figure}[htp]
-  \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTestBig.png}
-  \end{center}
-  \caption{Adding chromosome 18's three common markers to Figure \ref{fig:bsbcorrTest}.}
-  \label{fig:bsbcorrTestBig}
-\end{figure}
-
-Chromosome 4 is clearly noteworthy for the poorer fit of the model to its correlations than in the case of the other two chromosomes. Compared to chromosomes 2 and 18, there is also reduced variation in the correlations between the two experiments for chromosome 4. This is somewhat harder to read, as both the correlation test plot and correlation distribution plot scale poorly in the number of markers due to the decreasing cell size as the array dimensions grow in a constant figure area.
-
-This is diagnostic as well, as departures indicate that independence and cross over mechanics work differently.
+These theoretical lines match the values observed in the simulated distribution exactly. Interestingly, correlation seems dominantly impacted by the number of cross overs, the mean additive score of the reference marker changes the correlation by small amounts in comparison.
 
 %\cite{cheverud2001} cites \cite{cheverudetal2001} in which two inbred mouse strains were crossed to breed an $F_2$ intercross population of 510 individuals. It is of particular interest because \cite{cheverud2001} reproduces the correlation matrix of $\ve{z}$ under the additive mapping for the population, providing the opportunity to compare Equation \ref{eq:zcorr} to observed correlations generated from a real cross. Figure \ref{fig:corr2real} displays this comparison.
 
@@ -911,13 +942,13 @@ This is diagnostic as well, as departures indicate that independence and cross o
 
 \section{Conclusion} \label{sec:conclusion}
 
-This framework may not be limited to genomics. \cite{hasinetal2017multi} note the expansion of genome-wide methods to protein and RNA sequencing. In both of these cases, the framework above applies, but has less explanatory power. One might imagine investigating proteins using this framework to see which are relatively under or over-expressed
+%This framework may not be limited to genomics. \cite{hasinetal2017multi} note the expansion of genome-wide methods to protein and RNA sequencing. In both of these cases, the framework above applies, but has less explanatory power. One might imagine investigating proteins using this framework to see which are relatively under or over-expressed
 
-Each of these italicized steps could be performed in a number of ways, with consequences on the final quantification of the genome's relevant features. Selection typically involves the choice of at most one million SNPs from an SNP database such as \cite{NCBIdbSNP}. Though these databases have hundreds of millions of identified SNPs, \cite{koboldtetal2013next} suggests that perhaps only 15 million are common enough to be useful, and that no further useful SNPs are likely to be found. While modern microarray technology dictates the limit on the number of simultaneously selected SNPs, see \cite{laframboise2009, tametal2019benefits}, studies such as \cite{assimesetal2016cadgwas} often choose far fewer. These rely on SNPs used in previous literature and ready-made general microarrays as selection criteria. \cite{LanderBotstein1989} proposes SNPs selected uniformly across the genome for agnostic studies.
+%Each of these italicized steps could be performed in a number of ways, with consequences on the final quantification of the genome's relevant features. Selection typically involves the choice of at most one million SNPs from an SNP database such as \cite{NCBIdbSNP}. Though these databases have hundreds of millions of identified SNPs, \cite{koboldtetal2013next} suggests that perhaps only 15 million are common enough to be useful, and that no further useful SNPs are likely to be found. While modern microarray technology dictates the limit on the number of simultaneously selected SNPs, see \cite{laframboise2009, tametal2019benefits}, studies such as \cite{assimesetal2016cadgwas} often choose far fewer. These rely on SNPs used in previous literature and ready-made general microarrays as selection criteria. \cite{LanderBotstein1989} proposes SNPs selected uniformly across the genome for agnostic studies.
 
-There are new technologies which allow entire genomes to be sequenced, see \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}, but even when these reach a cost and speed accessible to most researchers there is little doubt known markers with previous literature will still be the focus of many studies. These technologies are more likely to expand the selection pool than to make selection irrelevant.
+%There are new technologies which allow entire genomes to be sequenced, see \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}, but even when these reach a cost and speed accessible to most researchers there is little doubt known markers with previous literature will still be the focus of many studies. These technologies are more likely to expand the selection pool than to make selection irrelevant.
 
-Categorical measures of association, such as the $\chi^2$ test, could readily be applied to $\m{T}$, where each possible row combination is treated as a different category. Such measurement would likely be more computationally inefficient, but would entirely circumvent the last two steps of Figure \ref{fig:modelDiagram}. 
+%Categorical measures of association, such as the $\chi^2$ test, could readily be applied to $\m{T}$, where each possible row combination is treated as a different category. Such measurement would likely be more computationally inefficient, but would entirely circumvent the last two steps of Figure \ref{fig:modelDiagram}. 
 
 
 \bibliographystyle{plainnat}
