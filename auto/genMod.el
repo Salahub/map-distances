@@ -139,6 +139,8 @@
     "subsec:corrCountCO"
     "fig:discrete"
     "eq:sampleCorr"
+    "eq:refCorr"
+    "eq:crossedCorr"
     "fig:bardetail"
     "sec:conclusion")
    (LaTeX-add-bibliographies

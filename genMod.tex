@@ -183,8 +183,8 @@
 \newcommand{\comment}[1]{{\color{steelblue} COMMENT:  {#1}}}
 \newcommand{\TODO}[1]{{\color{brickred} TODO:  {#1}}}
 
-\title{The derivation of genetic map distances and correlation from first principles using a structural genetic model}
-\author{Chris Salahub \\
+\title{A structural genetic model to derive genetic map distances and correlation from first principles.}
+\author{Christopher Salahub \\
 	\textit{University of Waterloo}}
 
 \begin{document}
@@ -771,7 +771,7 @@ This demonstrates the value of the correlation test plot in Figure \ref{fig:bsbc
 
 \subsection{The impact of cross overs on correlation} \label{subsec:corrCountCO}
 
-Another complexity is the roughness noted in Figure \ref{fig:bsbcorrDist} and repeated to a lesser extent in Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to cluster around the same seven values across the population in Figure \ref{fig:bsbcorrDist}. This suggests the correlations for highly associated markers do not take continuous values, but rather only take one of several values for a population. This is confirmed in Figure \ref{fig:discrete} with a KDE and bar plot of correlations between Nppa and D4Mit14 placed side-by-side.
+Another complexity is the roughness noted in Figure \ref{fig:bsbcorrDist} and repeated to a lesser extent in Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to cluster around the same seven values across the population in Figure \ref{fig:bsbcorrDist}. This suggests the correlations for highly associated markers take several discrete values in a population. This is confirmed in Figure \ref{fig:discrete} with a KDE and bar plot of correlations between Nppa and D4Mit14 placed side-by-side.
 
 \begin{figure}[htp]
   \begin{center}
@@ -786,7 +786,7 @@ Another complexity is the roughness noted in Figure \ref{fig:bsbcorrDist} and re
   \label{fig:discrete}
 \end{figure}
 
-The bar plot in Figure \ref{fig:discrete}(b) places lines with lengths proportional to the number of observed populations with a given correlation at the corresponding point on the horizontal axis. Seven clear clusters are visible, and a handful of lines suggest an eighth if a larger sample were simulated. The first of these from the right is at 1, and is a single line rather than a collection of lines. The peaks of each of the following groups of lines correspond to the peaks in Figure \ref{fig:discrete}(a). This pattern can be explained by the features of the backcross being simulated and the equation for sample correlation.
+The bar plot in Figure \ref{fig:discrete}(b) places lines with lengths proportional to the number of observed correlations with a given correlation at the corresponding point on the horizontal axis. Seven clear clusters are visible, and a handful of lines suggest a potential eighth. The first of these from the right is at 1, and is a single line rather than a collection of lines. The peaks of each of the following groups of lines correspond to the peaks in Figure \ref{fig:discrete}(a). This intriguing pattern can be explained by the features of the backcross being simulated and the equation for sample correlation.
 
 Recall that these correlations result from the simulation of the BSB cross, a specific backcross. In general, the backcross of the marker summaries $Z_j$ and $Z_k$ under the additive map can be modelled by the sexual reproduction of the annotated matrices
 $$\m{F}_X = \begin{bmatrix}
@@ -797,27 +797,33 @@ $$\m{F}_X = \begin{bmatrix}
   1 & 0 \\
   1 & 0 \\
 \end{bmatrix}.$$
-Without loss of generality, take $f = 1$. Absent cross overs there are only two possible values for $\ve{z}$: $\tr{(1,1)}$ and $\tr{(2,2)}$. Both of these values of $\ve{z}$ are equally likely, as the inherited variants are independently donated by each parent. Regardless of which is inherited, $Z_{ij} = Z_{ik}$ for the $i^{\text{th}}$ offspring in a population of $n$. The correlation, given by
+Without loss of generality, take $f = 1$. In the absence of cross overs there are only two possible values for $\ve{z}$: $\tr{(1,1)}$ and $\tr{(2,2)}$. Both of these values of $\ve{z}$ are equally likely, as the inherited variants are independently donated by each parent. Regardless of which is inherited, $Z_{ij} = Z_{ik}$ for all of the offspring indexed by $i$ in a population of $n$ without cross overs. The correlation, given by
 \begin{equation} \label{eq:sampleCorr}
 Corr(Z_j, Z_k) = \frac{\sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j} \bar{z}_{k}}{\sqrt{ \left ( \sum_{i = 1}^n z_{ij}^2 - n \bar{z}_{j}^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}
 \end{equation}
-where $\bar{x}_l = \frac{1}{n} \sum_{i = 1}^n x_{il}$, is always 1 in this case.
+where $\bar{z}_l = \frac{1}{n} \sum_{i = 1}^n z_{il}$, is therefore always 1.
 
-Suppose one cross over occurs and is inherited by the $n^{\text{th}}$ offspring, however. Then there is one individual in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. Noting the symmetry of this problem, take the first and consider $Z_k$ as the \emph{reference marker}. That is, we will assume the individual with $\ve{z} = \tr{(1,2)}$ would have been $\ve{z} = \tr{(2,2)}$ without a cross over. Let the correlation is given by Equation \ref{eq:sampleCorr} give the correlation of this reference case. With this single cross over, any sum over $z_{ij}$ in this equation will change.
+Suppose $m$ cross overs occur and are inherited by the last $m$ offspring. Then there are $m$ individuals in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. For simplicity, let all cross overs lead to $\ve{z} = \tr{(1,2)}$. Take $Z_k$ as the \emph{reference marker} and assume the individuals with $\ve{z} = \tr{(1,2)}$ would have been $\ve{z} = \tr{(2,2)}$ without a cross over. Let
+\begin{equation} \label{eq:refCorr}
+Corr_{ref} := \frac{ s_{jk}^* - n \bar{z}_{j}^* \bar{z}_{k}^*}{\sqrt{ \left ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}
+\end{equation}
+be the correlation in the reference case without any cross overs. As we cannot have more cross overs under this simplification than the reference marker, we must have
+$$m \leq n(\bar{z}_k^* - 1).$$
+The symmetry of this problem, however, means that this does not limit the coverage of possible populations. With $m$ cross overs as modelled here, any sum over $z_{ij}$ in this equation will change.
 
-The sum $\sum_{i = 1}^n z_{ji}$ decreases by 1 as the $n^{text{th}}$ term goes from 2 to 1. Therefore the product $n \bar{z}_{j}$ will decrease by one. Similarly, the sum
-$$\sum_{i = 1}^n z_{ij}^2$$
-will decrease by 3. Finally, the cross sum
-$$\sum_{i = 1}^n z_{ji} z_{ki},$$
-will decrease by 2, as in the reference case the $n^{\text{th}}$ term is given by $2 \times 2$, but with a cross over the term decreases to $2 \times 1$. Together, these change Equation \ref{eq:sampleCorr} to
-$$\frac{ \left ( \sum_{i = 1}^n z_{ij} z_{ik} - 2 \right ) - \left( n \bar{z}_{j} - 1 \right ) \bar{z}_{k}}{\sqrt{ \left ( \left [ \sum_{i = 1}^n z_{ij}^2 - 3 \right ] -  n \left [ \bar{z}_{j} - \frac{1}{n} \right ]^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}$$
+The sum $\sum_{i = 1}^n z_{ji}$ decreases by $m$ since each crossed over term goes from 2 to 1. Therefore, the product $n \bar{z}_{j}$ will also decrease by $m$. Similarly, the sum $\sum_{i = 1}^n z_{ij}^2$
+will decrease by $3m$ as each crossed over term goes from 4 to 1. Finally, the sum $\sum_{i = 1}^n z_{ji} z_{ki},$ will decrease by $2m$, as in the reference case the crossed over terms are 4, but are now 2. Together, these change Equation \ref{eq:refCorr} to
+\begin{equation} \label{eq:crossedCorr}
+  \begin{split}\frac{ \left ( s^*_{jk} - 2m \right ) - \left( n \bar{z}_{j}^* - m \right ) \bar{z}_{k}^*}{\sqrt{ \left ( \left [ s_{jj}^* - 3m \right ] -  n \left [ \bar{z}_{j}^* - \frac{m}{n} \right ]^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
+    \\
+    = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{j}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
+    \\
+    = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{k}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}. \\
+  \end{split}
+\end{equation}
+The correlation is thereby shown to be changed primarily by the number of cross overs, but that the extent of this change is dictated by the mean additive score of the reference marker, $\bar{z}_k^*$. As $\bar{z}_k^* \in [1, 2]$, cross overs will always decrease the correlation, though the magnitude of this decrease will depend on $\bar{z}_k^*$ in a non-linear fashion.
 
-$$= \frac{ \left ( \sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j}\bar{z}_{k} \right ) - \left ( 2 - \bar{z_k} \right )}{\sqrt{ \left ( \left [ \sum_{i = 1}^n z_{ij}^2 -  n\bar{z}^2_{j} \right ] - \left [ 3 - 2 \bar{z}_j + \frac{1}{n} \right ] \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}},$$
-
-$$= \frac{ \left ( \sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j}\bar{z}_{k} \right ) - \left ( 2 - \bar{z_k} \right )}{\sqrt{ \left ( \left [ \sum_{i = 1}^n z_{ij}^2 -  n\bar{z}^2_{j} \right ] - \left [ 3 - 2 \bar{z}_k + \frac{1}{n} \right ] \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}},$$
-and so the correlation is impacted by the mean of the reference marker and the sample size for each cross over! As $\bar{z}_k \in [1, 2]$, this will always decrease the correlation. The decrease will change, however, with the reference mean $\bar{z}_k$.
-
-This logic can be extended to multiple cross overs. Using the concept of a reference marker, the correlations were computed as above for the cases of zero, one, two, three, and four cross overs for a selection of seven mean additive scores. Figure \ref{fig:bardetail} displays these settings with coloured lines in the bar plot of Figure \ref{fig:discrete}(b).
+Using the above, the correlations were computed for the cases of zero, one, two, three, and four cross overs for a selection of seven mean additive scores. Figure \ref{fig:bardetail} displays these settings with coloured lines laid under the bar plot of Figure \ref{fig:discrete}(b).
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
@@ -830,7 +836,10 @@ This logic can be extended to multiple cross overs. Using the concept of a refer
   \caption{The distribution of the correlation between markers Nppa and D4Mit14 over 10,000 simulated BSB crosses.}
   \label{fig:bardetail}
 \end{figure}
-These theoretical lines match the values observed in the simulated distribution exactly. Interestingly, correlation seems dominantly impacted by the number of cross overs, the mean additive score of the reference marker changes the correlation by small amounts in comparison.
+These theoretical lines match the values observed in the simulated distribution exactly. As can be deduced from the form of Equation \ref{eq:crossedCorr}, the correlation is dominantly impacted by the number of cross overs, the mean additive score of the reference marker changes the correlation by small amounts in comparison.
+
+The set up of Equation \ref{eq:crossedCorr} also suggests a stochastic way to model backcross data without simulating complete crosses as done here. Let $C$ be a random variable giving the count of cross overs in the population of size $n$. Then $C$ is binomially distributed with parameters $p_r(d)$ and $n$. Next, let $Z$ the be count of twos in the reference marker, which is binomially distributed with parameters $1/2$ and $n$ for this particular backcross. The count of twos in the non-reference marker is then given by $Y = Z - C$, the difference of these two binomial counts. 
+
 
 %\cite{cheverud2001} cites \cite{cheverudetal2001} in which two inbred mouse strains were crossed to breed an $F_2$ intercross population of 510 individuals. It is of particular interest because \cite{cheverud2001} reproduces the correlation matrix of $\ve{z}$ under the additive mapping for the population, providing the opportunity to compare Equation \ref{eq:zcorr} to observed correlations generated from a real cross. Figure \ref{fig:corr2real} displays this comparison.
 
