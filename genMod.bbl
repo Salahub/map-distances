@@ -5,14 +5,6 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Assimes et~al.(2016)Assimes, Lee, Juang, Guo, Wang, Kim, Lee, Absher,
-  Chiu, Hsu, et~al.]{assimesetal2016cadgwas}
-Themistocles~L Assimes, I-T Lee, Jyh-Ming Juang, Xiuqing Guo, Tzung-Dau Wang,
-  Eric~T Kim, Wen-Jane Lee, Devin Absher, Yen-Feng Chiu, Chih-Cheng Hsu, et~al.
-\newblock Genetics of coronary artery disease in taiwan: a cardiometabochip
-  study by the taichi consortium.
-\newblock \emph{PLoS One}, 11\penalty0 (3):\penalty0 e0138014, 2016.
-
 \bibitem[Broman et~al.(2002)Broman, Rowe, Churchill, and
   Paigen]{bromanetal2002crossover}
 Karl~W Broman, Lucy~B Rowe, Gary~A Churchill, and Ken Paigen.
@@ -61,6 +53,11 @@ Nicholas~W Galwey.
   comparing families of non-independent significance tests.
 \newblock \emph{Genetic Epidemiology}, 33\penalty0 (7):\penalty0 559--568,
   2009.
+
+\bibitem[Goodman and Kruskal(1979)]{goodmankruskal1979measures}
+Leo~A Goodman and William~H Kruskal.
+\newblock \emph{Measures of association for cross classifications}.
+\newblock Springer, 1979.
 
 \bibitem[Hasin et~al.(2017)Hasin, Seldin, and Lusis]{hasinetal2017multi}
 Yehudit Hasin, Marcus Seldin, and Aldons Lusis.
