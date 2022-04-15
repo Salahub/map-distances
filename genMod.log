@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  15 APR 2022 12:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  15 APR 2022 16:27
 entering extended mode
 **\input genMod.tex
  (genMod.tex
@@ -595,15 +595,15 @@ File: ./img/strngBarNoCol.png Graphic file (type png)
 Package pdftex.def Info: ./img/strngBarNoCol.png  used on input line 780.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
  [23 <./img/strngDen.png> <./img/strngBarNoCol.png>] [24]
-<./img/strngBar.png, id=482, 481.8pt x 481.8pt>
+<./img/strngBar.png, id=480, 481.8pt x 481.8pt>
 File: ./img/strngBar.png Graphic file (type png)
 <use ./img/strngBar.png>
-Package pdftex.def Info: ./img/strngBar.png  used on input line 830.
+Package pdftex.def Info: ./img/strngBar.png  used on input line 834.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
-<./img/strngBarClose.png, id=483, 481.8pt x 481.8pt>
+<./img/strngBarClose.png, id=481, 481.8pt x 481.8pt>
 File: ./img/strngBarClose.png Graphic file (type png)
 <use ./img/strngBarClose.png>
-Package pdftex.def Info: ./img/strngBarClose.png  used on input line 831.
+Package pdftex.def Info: ./img/strngBarClose.png  used on input line 835.
 (pdftex.def)             Requested size: 138.21777pt x 138.21132pt.
  [25 <./img/strngBar.png (PNG copy)> <./img/strngBarClose.png (PNG copy)>] (gen
 Mod.bbl [26] [27]) [28] (genMod.aux)
@@ -611,13 +611,13 @@ Package rerunfilecheck Info: File `genMod.out' has not changed.
 (rerunfilecheck)             Checksum: 2B465684876275B938CBB72C8C41206D;684.
  ) 
 Here is how much of TeX's memory you used:
- 12004 strings out of 478927
- 183341 string characters out of 2852535
- 491843 words of memory out of 3000000
+ 12003 strings out of 478927
+ 183328 string characters out of 2852535
+ 492844 words of memory out of 3000000
  29553 multiletter control sequences out of 15000+600000
  418577 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,22n,66p,1415b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,66p,1415b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -644,9 +644,9 @@ i10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmtt10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on genMod.pdf (28 pages, 1278124 bytes).
+Output written on genMod.pdf (28 pages, 1278740 bytes).
 PDF statistics:
- 644 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
+ 643 PDF objects out of 1000 (max. 8388607)
+ 98 named destinations out of 1000 (max. 500000)
  204 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -804,22 +804,26 @@ Corr(Z_j, Z_k) = \frac{\sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j} \bar{z}_{k}}
 where $\bar{z}_l = \frac{1}{n} \sum_{i = 1}^n z_{il}$, is therefore always 1.
 
 Suppose $m$ cross overs occur and are inherited by the last $m$ offspring. Then there are $m$ individuals in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. For simplicity, let all cross overs lead to $\ve{z} = \tr{(1,2)}$. Take $Z_k$ as the \emph{reference marker} and assume the individuals with $\ve{z} = \tr{(1,2)}$ would have been $\ve{z} = \tr{(2,2)}$ without a cross over. Let
-\begin{equation} \label{eq:refCorr}
+\begin{equation*} \label{eq:refCorr}
 Corr_{ref} := \frac{ s_{jk}^* - n \bar{z}_{j}^* \bar{z}_{k}^*}{\sqrt{ \left ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}
-\end{equation}
-be the correlation in the reference case without any cross overs. As we cannot have more cross overs under this simplification than the reference marker, we must have
+\end{equation*}
+As we cannot have more cross overs under this simplification than the reference marker, we must have
 $$m \leq n(\bar{z}_k^* - 1).$$
 The symmetry of this problem, however, means that this does not limit the coverage of possible populations. With $m$ cross overs as modelled here, any sum over $z_{ij}$ in this equation will change.
 
 The sum $\sum_{i = 1}^n z_{ji}$ decreases by $m$ since each crossed over term goes from 2 to 1. Therefore, the product $n \bar{z}_{j}$ will also decrease by $m$. Similarly, the sum $\sum_{i = 1}^n z_{ij}^2$
 will decrease by $3m$ as each crossed over term goes from 4 to 1. Finally, the sum $\sum_{i = 1}^n z_{ji} z_{ki},$ will decrease by $2m$, as in the reference case the crossed over terms are 4, but are now 2. Together, these change Equation \ref{eq:refCorr} to
-\begin{equation} \label{eq:crossedCorr}
+\begin{equation*}
   \begin{split}\frac{ \left ( s^*_{jk} - 2m \right ) - \left( n \bar{z}_{j}^* - m \right ) \bar{z}_{k}^*}{\sqrt{ \left ( \left [ s_{jj}^* - 3m \right ] -  n \left [ \bar{z}_{j}^* - \frac{m}{n} \right ]^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
     \\
     = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{j}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
     \\
     = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{k}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}. \\
   \end{split}
+\end{equation*}
+Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{..}$ by construction, this can be further simplified to
+\begin{equation} \label{eq:crossedCorr}
+Corr(Z_j, Z_k) = \frac{ \left ( s_{..} - n \bar{z}^2 \right ) - m \left( 2 - \bar{z}^2 \right )}{\sqrt{ \left ( s_{..} - n \bar{z}^2 \right )^2 - m \left ( 3 - 2 \bar{z} + \frac{m}{n} \right )  \left ( s_{..} - n \bar{z}^2 \right ) }}. \\
 \end{equation}
 The correlation is thereby shown to be changed primarily by the number of cross overs, but that the extent of this change is dictated by the mean additive score of the reference marker, $\bar{z}_k^*$. As $\bar{z}_k^* \in [1, 2]$, cross overs will always decrease the correlation, though the magnitude of this decrease will depend on $\bar{z}_k^*$ in a non-linear fashion.
 
