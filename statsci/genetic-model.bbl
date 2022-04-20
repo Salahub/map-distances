@@ -1,0 +1,372 @@
+\begin{thebibliography}{28}
+% BibTex style file: imsart-number.bst, 2017-11-03
+% Default style options (sort=1,type=number).
+% Used options (sort=1,type=number).
+
+\bibitem{bromanetal2002crossover}
+\begin{barticle}[author]
+\bauthor{\bsnm{Broman},~\bfnm{Karl~W}\binits{K.~W.}},
+  \bauthor{\bsnm{Rowe},~\bfnm{Lucy~B}\binits{L.~B.}},
+  \bauthor{\bsnm{Churchill},~\bfnm{Gary~A}\binits{G.~A.}} \AND
+  \bauthor{\bsnm{Paigen},~\bfnm{Ken}\binits{K.}}
+(\byear{2002}).
+\btitle{Crossover interference in the mouse}.
+\bjournal{Genetics}
+\bvolume{160}
+\bpages{1123--1131}.
+\end{barticle}
+\endbibitem
+
+\bibitem{bultetal2019mouse}
+\begin{barticle}[author]
+\bauthor{\bsnm{Bult},~\bfnm{Carol~J}\binits{C.~J.}},
+  \bauthor{\bsnm{Blake},~\bfnm{Judith~A}\binits{J.~A.}},
+  \bauthor{\bsnm{Smith},~\bfnm{Cynthia~L}\binits{C.~L.}},
+  \bauthor{\bsnm{Kadin},~\bfnm{James~A}\binits{J.~A.}},
+  \bauthor{\bsnm{Richardson},~\bfnm{Joel~E}\binits{J.~E.}} \AND
+  \bauthor{\bsnm{Database~Group},~\bfnm{the Mouse~Genome}\binits{t.~M.~G.}}
+(\byear{2019}).
+\btitle{Mouse genome database (MGD) 2019}.
+\bjournal{Nucleic acids research}
+\bvolume{47}
+\bpages{D801--D806}.
+\end{barticle}
+\endbibitem
+
+\bibitem{cheverud2001}
+\begin{barticle}[author]
+\bauthor{\bsnm{Cheverud},~\bfnm{James~M}\binits{J.~M.}}
+(\byear{2001}).
+\btitle{A simple correction for multiple comparisons in interval mapping genome
+  scans}.
+\bjournal{Heredity}
+\bvolume{87}
+\bpages{52--58}.
+\end{barticle}
+\endbibitem
+
+\bibitem{crowkimura1970intro}
+\begin{bbook}[author]
+\bauthor{\bsnm{Crow},~\bfnm{James~F}\binits{J.~F.}} \AND
+  \bauthor{\bsnm{Kimura},~\bfnm{Motoo}\binits{M.}}
+(\byear{1970}).
+\btitle{An introduction to population genetics theory}.
+\bpublisher{{Harper \& Row}}.
+\end{bbook}
+\endbibitem
+
+\bibitem{dejageretal2009mspretus}
+\begin{barticle}[author]
+\bauthor{\bsnm{Dejager},~\bfnm{Lien}\binits{L.}},
+  \bauthor{\bsnm{Libert},~\bfnm{Claude}\binits{C.}} \AND
+  \bauthor{\bsnm{Montagutelli},~\bfnm{Xavier}\binits{X.}}
+(\byear{2009}).
+\btitle{Thirty years of Mus spretus: a promising future}.
+\bjournal{Trends in Genetics}
+\bvolume{25}
+\bpages{234--241}.
+\end{barticle}
+\endbibitem
+
+\bibitem{doergeetal1997search}
+\begin{barticle}[author]
+\bauthor{\bsnm{Doerge},~\bfnm{RW}\binits{R.}},
+  \bauthor{\bsnm{Zeng},~\bfnm{ZB}\binits{Z.}} \AND
+  \bauthor{\bsnm{Weir},~\bfnm{BS}\binits{B.}}
+(\byear{1997}).
+\btitle{Statistical issues in the search for genes affecting quantitative
+  traits in experimental populations}.
+\bjournal{Statistical Science}
+\bpages{195--219}.
+\end{barticle}
+\endbibitem
+
+\bibitem{fisleretal1993bsb}
+\begin{barticle}[author]
+\bauthor{\bsnm{Fisler},~\bfnm{Janis~S}\binits{J.~S.}},
+  \bauthor{\bsnm{Warden},~\bfnm{Craig~H}\binits{C.~H.}},
+  \bauthor{\bsnm{Pace},~\bfnm{Mario~J}\binits{M.~J.}} \AND
+  \bauthor{\bsnm{Lusis},~\bfnm{Aldons~J}\binits{A.~J.}}
+(\byear{1993}).
+\btitle{BSB: a new mouse model of multigenic obesity}.
+\bjournal{Obesity research}
+\bvolume{1}
+\bpages{271--280}.
+\end{barticle}
+\endbibitem
+
+\bibitem{Galwey2009}
+\begin{barticle}[author]
+\bauthor{\bsnm{Galwey},~\bfnm{Nicholas~W}\binits{N.~W.}}
+(\byear{2009}).
+\btitle{A new measure of the effective number of tests, a practical tool for
+  comparing families of non-independent significance tests}.
+\bjournal{Genetic Epidemiology}
+\bvolume{33}
+\bpages{559--568}.
+\end{barticle}
+\endbibitem
+
+\bibitem{goodmankruskal1979measures}
+\begin{bbook}[author]
+\bauthor{\bsnm{Goodman},~\bfnm{Leo~A}\binits{L.~A.}} \AND
+  \bauthor{\bsnm{Kruskal},~\bfnm{William~H}\binits{W.~H.}}
+(\byear{1979}).
+\btitle{Measures of association for cross classifications}.
+\bpublisher{Springer}.
+\end{bbook}
+\endbibitem
+
+\bibitem{hasinetal2017multi}
+\begin{barticle}[author]
+\bauthor{\bsnm{Hasin},~\bfnm{Yehudit}\binits{Y.}},
+  \bauthor{\bsnm{Seldin},~\bfnm{Marcus}\binits{M.}} \AND
+  \bauthor{\bsnm{Lusis},~\bfnm{Aldons}\binits{A.}}
+(\byear{2017}).
+\btitle{Multi-omics approaches to disease}.
+\bjournal{Genome biology}
+\bvolume{18}
+\bpages{1--15}.
+\end{barticle}
+\endbibitem
+
+\bibitem{heatherchain2016sequencers}
+\begin{barticle}[author]
+\bauthor{\bsnm{Heather},~\bfnm{James~M}\binits{J.~M.}} \AND
+  \bauthor{\bsnm{Chain},~\bfnm{Benjamin}\binits{B.}}
+(\byear{2016}).
+\btitle{The sequence of sequencers: The history of sequencing DNA}.
+\bjournal{Genomics}
+\bvolume{107}
+\bpages{1--8}.
+\end{barticle}
+\endbibitem
+
+\bibitem{hillrobertson1968}
+\begin{barticle}[author]
+\bauthor{\bsnm{Hill},~\bfnm{WG}\binits{W.}} \AND
+  \bauthor{\bsnm{Robertson},~\bfnm{Alan}\binits{A.}}
+(\byear{1968}).
+\btitle{Linkage disequilibrium in finite populations}.
+\bjournal{Theoretical and applied genetics}
+\bvolume{38}
+\bpages{226--231}.
+\end{barticle}
+\endbibitem
+
+\bibitem{C57BL6J}
+\begin{btechreport}[author]
+\bauthor{\bsnm{JAX}}
+(\byear{2022}).
+\btitle{{JAX Stock \#000664}}
+\btype{Technical Report},
+\bpublisher{The Jackson Laboratory}.
+\end{btechreport}
+\endbibitem
+
+\bibitem{koboldtetal2013next}
+\begin{barticle}[author]
+\bauthor{\bsnm{Koboldt},~\bfnm{Daniel~C}\binits{D.~C.}},
+  \bauthor{\bsnm{Steinberg},~\bfnm{Karyn~Meltz}\binits{K.~M.}},
+  \bauthor{\bsnm{Larson},~\bfnm{David~E}\binits{D.~E.}},
+  \bauthor{\bsnm{Wilson},~\bfnm{Richard~K}\binits{R.~K.}} \AND
+  \bauthor{\bsnm{Mardis},~\bfnm{Elaine~R}\binits{E.~R.}}
+(\byear{2013}).
+\btitle{The next-generation sequencing revolution and its impact on genomics}.
+\bjournal{Cell}
+\bvolume{155}
+\bpages{27--38}.
+\end{barticle}
+\endbibitem
+
+\bibitem{kosambi1943estimation}
+\begin{barticle}[author]
+\bauthor{\bsnm{Kosambi},~\bfnm{DD}\binits{D.}}
+(\byear{1943}).
+\btitle{The estimation of map distance from recombination values}.
+\bjournal{Annals of Eugenics}
+\bvolume{12}
+\bpages{172--175}.
+\end{barticle}
+\endbibitem
+
+\bibitem{laframboise2009}
+\begin{barticle}[author]
+\bauthor{\bsnm{LaFramboise},~\bfnm{Thomas}\binits{T.}}
+(\byear{2009}).
+\btitle{Single nucleotide polymorphism arrays: a decade of biological,
+  computational and technological advances}.
+\bjournal{Nucleic acids research}
+\bvolume{37}
+\bpages{4181--4193}.
+\end{barticle}
+\endbibitem
+
+\bibitem{LanderBotstein1989}
+\begin{barticle}[author]
+\bauthor{\bsnm{Lander},~\bfnm{Eric~S}\binits{E.~S.}} \AND
+  \bauthor{\bsnm{Botstein},~\bfnm{David}\binits{D.}}
+(\byear{1989}).
+\btitle{{Mapping mendelian factors underlying quantitative traits using RFLP
+  linkage maps}}.
+\bjournal{Genetics}
+\bvolume{121}
+\bpages{185--199}.
+\end{barticle}
+\endbibitem
+
+\bibitem{LiJi2005}
+\begin{barticle}[author]
+\bauthor{\bsnm{Li},~\bfnm{J}\binits{J.}} \AND
+  \bauthor{\bsnm{Ji},~\bfnm{L}\binits{L.}}
+(\byear{2005}).
+\btitle{Adjusting multiple testing in multilocus analyses using the eigenvalues
+  of a correlation matrix}.
+\bjournal{Heredity}
+\bvolume{95}
+\bpages{221--227}.
+\end{barticle}
+\endbibitem
+
+\bibitem{NCBIdbSNP}
+\begin{bmisc}[author]
+\bauthor{\bsnm{NCBI}}
+(\byear{2021}).
+\btitle{{NCBI dbSNP Build 155}}.
+\end{bmisc}
+\endbibitem
+
+\bibitem{nyholt2004}
+\begin{barticle}[author]
+\bauthor{\bsnm{Nyholt},~\bfnm{Dale~R}\binits{D.~R.}}
+(\byear{2004}).
+\btitle{A simple correction for multiple testing for single-nucleotide
+  polymorphisms in linkage disequilibrium with each other}.
+\bjournal{The American Journal of Human Genetics}
+\bvolume{74}
+\bpages{765--769}.
+\end{barticle}
+\endbibitem
+
+\bibitem{roweetal1994jaxbsb}
+\begin{barticle}[author]
+\bauthor{\bsnm{Rowe},~\bfnm{LB}\binits{L.}},
+  \bauthor{\bsnm{Nadeau},~\bfnm{JH}\binits{J.}},
+  \bauthor{\bsnm{Turner},~\bfnm{R}\binits{R.}},
+  \bauthor{\bsnm{Frankel},~\bfnm{WN}\binits{W.}},
+  \bauthor{\bsnm{Letts},~\bfnm{VA}\binits{V.}},
+  \bauthor{\bsnm{Eppig},~\bfnm{JT}\binits{J.}},
+  \bauthor{\bsnm{Ko},~\bfnm{MSH}\binits{M.}},
+  \bauthor{\bsnm{Thurston},~\bfnm{SJ}\binits{S.}} \AND
+  \bauthor{\bsnm{Birkenmeier},~\bfnm{EH}\binits{E.}}
+(\byear{1994}).
+\btitle{Maps from two interspecific backcross DNA panels available as a
+  community genetic mapping resource}.
+\bjournal{Mammalian Genome}
+\bvolume{5}
+\bpages{253--274}.
+\end{barticle}
+\endbibitem
+
+\bibitem{Salyakina2005}
+\begin{barticle}[author]
+\bauthor{\bsnm{Salyakina},~\bfnm{Daria}\binits{D.}},
+  \bauthor{\bsnm{Seaman},~\bfnm{Shaun~R}\binits{S.~R.}},
+  \bauthor{\bsnm{Browning},~\bfnm{Brian~L}\binits{B.~L.}},
+  \bauthor{\bsnm{Dudbridge},~\bfnm{Frank}\binits{F.}} \AND
+  \bauthor{\bsnm{M{\"u}ller-Myhsok},~\bfnm{Bertram}\binits{B.}}
+(\byear{2005}).
+\btitle{{Evaluation of Nyholt’s procedure for multiple testing correction}}.
+\bjournal{Human heredity}
+\bvolume{60}
+\bpages{19--25}.
+\end{barticle}
+\endbibitem
+
+\bibitem{siegmundyakir2007}
+\begin{bbook}[author]
+\bauthor{\bsnm{Siegmund},~\bfnm{David}\binits{D.}} \AND
+  \bauthor{\bsnm{Yakir},~\bfnm{Benjamin}\binits{B.}}
+(\byear{2007}).
+\btitle{The statistics of gene mapping}.
+\bpublisher{Springer Science \& Business Media}.
+\end{bbook}
+\endbibitem
+
+\bibitem{tametal2019benefits}
+\begin{barticle}[author]
+\bauthor{\bsnm{Tam},~\bfnm{Vivian}\binits{V.}},
+  \bauthor{\bsnm{Patel},~\bfnm{Nikunj}\binits{N.}},
+  \bauthor{\bsnm{Turcotte},~\bfnm{Michelle}\binits{M.}},
+  \bauthor{\bsnm{Boss{\'e}},~\bfnm{Yohan}\binits{Y.}},
+  \bauthor{\bsnm{Par{\'e}},~\bfnm{Guillaume}\binits{G.}} \AND
+  \bauthor{\bsnm{Meyre},~\bfnm{David}\binits{D.}}
+(\byear{2019}).
+\btitle{Benefits and limitations of genome-wide association studies}.
+\bjournal{Nature Reviews Genetics}
+\bvolume{20}
+\bpages{467--484}.
+\end{barticle}
+\endbibitem
+
+\bibitem{uffelmannetal2021gwas}
+\begin{barticle}[author]
+\bauthor{\bsnm{Uffelmann},~\bfnm{Emil}\binits{E.}},
+  \bauthor{\bsnm{Huang},~\bfnm{Qin~Qin}\binits{Q.~Q.}},
+  \bauthor{\bsnm{Munung},~\bfnm{Nchangwi~Syntia}\binits{N.~S.}},
+  \bauthor{\bparticle{de} \bsnm{Vries},~\bfnm{Jantina}\binits{J.}},
+  \bauthor{\bsnm{Okada},~\bfnm{Yukinori}\binits{Y.}},
+  \bauthor{\bsnm{Martin},~\bfnm{Alicia~R}\binits{A.~R.}},
+  \bauthor{\bsnm{Martin},~\bfnm{Hilary~C}\binits{H.~C.}},
+  \bauthor{\bsnm{Lappalainen},~\bfnm{Tuuli}\binits{T.}} \AND
+  \bauthor{\bsnm{Posthuma},~\bfnm{Danielle}\binits{D.}}
+(\byear{2021}).
+\btitle{Genome-wide association studies}.
+\bjournal{Nature Reviews Methods Primers}
+\bvolume{1}
+\bpages{1--21}.
+\end{barticle}
+\endbibitem
+
+\bibitem{visschergoddard2019}
+\begin{barticle}[author]
+\bauthor{\bsnm{Visscher},~\bfnm{Peter~M}\binits{P.~M.}} \AND
+  \bauthor{\bsnm{Goddard},~\bfnm{Michael~E}\binits{M.~E.}}
+(\byear{2019}).
+\btitle{{From RA Fisher’s 1918 paper to GWAS a century later}}.
+\bjournal{Genetics}
+\bvolume{211}
+\bpages{1125--1130}.
+\end{barticle}
+\endbibitem
+
+\bibitem{welchetal1996uclabsb}
+\begin{barticle}[author]
+\bauthor{\bsnm{Welch},~\bfnm{Carrie~L}\binits{C.~L.}},
+  \bauthor{\bsnm{Xia},~\bfnm{Yu-Rong}\binits{Y.-R.}},
+  \bauthor{\bsnm{Shechter},~\bfnm{Ishaiahu}\binits{I.}},
+  \bauthor{\bsnm{Farese},~\bfnm{Robert}\binits{R.}},
+  \bauthor{\bsnm{Mehrabian},~\bfnm{Margarete}\binits{M.}},
+  \bauthor{\bsnm{Mehdizadeh},~\bfnm{Shahab}\binits{S.}},
+  \bauthor{\bsnm{Warden},~\bfnm{Craig~H}\binits{C.~H.}} \AND
+  \bauthor{\bsnm{Lusis},~\bfnm{Aldons~J}\binits{A.~J.}}
+(\byear{1996}).
+\btitle{Genetic regulation of cholesterol homeostasis: chromosomal organization
+  of candidate genes.}
+\bjournal{Journal of Lipid Research}
+\bvolume{37}
+\bpages{1406--1421}.
+\end{barticle}
+\endbibitem
+
+\bibitem{xu2013principles}
+\begin{bbook}[author]
+\bauthor{\bsnm{Xu},~\bfnm{Shizhong}\binits{S.}}
+(\byear{2013}).
+\btitle{Principles of statistical genomics}
+\bvolume{571}.
+\bpublisher{Springer}.
+\end{bbook}
+\endbibitem
+
+\end{thebibliography}
