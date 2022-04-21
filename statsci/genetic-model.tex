@@ -776,35 +776,35 @@ where $\delta_m = m_{21} - m_{12}$. Equation \ref{eq:refCorr} therefore becomes
 \begin{equation}
   \frac{\widehat{\sigma}_{jk}^2 + \delta_m (1 - \bar{z}_k^* ) - m_{12}}{\sqrt{ \widehat{\sigma}_{kk}^2 \Big [ \widehat{\sigma}_{jj}^2 + \delta_m \left ( 3 + 2 \bar{z}_j^* - \frac{\delta_m}{n} \right ) \Big ]}}.
 \end{equation}
-Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}_{\text{ref}}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{..}$ by construction, this can be further simplified to
+Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}_{\text{ref}}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{\text{ref}}$ by construction, this can be further simplified to
 \begin{equation} \label{eq:crossedCorr}
-Corr(Z_j, Z_k) = \frac{ \left ( s_{..} - n \bar{z}^2 \right ) - m \left( 2 - \bar{z}^2 \right )}{\sqrt{ \left ( s_{..} - n \bar{z}^2 \right )^2 - m \left ( 3 - 2 \bar{z} + \frac{m}{n} \right )  \left ( s_{..} - n \bar{z}^2 \right ) }}. \\
+  \frac{ \sigma_{jk}^2 + \delta_m \left(1 - \bar{z}_{\text{ref}}^2 \right ) - m_{12}}{\sqrt{ \widehat{\sigma}_{kk}^2 \Big [ \widehat{\sigma}_{jj}^2 - \delta_m \left ( 3 - 2 \bar{z}_{\text{ref}} + \frac{\delta_m}{n} \right )  }}. \\
 \end{equation}
-The correlation is thereby shown to be changed primarily by the number of cross overs, but that the extent of this change is dictated by the mean additive score of the reference marker, $\bar{z}_k^*$. As $\bar{z}_k^* \in [1, 2]$, cross overs will always decrease the correlation, though the magnitude of this decrease will depend on $\bar{z}_k^*$ in a non-linear fashion.
+The correlation is thereby shown to be changed primarily by the number of recombinant individuals, but that the extent of this change is dictated by the mean additive score of the reference marker, $\bar{z}_{\text{ref}} = \bar{z}_k^*$. As $\bar{z}_k^* \in [1, 2]$, cross overs will always decrease the correlation, though the magnitude of this decrease will depend on $\bar{z}_k^*$ in a non-linear fashion.
 
-Using the above, the correlations were computed for the cases of zero, one, two, three, and four cross overs for a selection of seven mean additive scores. Figure \ref{fig:bardetail} displays these settings with coloured lines laid under the bar plot of Figure \ref{fig:discrete}(b).
+Using the above, the correlations were computed for the cases of zero, one, two, three, and four recombinant individuals in a population of 80 for a selection of seven mean additive scores. Figure \ref{fig:bardetail} displays these settings with coloured lines laid under the bar plot of Figure \ref{fig:discrete}(b).
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{c}
       \includegraphics[scale = 0.5]{../img/strngBar.png} \\
-      {\footnotesize (a) Coloured by count of cross overs} \\
+      {\footnotesize (a) Coloured by number of recombinant individuals} \\
       \\
       \includegraphics[scale = 0.5]{../img/strngBarClose.png} \\
-      {\footnotesize (b) One cross over coloured by mean score}
+      {\footnotesize (b) One recombinant individual coloured by mean additive score}
     \end{tabular}
   \end{center}
   \caption{The distribution of the correlation between markers Nppa and D4Mit14 over 10,000 simulated BSB crosses.}
   \label{fig:bardetail}
 \end{figure}
-These theoretical lines match the values observed in the simulated distribution exactly. As can be deduced from the form of Equation \ref{eq:crossedCorr}, the correlation is dominantly impacted by the number of cross overs, the mean additive score of the reference marker changes the correlation by small amounts in comparison.
+These theoretical lines match the values observed in the simulated distribution exactly. As can be deduced from the form of Equation \ref{eq:crossedCorr}, the correlation is dominantly impacted by the number of recombinant individuals, the mean additive score of the reference marker changes the correlation by small amounts in comparison.
 
-The set up of Equation \ref{eq:crossedCorr} also suggests a stochastic way to model backcross data without simulating complete crosses as done here. Let $C$ be a random variable giving the count of cross overs in the population of size $n$. Then $C$ is binomially distributed with parameters $p_r(d)$ and $n$. Next, let $Z$ the be count of twos in the reference marker, which is binomially distributed with parameters $1/2$ and $n$ for this particular backcross. The count of twos in the non-reference marker is then given by $Y = Z - C$, the difference of these two binomial counts. 
+%The set up of Equation \ref{eq:crossedCorr} also suggests a stochastic way to model backcross data without simulating complete crosses as done here. Let $C$ be a random variable giving the count of cross overs in the population of size $n$. Then $C$ is binomially distributed with parameters $p_r(d)$ and $n$. Next, let $Z$ the be count of twos in the reference marker, which is binomially distributed with parameters $1/2$ and $n$ for this particular backcross. Finally, let 
 
 \section{Conclusion} \label{sec:conclusion}
 
-We have presented here a structural model of genetic measurement incorporating a the current understanding of the genome and typical practice in GWAS. Using this model, the Haldane map distance was shown to be a direct corollary of the genome and mechanics of inheritance as they are currently understood. The model also supported a derivation of genetic correlation, or linkage disequilbrium, which facilitated a comparison of the model's predictions to observed data from \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}. These comparisons suggest the model fits well for most of the markers examined, and indicate chromosome 4 may have more genetic interference than others in the mouse genome.
+We have presented here a structural model of genetic measurement incorporating the modern model of the genome and typical practice in GWAS. Using this model, the Haldane map distance was shown to be a direct corollary of the genome and mechanics of inheritance as they are currently understood. The model also supported a derivation of genetic correlation, or linkage disequilbrium, which facilitated a comparison of the model's predictions to observed data from \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}. These comparisons suggest the model fits well for most of the markers examined, and indicate chromosome 4 may have more genetic interference than others in the mouse genome.
 
-Some novel plot matrices were created to support this investigation. The correlation distribution and correlation test plot provide an enriched version of standard correlation matrices by displaying distributional information as well as point estimates. These plots do not scale as well as the standard correlation matrices, but provide an excellent view of the pairwise relationships for a moderate number of markers. Hopefully they inspire other researchers to develop further rich custom visualizations.
+Some novel plot matrices were created to support this investigation. The correlation distribution and correlation test plot provide an enriched version of standard correlation matrices by displaying distributional information as well as point estimates. These plots do not scale as well as the standard correlation matrices, but provide an excellent view of the pairwise relationships for a moderate number of markers.
 
 All of these results demonstrate the extraordinary explanatory power and clarity of this model. By separating the steps used to create useful genetic data in Figure \ref{fig:modelDiagram}, a rich framework is created. Each step contextualizes the next, tracing a clear path from a structural representation of the genome to the numeric values used in practice. Separated in this way, different methods might be considered for each step.
 
