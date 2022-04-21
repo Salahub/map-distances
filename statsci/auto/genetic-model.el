@@ -67,8 +67,8 @@
     "Complex"
     "Rationals")
    (LaTeX-add-labels
-    "fig:modelDiagram"
     "sec:intro"
+    "fig:modelDiagram"
     "sec:theModel"
     "eq:indicator"
     "sec:derivingDists"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  21 APR 2022 13:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  21 APR 2022 15:54
 entering extended mode
 **\input genetic-model.tex
  (genetic-model.tex (imsart.cls
@@ -534,20 +534,20 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 11.69992pt on input line 136.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 11.69992pt on input line 136.
-<../img/modelDiagram.pdf, id=53, 433.62pt x 72.27pt>
-File: ../img/modelDiagram.pdf Graphic file (type pdf)
-<use ../img/modelDiagram.pdf>
-Package pdftex.def Info: ../img/modelDiagram.pdf  used on input line 164.
-(pdftex.def)             Requested size: 433.61894pt x 72.2698pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.89993pt on input line 170.
+(Font)              scaled to size 9.89993pt on input line 162.
 
-Underfull \hbox (badness 1014) in paragraph at lines 172--173
+Underfull \hbox (badness 1014) in paragraph at lines 164--165
 []\T1/ptm/m/n/11 Genetic re-search to-day rou-tinely con-sid-ers the en-
  []
+
+<../img/modelDiagram.pdf, id=55, 433.62pt x 72.27pt>
+File: ../img/modelDiagram.pdf Graphic file (type pdf)
+<use ../img/modelDiagram.pdf>
+Package pdftex.def Info: ../img/modelDiagram.pdf  used on input line 169.
+(pdftex.def)             Requested size: 433.61894pt x 72.2698pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1{C:/Users/Chris/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
@@ -686,95 +686,89 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 mg/jaxbsb.png (PNG copy)> <../img/jaxbsb_sim.png (PNG copy)> <../img/jaxbsb_qua
 nt.png (PNG copy)> <../img/uclabsb.png (PNG copy)> <../img/uclabsb_sim.png (PNG
  copy)> <../img/uclabsb_quant.png (PNG copy)>]
-<../img/jaxbsb_common.png, id=320, 542.025pt x 542.025pt>
+<../img/jaxbsb_common.png, id=318, 542.025pt x 542.025pt>
 File: ../img/jaxbsb_common.png Graphic file (type png)
 <use ../img/jaxbsb_common.png>
-Package pdftex.def Info: ../img/jaxbsb_common.png  used on input line 637.
+Package pdftex.def Info: ../img/jaxbsb_common.png  used on input line 636.
 (pdftex.def)             Requested size: 108.40308pt x 108.40308pt.
-<../img/uclabsb_common.png, id=321, 542.025pt x 542.025pt>
+<../img/uclabsb_common.png, id=319, 542.025pt x 542.025pt>
 File: ../img/uclabsb_common.png Graphic file (type png)
 <use ../img/uclabsb_common.png>
-Package pdftex.def Info: ../img/uclabsb_common.png  used on input line 638.
+Package pdftex.def Info: ../img/uclabsb_common.png  used on input line 637.
 (pdftex.def)             Requested size: 108.40308pt x 108.40308pt.
-<../img/bsbCorr2by2.png, id=327, 180.675pt x 180.675pt>
+<../img/bsbCorr2by2.png, id=326, 180.675pt x 180.675pt>
 File: ../img/bsbCorr2by2.png Graphic file (type png)
 <use ../img/bsbCorr2by2.png>
-Package pdftex.def Info: ../img/bsbCorr2by2.png  used on input line 654.
-(pdftex.def)             Requested size: 72.2687pt x 72.2687pt.
-<../img/bsbCorrTest2by2.png, id=328, 180.675pt x 180.675pt>
+Package pdftex.def Info: ../img/bsbCorr2by2.png  used on input line 655.
+(pdftex.def)             Requested size: 90.33727pt x 90.33727pt.
+<../img/bsbCorrTest2by2.png, id=327, 180.675pt x 180.675pt>
 File: ../img/bsbCorrTest2by2.png Graphic file (type png)
 <use ../img/bsbCorrTest2by2.png>
-Package pdftex.def Info: ../img/bsbCorrTest2by2.png  used on input line 654.
-(pdftex.def)             Requested size: 72.2687pt x 72.2687pt.
-<../img/bsbCorrTest2by2a.png, id=329, 180.675pt x 180.675pt>
+Package pdftex.def Info: ../img/bsbCorrTest2by2.png  used on input line 658.
+(pdftex.def)             Requested size: 90.33727pt x 90.33727pt.
+<../img/bsbCorrTest2by2a.png, id=328, 180.675pt x 180.675pt>
 File: ../img/bsbCorrTest2by2a.png Graphic file (type png)
 <use ../img/bsbCorrTest2by2a.png>
-Package pdftex.def Info: ../img/bsbCorrTest2by2a.png  used on input line 654.
-(pdftex.def)             Requested size: 72.2687pt x 72.2687pt.
-
-Overfull \hbox (0.80617pt too wide) in paragraph at lines 653--657
- [] 
- []
-
-<../img/bsbCorrDist.png, id=335, 578.16pt x 578.16pt>
+Package pdftex.def Info: ../img/bsbCorrTest2by2a.png  used on input line 661.
+(pdftex.def)             Requested size: 90.33727pt x 90.33727pt.
+<../img/bsbCorrDist.png, id=329, 578.16pt x 578.16pt>
 File: ../img/bsbCorrDist.png Graphic file (type png)
 <use ../img/bsbCorrDist.png>
-Package pdftex.def Info: ../img/bsbCorrDist.png  used on input line 667.
+Package pdftex.def Info: ../img/bsbCorrDist.png  used on input line 672.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
-[11 <../img/jaxbsb_common.png (PNG copy)> <../img/uclabsb_common.png (PNG copy)
-> <../img/bsbCorr2by2.png (PNG copy)> <../img/bsbCorrTest2by2.png (PNG copy)> <
-../img/bsbCorrTest2by2a.png (PNG copy)>]
-<../img/bsbCorrTest.png, id=358, 578.16pt x 578.16pt>
+ [11 <../img/jaxbsb_common.png (PNG copy)> <../img/uclabsb_common.png (PNG copy
+)> <../img/bsbCorr2by2.png (PNG copy)> <../img/bsbCorrTest2by2.png (PNG copy)> 
+<../img/bsbCorrTest2by2a.png (PNG copy)>] [12 <../img/bsbCorrDist.png (PNG copy
+)>]
+<../img/bsbCorrTest.png, id=363, 578.16pt x 578.16pt>
 File: ../img/bsbCorrTest.png Graphic file (type png)
 <use ../img/bsbCorrTest.png>
-Package pdftex.def Info: ../img/bsbCorrTest.png  used on input line 683.
+Package pdftex.def Info: ../img/bsbCorrTest.png  used on input line 694.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
- [12 <../img/bsbCorrDist.png (PNG copy)>]
-<../img/bsbCorrTestBig.png, id=369, 578.16pt x 578.16pt>
+<../img/bsbCorrTestBig.png, id=368, 578.16pt x 578.16pt>
 File: ../img/bsbCorrTestBig.png Graphic file (type png)
 <use ../img/bsbCorrTestBig.png>
-Package pdftex.def Info: ../img/bsbCorrTestBig.png  used on input line 697.
+Package pdftex.def Info: ../img/bsbCorrTestBig.png  used on input line 708.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
- [13 <../img/bsbCorrTest.png (PNG copy)>]
-<../img/strngDen.png, id=383, 361.35pt x 361.35pt>
+<../img/strngDen.png, id=376, 361.35pt x 361.35pt>
 File: ../img/strngDen.png Graphic file (type png)
 <use ../img/strngDen.png>
-Package pdftex.def Info: ../img/strngDen.png  used on input line 715.
+Package pdftex.def Info: ../img/strngDen.png  used on input line 726.
 (pdftex.def)             Requested size: 180.67456pt x 180.67456pt.
-<../img/strngBarNoCol.png, id=384, 361.35pt x 361.35pt>
+<../img/strngBarNoCol.png, id=377, 361.35pt x 361.35pt>
 File: ../img/strngBarNoCol.png Graphic file (type png)
 <use ../img/strngBarNoCol.png>
-Package pdftex.def Info: ../img/strngBarNoCol.png  used on input line 718.
+Package pdftex.def Info: ../img/strngBarNoCol.png  used on input line 729.
 (pdftex.def)             Requested size: 180.67456pt x 180.67456pt.
 
-Underfull \hbox (badness 1253) in paragraph at lines 722--722
+Underfull \hbox (badness 1253) in paragraph at lines 733--733
 \T1/ptm/m/n/11 ers Nppa and D4Mit14 over 10,000 sim-u-lated BSB
  []
 
-[14 <../img/bsbCorrTestBig.png (PNG copy)>]
+[13] [14 <../img/bsbCorrTest.png (PNG copy)> <../img/bsbCorrTestBig.png (PNG co
+py)>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 7
-58.
-
-(C:\Users\Chris\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+69.
+ (C:\Users\Chris\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<../img/strngBar.png, id=399, 361.35pt x 361.35pt>
+<../img/strngBar.png, id=398, 361.35pt x 361.35pt>
 File: ../img/strngBar.png Graphic file (type png)
 <use ../img/strngBar.png>
-Package pdftex.def Info: ../img/strngBar.png  used on input line 789.
+Package pdftex.def Info: ../img/strngBar.png  used on input line 800.
 (pdftex.def)             Requested size: 180.67456pt x 180.67456pt.
-<../img/strngBarClose.png, id=400, 361.35pt x 361.35pt>
+<../img/strngBarClose.png, id=399, 361.35pt x 361.35pt>
 File: ../img/strngBarClose.png Graphic file (type png)
 <use ../img/strngBarClose.png>
-Package pdftex.def Info: ../img/strngBarClose.png  used on input line 792.
+Package pdftex.def Info: ../img/strngBarClose.png  used on input line 803.
 (pdftex.def)             Requested size: 180.67456pt x 180.67456pt.
 
-Underfull \hbox (badness 1253) in paragraph at lines 796--796
+Underfull \hbox (badness 1253) in paragraph at lines 807--807
 \T1/ptm/m/n/11 ers Nppa and D4Mit14 over 10,000 sim-u-lated BSB
  []
 
 [15 <../img/strngDen.png> <../img/strngBarNoCol.png>]
-Underfull \hbox (badness 853) in paragraph at lines 805--806
+Underfull \hbox (badness 853) in paragraph at lines 816--817
 []\T1/ptm/m/n/11 We have pre-sented here a struc-tural model of ge-
  []
 
@@ -810,11 +804,11 @@ Package rerunfilecheck Info: File `genetic-model.out' has not changed.
 Here is how much of TeX's memory you used:
  12905 strings out of 478927
  194362 string characters out of 2852535
- 519053 words of memory out of 3000000
+ 518982 words of memory out of 3000000
  30414 multiletter control sequences out of 15000+600000
  472797 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,14n,80p,1422b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,14n,80p,1422b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
 /Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
@@ -840,7 +834,7 @@ s/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/U
 sers/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/U
 sers/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/U
 sers/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on genetic-model.pdf (17 pages, 1506426 bytes).
+Output written on genetic-model.pdf (17 pages, 1506023 bytes).
 PDF statistics:
  544 PDF objects out of 1000 (max. 8388607)
  96 named destinations out of 1000 (max. 500000)

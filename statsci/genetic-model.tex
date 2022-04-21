@@ -123,7 +123,7 @@
 %% Enter the title of your article here     %%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{A structural model for genome-wide association studies}
+\title{A structural model of genome-wide association studies}
 %\title{A sample article title with some additional note\thanksref{T1}}
 \runtitle{A structural genomic model}
 %\thankstext{T1}{A sample of additional note to the title.}
@@ -138,12 +138,12 @@
 %% Addresses                                %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \address[A]{Chris Salahub is a PhD Candidate in Statistics, Statistics
-  and Acturial Science, University of Waterloo, Waterloo,
+  and Actuarial Science, University of Waterloo, Waterloo,
   Canada\printead[presep={\ }]{e1}.}
 \end{aug}
 
 \begin{abstract}
-A structural model of the genome incorporating a modern understanding of the genome and common practice in modern genome-wide association studies is devised. This model demonstrates that the Haldane map distance is a direct consequence of the structure of the genome as it is understood today. The model also supports the derivation of an expression for correlation, which is compared to data resulting from the BSB mouse cross. The correlation test plot is introduced for this comparison and indicates a close agreement of the model and reality. Chromosome 4 displays noteworthy departures which warrant further investigation.
+A structural model of the genome incorporating a modern understanding of the genome and common practice in modern genome-wide association studies is derived mathematically. The model shows the Haldane map distance as a direct consequence of the structure of the genome. An expression for genetic correlation is derived under the model and compared to data resulting from the BSB mouse cross. A correlation test plot is introduced for this comparison and shows the close agreement of the model and empirical results. Noteworthy departures in this plot indicate regions which warrant further investigation.
 \end{abstract}
 
 \begin{keyword}
@@ -159,19 +159,19 @@ A structural model of the genome incorporating a modern understanding of the gen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Main text entry area:
 
-\begin{figure*}[h!]
+\section{Introduction} \label{sec:intro}
+
+Genetic research today routinely considers the entirety of a \emph{genome}, that is all heritable material potentially passed to offspring as in \cite{doergeetal1997search}, to identify regions strongly related to measured traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Extracting useful results from markers and measured traits is a complicated task which has motivated decades of statistical and biological research. Interested individuals must sort through this voluminous research in order to understand genomics.
+
+To aid in this, Figure \ref{fig:modelDiagram}
+\begin{figure*}[h]
   \begin{center}
   \includegraphics[scale = 1]{../img/modelDiagram.pdf}
   \caption{A structural model of genomic association
     studies.} \label{fig:modelDiagram}
   \end{center}
 \end{figure*}
-
-\section{Introduction} \label{sec:intro}
-
-Genetic research today routinely considers the entirety of a \emph{genome}, that is all heritable material potentially passed to offspring as in \cite{doergeetal1997search}, to identify regions strongly related to measured traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Extracting useful results from markers and measured traits is a complicated task which has motivated decades of statistical and biological research. Interested individuals must sort through this voluminous research in order to understand genomics.
-
-To aid in this, Figure \ref{fig:modelDiagram} draws on the literature to present a structural model of the process of converting raw marker measurements into a form which can be used to identify QTLs. It identifies four key steps (\emph{selection}, \emph{annotation}, \emph{encoding}, and \emph{summarization}) between five increasingly abstract representations of the genome. By highlighting these steps and abstractions in plain language, this model provides a clear map to guide the understanding of GWAS. While it is no replacement surveys such as \cite{uffelmannetal2021gwas, tametal2019benefits} or the literature they outline, it supplies a guiding structural framework with exceptional explanatory power to facilitate understanding of papers in the field.
+draws on the literature to present a structural model of the process of converting raw marker measurements into a form which can be used to identify QTLs. It identifies four key steps (\emph{selection}, \emph{annotation}, \emph{encoding}, and \emph{summarization}) between five increasingly abstract representations of the genome. By highlighting these steps and abstractions in plain language, this model provides a clear map to guide the understanding of GWAS. While it is no replacement surveys such as \cite{uffelmannetal2021gwas, tametal2019benefits} or the literature they outline, it supplies a guiding structural framework with exceptional explanatory power to facilitate understanding of papers in the field.
 
 The model starts with $\m{G}$, the whole genome of an individual organism. Genetic information is stored in DNA, a long molecule consisting of a sequence of four \emph{nucleotide bases}: guanine, cytosine, adenine, and thymine. A \emph{diplodic} individual inherits one version or \emph{variant} of a complete DNA sequence from each parent, and so has two copies in all \emph{somatic} (i.e. non-reproductive) cells. Though it can be represented as one long sequence, DNA is actually structured into \emph{chromosomes}, separate strands of DNA which contain only a part of the sequence. As most genetic research concerns diplodic species, this is implicitly assumed.
 
@@ -448,7 +448,7 @@ So, the correlation is a product of $(1-2 p_r(d))$, which depends on the markers
 \end{eqnarray}
 and so using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(j,k)$ with an intercept $\gamma$ determined by the parents being crossed. As the entries in $\m{M}_X$ and $\m{F}_X$ are all 0 or 1, the differences in $\sm{\Delta}$ are all -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, though most of these are not unique. 17 of these are undefined, corresponding to cases where $Var(Z_j) = 0$ or $Var(Z_k) = 0$. Table \ref{tab:gammaSum} summarizes the frequency of different $\gamma$ values for the remaining 64 combinations.
 \begin{table}[!h]
-  \begin{tabular}{cc} \hline
+  \begin{tabular}{rr} \hline
     $\gamma$ & Frequency \\ \hline
     $-1$ & 8 \\
     $-\frac{1}{\sqrt{2}}$ & 16 \\
@@ -630,8 +630,7 @@ The similarity continues within chromosomes. Figures \ref{fig:jaxbsb}(c) and \re
 
 A likely explanation is the non-independence, or \emph{interference}, of cross overs. \cite{bromanetal2002crossover} evaluated the pattern of cross overs in the \cite{roweetal1994jaxbsb} experiment, the basis of the JAX BSB data. Their results suggest that cross overs are not fully independent. Most mouse chromosomes are much less than 100 cM in length, yet cross overs rarely occur within 20 cM of each other and fewer cross overs than expected tend to occur on the same chromosome. This interference will have little impact on the correlation between markers with short distances between them, as more than one cross over event is unlikely to occur in a short interval. Markers separated by longer distances are impacted by this observed interference to a greater extent, as the observed number of double cross overs will be less than expected. This increases chance that distant markers will be separated in meiosis by a single crossover, leading to a weaker correlation than predicted.
 
-That said, it is important not to over-interpret this pattern. It is not repeated in Figure \ref{fig:uclabsb} and the shading of quantiles has not been adjusted to account for the many multiple tests performed in each plot. In order to get a greater sense of this experimental departure from theory, the common markers measured between the UCLA BSB and JAX BSB data were identified and the correlation matrices computed for these common locations. Having two experimental replicates should reduce the impact of one unusual measurement. These correlations are displayed in Figure \ref{fig:bsbcommon}.
-\begin{figure}[htp]
+\begin{figure}[b]
   \begin{center}
     \begin{tabular}{cc}
       \includegraphics[scale = 0.2]{../img/jaxbsb_common.png} &
@@ -643,32 +642,44 @@ That said, it is important not to over-interpret this pattern. It is not repeate
   \caption{Pairwise correlations for the common marker positions of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}.}
   \label{fig:bsbcommon}
 \end{figure}
-Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 have several.
+
+That said, it is important not to over-interpret this pattern. It is not repeated in Figure \ref{fig:uclabsb} and the shading of quantiles has not been adjusted to account for the many multiple tests performed in each plot. In order to get a greater sense of this experimental departure from theory, the common markers measured between the UCLA BSB and JAX BSB data were identified and the correlation matrices computed for these common locations. Having two experimental replicates should reduce the impact of one unusual measurement. These correlations are displayed in Figure \ref{fig:bsbcommon}. Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 have several.
 
 A more detailed exploration is given by further simulation. The common markers on chromosomes 2 and 4 were used to generate 10,000 simulated crosses of 80 mice, the average of the JAX and UCLA BSB cross populations. Correlation matrices were computed for each population. Additionally, 10,000 populations of each of the JAX and UCLA crosses were simulated independently, and the average of these correlation matrices computed for each pair. As the JAX and UCLA crosses were carried out far from each other years apart, these experiments are assumed to be independent.
 
-For any pair of markers this gives two resulting distributions. One showing the distribution of correlation over repeated crosses and one showing the distribution of the correlations averaged across two populations. Both of these are compared to the JAX and UCLA data using the two-by-two layouts of Figure \ref{fig:2by2}.
-\begin{figure}[htp]
+\begin{figure}[t]
   \begin{center}
-    \begin{tabular}{ccc}
-      \includegraphics[scale = 0.4]{../img/bsbCorr2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2a.png} \\
-      {\footnotesize (a)} & {\footnotesize (b)} & {\footnotesize (c)} \\
+    \begin{tabular}{c}
+      %\includegraphics[scale = 0.4]{../img/bsbCorr2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2a.png} \\
+      %{\footnotesize (a)} & {\footnotesize (b)} & {\footnotesize (c)} \\
+      \includegraphics[scale = 0.5]{../img/bsbCorr2by2.png} \\
+      {\footnotesize (a) Correlation and distribution} \\
+      \\
+      \includegraphics[scale = 0.5]{../img/bsbCorrTest2by2.png} \\
+      {\footnotesize (b) Correlation and mean quantile} \\
+      \\
+      \includegraphics[scale = 0.5]{../img/bsbCorrTest2by2a.png} \\
+      {\footnotesize (c) Mean correlation and mean quantile} \\
+      \\
     \end{tabular}
   \end{center}
-  \caption{The pairwise units used to construct the correlation distribution and correlation test plots. (a) and (b) display the distribution of correlations in 10,000 simulated populations of 80 individuals while (c) uses the distribution of the mean of 10,000 pairs of populations of 66 and 94.}
+  \caption{The pairwise units of the correlation distribution and correlation test plots. (a) and (b) are based on 10,000 simulated populations of 80 individuals while (c) uses the means of 10,000 pairs of populations of 66 and 94.}
   \label{fig:2by2}
 \end{figure}
-Each subplot of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared, in this case Nppa and D4Mit14. Above the diagonal a distribution is displayed, in all cases the kernel density estimate (KDE) of the distribution of interest. Below the diagonal a numeric summary with some informative shading is displayed.
 
-Figure \ref{fig:2by2}(a) displays the KDE on a plot reflecting the range of possible correlations in the upper cell. The solid black line in this cell is drawn at the theoretical value predicted by Equation \ref{eq:haldanemap} and the dashed red line at the mean over all simulations. The lower cell reports the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
-
-\begin{figure*}[tp]
+\begin{figure*}[t]
   \begin{center}
       \includegraphics[scale = 0.5]{../img/bsbCorrDist.png}
   \end{center}
   \caption{The \emph{correlation distribution plot} for 10,000 simulated BSB crosses of the common markers on chromosomes 2 and 4 in the JAX and UCLA data.}
   \label{fig:bsbcorrDist}
 \end{figure*}
+
+For any pair of markers this gives two resulting distributions. One showing the distribution of correlation over repeated crosses and one showing the distribution of the correlations averaged across two populations. Both of these are compared to the JAX and UCLA data using the two-by-two layouts of Figure \ref{fig:2by2}.
+Each subplot of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared, in this case Nppa and D4Mit14. Above the diagonal a distribution is displayed, in all cases the kernel density estimate (KDE) of the distribution of interest. Below the diagonal a numeric summary with some informative shading is displayed.
+
+Figure \ref{fig:2by2}(a) displays the KDE on a plot reflecting the range of possible correlations in the upper cell. The solid black line in this cell is drawn at the theoretical value predicted by Equation \ref{eq:haldanemap} and the dashed red line at the mean over all simulations. The lower cell reports the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
+
 
 Figure \ref{fig:2by2}(b) displays the KDE in more detail by placing it in a plot with limits set by the estimate in the upper cell. Two solid lines are added at the correlations computed from the JAX and UCLA BSB data and a thicker red line is added at their mean, below which the density is shaded. The lower cell of Figure \ref{fig:2by2}(b) communicates the quantile of this red line, that is how many simulated correlations fall in the shaded region. As in Figures \ref{fig:uclabsb} and \ref{fig:jaxbsb}, this cell is shaded blue if the quantile is less than 250 and red if it is greater than 9,750.
 
@@ -778,7 +789,7 @@ where $\delta_m = m_{21} - m_{12}$. Equation \ref{eq:refCorr} therefore becomes
 \end{equation}
 Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}_{\text{ref}}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{\text{ref}}$ by construction, this can be further simplified to
 \begin{equation} \label{eq:crossedCorr}
-  \frac{ \sigma_{jk}^2 + \delta_m \left(1 - \bar{z}_{\text{ref}}^2 \right ) - m_{12}}{\sqrt{ \widehat{\sigma}_{kk}^2 \Big [ \widehat{\sigma}_{jj}^2 - \delta_m \left ( 3 - 2 \bar{z}_{\text{ref}} + \frac{\delta_m}{n} \right )  }}. \\
+  \frac{ \sigma_{jk}^2 + \delta_m \left(1 - \bar{z}_{\text{ref}}^2 \right ) - m_{12}}{\sqrt{ \widehat{\sigma}_{kk}^2 \Big [ \widehat{\sigma}_{jj}^2 + \delta_m \left ( 3 + 2 \bar{z}_{\text{ref}} - \frac{\delta_m}{n} \right ) \Big ] }}. \\
 \end{equation}
 The correlation is thereby shown to be changed primarily by the number of recombinant individuals, but that the extent of this change is dictated by the mean additive score of the reference marker, $\bar{z}_{\text{ref}} = \bar{z}_k^*$. As $\bar{z}_k^* \in [1, 2]$, cross overs will always decrease the correlation, though the magnitude of this decrease will depend on $\bar{z}_k^*$ in a non-linear fashion.
 
@@ -786,7 +797,7 @@ Using the above, the correlations were computed for the cases of zero, one, two,
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{c}
-      \includegraphics[scale = 0.5]{../img/strngBar.png} \\
+      \includegraphics[scale = 0.5]{../img/strngBar.png} \\ % change to a landscape form, drop 1
       {\footnotesize (a) Coloured by number of recombinant individuals} \\
       \\
       \includegraphics[scale = 0.5]{../img/strngBarClose.png} \\
