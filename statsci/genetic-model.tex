@@ -133,7 +133,7 @@
 %% ORCID can be inserted by command:         %%
 %% \orcid{0000-0000-0000-0000}               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\author[A]{\fnms{Chris}~\snm{Salahub}\ead[label=e1]{csalahub@uwaterloo.ca}},
+\author[A]{\fnms{Chris}~\snm{Salahub}\ead[label=e1]{csalahub@uwaterloo.ca}}%,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Addresses                                %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -650,25 +650,25 @@ A more detailed exploration is given by further simulation. The common markers o
 For any pair of markers this gives two resulting distributions. One showing the distribution of correlation over repeated crosses and one showing the distribution of the correlations averaged across two populations. Both of these are compared to the JAX and UCLA data using the two-by-two layouts of Figure \ref{fig:2by2}.
 \begin{figure}[htp]
   \begin{center}
-    \begin{tabular}{c}
-      \includegraphics[scale = 0.3]{../img/bsbCorr2by2.png} \\
-      {\footnotesize (a) Distribution of correlations} \\
-      \\
-      \includegraphics[scale = 0.3]{../img/bsbCorrTest2by2a.png} \\
-      {\footnotesize (b) JAX and BSB correlations against} \\
-      {\footnotesize simulated populations of 80} \\
-      \\
-      \includegraphics[scale = 0.3]{../img/bsbCorrTest2by2.png} \\
-      {\footnotesize (c) JAX and BSB correlations against} \\
-      {\footnotesize paired populations of 66 and 94} 
+    \begin{tabular}{ccc}
+      \includegraphics[scale = 0.4]{../img/bsbCorr2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2a.png} \\
+      {\footnotesize (a)} & {\footnotesize (b)} & {\footnotesize (c)} \\
     \end{tabular}
   \end{center}
-  \caption{The pairwise units used to construct the correlation distribution and correlation test plots.}
+  \caption{The pairwise units used to construct the correlation distribution and correlation test plots. (a) and (b) display the distribution of correlations in 10,000 simulated populations of 80 individuals while (c) uses the distribution of the mean of 10,000 pairs of populations of 66 and 94.}
   \label{fig:2by2}
 \end{figure}
 Each subplot of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared, in this case Nppa and D4Mit14. Above the diagonal a distribution is displayed, in all cases the kernel density estimate (KDE) of the distribution of interest. Below the diagonal a numeric summary with some informative shading is displayed.
 
 Figure \ref{fig:2by2}(a) displays the KDE on a plot reflecting the range of possible correlations in the upper cell. The solid black line in this cell is drawn at the theoretical value predicted by Equation \ref{eq:haldanemap} and the dashed red line at the mean over all simulations. The lower cell reports the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
+
+\begin{figure*}[tp]
+  \begin{center}
+      \includegraphics[scale = 0.5]{../img/bsbCorrDist.png}
+  \end{center}
+  \caption{The \emph{correlation distribution plot} for 10,000 simulated BSB crosses of the common markers on chromosomes 2 and 4 in the JAX and UCLA data.}
+  \label{fig:bsbcorrDist}
+\end{figure*}
 
 Figure \ref{fig:2by2}(b) displays the KDE in more detail by placing it in a plot with limits set by the estimate in the upper cell. Two solid lines are added at the correlations computed from the JAX and UCLA BSB data and a thicker red line is added at their mean, below which the density is shaded. The lower cell of Figure \ref{fig:2by2}(b) communicates the quantile of this red line, that is how many simulated correlations fall in the shaded region. As in Figures \ref{fig:uclabsb} and \ref{fig:jaxbsb}, this cell is shaded blue if the quantile is less than 250 and red if it is greater than 9,750.
 
@@ -680,21 +680,13 @@ The subplots of Figure \ref{fig:2by2} are expanded into larger displays by addin
 
 \begin{figure*}[htp]
   \begin{center}
-      \includegraphics[scale = 0.5]{../img/bsbCorrDist.png}
-  \end{center}
-  \caption{The \emph{correlation distribution plot} for 10,000 simulated BSB crosses of the common markers on chromosomes 2 and 4 in the JAX and UCLA data.}
-  \label{fig:bsbcorrDist}
-\end{figure*}
-
-In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are generally symmetric and unimodal with centres at the theoretical correlation. Indeed, the means of simulated correlations agree with theory to two decimals for all pairwise correlations. The shape and spread of the distribution of correlations seems highly dependent on the proximity of a pair of markers. Markers which are close together in cM and have a high correlation display very little variation across the simulations relative to markers which are further apart on the same chromosome or are on different chromosomes. Additionally, the KDEs of the close markers have separate peaks and roughness indicative of clusters of correlation values. Figure \ref{fig:bsbcorrTest} shows this as well, but it has been smoothed somewhat by averaging.
-
-\begin{figure*}[htp]
-  \begin{center}
       \includegraphics[scale = 0.5]{../img/bsbCorrTest.png}
   \end{center}
   \caption{The \emph{correlation test plot} for the JAX and UCLA BSB crosses. The upper cells show the distribution of 10,000 simulated averaged correlations between the JAX and UCLA BSB crosses. The experimental results are marked by black lines and their mean marked by a red line. The dashed line presents the  The bottom cells give the quantile of the corresponding mean over the 10,000 simulated crosses.}
   \label{fig:bsbcorrTest}
 \end{figure*}
+
+In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are generally symmetric and unimodal with centres at the theoretical correlation. Indeed, the means of simulated correlations agree with theory to two decimals for all pairwise correlations. The shape and spread of the distribution of correlations seems highly dependent on the proximity of a pair of markers. Markers which are close together in cM and have a high correlation display very little variation across the simulations relative to markers which are further apart on the same chromosome or are on different chromosomes. Additionally, the KDEs of the close markers have separate peaks and roughness indicative of clusters of correlation values. Figure \ref{fig:bsbcorrTest} shows this as well, but it has been smoothed somewhat by averaging.
 
 Of the twenty eight lower cells, six are shaded. The first of these, between markers D2Mit22 and a, is perhaps misleading. The observed quantiles are computed by counting the values less than or equal to that observed, but this pair has an observed mean correlation of 1. It is therefore necessarily larger than or equal to all other mean correlations, despite having an identical correlation as 291 simulated means. This shading should therefore be ignored, as the value is not so unusual.
 
@@ -720,10 +712,10 @@ Another complexity is the roughness noted in Figure \ref{fig:bsbcorrDist} and re
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{c}
-      \includegraphics[scale = 0.3]{../img/strngDen.png} \\
+      \includegraphics[scale = 0.5]{../img/strngDen.png} \\
       {\footnotesize (a) KDE} \\
       \\
-      \includegraphics[scale = 0.3]{../img/strngBarNoCol.png} \\
+      \includegraphics[scale = 0.5]{../img/strngBarNoCol.png} \\
       {\footnotesize (b) Bar plot}
     \end{tabular}
   \end{center}
@@ -742,31 +734,49 @@ $$\m{F}_X = \begin{bmatrix}
   1 & 0 \\
   1 & 0 \\
 \end{bmatrix}.$$
-Without loss of generality, take $f = 1$. In the absence of cross overs there are only two possible values for $\ve{z}$: $\tr{(1,1)}$ and $\tr{(2,2)}$. Both of these values of $\ve{z}$ are equally likely, as the inherited variants are independently donated by each parent. Regardless of which is inherited, $Z_{ij} = Z_{ik}$ for all of the offspring indexed by $i$ in a population of $n$ without cross overs. The correlation, given by
+Without loss of generality, take $f = 1$. In the absence of cross overs there are only two possible values for $\ve{z}$: $\tr{(1,1)}$ and $\tr{(2,2)}$. Both of these values of $\ve{z}$ are equally likely, as the inherited variants are independently donated by each parent. Regardless of which is inherited, $Z_{ij} = Z_{ik}$ for all of the offspring indexed by $i$ in a population of $n$ without cross overs. The observed sample correlation, given by
 \begin{equation} \label{eq:sampleCorr}
-Corr(Z_j, Z_k) = \frac{\sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j} \bar{z}_{k}}{\sqrt{ \left ( \sum_{i = 1}^n z_{ij}^2 - n \bar{z}_{j}^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}
+\frac{\sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j} \bar{z}_{k}}{\sqrt{ \left ( \sum_{i = 1}^n z_{ij}^2 - n \bar{z}_{j}^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}
 \end{equation}
 where $\bar{z}_l = \frac{1}{n} \sum_{i = 1}^n z_{il}$, is therefore always 1.
 
-Suppose $m$ cross overs occur and are inherited by the last $m$ offspring. Then there are $m$ individuals in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. For simplicity, let all cross overs lead to $\ve{z} = \tr{(1,2)}$. Take $Z_k$ as the \emph{reference marker} and assume the individuals with $\ve{z} = \tr{(1,2)}$ would have been $\ve{z} = \tr{(2,2)}$ without a cross over. Let
-\begin{equation*} \label{eq:refCorr}
-Corr_{ref} := \frac{ s_{jk}^* - n \bar{z}_{j}^* \bar{z}_{k}^*}{\sqrt{ \left ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}
-\end{equation*}
-As we cannot have more cross overs under this simplification than the reference marker, we must have
-$$m \leq n(\bar{z}_k^* - 1).$$
-The symmetry of this problem, however, means that this does not limit the coverage of possible populations. With $m$ cross overs as modelled here, any sum over $z_{ij}$ in this equation will change.
+Suppose $m$ cross overs occur and are inherited by the last $m$ offspring. Then there are $m$ recombinant individuals in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. Let $m_{12}$ be the count of $\tr{(1,2)}$ and $m_{21}$ be the count of $\tr{(2,1)}$. Take $Z_k$ as the \emph{reference marker} and assume the recombinant individuals would have taken that value at both markers without a cross over. That is, assume $\tr{(2,1)}$ individuals would have been $\tr{(1,1)}$ and $\tr{(1,2)}$ would have been $\tr{(2,2)}$ without recombination. Let
+\begin{eqnarray} 
+  r^2_{\text{ref}} & := & \frac{ s_{jk}^* - n \bar{z}_{j}^* \bar{z}_{k}^*}{\sqrt{ \big ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \big ) \big ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \big )}} \label{eq:refCorr} \\
+  & = & \frac{\widehat{\sigma}^2_{jk}}{\sqrt{ \widehat{\sigma}^2_{jj} \widehat{\sigma}^2_{kk} }} = 1\nonumber
+\end{eqnarray}
+represent all quantities without recombination.
+As we cannot have more cross overs than the number present in the reference marker, we must have
+$$m_{12} \leq n(\bar{z}_k^* - 1) \text{ and}$$
+$$m_{21} \leq n(2 - \bar{z}_k^*).$$
+With $m = m_{12} + m_{21}$ recombinant individuals, the sums over $z_{ij}$ in Equation \ref{eq:refCorr} will change. Sums over $z_{ik}$ will not change, as these are the reference values.
 
-The sum $\sum_{i = 1}^n z_{ji}$ decreases by $m$ since each crossed over term goes from 2 to 1. Therefore, the product $n \bar{z}_{j}$ will also decrease by $m$. Similarly, the sum $\sum_{i = 1}^n z_{ij}^2$
-will decrease by $3m$ as each crossed over term goes from 4 to 1. Finally, the sum $\sum_{i = 1}^n z_{ji} z_{ki},$ will decrease by $2m$, as in the reference case the crossed over terms are 4, but are now 2. Together, these change Equation \ref{eq:refCorr} to
-\begin{equation*}
-  \begin{split}\frac{ \left ( s^*_{jk} - 2m \right ) - \left( n \bar{z}_{j}^* - m \right ) \bar{z}_{k}^*}{\sqrt{ \left ( \left [ s_{jj}^* - 3m \right ] -  n \left [ \bar{z}_{j}^* - \frac{m}{n} \right ]^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
-    \\
-    = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{j}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
-    \\
-    = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{k}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}. \\
-  \end{split}
-\end{equation*}
-Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{..}$ by construction, this can be further simplified to
+The impact can be considered on a term-wise basis. $z_{ij}$ increases by 1 if recombination changes marker $j$ in individual $i$ from 1 to 2, and decreases by one if recombination changes $j$ from 2 to 1. $z_{ij}^2$ increases or decreases by 3 for each $i$ analogously. As $k$ is the reference marker, it is assumed $z_{ij} = z_{ik}$ before recombination. Therefore $z_{ij} z_{ik}$ decreases by 2 if recombination changes $j$ from 2 to 1, and increases by 1 if recombination changes $j$ from 1 to 2.
+
+This means that, given the recombinant counts $m_{21}$ and $m_{12}$,
+\begin{itemize}
+\item $n \bar{z}_{j}^*$ increases by $m_{21} - m_{12}$,
+\item $s_{jj}^*$ increases by $3 ( m_{21} - m_{12} )$, and
+\item $s_{jk}^*$ increases by $m_{21} - 2 m_{12}$.
+\end{itemize}
+The numerator of Equation \ref{eq:refCorr} consequently becomes
+\begin{eqnarray}
+  & \left ( s^*_{jk} + m_{21} - 2 m_{12} \right ) - \left( n \bar{z}_{j}^* + m_{21} - m_{12} \right ) \bar{z}_{k}^* \nonumber\\
+  & = \left ( s^*_{jk} - n \bar{z}_{j}^* \bar{z}_{k}^* \right ) + m_{21}(1 - \bar{z}_k^*) - m_{12} (2 - \bar{z}_{k}^*) \nonumber\\
+  & = \widehat{\sigma}_{jk}^2 + m_{21} (1 - \bar{z}_k^*) - m_{12}( 2 -  \bar{z}_{k}^*) \nonumber \\
+  & = \widehat{\sigma}_{jk}^2 + \delta_m (1 - \bar{z}_k^* ) - m_{12}     
+\end{eqnarray}
+while the variance at marker $j$ changes to
+\begin{eqnarray}
+  & \left ( s_{jj}^* + 3\delta_m \right ) -  n \left ( \bar{z}_{j}^* - \frac{\delta_m}{n} \right )^2 \nonumber \\
+  & = \left ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \right ) + 3 \delta_m + 2 \bar{z}_{j}^* \delta_m -  \frac{\delta_m^2}{n} \nonumber \\
+  & = \widehat{\sigma}_{jj}^2 + \delta_m \left ( 3 + 2 \bar{z}_j^* - \frac{\delta_m}{n} \right )
+\end{eqnarray}
+where $\delta_m = m_{21} - m_{12}$. Equation \ref{eq:refCorr} therefore becomes
+\begin{equation}
+  \frac{\widehat{\sigma}_{jk}^2 + \delta_m (1 - \bar{z}_k^* ) - m_{12}}{\sqrt{ \widehat{\sigma}_{kk}^2 \Big [ \widehat{\sigma}_{jj}^2 + \delta_m \left ( 3 + 2 \bar{z}_j^* - \frac{\delta_m}{n} \right ) \Big ]}}.
+\end{equation}
+Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}_{\text{ref}}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{..}$ by construction, this can be further simplified to
 \begin{equation} \label{eq:crossedCorr}
 Corr(Z_j, Z_k) = \frac{ \left ( s_{..} - n \bar{z}^2 \right ) - m \left( 2 - \bar{z}^2 \right )}{\sqrt{ \left ( s_{..} - n \bar{z}^2 \right )^2 - m \left ( 3 - 2 \bar{z} + \frac{m}{n} \right )  \left ( s_{..} - n \bar{z}^2 \right ) }}. \\
 \end{equation}
@@ -776,10 +786,10 @@ Using the above, the correlations were computed for the cases of zero, one, two,
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{c}
-      \includegraphics[scale = 0.3]{../img/strngBar.png} \\
+      \includegraphics[scale = 0.5]{../img/strngBar.png} \\
       {\footnotesize (a) Coloured by count of cross overs} \\
       \\
-      \includegraphics[scale = 0.3]{../img/strngBarClose.png} \\
+      \includegraphics[scale = 0.5]{../img/strngBarClose.png} \\
       {\footnotesize (b) One cross over coloured by mean score}
     \end{tabular}
   \end{center}
