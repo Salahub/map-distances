@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{30}
 % BibTex style file: imsart-number.bst, 2017-11-03
 % Default style options (sort=1,type=number).
 % Used options (sort=1,type=number).
@@ -115,6 +115,36 @@
 \btitle{Measures of association for cross classifications}.
 \bpublisher{Springer}.
 \end{bbook}
+\endbibitem
+
+\bibitem{green1966}
+\begin{bbook}[author]
+\bauthor{\bsnm{Green},~\bfnm{Earl~L.}\binits{E.~L.}},
+  \bauthor{\bsnm{Coleman},~\bfnm{Douglas~L.}\binits{D.~L.}},
+  \bauthor{\bsnm{Kaliss},~\bfnm{Nathan}\binits{N.}},
+  \bauthor{\bsnm{Dagg},~\bfnm{Charles~P.}\binits{C.~P.}},
+  \bauthor{\bsnm{Russell},~\bfnm{Elizabeth~S.}\binits{E.~S.}},
+  \bauthor{\bsnm{Fuller},~\bfnm{John~L.}\binits{J.~L.}},
+  \bauthor{\bsnm{Staats},~\bfnm{John}\binits{J.}} \AND
+  \bauthor{\bsnm{Green},~\bfnm{Margaret~C.}\binits{M.~C.}}
+(\byear{1966}).
+\btitle{Biology of the laboratory mouse}.
+\bpublisher{Dover}
+\bnote{Accessed via online adaptation at
+  http://www.informatics.jax.org/greenbook/index.shtml}.
+\end{bbook}
+\endbibitem
+
+\bibitem{haldane1919}
+\begin{barticle}[author]
+\bauthor{\bsnm{Haldane},~\bfnm{JBS}\binits{J.}}
+(\byear{1919}).
+\btitle{The combination of linkage values and the calculation of distances
+  between the loci of linked factors}.
+\bjournal{Journal of Genetics}
+\bvolume{8}
+\bpages{299--309}.
+\end{barticle}
 \endbibitem
 
 \bibitem{hasinetal2017multi}
