@@ -1,0 +1,265 @@
+\documentclass{article}
+
+% For PDF, suitable for double-sided printing, change the PrintVersion variable below to "true" and use this \documentclass line instead of the one above:
+%\documentclass[letterpaper,12pt,titlepage,openright,twoside,final]{book}
+\newcommand{\package}[1]{\textbf{#1}} % package names in bold text
+\newcommand{\cmmd}[1]{\textbackslash\texttt{#1}} % command name in tt font 
+\newcommand{\href}[1]{#1} % does nothing, but defines the command so the print-optimized version will ignore \href tags (redefined by hyperref pkg).
+%\newcommand{\texorpdfstring}[2]{#1} % does nothing, but defines the command
+% Anything defined here may be redefined by packages added below...
+
+% This package allows if-then-else control structures.
+\usepackage{ifthen}
+\newboolean{PrintVersion}
+\setboolean{PrintVersion}{false}
+% CHANGE THIS VALUE TO "true" as necessary, to improve printed results for hard copies by overriding some options of the hyperref package, called below.
+
+%\usepackage{nomencl} % For a nomenclature (optional; available from ctan.org)
+\usepackage{amsmath,amssymb,amstext} % Lots of math symbols and environments
+\usepackage[pdftex]{graphicx} % For including graphics N.B. pdftex graphics driver
+\usepackage{amsmath,amssymb,amstext,amsthm,amsfonts}
+\usepackage{dsfont}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{color}% Include colors for document elements
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{float}
+\usepackage{multirow}
+\usepackage[round]{natbib}   % omit 'round' option for square brackets
+
+\usepackage{algorithm} % For counting chapters
+\usepackage{algorithmicx, algpseudocode}
+%\renewcommand{\algorithmiccomment}[1]{// #1} % Brackets are confused with the sets
+%\algsetup{linenosize=\scriptsize}
+
+% N.B. HYPERREF MUST BE THE LAST PACKAGE LOADED; ADD ADDITIONAL PKGS ABOVE
+\usepackage[pdftex,pagebackref=false]{hyperref} % with basic options
+%\usepackage[pdftex,pagebackref=true]{hyperref}
+% N.B. pagebackref=true provides links back from the References to the body text. This can cause trouble for printing.
+% define colours
+\definecolor{background-color}{gray}{0.98}
+\definecolor{steelblue}{rgb}{0.27, 0.51, 0.71}
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
+\definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+
+\hypersetup{
+	plainpages=false,       % needed if Roman numbers in frontpages
+	unicode=false,          % non-Latin characters in Acrobat's bookmarks
+	pdftoolbar=true,        % show Acrobats toolbar?
+	pdfmenubar=true,        % show Acrobat's menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdftitle={Genetic correlation},    % title: CHANGE THIS TEXT!
+	pdfauthor={Chris Salahub},    % author: CHANGE THIS TEXT! and uncomment this line
+	%pdfsubject={Statistics},  % subject: CHANGE THIS TEXT! and uncomment this line
+	%    pdfkeywords={keyword1} {key2} {key3}, % list of keywords, and uncomment this line if desired
+	pdfnewwindow=true,      % links in new window
+	colorlinks=true,        % false: boxed links; true: colored links
+	linkcolor=steelblue,         % color of internal links
+	citecolor=brickred,        % color of links to bibliography
+	filecolor=magenta,      % color of file links
+	urlcolor=cyan           % color of external links
+}
+\ifthenelse{\boolean{PrintVersion}}{   % for improved print quality, change some hyperref options
+	\hypersetup{	% override some previously defined hyperref options
+		%    colorlinks,%
+		citecolor=black,%
+		filecolor=black,%
+		linkcolor=black,%
+		urlcolor=black}
+}{} % end of ifthenelse (no else)
+
+%\usepackage[automake,toc,abbreviations]{glossaries-extra} % Exception to the rule of hyperref being the last add-on package
+
+% Page margins
+% uWaterloo thesis requirements specify a minimum of 1 inch (72pt) margin at the
+% top, bottom, and outside page edges and a 1.125 in. (81pt) gutter margin (on binding side). 
+\setlength{\marginparwidth}{0pt} % width of margin notes
+% N.B. If margin notes are used, you must adjust \textwidth, \marginparwidth
+% and \marginparsep so that the space left between the margin notes and page
+% edge is less than 15 mm (0.6 in.)
+\setlength{\marginparsep}{0pt} % width of space between body text and margin notes
+\setlength{\evensidemargin}{0.125in} % Adds 1/8 in. to binding side of all even pages when "twoside" is selected
+\setlength{\oddsidemargin}{0.125in} % Adds 1/8 in. to the left of all pages when "oneside" is selected,
+% and to the left of all odd pages when "twoside" is selected
+\setlength{\textwidth}{6.375in} % assuming US letter paper (8.5 in. x 11 in.) and margins as above
+\raggedbottom
+
+\setlength{\parskip}{\medskipamount} % space between paragraphs
+\renewcommand{\baselinestretch}{1} % line space setting
+
+% Commands
+% Code
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand*{\Rnsp}{\textsf{R}}
+\newcommand*{\R}{\textsf{R}$~$}
+\newcommand*{\Pythonnsp}{\textsf{Python}}
+\newcommand*{\Python}{\textsf{Python}$~$}
+\newcommand{\pkg}[1]{\textsf{#1}}
+\newcommand{\pkgsp}[1]{\textsf{#1}$~$}
+\algblock{Input}{EndInput}
+\algnotext{EndInput}
+\newcommand{\Desc}[2]{\State \makebox[2em][l]{#1}#2}
+
+% Theorem styles
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+% vectors
+\newcommand{\ve}[1]{\mathbf{#1}}           % for vectors
+\newcommand{\sv}[1]{\boldsymbol{#1}}   % for greek letters
+\newcommand{\m}[1]{\mathbf{#1}}               % for matrices
+\newcommand{\sm}[1]{\boldsymbol{#1}}   % for greek letters
+\newcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}              % for transpose
+\newcommand{\conj}[1]{{#1}^{\ast}}
+\newcommand{\norm}[1]{||{#1}||}              % norm
+\newcommand{\frob}[1]{\norm{#1}_F}
+\newcommand{\abs}[1]{\lvert{#1}\rvert}              % norm
+\newcommand*{\mvec}{\operatorname{vec}}
+\newcommand*{\trace}{\operatorname{trace}}
+\newcommand*{\rank}{\operatorname{rank}}
+\newcommand*{\diag}{\operatorname{diag}}
+\newcommand*{\vspan}{\operatorname{span}}
+\newcommand*{\rowsp}{\operatorname{rowsp}}
+\newcommand*{\colsp}{\operatorname{colsp}}
+\newcommand*{\svd}{\operatorname{svd}}
+\newcommand*{\edm}{\operatorname{edm}}  % euclidean distance matrix (D * D)
+\newcommand{\oneblock}[3]{\m{B}_{#1:#2:#3}}
+\newcommand{\stripe}[2]{\m{S}_{#1,#2}}
+
+% contingency tables
+\newcommand{\abdiff}{\delta_{AB}}
+
+% statistical
+\newcommand{\widebar}[1]{\overline{#1}}  
+\newcommand{\wig}[1]{\tilde{#1}}  
+\newcommand{\bigwig}[1]{\widetilde{#1}}  
+\newcommand{\follows}{\sim}  
+\newcommand{\leftgiven}{~\left\lvert~}
+\newcommand{\given}{~\vert~}
+\newcommand{\biggiven}{~\vline~}
+\newcommand{\indep}{\bot\hspace{-.6em}\bot}
+\newcommand{\notindep}{\bot\hspace{-.6em}\bot\hspace{-0.75em}/\hspace{.4em}}
+\newcommand{\depend}{\Join}
+\newcommand{\notdepend}{\Join\hspace{-0.9 em}/\hspace{.4em}}
+\newcommand{\imply}{\Longrightarrow}
+\newcommand{\notimply}{\Longrightarrow \hspace{-1.5em}/ \hspace{0.8em}}
+\newcommand{\xyAssociation}{g}
+\newcommand{\xDomain}{\mathcal{X}}
+\newcommand{\yDomain}{\mathcal{Y}}
+\newcommand{\measureRange}{\mathcal{R}}
+\newcommand{\bigChi}{\mathcal{D}}
+\newcommand{\ind}[2]{I_{#2} \left( #1 \right)}
+%\newcommand{\ind}[1]{\mathds{1} \hspace{-0.1cm}\left( #1 \right)}
+\newcommand{\mutInf}{\mathcal{I}}
+\newcommand{\obscorr}{\widehat{r}^2}
+\newcommand{\corr}{r^2}
+
+% operators
+\newcommand{\Had}{\circ}
+\newcommand{\measureAssociation}{G}
+\DeclareMathOperator*{\lmin}{Minimize}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\arginf}{arg\,inf}
+\DeclareMathOperator*{\argsup}{arg\,sup}
+
+% Sets
+\newcommand*{\intersect}{\cap}
+\newcommand*{\union}{\cup}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+% Fields, Reals, etc. etc
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\Reals}{\field{R}}
+\newcommand{\Integers}{\field{Z}}
+\newcommand{\Naturals}{\field{N}}
+\newcommand{\Complex}{\field{C}}
+\newcommand{\Rationals}{\field{Q}}
+
+% Editorial
+\newcommand{\needtocite}[1]{{\color{red} [Need to cite {#1} here]}}
+\newcommand{\comment}[1]{{\color{steelblue} COMMENT:  {#1}}}
+\newcommand{\TODO}[1]{{\color{brickred} TODO:  {#1}}}
+
+\title{On genetic correlation}
+\author{Christopher Salahub \\
+	\textit{University of Waterloo}}
+
+\begin{document}
+	
+\maketitle
+
+\section{Introduction} \label{sec:intro}
+
+A structural model of genetics can be constructed which represents the genome of an individual by a matrix
+$$\m{G} = [\ve{g}_1| \ve{g}_2], \text{ } \ve{g}_1, \ve{g}_2 \in \mathcal{B}^{N_P}$$
+where $\mathcal{B} = \{\text{adenine, guanine, cytosine, thymine}\}$ is the set of nucleotide bases and $N_P$ is the length of the genome. In humans $N_P \approx 3,234,830,000$. Rather than measuring the whole genome, select $M$ disjoint sequences of interest, called markers, with total length $K$ and record these in
+$$\m{S} = [\ve{s}_1 | \ve{s}_2], \text{ } \ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K.$$
+In most cases these disjoint segments are chosen from known single nucleotide polymorphisms, or SNPs, which account for the majority of variation in the coding of the human genome. Typically, SNPs are biallelic, and so take only one of two versions in the population. $\m{S}$ can therefore be summarized into the $M$ SNPs it represents by annotating which allele is present at each location. This can be done using upper- and lowercase letters, for example, to give
+$$\m{T} = [\ve{t}_1 | \ve{t}_2], \text{ } \ve{t}_1, \text{ } \ve{t}_2 \in \{A,a\}^M.$$
+These letters do not represent the same sequence when used at different locations, but rather only indicate which of the two alleles is present at a particular SNP. This annotated matrix serves as the basis of most genetic research, with conventions in notation and modelling going back to \cite{mendel1866} and \cite{fisher1919}.
+
+\subsection{Genetic correlation} \label{subsec:corr}
+
+The annotation matrix $\m{T}$ serves as the basis to quantify association in genetic research, whether between markers or with observed physical traits. This quantification is the primary goal of genome-wide association studies as surveyed in \cite{uffelmannetal2021gwas, tametal2019benefits, wangetal2005gwas}. While many of the measures in \cite{goodmankruskal1979measures} could be used directly with $\m{T}$, a more common approach is to encode and summarize $\m{T}$ numerically and compute the sample correlations, given by
+\begin{equation} \label{eq:sampleCorr}
+  \obscorr(\ve{x}, \ve{y}) = \frac{\sum_{i = 1}^n x_i y_i - n \bar{x} \bar{y}}{\sqrt{\left (\sum_{i = 1}^n x_i^2 - n \bar{x}^2 \right ) \left (\sum_{i = 1}^n y_i^2 - n \bar{y}^2 \right )}}
+\end{equation}
+for $\ve{x} \in \Reals^n$ and $\ve{y} \in \Reals^n$. If $\ve{x}$ and $\ve{y}$ are treated as realizations of the random variables $X$ and $Y$ respectively, this is the sample estimate of the theoretical correlation
+\begin{equation} \label{eq:theorCorr}
+ \corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X) Var(Y)}}
+\end{equation}
+These can then be used to understand the structure of the genome and its relation to physical traits, as in \cite{poolr, LiJi2005, nyholt2004, cheverudetal2001}.
+
+One such encoding is the additive encoding and summary. First, $A$ is replaced by 1 and $a$ by 0. Row-wise addition of this indicator of $A$ is then performed to obtain a vector
+$$\ve{z} = \tr{[z_1, z_2, \dots, z_M]} \in \{0,1,2\}^M.$$
+Repeating this for every individual in a population gives $n$ vectors $\ve{z}_1$, $\ve{z}_2$, $\dots$, $\ve{z}_n$. This generates $n$ observations of each marker which can similarly be summarized in the vectors $\ve{x}_1, \ve{x}_2, \dots, \ve{x}_M \in \Reals^n$. These can be placed in an $n \times M$ matrix so that each individual's vector takes up a row to give
+$$\m{Z} = \begin{bmatrix}
+  \tr{\ve{z}_1} \\
+  \vdots \\
+  \tr{\ve{z}_n}
+\end{bmatrix} = [\ve{x}_1, \ve{x}_2, \dots, \ve{x}_M],$$
+which has the pairwise correlation matrix
+$$\m{R} = \begin{bmatrix}
+  Var(\ve{x}_1) & \obscorr(\ve{x}_1, \ve{x}_2) & \obscorr(\ve{x}_1, \ve{x}_3) & \dots & \obscorr(\ve{x}_1, \ve{x}_{M-1}) & \obscorr(\ve{x}_1, \ve{x}_M) \\
+  \obscorr(\ve{x}_2, \ve{x}_1) & Var(\ve{x}_2) & \obscorr(\ve{x}_2, \ve{x}_3) & \dots & \obscorr(\ve{x}_2, \ve{x}_{M-1}) & \obscorr(\ve{x}_2, \ve{x}_M) \\
+  \obscorr(\ve{x}_3, \ve{x}_1) & \obscorr(\ve{x}_3, \ve{x}_2) & Var(\ve{x}_3) & \dots & \obscorr(\ve{x}_3, \ve{x}_{M-1}) & \obscorr(\ve{x}_3, \ve{x}_M) \\
+  \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+  \obscorr(\ve{x}_M, \ve{x}_1) & \obscorr(\ve{x}_M, \ve{x}_2) & \obscorr(\ve{x}_M, \ve{x}_3) & \dots & \obscorr(\ve{x}_M, \ve{x}_{M-1}) & Var(\ve{x}_M) \\
+\end{bmatrix}.$$
+Consider an arbitrary entry in this matrix: $\obscorr(\ve{x}_j, \ve{x}_k)$. Let $c_j$ and $c_k$ indicate the chromosomes of markers $j$ and $k$, respectively and suppose that these markers have a probability of recombination of $p_r$. If we assume that
+\begin{itemize}
+\item the $\ve{z}_i$ are offspring of identically annotated parents,
+\item cross overs and independent assortment are the only sources of recombination, and
+\item cross overs occur independently within chromosomes
+\end{itemize}
+then it can be shown that the theoretical correlation is given by
+\begin{equation} \label{eq:prGenCorr}
+  \corr(X_j, X_k) = \ind{c_k}{\{c_j\}} \gamma ( 1 - 2p_r )
+\end{equation}
+where
+\begin{equation*}\ind{x}{y} = \begin{cases}
+  1, & \text{ if } x = y \\
+  0, & \text{ otherwise}
+\end{cases}
+\end{equation*}
+is the indicator function and $\gamma \in \{-1, -1/\sqrt{2}, 0, 1/\sqrt{2}, 1\}$ is a constant determined by the parents crossed to generate the population.
+
+If we additionally assume that cross overs occur uniformly over the interval $j$ to $k$ and that this interval is sufficiently large, the map distance of \cite{haldane1919} arises automatically from this model. Supposing the interval $j$ to $k$ has an arbitrary length $d(j,k)$ measured in reference to a uniform recombination rate $\beta \in \Reals$, the probability of recombination is given by
+$$p_r(d(j,k)) = \frac{1}{2} \left ( 1 - e^{-2\beta d(j,k)} \right )$$
+and so
+\begin{equation} \label{eq:GenCorr}
+  Corr(Z_j, Z_k) = \ind{c_k}{\{c_j\}} \gamma e^{-2 \beta d(j,k)}.
+\end{equation}
+
+
+
+\bibliographystyle{plainnat}
+\renewcommand*{\bibname}{References} % use title "References" for bibliography
+\bibliography{../Bibliography/fullbib}
+
+\end{document}

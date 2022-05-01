@@ -1,15 +1,8 @@
 (TeX-add-style-hook
- "genMod"
+ "moreOnCorrelation"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("graphicx" "pdftex") ("natbib" "round") ("hyperref" "pdftex" "pagebackref=false")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
     "article"
@@ -90,6 +83,8 @@
     "measureRange"
     "bigChi"
     "mutInf"
+    "obscorr"
+    "corr"
     "Had"
     "measureAssociation"
     "intersect"
@@ -103,56 +98,15 @@
     "emptyset")
    (LaTeX-add-labels
     "sec:intro"
-    "fig:modelDiagram"
-    "sec:theModel"
-    "eq:indicator"
-    "sec:derivingDists"
-    "subsec:crossingover"
-    "subsec:modelcrossing"
-    "eq:crossindicator"
-    "subsec:simplify"
-    "eq:binomialDist"
-    "eq:poissonlim"
-    "eq:haldanemap"
-    "sec:correlation"
-    "eq:z1var"
-    "eq:z2var"
-    "eq:covstep1"
-    "eq:covstep2"
-    "eq:covstep3"
-    "eq:cov"
-    "eq:precorr"
-    "eq:corrdist"
-    "eq:zcorr_gen"
-    "eq:zcorr"
-    "sec:sim"
-    "fig:chevSims"
-    "fig:LBSims"
-    "sec:model2real"
-    "fig:jaxbsb"
-    "fig:uclabsb"
-    "fig:bsbcommon"
-    "fig:2by2"
-    "fig:bsbcorrDist"
-    "fig:bsbcorrTest"
-    "fig:bsbcorrTestBig"
-    "subsec:corrCountCO"
-    "fig:discrete"
+    "subsec:corr"
     "eq:sampleCorr"
-    "eq:refCorr"
-    "eq:crossedCorr"
-    "fig:bardetail"
-    "sec:conclusion")
-   (LaTeX-add-bibliographies
-    "../Bibliography/fullbib")
-   (LaTeX-add-amsthm-newtheorems
+    "eq:theorCorr"
+    "eq:prGenCorr"
+    "eq:GenCorr")
+   (LaTeX-add-environments
     "definition"
     "theorem")
-   (LaTeX-add-color-definecolors
-    "background-color"
-    "steelblue"
-    "brickred"
-    "bluegray"
-    "amethyst"))
+   (LaTeX-add-bibliographies
+    "../Bibliography/fullbib"))
  :latex)
 
