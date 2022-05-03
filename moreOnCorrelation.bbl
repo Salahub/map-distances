@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -56,6 +56,11 @@ Dale~R Nyholt.
   polymorphisms in linkage disequilibrium with each other.
 \newblock \emph{The American Journal of Human Genetics}, 74\penalty0
   (4):\penalty0 765--769, 2004.
+
+\bibitem[Siegmund and Yakir(2007)]{siegmundyakir2007}
+David Siegmund and Benjamin Yakir.
+\newblock \emph{The statistics of gene mapping}.
+\newblock Springer Science \& Business Media, 2007.
 
 \bibitem[Tam et~al.(2019)Tam, Patel, Turcotte, Boss{\'e}, Par{\'e}, and
   Meyre]{tametal2019benefits}

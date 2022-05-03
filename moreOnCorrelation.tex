@@ -195,13 +195,28 @@
 
 \section{Introduction} \label{sec:intro}
 
-A structural model of genetics can be constructed which represents the genome of an individual by a matrix
-$$\m{G} = [\ve{g}_1| \ve{g}_2], \text{ } \ve{g}_1, \ve{g}_2 \in \mathcal{B}^{N_P}$$
+A structural model of genetics can be constructed which represents the genome of a diplodic individual by a two-column matrix
+$$\m{G} = [\ve{g}_1, \ve{g}_2], \text{ } \ve{g}_1, \ve{g}_2 \in \mathcal{B}^{N_P}$$
 where $\mathcal{B} = \{\text{adenine, guanine, cytosine, thymine}\}$ is the set of nucleotide bases and $N_P$ is the length of the genome. In humans $N_P \approx 3,234,830,000$. Rather than measuring the whole genome, select $M$ disjoint sequences of interest, called markers, with total length $K$ and record these in
-$$\m{S} = [\ve{s}_1 | \ve{s}_2], \text{ } \ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K.$$
+$$\m{S} = [\ve{s}_1 , \ve{s}_2], \text{ } \ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K.$$
 In most cases these disjoint segments are chosen from known single nucleotide polymorphisms, or SNPs, which account for the majority of variation in the coding of the human genome. Typically, SNPs are biallelic, and so take only one of two versions in the population. $\m{S}$ can therefore be summarized into the $M$ SNPs it represents by annotating which allele is present at each location. This can be done using upper- and lowercase letters, for example, to give
-$$\m{T} = [\ve{t}_1 | \ve{t}_2], \text{ } \ve{t}_1, \text{ } \ve{t}_2 \in \{A,a\}^M.$$
+\begin{equation} \label{eq:annotMat}
+  \m{T} = [\ve{t}_1 , \ve{t}_2], \text{ } \ve{t}_1, \text{ } \ve{t}_2 \in \{A,a\}^M.
+\end{equation}
 These letters do not represent the same sequence when used at different locations, but rather only indicate which of the two alleles is present at a particular SNP. This annotated matrix serves as the basis of most genetic research, with conventions in notation and modelling going back to \cite{mendel1866} and \cite{fisher1919}.
+
+Genetic research is focused on the heritability of different traits. More directly, this means associating measurable physical traits such as height, eye colour, response to a drug, or the presence of a disease with the entries of $\m{T}$. This must be done in spite of potentially confounding relationships present between different entries in $\m{T}$ due to the process of inheritance itself. To account for inheritance, take the annotated matrices of the parents
+\begin{equation} \label{eq:parentAnnot}
+  \m{F}_T = [\ve{f}_1 , \ve{f}_2]
+, \text{ and }
+\m{M}_T = [\ve{m}_1 , \ve{m}_2],
+\end{equation}
+thereby extending this structural model back a generation. We can now meaningfully talk about inheritance itself. Most crudely, inheritance involves the combination of independently donated variants from each of $\m{F}_T$ and $\m{M}_T$. Two additional processes may perturb the variants: independent assortment and cross overs.
+
+Independent assortment is a well-known phenomenon in genetics, see \cite{siegmundyakir2007}. While Equations \ref{eq:annotMat} and \ref{eq:parentAnnot} present variants as long columns of sequential base pairs, inside of cells these variants are actually organized into separate contiguous sections called chromosomes. Chromosomes within a parent are donated independently of each other. So while offspring may receive the variant from the first column on one chromosome, they can receive the variant from the second column on another. Let $\ve{c}$ be a vector of length $M$ denoting the chromosomal membership of each marker. For marker indices $j$ and $k$, Independent assortment means that the variant donated at position $j$ is independent of that at $k$ if $c_j \neq c_k$ within a parent.
+
+Cross overs add additional variation by perturbing sections for which $\ve{c}$ is constant. Within chromosomes, it is possible for the variants to physically cross at a base pair and swap the section after this cross to the end between the variants. This can actually occur several times on the same chromosome, in fact. These cross overs correspond to swaps of sections of the columns in $\m{T}$.
+
 
 \subsection{Genetic correlation} \label{subsec:corr}
 
@@ -216,30 +231,35 @@ for $\ve{x} \in \Reals^n$ and $\ve{y} \in \Reals^n$. If $\ve{x}$ and $\ve{y}$ ar
 These can then be used to understand the structure of the genome and its relation to physical traits, as in \cite{poolr, LiJi2005, nyholt2004, cheverudetal2001}.
 
 One such encoding is the additive encoding and summary. First, $A$ is replaced by 1 and $a$ by 0. Row-wise addition of this indicator of $A$ is then performed to obtain a vector
-$$\ve{z} = \tr{[z_1, z_2, \dots, z_M]} \in \{0,1,2\}^M.$$
-Repeating this for every individual in a population gives $n$ vectors $\ve{z}_1$, $\ve{z}_2$, $\dots$, $\ve{z}_n$. This generates $n$ observations of each marker which can similarly be summarized in the vectors $\ve{x}_1, \ve{x}_2, \dots, \ve{x}_M \in \Reals^n$. These can be placed in an $n \times M$ matrix so that each individual's vector takes up a row to give
+$$\tr{[z_1, z_2, \dots, z_M]} \in \{0,1,2\}^M.$$
+Repeating this for every individual in a population gives $n$ such vectors. Equivalently, we obtain $n$ observations of the $M$ markers. Denote the $j^{\text{th}}$ marker measurement on the $i^{\text{th}}$ individual as $z_{ij}$, then measurements over a population can be placed in the $n \times M$ matrix
 $$\m{Z} = \begin{bmatrix}
-  \tr{\ve{z}_1} \\
-  \vdots \\
-  \tr{\ve{z}_n}
-\end{bmatrix} = [\ve{x}_1, \ve{x}_2, \dots, \ve{x}_M],$$
-which has the pairwise correlation matrix
-$$\m{R} = \begin{bmatrix}
-  Var(\ve{x}_1) & \obscorr(\ve{x}_1, \ve{x}_2) & \obscorr(\ve{x}_1, \ve{x}_3) & \dots & \obscorr(\ve{x}_1, \ve{x}_{M-1}) & \obscorr(\ve{x}_1, \ve{x}_M) \\
-  \obscorr(\ve{x}_2, \ve{x}_1) & Var(\ve{x}_2) & \obscorr(\ve{x}_2, \ve{x}_3) & \dots & \obscorr(\ve{x}_2, \ve{x}_{M-1}) & \obscorr(\ve{x}_2, \ve{x}_M) \\
-  \obscorr(\ve{x}_3, \ve{x}_1) & \obscorr(\ve{x}_3, \ve{x}_2) & Var(\ve{x}_3) & \dots & \obscorr(\ve{x}_3, \ve{x}_{M-1}) & \obscorr(\ve{x}_3, \ve{x}_M) \\
+  z_{11} & z_{12} & \dots & z_{1M} \\
+  z_{21} & z_{22} & \dots & z_{2M} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  z_{n1} & z_{n2} & \dots & z_{nM}
+\end{bmatrix} := [\ve{z}_1, \ve{z}_2, \dots, \ve{z}_M],$$
+where
+$$\ve{z}_j = \tr{[z_{1j}, z_{2j}, \dots, z_{Mj}]}.$$
+Each $\ve{z}_j$ is a vector of $n$ realizations of the random variable $Z_j$ distributed according to the distribution of the $j^{\text{th}}$ marker in the population in question. When considering a wild population, this distribution is likely to be unknown. Certain theoretical populations, however, prescribe the distribution of $Z_j$. In either case $\m{Z}$ has an \textbf{observed} pairwise correlation matrix
+$$\widehat{\m{R}} = \begin{bmatrix}
+  Var(\ve{z}_1) & \obscorr(\ve{z}_1, \ve{z}_2) & \obscorr(\ve{z}_1, \ve{z}_3) & \dots & \obscorr(\ve{z}_1, \ve{z}_{M-1}) & \obscorr(\ve{z}_1, \ve{z}_M) \\
+  \obscorr(\ve{z}_2, \ve{z}_1) & Var(\ve{z}_2) & \obscorr(\ve{z}_2, \ve{z}_3) & \dots & \obscorr(\ve{z}_2, \ve{z}_{M-1}) & \obscorr(\ve{z}_2, \ve{z}_M) \\
+  \obscorr(\ve{z}_3, \ve{z}_1) & \obscorr(\ve{z}_3, \ve{z}_2) & Var(\ve{z}_3) & \dots & \obscorr(\ve{z}_3, \ve{z}_{M-1}) & \obscorr(\ve{z}_3, \ve{z}_M) \\
   \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-  \obscorr(\ve{x}_M, \ve{x}_1) & \obscorr(\ve{x}_M, \ve{x}_2) & \obscorr(\ve{x}_M, \ve{x}_3) & \dots & \obscorr(\ve{x}_M, \ve{x}_{M-1}) & Var(\ve{x}_M) \\
+  \obscorr(\ve{z}_M, \ve{z}_1) & \obscorr(\ve{z}_M, \ve{z}_2) & \obscorr(\ve{z}_M, \ve{z}_3) & \dots & \obscorr(\ve{z}_M, \ve{z}_{M-1}) & Var(\ve{z}_M) \\
 \end{bmatrix}.$$
-Consider an arbitrary entry in this matrix: $\obscorr(\ve{x}_j, \ve{x}_k)$. Let $c_j$ and $c_k$ indicate the chromosomes of markers $j$ and $k$, respectively and suppose that these markers have a probability of recombination of $p_r$. If we assume that
+For an arbitrary entry in this matrix, say $\obscorr(\ve{z}_j, \ve{z}_k)$, let $c_j$ and $c_k$ indicate the respective chromosomes of markers $j$ and $k$. and suppose that these markers have a probability of recombination of $p_r$. If we assume that
 \begin{itemize}
-\item the $\ve{z}_i$ are offspring of identically annotated parents,
-\item cross overs and independent assortment are the only sources of recombination, and
+\item the population are all offspring from identically annotated parents,
+\item the parent annotations are known,
+\item cross overs and independent assortment are the only sources of recombination,
+\item cross overs occur with perfect alignment across variants, and
 \item cross overs occur independently within chromosomes
 \end{itemize}
 then it can be shown that the theoretical correlation is given by
 \begin{equation} \label{eq:prGenCorr}
-  \corr(X_j, X_k) = \ind{c_k}{\{c_j\}} \gamma ( 1 - 2p_r )
+  \corr(Z_j, Z_k) = \ind{c_k}{c_j} \gamma ( 1 - 2p_r )
 \end{equation}
 where
 \begin{equation*}\ind{x}{y} = \begin{cases}
@@ -247,15 +267,39 @@ where
   0, & \text{ otherwise}
 \end{cases}
 \end{equation*}
-is the indicator function and $\gamma \in \{-1, -1/\sqrt{2}, 0, 1/\sqrt{2}, 1\}$ is a constant determined by the parents crossed to generate the population.
+is the indicator function and $\gamma \in \{-1, -1/\sqrt{2}, 0, 1/\sqrt{2}, 1\}$ is a constant determined by the annotated matrices of the parents crossed to generate the population. These annotated matrices can be written
+$$\m{F}_X = \begin{bmatrix}
+  f_{j1} & f_{j2} \\
+  f_{k1} & f_{k2} \\
+\end{bmatrix}, \text{ and }
+\m{M}_X = \begin{bmatrix}
+  m_{j1} & m_{j2} \\
+  m_{k1} & m_{k2} \\
+\end{bmatrix},$$
+where all entries are 0 or 1 without a loss of generality. $\gamma$ is then most succinctly defined using the difference matrix
+\begin{equation} \label{eq:diffMatrix}
+  \sm{\Delta} = \begin{bmatrix}
+    f_{j1} - f_{j2} & m_{j1} - m_{j2} \\
+    f_{k1} - f_{k2} & m_{k1} - m_{k2} \\
+  \end{bmatrix} := \begin{bmatrix}
+    \delta_{jF} & \delta_{jM} \\
+    \delta_{kF} & \delta_{kM}
+  \end{bmatrix},
+\end{equation}
+which records the difference between the two variants in each parent at each marker position.
+
+$$\gamma = \frac{ \Big [ \delta_{jF} \delta_{kF} + \delta_{jM} \delta_{kM} \Big ] }{  \sqrt{ \big ( \delta_{jF}^2 + \delta_{jM}^2 \big ) \big ( \delta_{kF}^2 + \delta_{kM}^2 \big )}}.$$
 
 If we additionally assume that cross overs occur uniformly over the interval $j$ to $k$ and that this interval is sufficiently large, the map distance of \cite{haldane1919} arises automatically from this model. Supposing the interval $j$ to $k$ has an arbitrary length $d(j,k)$ measured in reference to a uniform recombination rate $\beta \in \Reals$, the probability of recombination is given by
 $$p_r(d(j,k)) = \frac{1}{2} \left ( 1 - e^{-2\beta d(j,k)} \right )$$
 and so
 \begin{equation} \label{eq:GenCorr}
-  Corr(Z_j, Z_k) = \ind{c_k}{\{c_j\}} \gamma e^{-2 \beta d(j,k)}.
+  \corr(Z_j, Z_k) = \ind{c_k}{c_j} \gamma e^{-2 \beta d(j,k)}.
 \end{equation}
 
+\section{The distribution of correlation} \label{sec:distribution}
+
+While the point estimates of Equations \ref{eq:GenCorr} and \ref{eq:prGenCorr} are useful
 
 
 \bibliographystyle{plainnat}

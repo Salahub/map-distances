@@ -3,6 +3,13 @@
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("graphicx" "pdftex") ("natbib" "round") ("hyperref" "pdftex" "pagebackref=false")))
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
     "article"
@@ -98,15 +105,25 @@
     "emptyset")
    (LaTeX-add-labels
     "sec:intro"
+    "eq:annotMat"
+    "eq:parentAnnot"
     "subsec:corr"
     "eq:sampleCorr"
     "eq:theorCorr"
     "eq:prGenCorr"
-    "eq:GenCorr")
-   (LaTeX-add-environments
+    "eq:diffMatrix"
+    "eq:GenCorr"
+    "sec:distribution")
+   (LaTeX-add-bibliographies
+    "../Bibliography/fullbib")
+   (LaTeX-add-amsthm-newtheorems
     "definition"
     "theorem")
-   (LaTeX-add-bibliographies
-    "../Bibliography/fullbib"))
+   (LaTeX-add-color-definecolors
+    "background-color"
+    "steelblue"
+    "brickred"
+    "bluegray"
+    "amethyst"))
  :latex)
 
