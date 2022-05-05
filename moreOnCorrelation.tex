@@ -213,26 +213,25 @@ Genetic research is focused on the heritability of different traits. More direct
 \end{equation}
 thereby extending this structural model back a generation. We can now meaningfully talk about inheritance itself. Most crudely, inheritance involves the combination of independently donated variants from each of $\m{F}_T$ and $\m{M}_T$. Two additional processes may perturb the variants: independent assortment and cross overs.
 
-Independent assortment is a well-known phenomenon in genetics, see \cite{siegmundyakir2007}. While Equations \ref{eq:annotMat} and \ref{eq:parentAnnot} present variants as long columns of sequential base pairs, inside of cells these variants are actually organized into separate contiguous sections called chromosomes. Chromosomes within a parent are donated independently of each other. So while offspring may receive the variant from the first column on one chromosome, they can receive the variant from the second column on another. Let $\ve{c}$ be a vector of length $M$ denoting the chromosomal membership of each marker. For marker indices $j$ and $k$, Independent assortment means that the variant donated at position $j$ is independent of that at $k$ if $c_j \neq c_k$ within a parent.
+Independent assortment is a well-known phenomenon in genetics, see \cite{siegmundyakir2007}. While Equations \ref{eq:annotMat} and \ref{eq:parentAnnot} present variants as long columns of sequential base pairs, inside of cells these variants are actually organized into separate contiguous sections called chromosomes. Chromosomes within a parent are donated independently of each other. So while offspring may receive the variant from the first column on one chromosome, they can receive the variant from the second column on another. Let $\ve{c}$ be a vector of length $M$ denoting the chromosomal membership of each marker. For marker indices $j$ and $k$, independent assortment means that the variant donated at position $j$ is independent of that at $k$ if $c_j \neq c_k$ within a parent.
 
-Cross overs add additional variation by perturbing sections for which $\ve{c}$ is constant. Within chromosomes, it is possible for the variants to physically cross at a base pair and swap the section after this cross to the end between the variants. This can actually occur several times on the same chromosome, in fact. These cross overs correspond to swaps of sections of the columns in $\m{T}$.
+Cross overs add additional variation by perturbing sections for which $\ve{c}$ is constant. Within chromosomes, it is possible for the variants to physically cross at a base pair and swap between variants the sections after this cross to the end of the chromosome. This can actually occur several times on the same chromosome. In $\m{T}$ cross overs result in swaps of sections of the columns where $\ve{c}$ is constant. Cross overs recombine the genome to create completely new variants.
 
+\section{Genetic correlation} \label{sec:corr}
 
-\subsection{Genetic correlation} \label{subsec:corr}
-
-The annotation matrix $\m{T}$ serves as the basis to quantify association in genetic research, whether between markers or with observed physical traits. This quantification is the primary goal of genome-wide association studies as surveyed in \cite{uffelmannetal2021gwas, tametal2019benefits, wangetal2005gwas}. While many of the measures in \cite{goodmankruskal1979measures} could be used directly with $\m{T}$, a more common approach is to encode and summarize $\m{T}$ numerically and compute the sample correlations, given by
+To quantify association some measure of association must be applied to $\m{T}$, $\m{F}_T$, and $\m{M}_T$. This quantification is a primary goal of genome-wide association studies, see \cite{uffelmannetal2021gwas, tametal2019benefits, wangetal2005gwas}. While many of the measures in \cite{goodmankruskal1979measures} could be used directly, a more common approach is to encode and summarize these annotated matrices numerically and compute \textbf{observed sample} correlations, given by
 \begin{equation} \label{eq:sampleCorr}
   \obscorr(\ve{x}, \ve{y}) = \frac{\sum_{i = 1}^n x_i y_i - n \bar{x} \bar{y}}{\sqrt{\left (\sum_{i = 1}^n x_i^2 - n \bar{x}^2 \right ) \left (\sum_{i = 1}^n y_i^2 - n \bar{y}^2 \right )}}
 \end{equation}
-for $\ve{x} \in \Reals^n$ and $\ve{y} \in \Reals^n$. If $\ve{x}$ and $\ve{y}$ are treated as realizations of the random variables $X$ and $Y$ respectively, this is the sample estimate of the theoretical correlation
+for $\ve{x} \in \Reals^n$ and $\ve{y} \in \Reals^n$. If $\ve{x}$ and $\ve{y}$ are treated as realizations of the random variables $X$ and $Y$ respectively, this is the sample estimate of the \textbf{theoretical} correlation
 \begin{equation} \label{eq:theorCorr}
  \corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X) Var(Y)}}
 \end{equation}
 These can then be used to understand the structure of the genome and its relation to physical traits, as in \cite{poolr, LiJi2005, nyholt2004, cheverudetal2001}.
 
-One such encoding is the additive encoding and summary. First, $A$ is replaced by 1 and $a$ by 0. Row-wise addition of this indicator of $A$ is then performed to obtain a vector
+One possibility is the additive encoding and summary. First, for all of $\m{T}, \m{F}_T,$ and $\m{M}_T$ $A$ is replaced by 1 and $a$ by 0. Row-wise addition of this indicator of $A$ can then be performed on $\m{T}$ to obtain the vector
 $$\tr{[z_1, z_2, \dots, z_M]} \in \{0,1,2\}^M.$$
-Repeating this for every individual in a population gives $n$ such vectors. Equivalently, we obtain $n$ observations of the $M$ markers. Denote the $j^{\text{th}}$ marker measurement on the $i^{\text{th}}$ individual as $z_{ij}$, then measurements over a population can be placed in the $n \times M$ matrix
+Repeating this for every individual in a population gives $n$ such vectors. Equivalently, we obtain $n$ observations of each of the $M$ markers. Denote the $j^{\text{th}}$ marker measurement on the $i^{\text{th}}$ individual as $z_{ij}$, then measurements over a population can be placed in the $n \times M$ matrix
 $$\m{Z} = \begin{bmatrix}
   z_{11} & z_{12} & \dots & z_{1M} \\
   z_{21} & z_{22} & \dots & z_{2M} \\
@@ -241,7 +240,7 @@ $$\m{Z} = \begin{bmatrix}
 \end{bmatrix} := [\ve{z}_1, \ve{z}_2, \dots, \ve{z}_M],$$
 where
 $$\ve{z}_j = \tr{[z_{1j}, z_{2j}, \dots, z_{Mj}]}.$$
-Each $\ve{z}_j$ is a vector of $n$ realizations of the random variable $Z_j$ distributed according to the distribution of the $j^{\text{th}}$ marker in the population in question. When considering a wild population, this distribution is likely to be unknown. Certain theoretical populations, however, prescribe the distribution of $Z_j$. In either case $\m{Z}$ has an \textbf{observed} pairwise correlation matrix
+Each $\ve{z}_j$ is a vector of $n$ realizations of the random variable $Z_j$ distributed according to the distribution of the $j^{\text{th}}$ marker in the population. When considering a wild population, this distribution is likely to be unknown. If $\m{M}_T$ and $\m{F}_T$ are known constants for the entire population, however, the distribution of $Z_j$ is dictated by cross overs and independent assortment alone. In either case $\m{Z}$ has an \textbf{observed} pairwise correlation matrix
 $$\widehat{\m{R}} = \begin{bmatrix}
   Var(\ve{z}_1) & \obscorr(\ve{z}_1, \ve{z}_2) & \obscorr(\ve{z}_1, \ve{z}_3) & \dots & \obscorr(\ve{z}_1, \ve{z}_{M-1}) & \obscorr(\ve{z}_1, \ve{z}_M) \\
   \obscorr(\ve{z}_2, \ve{z}_1) & Var(\ve{z}_2) & \obscorr(\ve{z}_2, \ve{z}_3) & \dots & \obscorr(\ve{z}_2, \ve{z}_{M-1}) & \obscorr(\ve{z}_2, \ve{z}_M) \\
@@ -251,13 +250,12 @@ $$\widehat{\m{R}} = \begin{bmatrix}
 \end{bmatrix}.$$
 For an arbitrary entry in this matrix, say $\obscorr(\ve{z}_j, \ve{z}_k)$, let $c_j$ and $c_k$ indicate the respective chromosomes of markers $j$ and $k$. and suppose that these markers have a probability of recombination of $p_r$. If we assume that
 \begin{itemize}
-\item the population are all offspring from identically annotated parents,
-\item the parent annotations are known,
-\item cross overs and independent assortment are the only sources of recombination,
-\item cross overs occur with perfect alignment across variants, and
+\item the population are all offspring of the known matrices $\m{M}_T$ and $\m{F}_T$;
+\item cross overs and independent assortment are the only sources of recombination;
+\item cross overs occur with perfect alignment across variants; and
 \item cross overs occur independently within chromosomes
 \end{itemize}
-then it can be shown that the theoretical correlation is given by
+then it can be shown that the \textbf{expected} theoretical correlation is given by
 \begin{equation} \label{eq:prGenCorr}
   \corr(Z_j, Z_k) = \ind{c_k}{c_j} \gamma ( 1 - 2p_r )
 \end{equation}
@@ -267,16 +265,18 @@ where
   0, & \text{ otherwise}
 \end{cases}
 \end{equation*}
-is the indicator function and $\gamma \in \{-1, -1/\sqrt{2}, 0, 1/\sqrt{2}, 1\}$ is a constant determined by the annotated matrices of the parents crossed to generate the population. These annotated matrices can be written
-$$\m{F}_X = \begin{bmatrix}
+is the indicator function and $\gamma \in \{-1, -1/\sqrt{2}, 0, 1/\sqrt{2}, 1\}$ is a constant depending on the entries of $\m{M}_T$ and $\m{F}_T$. Ignoring the other markers which do not contribute to this pairwise correlation, the encodings of the annotated matrices $\m{M}_T$ and $\m{F}_T$ can be written
+\begin{equation} \label{eq:encodedParents}
+  \m{F}_X = \begin{bmatrix}
   f_{j1} & f_{j2} \\
   f_{k1} & f_{k2} \\
-\end{bmatrix}, \text{ and }
+\end{bmatrix} \text{ and }
 \m{M}_X = \begin{bmatrix}
   m_{j1} & m_{j2} \\
   m_{k1} & m_{k2} \\
-\end{bmatrix},$$
-where all entries are 0 or 1 without a loss of generality. $\gamma$ is then most succinctly defined using the difference matrix
+\end{bmatrix},
+\end{equation}
+where all entries are 0 or 1. $\gamma$ is most succinctly defined using the difference matrix
 \begin{equation} \label{eq:diffMatrix}
   \sm{\Delta} = \begin{bmatrix}
     f_{j1} - f_{j2} & m_{j1} - m_{j2} \\
@@ -284,10 +284,9 @@ where all entries are 0 or 1 without a loss of generality. $\gamma$ is then most
   \end{bmatrix} := \begin{bmatrix}
     \delta_{jF} & \delta_{jM} \\
     \delta_{kF} & \delta_{kM}
-  \end{bmatrix},
+  \end{bmatrix}
 \end{equation}
-which records the difference between the two variants in each parent at each marker position.
-
+recording the difference between the two variants in each parent at each marker position. Using these differences
 $$\gamma = \frac{ \Big [ \delta_{jF} \delta_{kF} + \delta_{jM} \delta_{kM} \Big ] }{  \sqrt{ \big ( \delta_{jF}^2 + \delta_{jM}^2 \big ) \big ( \delta_{kF}^2 + \delta_{kM}^2 \big )}}.$$
 
 If we additionally assume that cross overs occur uniformly over the interval $j$ to $k$ and that this interval is sufficiently large, the map distance of \cite{haldane1919} arises automatically from this model. Supposing the interval $j$ to $k$ has an arbitrary length $d(j,k)$ measured in reference to a uniform recombination rate $\beta \in \Reals$, the probability of recombination is given by
@@ -299,7 +298,55 @@ and so
 
 \section{The distribution of correlation} \label{sec:distribution}
 
-While the point estimates of Equations \ref{eq:GenCorr} and \ref{eq:prGenCorr} are useful
+While the point estimates of Equations \ref{eq:GenCorr} and \ref{eq:prGenCorr} are useful to understand the mean behaviour of the correlations for large populations, they do not communicate the theoretical distributions. This makes an assesment of fit for any particular $\widehat{\m{R}}$ difficult, requiring repeated simulations to obtain an empirical null distribution. As this results from treating $\m{M}_X$ and $\m{F}_X$ as constant in Equation \ref{eq:encodedParents}, the random matrices
+\begin{equation} \label{eq:encodedParents}
+  \mathcal{F}_X = \begin{bmatrix}
+  F_{j1} & F_{j2} \\
+  F_{k1} & F_{k2} \\
+\end{bmatrix} \text{ and }
+\mathcal{M}_X = \begin{bmatrix}
+  M_{j1} & M_{j2} \\
+  M_{k1} & M_{k2} \\
+\end{bmatrix},
+\end{equation}
+resolve this problem. Each of the entries in these matrices can be treated as a Bernoulli random variable with some probability of being 1. The matrices $\m{M}_X$ and $\m{F}_X$ can be repurposed to parametrize these variables by giving the expectations of each, thereby generalizing the constant case.
+
+Additional random variables can be introduced to account for cross overs and the equal probability of either variant being donated. Let $L_F$ and $L_M$ be Bernoulli random variables which are 1 if the left column is donated by the corresponding random matrix. Similarly take $C_F$ and $C_M$ as Bernoulli random variables which are 1 if recombination due to cross overs occurs in the corresponding random matrix. Therefore
+\begin{equation} \label{eq:LFLM}
+  L_F, L_M \sim Bern \left ( \frac{1}{2} \right )
+\end{equation}
+with $L_F \indep L_M$, and
+\begin{equation} \label{eq:CFCM}
+  C_F, C_M \sim Bern \left ( p_r(d(j,k)) \right )
+\end{equation}
+with $C_F \indep C_M$.
+
+Denoting the relevant marker encodings of the offspring of $\mathcal{F}_X$ and $\mathcal{M}_X$ by
+\begin{equation} \label{eq:randomOff}
+  \mathcal{X} = \begin{bmatrix}
+    X_{j1} & X_{j2} \\
+    X_{k1} & X_{k2}
+  \end{bmatrix}.
+\end{equation}
+We then get the stochastic representations
+\begin{align*}
+  X_{j1} & =  (1 - C_F)\Big [L_F F_{j1} + (1 - L_F) F_{j2} \Big ] + C_F \Big [ (1 - L_F) F_{j1} + L_F F_{j2} \Big ] \\
+  X_{j2} & =  (1 - C_M)\Big [L_M M_{j1} + (1 - L_M) M_{j2} \Big ] + C_M \Big [ (1 - L_M) M_{j1} + L_M M_{j2} \Big ] \\
+  X_{k1} & =  (1 - C_F)\Big [L_F F_{k1} + (1 - L_F) F_{k2} \Big ] + C_F \Big [ (1 - L_F) F_{k1} + L_F F_{k2} \Big ] \\
+  X_{k2} & =  (1 - C_M)\Big [L_M M_{k1} + (1 - L_M) M_{k2} \Big ] + C_M \Big [ (1 - L_M) M_{k1} + L_M M_{k2} \Big ] 
+\end{align*}
+which correspond to the values in the cases of left and right donation both with and without recombination. These terms can be simplified by collecting terms based on the entries of $\mathcal{F}_X$ and $\mathcal{M}_X$. Using $X_{j1}$, for example:
+\begin{align*}
+  X_{j1} & = \Big ( L_F + C_F - 2 C_F L_F \Big ) F_{j1} + \Big ( 1 - L_F - C_F + 2 C_F L_F \Big ) F_{j2} \\
+         & = \Big ( L_F^2 + C_F^2 - 2 C_F L_F \Big ) F_{j1} + \Big ( 1 - L_F^2 - C_F^2 + 2 C_F L_F \Big ) F_{j2} \\
+  & = ( L_F - C_F )^2 F_{j1} + \Big [ 1 - ( L_F - C_F )^2 \Big ] F_{j2} \\
+\end{align*}
+as $L_F, C_F \in \{0,1\}$. This can be simplified further by considering $(L_F - C_F)^2 := D_F$. As $L_F - C_F \in \{-1,0,1\}$ is a random difference, $D_F \in \{0, 1\}$ is a Bernoulli random variable. More specifically, considering the probability of $L_F - C_F \in \{-1, 1\}$ gives
+$$D_F \sim Bern \left( \frac{p_r(d(j,k))}{2} + \frac{1}{2}( 1 - p_r(d(j,k)) ) \right ) = Bern \left ( \frac{1}{2} \right )$$
+\begin{equation} \label{eq:differenceCL}
+  D_F = (L_F - C_F)^2,
+\end{equation}
+
 
 
 \bibliographystyle{plainnat}

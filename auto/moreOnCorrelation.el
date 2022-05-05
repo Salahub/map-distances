@@ -107,13 +107,18 @@
     "sec:intro"
     "eq:annotMat"
     "eq:parentAnnot"
-    "subsec:corr"
+    "sec:corr"
     "eq:sampleCorr"
     "eq:theorCorr"
     "eq:prGenCorr"
+    "eq:encodedParents"
     "eq:diffMatrix"
     "eq:GenCorr"
-    "sec:distribution")
+    "sec:distribution"
+    "eq:LFLM"
+    "eq:CFCM"
+    "eq:randomOff"
+    "eq:differenceCL")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")
    (LaTeX-add-amsthm-newtheorems
