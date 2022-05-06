@@ -342,12 +342,48 @@ which correspond to the values in the cases of left and right donation both with
   & = ( L_F - C_F )^2 F_{j1} + \Big [ 1 - ( L_F - C_F )^2 \Big ] F_{j2} \\
 \end{align*}
 as $L_F, C_F \in \{0,1\}$. This can be simplified further by considering $(L_F - C_F)^2 := D_F$. As $L_F - C_F \in \{-1,0,1\}$ is a random difference, $D_F \in \{0, 1\}$ is a Bernoulli random variable. More specifically, considering the probability of $L_F - C_F \in \{-1, 1\}$ gives
-$$D_F \sim Bern \left( \frac{p_r(d(j,k))}{2} + \frac{1}{2}( 1 - p_r(d(j,k)) ) \right ) = Bern \left ( \frac{1}{2} \right )$$
-\begin{equation} \label{eq:differenceCL}
-  D_F = (L_F - C_F)^2,
-\end{equation}
+$$D_F \sim Bern \left( \frac{p_r(d(j,k))}{2} + \frac{1}{2}( 1 - p_r(d(j,k)) ) \right ) = Bern \left ( \frac{1}{2} \right ).$$
+This is unsurprising. Cross overs affect both variants symmetrically, and so there is no reason to expect one to be favoured over the other in inheritance. Extending this logic to the other entries of $\mathcal{X}$ and defining $D_M$ similarly to $D_F$ gives
+\begin{align*}
+  X_{j1} & =  D_F F_{j1} + (1 - D_F) F_{j2} \\ %\label{eq:xj1}\\
+  X_{j2} & =  D_M M_{j1} + (1 - D_M) M_{j2} \\ %\label{eq:xj2}\\
+  X_{k1} & =  D_F F_{k1} + (1 - D_F) F_{k2} \\ %\label{eq:xk1}\\
+  X_{k2} & =  D_M M_{k1} + (1 - D_M) M_{k2} %\label{eq:xk2}.
+\end{align*}
+Noting that the random variables in $\mathcal{F}$ and $\mathcal{M}$ are all within $\{0,1\}$, each of these is a mixture of two Bernoulli random variables.
+
+The summary vector has entries
+\begin{align*}
+  Z_1 & = X_{j1} + X_{j2} \\
+  Z_2 & = X_{k1} + X_{k2}
+\end{align*}
+and so understanding the distribution of the entries of $\mathcal{X}$ is key to characterizing the distribution of this summary. First note that $D_F \indep D_M$ are assumed to be independent of $\mathcal{F}$ and $\mathcal{M}$. While it is possible the variant present affects the probability of recombination, such complexity would have a minor effect at most. Therefore
+\begin{align*}
+  E[X_{j1}] & =  \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \\ 
+  E[X_{j2}] & =  \frac{1}{2} \Big ( E[M_{j1}] + E[M_{j2}] \Big ) \\ 
+  E[X_{k1}] & =  \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] \Big ) \\ 
+  E[X_{k2}] & =  \frac{1}{2} \Big ( E[M_{k1}] + E[M_{k2}] \Big )
+\end{align*}
+where the expectations of each entry of $\mathcal{M}$ and $\mathcal{F}$ are population parameters. Using the conditional variance decomposition
+\begin{align*}
+  Var(X_{j1}) & = E \Big [ Var(X_{j1} | D_F) \Big ] + Var \Big ( E[X_{j1} | D_F] \Big ) \\
+              & = \frac{1}{2} \Big [ Var(F_{j1}) + Var(F_{j2}) \Big ] + \frac{1}{2} \Big ( E[F_{j1}]^2 + E[F_{j2}]^2 - \big ( E[F_{j1}] + E[F_{j2}] \big )^2  \Big ) \\
+  & = Var(F_{j1}) + Var(F_{j2}) - E[F_{j1}] E[F_{j2}]                
+\end{align*}
 
 
+From Equations \ref{eq:z1} and \ref{eq:z2}, we get
+\begin{align}
+  E[Z_1] & =  \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] + E[M_{j1}] + E[M_{j2}] \Big ) \label{eq:Expz1} \\
+  E[Z_2] & =  \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] + E[M_{k1}] + E[M_{k2}] \Big ). \label{eq:Expz2}
+\end{align}
+While we can decompose the variance conditionally as
+\begin{align*}
+  Var(Z_1) & = E \Big [ Var(Z_1 | D_F, D_M) \Big ] + Var \Big ( E [ Z_1 | D_F, D_M ] \Big ).
+\end{align*}
+\begin{align*}
+  E \Big [ Var(Z_1 | D_F, D_M) \Big ] & = \frac{1}{4} Var(F_{j1} + M_{j1}) + \frac{1}{4} Var(F_{j1} + M_{j2}) + \frac{1}{4} Var(F_{j2} + M_{j1}) + \frac{1}{4} Var(F_{j2} + M_{j2})
+\end{align*}
 
 \bibliographystyle{plainnat}
 \renewcommand*{\bibname}{References} % use title "References" for bibliography

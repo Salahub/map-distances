@@ -118,7 +118,8 @@
     "eq:LFLM"
     "eq:CFCM"
     "eq:randomOff"
-    "eq:differenceCL")
+    "eq:Expz1"
+    "eq:Expz2")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")
    (LaTeX-add-amsthm-newtheorems
