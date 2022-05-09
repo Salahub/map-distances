@@ -3,12 +3,12 @@
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("graphicx" "pdftex") ("natbib" "round") ("hyperref" "pdftex" "pagebackref=false")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -118,6 +118,15 @@
     "eq:LFLM"
     "eq:CFCM"
     "eq:randomOff"
+    "eq:Exj1"
+    "eq:Exj2"
+    "eq:Exk1"
+    "eq:Exk2"
+    "eq:varxj1"
+    "eq:varxj2"
+    "eq:varxk1"
+    "eq:varxk2"
+    "eq:covj1j2"
     "eq:Expz1"
     "eq:Expz2")
    (LaTeX-add-bibliographies

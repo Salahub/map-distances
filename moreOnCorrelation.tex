@@ -326,51 +326,95 @@ Denoting the relevant marker encodings of the offspring of $\mathcal{F}_X$ and $
   \mathcal{X} = \begin{bmatrix}
     X_{j1} & X_{j2} \\
     X_{k1} & X_{k2}
-  \end{bmatrix}.
+  \end{bmatrix},
 \end{equation}
-We then get the stochastic representations
+and letting the second row swap columns in the event of a cross over, we get the stochastic representations
 \begin{align*}
-  X_{j1} & =  (1 - C_F)\Big [L_F F_{j1} + (1 - L_F) F_{j2} \Big ] + C_F \Big [ (1 - L_F) F_{j1} + L_F F_{j2} \Big ] \\
-  X_{j2} & =  (1 - C_M)\Big [L_M M_{j1} + (1 - L_M) M_{j2} \Big ] + C_M \Big [ (1 - L_M) M_{j1} + L_M M_{j2} \Big ] \\
+  X_{j1} & =  (1 - C_F)\Big [L_F F_{j1} + (1 - L_F) F_{j2} \Big ] + C_F \Big [ L_F F_{j1} + (1 - L_F) F_{j2} \Big ] \\
+  X_{j2} & =  (1 - C_M)\Big [L_M M_{j1} + (1 - L_M) M_{j2} \Big ] + C_M \Big [ L_M M_{j1} + (1 - L_M) M_{j2} \Big ] \\
   X_{k1} & =  (1 - C_F)\Big [L_F F_{k1} + (1 - L_F) F_{k2} \Big ] + C_F \Big [ (1 - L_F) F_{k1} + L_F F_{k2} \Big ] \\
   X_{k2} & =  (1 - C_M)\Big [L_M M_{k1} + (1 - L_M) M_{k2} \Big ] + C_M \Big [ (1 - L_M) M_{k1} + L_M M_{k2} \Big ] 
 \end{align*}
-which correspond to the values in the cases of left and right donation both with and without recombination. These terms can be simplified by collecting terms based on the entries of $\mathcal{F}_X$ and $\mathcal{M}_X$. Using $X_{j1}$, for example:
+which correspond to the values in the cases of left and right donation both with and without recombination. These terms can be simplified by collecting terms based on the entries of $\mathcal{F}_X$ and $\mathcal{M}_X$. Using $X_{j1}$ and $X_{j2}$, for example:
 \begin{align*}
-  X_{j1} & = \Big ( L_F + C_F - 2 C_F L_F \Big ) F_{j1} + \Big ( 1 - L_F - C_F + 2 C_F L_F \Big ) F_{j2} \\
-         & = \Big ( L_F^2 + C_F^2 - 2 C_F L_F \Big ) F_{j1} + \Big ( 1 - L_F^2 - C_F^2 + 2 C_F L_F \Big ) F_{j2} \\
-  & = ( L_F - C_F )^2 F_{j1} + \Big [ 1 - ( L_F - C_F )^2 \Big ] F_{j2} \\
+  X_{j1} & = L_F  F_{j1} + (1 - L_F) F_{j2}
+\end{align*}
+and
+\begin{align*}
+  X_{j2} & = \Big ( L_F + C_F - 2 C_F L_F \Big ) F_{k1} + \Big ( 1 - L_F - C_F + 2 C_F L_F \Big ) F_{k2} \\
+         & = \Big ( L_F^2 + C_F^2 - 2 C_F L_F \Big ) F_{k1} + \Big ( 1 - L_F^2 - C_F^2 + 2 C_F L_F \Big ) F_{k2} \\
+  & = ( L_F - C_F )^2 F_{j1} + \Big [ 1 - ( L_F - C_F )^2 \Big ] F_{j2} 
 \end{align*}
 as $L_F, C_F \in \{0,1\}$. This can be simplified further by considering $(L_F - C_F)^2 := D_F$. As $L_F - C_F \in \{-1,0,1\}$ is a random difference, $D_F \in \{0, 1\}$ is a Bernoulli random variable. More specifically, considering the probability of $L_F - C_F \in \{-1, 1\}$ gives
 $$D_F \sim Bern \left( \frac{p_r(d(j,k))}{2} + \frac{1}{2}( 1 - p_r(d(j,k)) ) \right ) = Bern \left ( \frac{1}{2} \right ).$$
 This is unsurprising. Cross overs affect both variants symmetrically, and so there is no reason to expect one to be favoured over the other in inheritance. Extending this logic to the other entries of $\mathcal{X}$ and defining $D_M$ similarly to $D_F$ gives
 \begin{align*}
-  X_{j1} & =  D_F F_{j1} + (1 - D_F) F_{j2} \\ %\label{eq:xj1}\\
-  X_{j2} & =  D_M M_{j1} + (1 - D_M) M_{j2} \\ %\label{eq:xj2}\\
+  X_{j1} & =  L_F F_{j1} + (1 - L_F) F_{j2} \\ %\label{eq:xj1}\\
+  X_{j2} & =  L_M M_{j1} + (1 - L_M) M_{j2} \\ %\label{eq:xj2}\\
   X_{k1} & =  D_F F_{k1} + (1 - D_F) F_{k2} \\ %\label{eq:xk1}\\
   X_{k2} & =  D_M M_{k1} + (1 - D_M) M_{k2} %\label{eq:xk2}.
 \end{align*}
-Noting that the random variables in $\mathcal{F}$ and $\mathcal{M}$ are all within $\{0,1\}$, each of these is a mixture of two Bernoulli random variables.
+Furthermore, $L_F \indep D_F$ and $L_M \indep D_M$ as the conditional distributions are the same as the unconditional ones. Noting that the random variables in $\mathcal{F}$ and $\mathcal{M}$ are all within $\{0,1\}$, each of these is a mixture of two Bernoulli random variables.
 
 The summary vector has entries
 \begin{align*}
   Z_1 & = X_{j1} + X_{j2} \\
   Z_2 & = X_{k1} + X_{k2}
 \end{align*}
-and so understanding the distribution of the entries of $\mathcal{X}$ is key to characterizing the distribution of this summary. First note that $D_F \indep D_M$ are assumed to be independent of $\mathcal{F}$ and $\mathcal{M}$. While it is possible the variant present affects the probability of recombination, such complexity would have a minor effect at most. Therefore
-\begin{align*}
-  E[X_{j1}] & =  \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \\ 
-  E[X_{j2}] & =  \frac{1}{2} \Big ( E[M_{j1}] + E[M_{j2}] \Big ) \\ 
-  E[X_{k1}] & =  \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] \Big ) \\ 
-  E[X_{k2}] & =  \frac{1}{2} \Big ( E[M_{k1}] + E[M_{k2}] \Big )
-\end{align*}
+and so understanding the distribution of the entries of $\mathcal{X}$ is key to characterizing the distribution of this summary. First note that $L_F, L_M, D_F,$ and $D_M$ are all mutually independent and are assumed to be independent of $\mathcal{F}$ and $\mathcal{M}$. While it is possible the variant present affects the probability of recombination, such complexity would have a minor effect at most. Therefore
+\begin{align}
+  E[X_{j1}] & =  \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \label{eq:Exj1}\\ 
+  E[X_{j2}] & =  \frac{1}{2} \Big ( E[M_{j1}] + E[M_{j2}] \Big ) \label{eq:Exj2} \\ 
+  E[X_{k1}] & =  \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] \Big ) \label{eq:Exk1} \\ 
+  E[X_{k2}] & =  \frac{1}{2} \Big ( E[M_{k1}] + E[M_{k2}] \Big ) \label{eq:Exk2} 
+\end{align}
 where the expectations of each entry of $\mathcal{M}$ and $\mathcal{F}$ are population parameters. Using the conditional variance decomposition
 \begin{align*}
-  Var(X_{j1}) & = E \Big [ Var(X_{j1} | D_F) \Big ] + Var \Big ( E[X_{j1} | D_F] \Big ) \\
-              & = \frac{1}{2} \Big [ Var(F_{j1}) + Var(F_{j2}) \Big ] + \frac{1}{2} \Big ( E[F_{j1}]^2 + E[F_{j2}]^2 - \big ( E[F_{j1}] + E[F_{j2}] \big )^2  \Big ) \\
-  & = Var(F_{j1}) + Var(F_{j2}) - E[F_{j1}] E[F_{j2}]                
+  Var(X_{j1}) & = E \Big [ Var(X_{j1} | L_F) \Big ] + Var \Big ( E[X_{j1} | L_F] \Big ) \\
+              & = \frac{1}{2} \Big [ Var(F_{j1}) + Var(F_{j2}) \Big ] + \frac{1}{2} \Big ( E[F_{j1}]^2 + E[F_{j2}]^2 \Big ) - \frac{1}{4} \Big ( E[F_{j1}] + E[F_{j2}] \Big )^2 \\
+              & = Var(F_{j1}) + Var(F_{j2}) + \frac{1}{4} E[F_{j1}]^2 + \frac{1}{4} E[F_{j2}]^2 - \frac{1}{2} E[F_{j1}] E[F_{j2}], \\
+              & = Var(F_{j1}) + Var(F_{j2}) + \frac{1}{4} \Big ( E[F_{j1}] - E[F_{j2}] \Big )^2
 \end{align*}
-
+and so
+\begin{align}
+  Var(X_{j1}) & = Var(F_{j1}) + Var(F_{j2}) - \frac{1}{4} \Big ( E[F_{j1}] - E[F_{j2}] \Big )^2 \label{eq:varxj1} \\
+  Var(X_{j2}) & = Var(M_{j1}) + Var(M_{j2}) - \frac{1}{4} \Big ( E[M_{j1}] - E[M_{j2}] \Big )^2 \label{eq:varxj2} \\
+  Var(X_{k1}) & = Var(F_{k1}) + Var(F_{k2}) - \frac{1}{4} \Big ( E[F_{k1}] - E[F_{k2}] \Big )^2 \label{eq:varxk1} \\
+  Var(X_{k2}) & = Var(M_{k1}) + Var(M_{k2}) - \frac{1}{4} \Big ( E[M_{k1}] - E[M_{k2}] \Big )^2 \label{eq:varxk2}.
+\end{align}
+Finally, we can consider the covariances. Start with
+\begin{align*}
+  E[X_{j1} X_{j2}] & = E \Big [ \big ( L_F F_{j1} + [1 - L_F] F_{j2} \big ) \big ( L_M M_{j1} + [1 - L_M] M_{j2} \big ) \Big ] \\
+                    & = E \Bigg ( E \Big [ \big ( L_F F_{j1} + [1 - L_F] F_{j2} \big ) \big ( L_M M_{j1} + [1 - L_M] M_{j2} \big ) \Big | L_F, L_M \Big ] \Bigg )\\
+  & = \frac{1}{4} \Big ( E[F_{j1} M_{j1}] + E[F_{j1} M_{j2}] + E[F_{j2} M_{j1}] + E[F_{j2} M_{j2}] \Big ),
+\end{align*}
+and from Equations \ref{eq:Exj1} and \ref{eq:Exj2}
+\begin{align*}
+  E[X_{j1}] E[X_{j2}] & = \frac{1}{4} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \Big ( E[M_{j1}] + E[M_{j2}] \Big ) \\
+  & = \frac{1}{4} \Big ( E[F_{j1}] E[M_{j1}] + E[F_{j1}] E[M_{j2}] + E[F_{j2}] E[M_{j1}] + E[F_{j2}] E[M_{j2}] \Big ).
+\end{align*}
+Combining these results gives
+\begin{align*}
+  Cov(X_{j1}, X_{j2}) & = E[X_{j1} X_{j2}] - E[X_{j1}] E[X_{j2}] \\
+                      & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{j1}) + Cov(F_{j1}, M_{j2}) + Cov(F_{j2}, M_{j1}) + Cov(F_{j2}, M_{j2}) \Big ]
+\end{align*}
+Noting that these two values are from different parents, and so are on different variants, we next consider two on the same variant:
+\begin{align*}
+  E[X_{j1} X_{k1}] & = E \Big [ \big ( L_F F_{j1} + [1 - L_F] F_{j2} \big ) \big ( D_F F_{k1} + [1 - D_F] F_{k2} \big ) \Big ] \\
+                    & = E \Bigg ( E \Big [ \big ( L_F F_{j1} + [1 - L_F] F_{j2} \big ) \big ( D_F F_{k1} + [1 - D_F] F_{k2} \big ) \Big | L_F, D_F \Big ] \Bigg )\\
+  & = \frac{1}{4} \Big ( E[F_{j1} F_{k1}] + E[F_{j1} F_{k2}] + E[F_{j2} F_{k1}] + E[F_{j2} F_{k2}] \Big ),
+\end{align*}
+and
+\begin{align*}
+  E[X_{j1}] E[X_{k1}] & = \frac{1}{4} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \Big ( E[F_{k1}] + E[F_{k2}] \Big ) \\
+  & = \frac{1}{4} \Big ( E[F_{j1}] E[F_{k1}] + E[F_{j1}] E[F_{k2}] + E[F_{j2}] E[F_{k1}] + E[F_{j2}] E[F_{k2}] \Big ).
+\end{align*}
+And so we obtain the set of equations
+\begin{align}
+  Cov(X_{j1}, X_{j2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{j1}) + Cov(F_{j1}, M_{j2}) + Cov(F_{j2}, M_{j1}) + Cov(F_{j2}, M_{j2}) \Big ] \label{eq:covj1j2} \\
+  Cov(X_{j1}, X_{k1}) & = \frac{1}{4} \Big [ Cov(F_{j1}, F_{k1}) + Cov(F_{j1}, F_{k2}) + Cov(F_{j2}, F_{k1}) + Cov(F_{j2}, F_{k2}) \Big ] \label{eq:covj1j2} \\
+  Cov(X_{j1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{k1}) + Cov(F_{j1}, M_{k2}) + Cov(F_{j2}, M_{k1}) + Cov(F_{j2}, M_{k2}) \Big ] \label{eq:covj1j2} \\
+\end{align}
 
 From Equations \ref{eq:z1} and \ref{eq:z2}, we get
 \begin{align}

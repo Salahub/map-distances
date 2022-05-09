@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  6 MAY 2022 17:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  9 MAY 2022 11:11
 entering extended mode
 **\input moreOnCorrelation.tex
  (moreOnCorrelation.tex
@@ -386,6 +386,9 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 
 LaTeX Warning: Label `eq:encodedParents' multiply defined.
 
+
+LaTeX Warning: Label `eq:covj1j2' multiply defined.
+
 )
 \openout1 = `moreOnCorrelation.aux'.
 
@@ -473,14 +476,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {C:/Users/Chris/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2] [3]
-[4] [5]
+[4] [5] [6]
 
-LaTeX Warning: Reference `eq:z1' on page 6 undefined on input line 375.
+LaTeX Warning: Reference `eq:z1' on page 7 undefined on input line 419.
 
 
-LaTeX Warning: Reference `eq:z2' on page 6 undefined on input line 375.
+LaTeX Warning: Reference `eq:z2' on page 7 undefined on input line 419.
 
-(moreOnCorrelation.bbl [6]) [7] (moreOnCorrelation.aux)
+(moreOnCorrelation.bbl [7]) [8] (moreOnCorrelation.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -491,13 +494,13 @@ Package rerunfilecheck Info: File `moreOnCorrelation.out' has not changed.
 (rerunfilecheck)             Checksum: F97587E100193C0A983CD002ACD010CD;167.
  ) 
 Here is how much of TeX's memory you used:
- 11695 strings out of 478927
- 176811 string characters out of 2852535
- 487953 words of memory out of 3000000
- 29331 multiletter control sequences out of 15000+600000
+ 11717 strings out of 478927
+ 177065 string characters out of 2852535
+ 494484 words of memory out of 3000000
+ 29340 multiletter control sequences out of 15000+600000
  418305 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,66p,844b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,66p,844b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Chris\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -518,9 +521,9 @@ TeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Chris/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Chris/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Chris
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on moreOnCorrelation.pdf (7 pages, 249999 bytes).
+Output written on moreOnCorrelation.pdf (8 pages, 255981 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
+ 226 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 
