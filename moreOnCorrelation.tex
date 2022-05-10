@@ -363,10 +363,10 @@ The summary vector has entries
 \end{align*}
 and so understanding the distribution of the entries of $\mathcal{X}$ is key to characterizing the distribution of this summary. First note that $L_F, L_M, D_F,$ and $D_M$ are all mutually independent and are assumed to be independent of $\mathcal{F}$ and $\mathcal{M}$. While it is possible the variant present affects the probability of recombination, such complexity would have a minor effect at most. Therefore
 \begin{align}
-  E[X_{j1}] & =  \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \label{eq:Exj1}\\ 
-  E[X_{j2}] & =  \frac{1}{2} \Big ( E[M_{j1}] + E[M_{j2}] \Big ) \label{eq:Exj2} \\ 
-  E[X_{k1}] & =  \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] \Big ) \label{eq:Exk1} \\ 
-  E[X_{k2}] & =  \frac{1}{2} \Big ( E[M_{k1}] + E[M_{k2}] \Big ) \label{eq:Exk2} 
+  E[X_{j1}] & = \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \label{eq:Exj1}\\ 
+  E[X_{j2}] & = \frac{1}{2} \Big ( E[M_{j1}] + E[M_{j2}] \Big ) \label{eq:Exj2} \\ 
+  E[X_{k1}] & = \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] \Big ) \label{eq:Exk1} \\ 
+  E[X_{k2}] & = \frac{1}{2} \Big ( E[M_{k1}] + E[M_{k2}] \Big ) \label{eq:Exk2}
 \end{align}
 where the expectations of each entry of $\mathcal{M}$ and $\mathcal{F}$ are population parameters. Using the conditional variance decomposition
 \begin{align*}
@@ -377,10 +377,10 @@ where the expectations of each entry of $\mathcal{M}$ and $\mathcal{F}$ are popu
 \end{align*}
 and so
 \begin{align}
-  Var(X_{j1}) & = Var(F_{j1}) + Var(F_{j2}) - \frac{1}{4} \Big ( E[F_{j1}] - E[F_{j2}] \Big )^2 \label{eq:varxj1} \\
-  Var(X_{j2}) & = Var(M_{j1}) + Var(M_{j2}) - \frac{1}{4} \Big ( E[M_{j1}] - E[M_{j2}] \Big )^2 \label{eq:varxj2} \\
-  Var(X_{k1}) & = Var(F_{k1}) + Var(F_{k2}) - \frac{1}{4} \Big ( E[F_{k1}] - E[F_{k2}] \Big )^2 \label{eq:varxk1} \\
-  Var(X_{k2}) & = Var(M_{k1}) + Var(M_{k2}) - \frac{1}{4} \Big ( E[M_{k1}] - E[M_{k2}] \Big )^2 \label{eq:varxk2}.
+  Var(X_{j1}) & = Var(F_{j1}) + Var(F_{j2}) + \frac{1}{4} \Big ( E[F_{j1}] - E[F_{j2}] \Big )^2 \label{eq:varxj1} \\
+  Var(X_{j2}) & = Var(M_{j1}) + Var(M_{j2}) + \frac{1}{4} \Big ( E[M_{j1}] - E[M_{j2}] \Big )^2 \label{eq:varxj2} \\
+  Var(X_{k1}) & = Var(F_{k1}) + Var(F_{k2}) + \frac{1}{4} \Big ( E[F_{k1}] - E[F_{k2}] \Big )^2 \label{eq:varxk1} \\
+  Var(X_{k2}) & = Var(M_{k1}) + Var(M_{k2}) + \frac{1}{4} \Big ( E[M_{k1}] - E[M_{k2}] \Big )^2 \label{eq:varxk2}.
 \end{align}
 Finally, we can consider the covariances. Start with
 \begin{align*}
@@ -412,24 +412,39 @@ and
 And so we obtain the set of equations
 \begin{align}
   Cov(X_{j1}, X_{j2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{j1}) + Cov(F_{j1}, M_{j2}) + Cov(F_{j2}, M_{j1}) + Cov(F_{j2}, M_{j2}) \Big ] \label{eq:covj1j2} \\
-  Cov(X_{j1}, X_{k1}) & = \frac{1}{4} \Big [ Cov(F_{j1}, F_{k1}) + Cov(F_{j1}, F_{k2}) + Cov(F_{j2}, F_{k1}) + Cov(F_{j2}, F_{k2}) \Big ] \label{eq:covj1j2} \\
-  Cov(X_{j1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{k1}) + Cov(F_{j1}, M_{k2}) + Cov(F_{j2}, M_{k1}) + Cov(F_{j2}, M_{k2}) \Big ] \label{eq:covj1j2} \\
+  Cov(X_{j1}, X_{k1}) & = \frac{1}{4} \Big [ Cov(F_{j1}, F_{k1}) + Cov(F_{j1}, F_{k2}) + Cov(F_{j2}, F_{k1}) + Cov(F_{j2}, F_{k2}) \Big ] \label{eq:covj1k1} \\
+  Cov(X_{j1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{k1}) + Cov(F_{j1}, M_{k2}) + Cov(F_{j2}, M_{k1}) + Cov(F_{j2}, M_{k2}) \Big ] \label{eq:covj1k2} \\
+  Cov(X_{j2}, X_{k1}) & = \frac{1}{4} \Big [ Cov(M_{j1}, F_{k1}) + Cov(M_{j1}, F_{k2}) + Cov(M_{j2}, F_{k1}) + Cov(M_{j2}, F_{k2}) \Big ] \label{eq:covj2k1} \\
+  Cov(X_{j2}, X_{k2}) & = \frac{1}{4} \Big [ Cov(M_{j1}, M_{k1}) + Cov(M_{j1}, M_{k2}) + Cov(M_{j2}, M_{k1}) + Cov(M_{j2}, M_{k2}) \Big ] \label{eq:covj2k1} \\
+  Cov(X_{k1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{k1}, M_{k1}) + Cov(F_{k1}, M_{k2}) + Cov(F_{k2}, M_{k1}) + Cov(F_{k2}, M_{k2}) \Big ] \label{eq:covk2k1} 
 \end{align}
-
-From Equations \ref{eq:z1} and \ref{eq:z2}, we get
+Finally, then, we can consider $Z_1$ and $Z_2$. The expectations follow simply from Equations \ref{eq:Exj1} to \ref{eq:Exk2}, giving
 \begin{align}
-  E[Z_1] & =  \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] + E[M_{j1}] + E[M_{j2}] \Big ) \label{eq:Expz1} \\
-  E[Z_2] & =  \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] + E[M_{k1}] + E[M_{k2}] \Big ). \label{eq:Expz2}
+  E[Z_1] & = \frac{1}{2} \Big ( E[F_{j1}] + E[F_{j2}] + E[M_{j1}] + E[M_{j2}] \Big ) \label{eq:Ez1} \\
+  E[Z_2] & = \frac{1}{2} \Big ( E[F_{k1}] + E[F_{k2}] + E[M_{k1}] + E[M_{k2}] \Big ). \label{eq:Ez2}
 \end{align}
-While we can decompose the variance conditionally as
+The variances are given by
 \begin{align*}
-  Var(Z_1) & = E \Big [ Var(Z_1 | D_F, D_M) \Big ] + Var \Big ( E [ Z_1 | D_F, D_M ] \Big ).
+  Var(Z_1) & = Var(X_{j1} + X_{j2}) \\
+           & = Var(X_{j1}) + Var(X_{j2}) + 2 Cov(X_{j1}, X_{j2}) \\
+           & = Var(F_{j1}) + Var(F_{j2}) + Var(M_{j1}) + Var(M_{j2}) + \frac{1}{4} \Big [ \big ( E[F_{j1}] - E[F_{j2}] \big )^2 + \big ( E[M_{j1}] - E[M_{j2}] \big )^2 \Big ] \\
+  & \hspace{0.5cm} + \frac{1}{2} \Big [ Cov(F_{j1}, M_{j1}) + Cov(F_{j1}, M_{j2}) + Cov(F_{j2}, M_{j1}) + Cov(F_{j2}, M_{j2}) \Big ]
 \end{align*}
+and
 \begin{align*}
-  E \Big [ Var(Z_1 | D_F, D_M) \Big ] & = \frac{1}{4} Var(F_{j1} + M_{j1}) + \frac{1}{4} Var(F_{j1} + M_{j2}) + \frac{1}{4} Var(F_{j2} + M_{j1}) + \frac{1}{4} Var(F_{j2} + M_{j2})
+  Var(Z_2) & = Var(X_{k1} + X_{k2}) \\
+           & = Var(X_{k1}) + Var(X_{k2}) + 2 Cov(X_{k1}, X_{k2}) \\
+           & = Var(F_{k1}) + Var(F_{k2}) + Var(M_{k1}) + Var(M_{k2}) + \frac{1}{4} \Big [ \big ( E[F_{k1}] - E[F_{k2}] \big )^2 + \big ( E[M_{k1}] - E[M_{k2}] \big )^2 \Big ] \\
+  & \hspace{0.5cm} + \frac{1}{2} \Big [ Cov(F_{k1}, M_{k1}) + Cov(F_{k1}, M_{k2}) + Cov(F_{k2}, M_{k1}) + Cov(F_{k2}, M_{k2}) \Big ]
+\end{align*}
+and the covariance given by
+\begin{align*}
+  Cov(Z_1, Z_2) & = Cov(X_{j1} + X_{j2}, X_{k1} + X_{k2}) \\
+  & = Cov(X_{j1}, X_{k1}) + Cov(X_{j1}, X_{k2}) + Cov(X_{j2}, X_{k1}) + Cov(X_{j2}, X_{k2})
 \end{align*}
 
-\bibliographystyle{plainnat}
+
+
 \renewcommand*{\bibname}{References} % use title "References" for bibliography
 \bibliography{../Bibliography/fullbib}
 
