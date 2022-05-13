@@ -133,7 +133,10 @@
     "eq:covk2k1"
     "eq:covj1k1"
     "eq:Ez1"
-    "eq:Ez2")
+    "eq:Ez2"
+    "eq:varz1"
+    "eq:varz2"
+    "eq:covz1z2")
    (LaTeX-add-bibliographies
     "../Bibliography/fullbib")
    (LaTeX-add-amsthm-newtheorems

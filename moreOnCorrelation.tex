@@ -474,7 +474,22 @@ and the covariance given by
 \end{align*}
 where $\mathcal{J} = \{F_{j1}, F_{j2}, M_{j1}, M_{j2}\}$ and $\mathcal{K} =  \{F_{k1}, F_{k2}, M_{k1}, M_{k2}\}$. Again, interpretable components are obtained corresponding to the covariance contributed by crossing over and the covariance present in the population both within and between variants.
 
-To make these quantities simpler to denote $\mathcal{J} = \{F_{j1}, F_{j2}, M_{j1}, M_{j2}\}$ and $\mathcal{K} =  \{F_{k1}, F_{k2}, M_{k1}, M_{k2}\}$.
+To make these quantities clearer define $\mathcal{J}_{F} = \{F_{j1}, F_{j2}\}$, $\mathcal{J}_{M} = \{M_{j1}, M_{j2}\}$, $\mathcal{K}_{F} = \{F_{k1}, F_{k2}\}$, and $\mathcal{K}_M = \{M_{k1}, M_{k2}\}$. This gives
+\begin{align}
+  Var(Z_1) & = \sum_{X \in \mathcal{J}_F \cup \mathcal{J}_M} Var(X) + \frac{1}{2} \sum_{X \in \mathcal{J}_F} \sum_{Y \in \mathcal{J}_M} Cov(X, Y) + \frac{1}{4} \Big ( E[F_{j1} - F_{j2}]^2 + E[M_{j1} - M_{j2}]^2 \Big ) \label{eq:varz1}
+\end{align}
+and
+\begin{align}
+  Var(Z_2) & = \sum_{X \in \mathcal{K}_F \cup \mathcal{K}_M} Var(X) + \frac{1}{2} \sum_{X \in \mathcal{K}_F} \sum_{Y \in \mathcal{K}_M} Cov(X, Y) + \frac{1}{4} \Big ( E[F_{k1} - F_{k2}]^2 +  E[M_{k1} - M_{k2}]^2 \Big ) \label{eq:varz2}
+\end{align}
+and
+\begin{align}
+  Cov(Z_1, Z_2) & = \frac{1}{4} \Bigg [ \sum_{X \in \mathcal{J}_F \cup \mathcal{J}_M} \sum_{X \in \mathcal{K}_F \cup \mathcal{K}_M} Cov(X, Y)  \nonumber \\
+                & \hspace{1cm} + (1 - 2p_r) \Big ( E[F_{j1} F_{k1}] + E[F_{j2} F_{k2}] + E[M_{j1} M_{k1}] + E[M_{j2} M_{k2}] \Big ) \nonumber \\
+                & \hspace{1cm}  - (1 - 2p_r) \Big ( E[F_{j1} F_{k2}] + E[F_{j2} F_{k1}] + E[M_{j1} M_{k2}] + E[M_{j2} M_{k1}] \Big ) \Bigg ]. \label{eq:covz1z2}
+\end{align}
+When written this way, Equations \ref{eq:varz1} and \ref{eq:varz2} display a clear separation between the variation in parent characteristics, captured by the variance and covariance terms, and the variation resulting from independent assortment, seen in the final term in squared differences in means. Even in the case of known parents, where the variance and covariance terms are zero, there is some variance in the resulting summary in the cases where the parental variants differ. The same separation is evident in Equation \ref{eq:covz1z2}, where the latter terms with factors of $1 - 2 p_r$ correspond to the variation resulting from crossing over and do not vanish in the case of known parents.
+
 
 \bibliographystyle{plainnat}
 \renewcommand*{\bibname}{References} % use title "References" for bibliography
