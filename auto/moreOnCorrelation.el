@@ -118,6 +118,7 @@
     "eq:LFLM"
     "eq:CFCM"
     "eq:randomOff"
+    "tab:jointLD"
     "eq:Exj1"
     "eq:Exj2"
     "eq:Exk1"
@@ -127,10 +128,10 @@
     "eq:varxk1"
     "eq:varxk2"
     "eq:covj1j2"
-    "eq:covj1k1"
     "eq:covj1k2"
     "eq:covj2k1"
     "eq:covk2k1"
+    "eq:covj1k1"
     "eq:Ez1"
     "eq:Ez2")
    (LaTeX-add-bibliographies

@@ -354,7 +354,21 @@ This is unsurprising. Cross overs affect both variants symmetrically, and so the
   X_{k1} & =  D_F F_{k1} + (1 - D_F) F_{k2} \\ %\label{eq:xk1}\\
   X_{k2} & =  D_M M_{k1} + (1 - D_M) M_{k2} %\label{eq:xk2}.
 \end{align*}
-Furthermore, $L_F \indep D_F$ and $L_M \indep D_M$ as the conditional distributions are the same as the unconditional ones. Noting that the random variables in $\mathcal{F}$ and $\mathcal{M}$ are all within $\{0,1\}$, each of these is a mixture of two Bernoulli random variables.
+Furthermore, $L_F \indep D_M$, $L_F \indep L_M$, $D_F \indep D_M$ and $D_F \indep L_M$ as the conditional distributions are the same as the unconditional ones. The pairs $(L_F, D_F)$ and $(L_M, D_M)$ have the same distribution, enumerated in Table \ref{tab:jointLD} where $p_r = p_r(d(j,k))$.
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{l|l|c}
+    $L$ & $D$ & Probability \\ \hline
+    0 & 0 & $\frac{1}{2}(1 - p_r)$ \\
+    1 & 0 & $\frac{1}{2} p_r$ \\
+    0 & 1 & $\frac{1}{2}(1 - p_r)$ \\
+    1 & 1 & $\frac{1}{2} p_r$ \\
+  \end{tabular}
+  \caption{Distribution of $(L_F, D_F)$ and $(L_M, D_M)$ pairs} \label{tab:jointLD}
+\end{table}
+These distributions will be important later when deriving the covariance between summary vector entries.
+Noting that the random variables in $\mathcal{F}$ and $\mathcal{M}$ are all within $\{0,1\}$, each of the $\mathcal{X}$ entries is a mixture of two Bernoulli random variables.
+
 
 The summary vector has entries
 \begin{align*}
@@ -398,25 +412,31 @@ Combining these results gives
   Cov(X_{j1}, X_{j2}) & = E[X_{j1} X_{j2}] - E[X_{j1}] E[X_{j2}] \\
                       & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{j1}) + Cov(F_{j1}, M_{j2}) + Cov(F_{j2}, M_{j1}) + Cov(F_{j2}, M_{j2}) \Big ]
 \end{align*}
-Noting that these two values are from different parents, and so are on different variants, we next consider two on the same variant:
+with similar logic for markers on different variants giving
+\begin{align}
+  Cov(X_{j1}, X_{j2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{j1}) + Cov(F_{j1}, M_{j2}) + Cov(F_{j2}, M_{j1}) + Cov(F_{j2}, M_{j2}) \Big ] \label{eq:covj1j2} \\
+  Cov(X_{j1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{k1}) + Cov(F_{j1}, M_{k2}) + Cov(F_{j2}, M_{k1}) + Cov(F_{j2}, M_{k2}) \Big ] \label{eq:covj1k2} \\
+  Cov(X_{j2}, X_{k1}) & = \frac{1}{4} \Big [ Cov(M_{j1}, F_{k1}) + Cov(M_{j1}, F_{k2}) + Cov(M_{j2}, F_{k1}) + Cov(M_{j2}, F_{k2}) \Big ] \label{eq:covj2k1} \\
+  Cov(X_{k1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{k1}, M_{k1}) + Cov(F_{k1}, M_{k2}) + Cov(F_{k2}, M_{k1}) + Cov(F_{k2}, M_{k2}) \Big ] \label{eq:covk2k1}.
+\end{align}
+To address the case of values coming from the same variant, and thus the same parent, consider the $L_F, D_F$ pair:
 \begin{align*}
   E[X_{j1} X_{k1}] & = E \Big [ \big ( L_F F_{j1} + [1 - L_F] F_{j2} \big ) \big ( D_F F_{k1} + [1 - D_F] F_{k2} \big ) \Big ] \\
                     & = E \Bigg ( E \Big [ \big ( L_F F_{j1} + [1 - L_F] F_{j2} \big ) \big ( D_F F_{k1} + [1 - D_F] F_{k2} \big ) \Big | L_F, D_F \Big ] \Bigg )\\
-  & = \frac{1}{4} \Big ( E[F_{j1} F_{k1}] + E[F_{j1} F_{k2}] + E[F_{j2} F_{k1}] + E[F_{j2} F_{k2}] \Big ),
+  & = \frac{1 - p_r}{2} \Big ( E[F_{j1} F_{k1}] + E[F_{j2} F_{k2} ] \Big ) + \frac{p_r}{2} \Big ( E[F_{j1} F_{k2}] + E[F_{j2} F_{k1}] \Big )
 \end{align*}
 and
 \begin{align*}
   E[X_{j1}] E[X_{k1}] & = \frac{1}{4} \Big ( E[F_{j1}] + E[F_{j2}] \Big ) \Big ( E[F_{k1}] + E[F_{k2}] \Big ) \\
   & = \frac{1}{4} \Big ( E[F_{j1}] E[F_{k1}] + E[F_{j1}] E[F_{k2}] + E[F_{j2}] E[F_{k1}] + E[F_{j2}] E[F_{k2}] \Big ).
 \end{align*}
-And so we obtain the set of equations
+Therefore the final two covariances are given by the expressions
 \begin{align}
-  Cov(X_{j1}, X_{j2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{j1}) + Cov(F_{j1}, M_{j2}) + Cov(F_{j2}, M_{j1}) + Cov(F_{j2}, M_{j2}) \Big ] \label{eq:covj1j2} \\
-  Cov(X_{j1}, X_{k1}) & = \frac{1}{4} \Big [ Cov(F_{j1}, F_{k1}) + Cov(F_{j1}, F_{k2}) + Cov(F_{j2}, F_{k1}) + Cov(F_{j2}, F_{k2}) \Big ] \label{eq:covj1k1} \\
-  Cov(X_{j1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{j1}, M_{k1}) + Cov(F_{j1}, M_{k2}) + Cov(F_{j2}, M_{k1}) + Cov(F_{j2}, M_{k2}) \Big ] \label{eq:covj1k2} \\
-  Cov(X_{j2}, X_{k1}) & = \frac{1}{4} \Big [ Cov(M_{j1}, F_{k1}) + Cov(M_{j1}, F_{k2}) + Cov(M_{j2}, F_{k1}) + Cov(M_{j2}, F_{k2}) \Big ] \label{eq:covj2k1} \\
-  Cov(X_{j2}, X_{k2}) & = \frac{1}{4} \Big [ Cov(M_{j1}, M_{k1}) + Cov(M_{j1}, M_{k2}) + Cov(M_{j2}, M_{k1}) + Cov(M_{j2}, M_{k2}) \Big ] \label{eq:covj2k1} \\
-  Cov(X_{k1}, X_{k2}) & = \frac{1}{4} \Big [ Cov(F_{k1}, M_{k1}) + Cov(F_{k1}, M_{k2}) + Cov(F_{k2}, M_{k1}) + Cov(F_{k2}, M_{k2}) \Big ] \label{eq:covk2k1} 
+  Cov(X_{j1}, X_{k1}) & = \frac{1 - 2 p_r}{4} \Big ( E[F_{j1} F_{k1}] + E[F_{j2} F_{k2}] - E[F_{j1} F_{k2}] - E[F_{j2} F_{k1}] \Big ) \nonumber \\
+                      & \hspace{0.5cm} + \frac{1}{4} \Big [ Cov(F_{j1}, F_{k1}) + Cov(F_{j1}, F_{k2}) + Cov(F_{j2}, F_{k1}) + Cov(F_{j2}, F_{k2}) \Big ] \label{eq:covj1k1} \\
+  & \nonumber \\
+  Cov(X_{j2}, X_{k2}) & = \frac{1 - 2 p_r}{4} \Big ( E[M_{j1} M_{k1}] + E[M_{j2} M_{k2}] - E[M_{j1} M_{k2}] - E[M_{j2} M_{k1}] \Big ) \nonumber \\
+                      & \hspace{0.5cm} + \frac{1}{4} \Big [ Cov(M_{j1}, M_{k1}) + Cov(M_{j1}, M_{k2}) + Cov(M_{j2}, M_{k1}) + Cov(M_{j2}, M_{k2}) \Big ] \label{eq:covj2k1} 
 \end{align}
 Finally, then, we can consider $Z_1$ and $Z_2$. The expectations follow simply from Equations \ref{eq:Exj1} to \ref{eq:Exk2}, giving
 \begin{align}
@@ -435,16 +455,28 @@ and
   Var(Z_2) & = Var(X_{k1} + X_{k2}) \\
            & = Var(X_{k1}) + Var(X_{k2}) + 2 Cov(X_{k1}, X_{k2}) \\
            & = Var(F_{k1}) + Var(F_{k2}) + Var(M_{k1}) + Var(M_{k2}) + \frac{1}{4} \Big [ \big ( E[F_{k1}] - E[F_{k2}] \big )^2 + \big ( E[M_{k1}] - E[M_{k2}] \big )^2 \Big ] \\
-  & \hspace{0.5cm} + \frac{1}{2} \Big [ Cov(F_{k1}, M_{k1}) + Cov(F_{k1}, M_{k2}) + Cov(F_{k2}, M_{k1}) + Cov(F_{k2}, M_{k2}) \Big ]
+  & \hspace{0.5cm} + \frac{1}{2} \Big [ Cov(F_{k1}, M_{k1}) + Cov(F_{k1}, M_{k2}) + Cov(F_{k2}, M_{k1}) + Cov(F_{k2}, M_{k2}) \Big ].
 \end{align*}
+Each part of these variance expression has an immediate interpretation. The first part gives the total variation of the marker within each variant in the parental generation by considering the variance of each parental variant of the marker. This essentially accounts for the population variance if all markers were independent. The second part gives the variation present between variants in both parents, accounting for the variation resulting from independent assortment. Finally, the covariances in the final term give the strength of association \emph{between} parents. In many contexts these values would be summarized by the degree of inbreeding in a population.
 and the covariance given by
 \begin{align*}
   Cov(Z_1, Z_2) & = Cov(X_{j1} + X_{j2}, X_{k1} + X_{k2}) \\
-  & = Cov(X_{j1}, X_{k1}) + Cov(X_{j1}, X_{k2}) + Cov(X_{j2}, X_{k1}) + Cov(X_{j2}, X_{k2})
+                & = Cov(X_{j1}, X_{k1}) + Cov(X_{j1}, X_{k2}) + Cov(X_{j2}, X_{k1}) + Cov(X_{j2}, X_{k2}) \\
+                & = \frac{1 - 2 p_r}{4} \Big ( E[F_{j1} F_{k1}] + E[F_{j2} F_{k2}] - E[F_{j1} F_{k2}] - E[F_{j2} F_{k1}] \Big ) \\
+                & \hspace{0.5cm} + \frac{1 - 2 p_r}{4} \Big ( E[M_{j1} M_{k1}] + E[M_{j2} M_{k2}] - E[M_{j1} M_{k2}] - E[M_{j2} M_{k1}] \Big ) \\
+                & \hspace{0.5cm} + \frac{1}{4} \Big [ Cov(F_{j1}, F_{k1}) + Cov(F_{j1}, F_{k2}) + Cov(F_{j2}, F_{k1}) + Cov(F_{j2}, F_{k2}) \\
+                & \hspace{0.5cm} + Cov(F_{j1}, M_{k1}) + Cov(F_{j1}, M_{k2}) + Cov(F_{j2}, M_{k1}) + Cov(F_{j2}, M_{k2}) \\
+                & \hspace{0.5cm} + Cov(M_{j1}, F_{k1}) + Cov(M_{j1}, F_{k2}) + Cov(M_{j2}, F_{k1}) + Cov(M_{j2}, F_{k2}) \\
+                & \hspace{0.5cm} + Cov(M_{j1}, M_{k1}) + Cov(M_{j1}, M_{k2}) + Cov(M_{j2}, M_{k1}) + Cov(M_{j2}, M_{k2}) \Big ] \\
+                & = \frac{1}{4} \Bigg [ (1 - 2p_r) \Big ( E[F_{j1} F_{k1}] + E[F_{j2} F_{k2}] - E[F_{j1} F_{k2}] - E[F_{j2} F_{k1}] \\
+                & \hspace{2.5cm} + E[M_{j1} M_{k1}] + E[M_{j2} M_{k2}] - E[M_{j1} M_{k2}] - E[M_{j2} M_{k1}] \Big )  \\
+                & \hspace{1cm} + \sum_{X \in \mathcal{J}} \sum_{Y \in \mathcal{K}} Cov(X,Y) \Bigg ]
 \end{align*}
+where $\mathcal{J} = \{F_{j1}, F_{j2}, M_{j1}, M_{j2}\}$ and $\mathcal{K} =  \{F_{k1}, F_{k2}, M_{k1}, M_{k2}\}$. Again, interpretable components are obtained corresponding to the covariance contributed by crossing over and the covariance present in the population both within and between variants.
 
+To make these quantities simpler to denote $\mathcal{J} = \{F_{j1}, F_{j2}, M_{j1}, M_{j2}\}$ and $\mathcal{K} =  \{F_{k1}, F_{k2}, M_{k1}, M_{k2}\}$.
 
-
+\bibliographystyle{plainnat}
 \renewcommand*{\bibname}{References} % use title "References" for bibliography
 \bibliography{../Bibliography/fullbib}
 
