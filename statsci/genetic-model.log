@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  27 APR 2022 12:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  19 MAY 2022 17:43
 entering extended mode
 **\input genetic-model.tex
  (genetic-model.tex (imsart.cls
@@ -572,20 +572,18 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 ation.4.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.422 \begin{equation}
-                       \label{eq:cov}pdfTeX warning (ext4): destination with th
-e same identifier (name{equation.4.8}) has been already used, duplicate ignored
-
+l.420 \end{equation}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{equation.4.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.422 \begin{equation}
-                       \label{eq:cov}pdfTeX warning (ext4): destination with th
-e same identifier (name{equation.4.11}) has been already used, duplicate ignore
-d
+l.420 \end{equation}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{equation.4.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.422 \begin{equation}
-                       \label{eq:cov}]
+l.420 \end{equation}
+                    ]
 
 LaTeX Font Warning: Font shape `T1/ptm/m/scit' undefined
 (Font)              using `T1/ptm/m/sc' instead on input line 455.
@@ -598,30 +596,28 @@ Underfull \hbox (badness 1242) in paragraph at lines 540--541
 []\T1/ptm/m/n/11 Nonetheless, [[]] sim-u-late 10 in-de-pen-dent re-gions
  []
 
-<../img/chevSimTheory.png, id=230, 481.8pt x 481.8pt>
+<../img/chevSimTheory.png, id=231, 481.8pt x 481.8pt>
 File: ../img/chevSimTheory.png Graphic file (type png)
 <use ../img/chevSimTheory.png>
 Package pdftex.def Info: ../img/chevSimTheory.png  used on input line 547.
 (pdftex.def)             Requested size: 105.99632pt x 105.99632pt.
-<../img/chevSim.png, id=231, 481.8pt x 481.8pt>
+<../img/chevSim.png, id=232, 481.8pt x 481.8pt>
 File: ../img/chevSim.png Graphic file (type png)
 <use ../img/chevSim.png>
 Package pdftex.def Info: ../img/chevSim.png  used on input line 548.
 (pdftex.def)             Requested size: 105.99632pt x 105.99632pt.
-<../img/LBSimTheory.png, id=237, 481.8pt x 481.8pt>
+[8 <../img/chevSimTheory.png> <../img/chevSim.png>]
+<../img/LBSimTheory.png, id=249, 481.8pt x 481.8pt>
 File: ../img/LBSimTheory.png Graphic file (type png)
 <use ../img/LBSimTheory.png>
 Package pdftex.def Info: ../img/LBSimTheory.png  used on input line 562.
 (pdftex.def)             Requested size: 168.63252pt x 168.63252pt.
-<../img/LBSim.png, id=238, 481.8pt x 481.8pt>
+<../img/LBSim.png, id=250, 481.8pt x 481.8pt>
 File: ../img/LBSim.png Graphic file (type png)
 <use ../img/LBSim.png>
 Package pdftex.def Info: ../img/LBSim.png  used on input line 565.
 (pdftex.def)             Requested size: 168.63252pt x 168.63252pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8 <../img/chevSimTheory.png> <../img/chevSim.png>]
 Underfull \hbox (badness 1137) in paragraph at lines 575--576
 \T1/ptm/m/n/11 chro-mo-somes show con-sis-tent pat-terns be-tween their
  []
@@ -636,17 +632,17 @@ Underfull \hbox (badness 896) in paragraph at lines 581--582
 \T1/ptm/m/n/11 pro-vided at the Mouse Genome In-for-mat-ics web-site:
  []
 
-<../img/jaxbsb.png, id=277, 542.025pt x 542.025pt>
+<../img/jaxbsb.png, id=278, 542.025pt x 542.025pt>
 File: ../img/jaxbsb.png Graphic file (type png)
 <use ../img/jaxbsb.png>
 Package pdftex.def Info: ../img/jaxbsb.png  used on input line 590.
 (pdftex.def)             Requested size: 162.60875pt x 162.60875pt.
-<../img/jaxbsb_sim.png, id=278, 542.025pt x 542.025pt>
+<../img/jaxbsb_sim.png, id=279, 542.025pt x 542.025pt>
 File: ../img/jaxbsb_sim.png Graphic file (type png)
 <use ../img/jaxbsb_sim.png>
 Package pdftex.def Info: ../img/jaxbsb_sim.png  used on input line 593.
 (pdftex.def)             Requested size: 162.60875pt x 162.60875pt.
-<../img/jaxbsb_quant.png, id=279, 542.025pt x 542.025pt>
+<../img/jaxbsb_quant.png, id=280, 542.025pt x 542.025pt>
 File: ../img/jaxbsb_quant.png Graphic file (type png)
 <use ../img/jaxbsb_quant.png>
 Package pdftex.def Info: ../img/jaxbsb_quant.png  used on input line 596.
@@ -654,17 +650,17 @@ Package pdftex.def Info: ../img/jaxbsb_quant.png  used on input line 596.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../img/uclabsb.png, id=284, 542.025pt x 542.025pt>
+<../img/uclabsb.png, id=285, 542.025pt x 542.025pt>
 File: ../img/uclabsb.png Graphic file (type png)
 <use ../img/uclabsb.png>
 Package pdftex.def Info: ../img/uclabsb.png  used on input line 607.
 (pdftex.def)             Requested size: 162.60875pt x 162.60875pt.
-<../img/uclabsb_sim.png, id=285, 542.025pt x 542.025pt>
+<../img/uclabsb_sim.png, id=286, 542.025pt x 542.025pt>
 File: ../img/uclabsb_sim.png Graphic file (type png)
 <use ../img/uclabsb_sim.png>
 Package pdftex.def Info: ../img/uclabsb_sim.png  used on input line 610.
 (pdftex.def)             Requested size: 162.60875pt x 162.60875pt.
-<../img/uclabsb_quant.png, id=286, 542.025pt x 542.025pt>
+<../img/uclabsb_quant.png, id=287, 542.025pt x 542.025pt>
 File: ../img/uclabsb_quant.png Graphic file (type png)
 <use ../img/uclabsb_quant.png>
 Package pdftex.def Info: ../img/uclabsb_quant.png  used on input line 613.
@@ -676,56 +672,60 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 mg/jaxbsb.png (PNG copy)> <../img/jaxbsb_sim.png (PNG copy)> <../img/jaxbsb_qua
 nt.png (PNG copy)> <../img/uclabsb.png (PNG copy)> <../img/uclabsb_sim.png (PNG
  copy)> <../img/uclabsb_quant.png (PNG copy)>]
-<../img/jaxbsb_common.png, id=324, 542.025pt x 542.025pt>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 629.
+
+<../img/jaxbsb_common.png, id=325, 542.025pt x 542.025pt>
 File: ../img/jaxbsb_common.png Graphic file (type png)
 <use ../img/jaxbsb_common.png>
 Package pdftex.def Info: ../img/jaxbsb_common.png  used on input line 632.
 (pdftex.def)             Requested size: 108.40308pt x 108.40308pt.
-<../img/uclabsb_common.png, id=325, 542.025pt x 542.025pt>
+<../img/uclabsb_common.png, id=326, 542.025pt x 542.025pt>
 File: ../img/uclabsb_common.png Graphic file (type png)
 <use ../img/uclabsb_common.png>
 Package pdftex.def Info: ../img/uclabsb_common.png  used on input line 633.
 (pdftex.def)             Requested size: 108.40308pt x 108.40308pt.
-<../img/bsbCorr2by2.png, id=330, 180.675pt x 180.675pt>
+<../img/bsbCorr2by2.png, id=331, 180.675pt x 180.675pt>
 File: ../img/bsbCorr2by2.png Graphic file (type png)
 <use ../img/bsbCorr2by2.png>
 Package pdftex.def Info: ../img/bsbCorr2by2.png  used on input line 651.
 (pdftex.def)             Requested size: 90.33727pt x 90.33727pt.
-<../img/bsbCorrTest2by2.png, id=331, 180.675pt x 180.675pt>
+<../img/bsbCorrTest2by2.png, id=332, 180.675pt x 180.675pt>
 File: ../img/bsbCorrTest2by2.png Graphic file (type png)
 <use ../img/bsbCorrTest2by2.png>
 Package pdftex.def Info: ../img/bsbCorrTest2by2.png  used on input line 654.
 (pdftex.def)             Requested size: 90.33727pt x 90.33727pt.
-<../img/bsbCorrTest2by2a.png, id=332, 180.675pt x 180.675pt>
+<../img/bsbCorrTest2by2a.png, id=333, 180.675pt x 180.675pt>
 File: ../img/bsbCorrTest2by2a.png Graphic file (type png)
 <use ../img/bsbCorrTest2by2a.png>
 Package pdftex.def Info: ../img/bsbCorrTest2by2a.png  used on input line 657.
 (pdftex.def)             Requested size: 90.33727pt x 90.33727pt.
- [11 <../img/jaxbsb_common.png (PNG copy)> <../img/uclabsb_common.png (PNG copy
-)> <../img/bsbCorr2by2.png (PNG copy)> <../img/bsbCorrTest2by2.png (PNG copy)> 
-<../img/bsbCorrTest2by2a.png (PNG copy)>]
-<../img/bsbCorrDist.png, id=361, 578.16pt x 578.16pt>
+[11 <../img/jaxbsb_common.png (PNG copy)> <../img/uclabsb_common.png (PNG copy)
+>]
+<../img/bsbCorrDist.png, id=362, 578.16pt x 578.16pt>
 File: ../img/bsbCorrDist.png Graphic file (type png)
 <use ../img/bsbCorrDist.png>
 Package pdftex.def Info: ../img/bsbCorrDist.png  used on input line 681.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
-<../img/bsbCorrTest.png, id=362, 578.16pt x 578.16pt>
+<../img/bsbCorrTest.png, id=363, 578.16pt x 578.16pt>
 File: ../img/bsbCorrTest.png Graphic file (type png)
 <use ../img/bsbCorrTest.png>
 Package pdftex.def Info: ../img/bsbCorrTest.png  used on input line 689.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
-<../img/bsbCorrTestBig.png, id=366, 578.16pt x 578.16pt>
+<../img/bsbCorrTestBig.png, id=368, 578.16pt x 578.16pt>
 File: ../img/bsbCorrTestBig.png Graphic file (type png)
 <use ../img/bsbCorrTestBig.png>
 Package pdftex.def Info: ../img/bsbCorrTestBig.png  used on input line 703.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
- [12]
-<../img/strngDen.png, id=380, 361.35pt x 361.35pt>
+ [12 <../img/bsbCorr2by2.png (PNG copy)> <../img/bsbCorrTest2by2.png (PNG copy)
+> <../img/bsbCorrTest2by2a.png (PNG copy)>]
+<../img/strngDen.png, id=382, 361.35pt x 361.35pt>
 File: ../img/strngDen.png Graphic file (type png)
 <use ../img/strngDen.png>
 Package pdftex.def Info: ../img/strngDen.png  used on input line 721.
 (pdftex.def)             Requested size: 180.67456pt x 180.67456pt.
-<../img/strngBarNoCol.png, id=381, 361.35pt x 361.35pt>
+<../img/strngBarNoCol.png, id=383, 361.35pt x 361.35pt>
 File: ../img/strngBarNoCol.png Graphic file (type png)
 <use ../img/strngBarNoCol.png>
 Package pdftex.def Info: ../img/strngBarNoCol.png  used on input line 724.
@@ -743,24 +743,24 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 7
 (C:\Users\Chris\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<../img/strngBarLndscp.png, id=400, 361.35pt x 289.08pt>
+[15 <../img/strngDen.png> <../img/strngBarNoCol.png>]
+<../img/strngBarLndscp.png, id=412, 361.35pt x 289.08pt>
 File: ../img/strngBarLndscp.png Graphic file (type png)
 <use ../img/strngBarLndscp.png>
 Package pdftex.def Info: ../img/strngBarLndscp.png  used on input line 795.
 (pdftex.def)             Requested size: 216.81168pt x 173.44933pt.
-<../img/strngBarClose.png, id=401, 361.35pt x 361.35pt>
+<../img/strngBarClose.png, id=413, 361.35pt x 361.35pt>
 File: ../img/strngBarClose.png Graphic file (type png)
 <use ../img/strngBarClose.png>
-Package pdftex.def Info: ../img/strngBarClose.png  used on input line 799.
+Package pdftex.def Info: ../img/strngBarClose.png  used on input line 800.
 (pdftex.def)             Requested size: 216.81168pt x 216.81168pt.
 
-Underfull \hbox (badness 1253) in paragraph at lines 803--803
+Underfull \hbox (badness 1253) in paragraph at lines 804--804
 \T1/ptm/m/n/11 ers Nppa and D4Mit14 over 10,000 sim-u-lated BSB
  []
 
-[15 <../img/strngDen.png> <../img/strngBarNoCol.png>] (genetic-model.bbl
 [16 <../img/strngBarLndscp.png (PNG copy)> <../img/strngBarClose.png (PNG copy)
->]
+>] (genetic-model.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 122--137
 []\T1/ptm/m/sc/9 Green, E. L.\T1/ptm/m/n/9 , \T1/ptm/m/sc/9 Cole-man, D. L.\T1/
 ptm/m/n/9 , \T1/ptm/m/sc/9 Kaliss, N.\T1/ptm/m/n/9 ,
@@ -809,11 +809,11 @@ Package rerunfilecheck Info: File `genetic-model.out' has not changed.
 Here is how much of TeX's memory you used:
  12913 strings out of 478927
  194542 string characters out of 2852535
- 517973 words of memory out of 3000000
+ 518973 words of memory out of 3000000
  30420 multiletter control sequences out of 15000+600000
  472797 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,14n,80p,1401b,459s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,14n,80p,1385b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
 /Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
@@ -839,9 +839,9 @@ s/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/U
 sers/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/U
 sers/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/U
 sers/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on genetic-model.pdf (17 pages, 1505887 bytes).
+Output written on genetic-model.pdf (17 pages, 1506695 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
+ 551 PDF objects out of 1000 (max. 8388607)
  98 named destinations out of 1000 (max. 500000)
  212 words of extra memory for PDF output out of 10000 (max. 10000000)
 
