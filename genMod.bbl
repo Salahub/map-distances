@@ -1,183 +1,173 @@
-\begin{thebibliography}{28}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{10}
 
-\bibitem[Broman et~al.(2002)Broman, Rowe, Churchill, and
-  Paigen]{bromanetal2002crossover}
+\bibitem{bromanetal2002crossover}
 Karl~W Broman, Lucy~B Rowe, Gary~A Churchill, and Ken Paigen.
 \newblock Crossover interference in the mouse.
-\newblock \emph{Genetics}, 160\penalty0 (3):\penalty0 1123--1131, 2002.
+\newblock {\em Genetics}, 160(3):1123--1131, 2002.
 
-\bibitem[Bult et~al.(2019)Bult, Blake, Smith, Kadin, Richardson, and
-  Database~Group]{bultetal2019mouse}
+\bibitem{bultetal2019mouse}
 Carol~J Bult, Judith~A Blake, Cynthia~L Smith, James~A Kadin, Joel~E
   Richardson, and the Mouse~Genome Database~Group.
 \newblock Mouse genome database (mgd) 2019.
-\newblock \emph{Nucleic acids research}, 47\penalty0 (D1):\penalty0 D801--D806,
-  2019.
+\newblock {\em Nucleic acids research}, 47(D1):D801--D806, 2019.
 
-\bibitem[Cheverud(2001)]{cheverud2001}
+\bibitem{cheverud2001}
 James~M Cheverud.
 \newblock A simple correction for multiple comparisons in interval mapping
   genome scans.
-\newblock \emph{Heredity}, 87\penalty0 (1):\penalty0 52--58, 2001.
+\newblock {\em Heredity}, 87(1):52--58, 2001.
 
-\bibitem[Crow and Kimura(1970)]{crowkimura1970intro}
+\bibitem{crowkimura1970intro}
 James~F Crow and Motoo Kimura.
-\newblock \emph{An introduction to population genetics theory}.
+\newblock {\em An introduction to population genetics theory}.
 \newblock {Harper \& Row}, 1970.
 
-\bibitem[Dejager et~al.(2009)Dejager, Libert, and
-  Montagutelli]{dejageretal2009mspretus}
+\bibitem{dejageretal2009mspretus}
 Lien Dejager, Claude Libert, and Xavier Montagutelli.
 \newblock Thirty years of mus spretus: a promising future.
-\newblock \emph{Trends in Genetics}, 25\penalty0 (5):\penalty0 234--241, 2009.
+\newblock {\em Trends in Genetics}, 25(5):234--241, 2009.
 
-\bibitem[Doerge et~al.(1997)Doerge, Zeng, and Weir]{doergeetal1997search}
+\bibitem{doergeetal1997search}
 RW~Doerge, ZB~Zeng, and BS~Weir.
 \newblock Statistical issues in the search for genes affecting quantitative
   traits in experimental populations.
-\newblock \emph{Statistical Science}, pages 195--219, 1997.
+\newblock {\em Statistical Science}, pages 195--219, 1997.
 
-\bibitem[Fisler et~al.(1993)Fisler, Warden, Pace, and Lusis]{fisleretal1993bsb}
+\bibitem{fisleretal1993bsb}
 Janis~S Fisler, Craig~H Warden, Mario~J Pace, and Aldons~J Lusis.
 \newblock Bsb: a new mouse model of multigenic obesity.
-\newblock \emph{Obesity research}, 1\penalty0 (4):\penalty0 271--280, 1993.
+\newblock {\em Obesity research}, 1(4):271--280, 1993.
 
-\bibitem[Galwey(2009)]{Galwey2009}
+\bibitem{Galwey2009}
 Nicholas~W Galwey.
 \newblock A new measure of the effective number of tests, a practical tool for
   comparing families of non-independent significance tests.
-\newblock \emph{Genetic Epidemiology}, 33\penalty0 (7):\penalty0 559--568,
-  2009.
+\newblock {\em Genetic Epidemiology}, 33(7):559--568, 2009.
 
-\bibitem[Goodman and Kruskal(1979)]{goodmankruskal1979measures}
+\bibitem{goodmankruskal1979measures}
 Leo~A Goodman and William~H Kruskal.
-\newblock \emph{Measures of association for cross classifications}.
+\newblock {\em Measures of association for cross classifications}.
 \newblock Springer, 1979.
 
-\bibitem[Hasin et~al.(2017)Hasin, Seldin, and Lusis]{hasinetal2017multi}
+\bibitem{green1966}
+Earl~L. Green, Douglas~L. Coleman, Nathan Kaliss, Charles~P. Dagg, Elizabeth~S.
+  Russell, John~L. Fuller, John Staats, and Margaret~C. Green.
+\newblock {\em Biology of the laboratory mouse}.
+\newblock Dover, 1966.
+\newblock Accessed via online adaptation at
+  http://www.informatics.jax.org/greenbook/index.shtml.
+
+\bibitem{haldane1919}
+JBS Haldane.
+\newblock The combination of linkage values and the calculation of distances
+  between the loci of linked factors.
+\newblock {\em Journal of Genetics}, 8(29):299--309, 1919.
+
+\bibitem{hasinetal2017multi}
 Yehudit Hasin, Marcus Seldin, and Aldons Lusis.
 \newblock Multi-omics approaches to disease.
-\newblock \emph{Genome biology}, 18\penalty0 (1):\penalty0 1--15, 2017.
+\newblock {\em Genome biology}, 18(1):1--15, 2017.
 
-\bibitem[Heather and Chain(2016)]{heatherchain2016sequencers}
+\bibitem{heatherchain2016sequencers}
 James~M Heather and Benjamin Chain.
 \newblock The sequence of sequencers: The history of sequencing dna.
-\newblock \emph{Genomics}, 107\penalty0 (1):\penalty0 1--8, 2016.
+\newblock {\em Genomics}, 107(1):1--8, 2016.
 
-\bibitem[Hill and Robertson(1968)]{hillrobertson1968}
+\bibitem{hillrobertson1968}
 WG~Hill and Alan Robertson.
 \newblock Linkage disequilibrium in finite populations.
-\newblock \emph{Theoretical and applied genetics}, 38\penalty0 (6):\penalty0
-  226--231, 1968.
+\newblock {\em Theoretical and applied genetics}, 38(6):226--231, 1968.
 
-\bibitem[JAX(2022)]{C57BL6J}
+\bibitem{C57BL6J}
 JAX.
 \newblock {JAX Stock \#000664}.
 \newblock Technical report, The Jackson Laboratory, 2022.
-\newblock URL \url{https://www.jax.org/strain/000664}.
 
-\bibitem[Koboldt et~al.(2013)Koboldt, Steinberg, Larson, Wilson, and
-  Mardis]{koboldtetal2013next}
+\bibitem{koboldtetal2013next}
 Daniel~C Koboldt, Karyn~Meltz Steinberg, David~E Larson, Richard~K Wilson, and
   Elaine~R Mardis.
 \newblock The next-generation sequencing revolution and its impact on genomics.
-\newblock \emph{Cell}, 155\penalty0 (1):\penalty0 27--38, 2013.
+\newblock {\em Cell}, 155(1):27--38, 2013.
 
-\bibitem[Kosambi(1943)]{kosambi1943estimation}
+\bibitem{kosambi1943estimation}
 DD~Kosambi.
 \newblock The estimation of map distance from recombination values.
-\newblock \emph{Annals of Eugenics}, 12\penalty0 (1):\penalty0 172--175, 1943.
+\newblock {\em Annals of Eugenics}, 12(1):172--175, 1943.
 
-\bibitem[LaFramboise(2009)]{laframboise2009}
+\bibitem{laframboise2009}
 Thomas LaFramboise.
 \newblock Single nucleotide polymorphism arrays: a decade of biological,
   computational and technological advances.
-\newblock \emph{Nucleic acids research}, 37\penalty0 (13):\penalty0 4181--4193,
-  2009.
+\newblock {\em Nucleic acids research}, 37(13):4181--4193, 2009.
 
-\bibitem[Lander and Botstein(1989)]{LanderBotstein1989}
+\bibitem{LanderBotstein1989}
 Eric~S Lander and David Botstein.
 \newblock {Mapping mendelian factors underlying quantitative traits using RFLP
   linkage maps}.
-\newblock \emph{Genetics}, 121\penalty0 (1):\penalty0 185--199, 1989.
+\newblock {\em Genetics}, 121(1):185--199, 1989.
 
-\bibitem[Li and Ji(2005)]{LiJi2005}
+\bibitem{LiJi2005}
 J~Li and L~Ji.
 \newblock Adjusting multiple testing in multilocus analyses using the
   eigenvalues of a correlation matrix.
-\newblock \emph{Heredity}, 95\penalty0 (3):\penalty0 221--227, 2005.
+\newblock {\em Heredity}, 95(3):221--227, 2005.
 
-\bibitem[NCBI(2021)]{NCBIdbSNP}
+\bibitem{NCBIdbSNP}
 NCBI.
 \newblock {NCBI dbSNP Build 155}, 2021.
-\newblock URL \url{https://www.ncbi.nlm.nih.gov/projects/SNP/snp_summary.cgi}.
 
-\bibitem[Nyholt(2004)]{nyholt2004}
+\bibitem{nyholt2004}
 Dale~R Nyholt.
 \newblock A simple correction for multiple testing for single-nucleotide
   polymorphisms in linkage disequilibrium with each other.
-\newblock \emph{The American Journal of Human Genetics}, 74\penalty0
-  (4):\penalty0 765--769, 2004.
+\newblock {\em The American Journal of Human Genetics}, 74(4):765--769, 2004.
 
-\bibitem[Rowe et~al.(1994)Rowe, Nadeau, Turner, Frankel, Letts, Eppig, Ko,
-  Thurston, and Birkenmeier]{roweetal1994jaxbsb}
+\bibitem{roweetal1994jaxbsb}
 LB~Rowe, JH~Nadeau, R~Turner, WN~Frankel, VA~Letts, JT~Eppig, MSH Ko,
   SJ~Thurston, and EH~Birkenmeier.
 \newblock Maps from two interspecific backcross dna panels available as a
   community genetic mapping resource.
-\newblock \emph{Mammalian Genome}, 5\penalty0 (5):\penalty0 253--274, 1994.
+\newblock {\em Mammalian Genome}, 5(5):253--274, 1994.
 
-\bibitem[Salyakina et~al.(2005)Salyakina, Seaman, Browning, Dudbridge, and
-  M{\"u}ller-Myhsok]{Salyakina2005}
+\bibitem{Salyakina2005}
 Daria Salyakina, Shaun~R Seaman, Brian~L Browning, Frank Dudbridge, and Bertram
   M{\"u}ller-Myhsok.
-\newblock {Evaluation of Nyholt’s procedure for multiple testing correction}.
-\newblock \emph{Human heredity}, 60\penalty0 (1):\penalty0 19--25, 2005.
+\newblock {Evaluation of Nyholt's procedure for multiple testing correction}.
+\newblock {\em Human heredity}, 60(1):19--25, 2005.
 
-\bibitem[Siegmund and Yakir(2007)]{siegmundyakir2007}
+\bibitem{siegmundyakir2007}
 David Siegmund and Benjamin Yakir.
-\newblock \emph{The statistics of gene mapping}.
+\newblock {\em The statistics of gene mapping}.
 \newblock Springer Science \& Business Media, 2007.
 
-\bibitem[Tam et~al.(2019)Tam, Patel, Turcotte, Boss{\'e}, Par{\'e}, and
-  Meyre]{tametal2019benefits}
+\bibitem{tametal2019benefits}
 Vivian Tam, Nikunj Patel, Michelle Turcotte, Yohan Boss{\'e}, Guillaume
   Par{\'e}, and David Meyre.
 \newblock Benefits and limitations of genome-wide association studies.
-\newblock \emph{Nature Reviews Genetics}, 20\penalty0 (8):\penalty0 467--484,
-  2019.
+\newblock {\em Nature Reviews Genetics}, 20(8):467--484, 2019.
 
-\bibitem[Uffelmann et~al.(2021)Uffelmann, Huang, Munung, de~Vries, Okada,
-  Martin, Martin, Lappalainen, and Posthuma]{uffelmannetal2021gwas}
+\bibitem{uffelmannetal2021gwas}
 Emil Uffelmann, Qin~Qin Huang, Nchangwi~Syntia Munung, Jantina de~Vries,
   Yukinori Okada, Alicia~R Martin, Hilary~C Martin, Tuuli Lappalainen, and
   Danielle Posthuma.
 \newblock Genome-wide association studies.
-\newblock \emph{Nature Reviews Methods Primers}, 1\penalty0 (1):\penalty0
-  1--21, 2021.
+\newblock {\em Nature Reviews Methods Primers}, 1(1):1--21, 2021.
 
-\bibitem[Visscher and Goddard(2019)]{visschergoddard2019}
+\bibitem{visschergoddard2019}
 Peter~M Visscher and Michael~E Goddard.
-\newblock {From RA Fisher’s 1918 paper to GWAS a century later}.
-\newblock \emph{Genetics}, 211\penalty0 (4):\penalty0 1125--1130, 2019.
+\newblock {From RA Fisher's 1918 paper to GWAS a century later}.
+\newblock {\em Genetics}, 211(4):1125--1130, 2019.
 
-\bibitem[Welch et~al.(1996)Welch, Xia, Shechter, Farese, Mehrabian, Mehdizadeh,
-  Warden, and Lusis]{welchetal1996uclabsb}
+\bibitem{welchetal1996uclabsb}
 Carrie~L Welch, Yu-Rong Xia, Ishaiahu Shechter, Robert Farese, Margarete
   Mehrabian, Shahab Mehdizadeh, Craig~H Warden, and Aldons~J Lusis.
 \newblock Genetic regulation of cholesterol homeostasis: chromosomal
   organization of candidate genes.
-\newblock \emph{Journal of Lipid Research}, 37\penalty0 (7):\penalty0
-  1406--1421, 1996.
+\newblock {\em Journal of Lipid Research}, 37(7):1406--1421, 1996.
 
-\bibitem[Xu(2013)]{xu2013principles}
+\bibitem{xu2013principles}
 Shizhong Xu.
-\newblock \emph{Principles of statistical genomics}, volume 571.
+\newblock {\em Principles of statistical genomics}, volume 571.
 \newblock Springer, 2013.
 
 \end{thebibliography}

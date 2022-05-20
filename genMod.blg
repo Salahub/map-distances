@@ -1,48 +1,48 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: genMod.aux
-Reallocating 'name_of_file' (item size: 1) to 9 items.
-The style file: plainnat.bst
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 24 items.
 Database file #1: ../Bibliography/fullbib.bib
-You've used 28 entries,
-            2773 wiz_defined-function locations,
-            782 strings with 9630 characters,
-and the built_in function-call counts, 13788 in all, are:
-= -- 1218
-> -- 869
-< -- 18
-+ -- 295
-- -- 267
-* -- 1191
-:= -- 2148
-add.period$ -- 85
-call.type$ -- 28
-change.case$ -- 170
-chr.to.int$ -- 28
-cite$ -- 56
-duplicate$ -- 571
-empty$ -- 1075
-format.name$ -- 311
-if$ -- 2827
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 30
-newline$ -- 149
-num.names$ -- 112
-pop$ -- 322
+You've used 30 entries,
+            2118 wiz_defined-function locations,
+            699 strings with 9179 characters,
+and the built_in function-call counts, 10609 in all, are:
+= -- 1035
+> -- 571
+< -- 2
++ -- 235
+- -- 196
+* -- 840
+:= -- 1811
+add.period$ -- 90
+call.type$ -- 30
+change.case$ -- 184
+chr.to.int$ -- 0
+cite$ -- 30
+duplicate$ -- 337
+empty$ -- 768
+format.name$ -- 196
+if$ -- 2119
+int.to.chr$ -- 0
+int.to.str$ -- 30
+missing$ -- 33
+newline$ -- 153
+num.names$ -- 60
+pop$ -- 166
 preamble$ -- 1
-purify$ -- 145
+purify$ -- 158
 quote$ -- 0
-skip$ -- 450
+skip$ -- 224
 stack$ -- 0
-substring$ -- 595
-swap$ -- 37
+substring$ -- 723
+swap$ -- 39
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 288
+type$ -- 110
 warning$ -- 0
-while$ -- 129
-width$ -- 0
-write$ -- 369
+while$ -- 107
+width$ -- 32
+write$ -- 327

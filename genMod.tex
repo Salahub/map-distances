@@ -1,42 +1,20 @@
 \documentclass{article}
 
-% For PDF, suitable for double-sided printing, change the PrintVersion variable below to "true" and use this \documentclass line instead of the one above:
-%\documentclass[letterpaper,12pt,titlepage,openright,twoside,final]{book}
-\newcommand{\package}[1]{\textbf{#1}} % package names in bold text
-\newcommand{\cmmd}[1]{\textbackslash\texttt{#1}} % command name in tt font 
-\newcommand{\href}[1]{#1} % does nothing, but defines the command so the print-optimized version will ignore \href tags (redefined by hyperref pkg).
-%\newcommand{\texorpdfstring}[2]{#1} % does nothing, but defines the command
-% Anything defined here may be redefined by packages added below...
-
-% This package allows if-then-else control structures.
-\usepackage{ifthen}
-\newboolean{PrintVersion}
-\setboolean{PrintVersion}{false}
-% CHANGE THIS VALUE TO "true" as necessary, to improve printed results for hard copies by overriding some options of the hyperref package, called below.
-
-%\usepackage{nomencl} % For a nomenclature (optional; available from ctan.org)
-\usepackage{amsmath,amssymb,amstext} % Lots of math symbols and environments
-\usepackage[pdftex]{graphicx} % For including graphics N.B. pdftex graphics driver
-\usepackage{amsmath,amssymb,amstext,amsthm,amsfonts}
-\usepackage{dsfont}
-\usepackage[pdftex]{graphicx}
-\usepackage{caption}
-\usepackage{color}% Include colors for document elements
-\usepackage{dcolumn}% Align table columns on decimal point
+%% Packages
+\RequirePackage{amsthm,amsmath,amsfonts,amssymb}
+\RequirePackage[numbers]{natbib}
+%\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+\RequirePackage{graphicx}
 \usepackage{bm}% bold math
 \usepackage{float}
 \usepackage{multirow}
-\usepackage[round]{natbib}   % omit 'round' option for square brackets
-
-\usepackage{algorithm} % For counting chapters
-\usepackage{algorithmicx, algpseudocode}
-%\renewcommand{\algorithmiccomment}[1]{// #1} % Brackets are confused with the sets
-%\algsetup{linenosize=\scriptsize}
+\usepackage{caption}
+\usepackage{color}% Include colors for document elements
+\usepackage{amsmath,amssymb,amstext,amsthm,amsfonts}
+\usepackage{dsfont}
 
 % N.B. HYPERREF MUST BE THE LAST PACKAGE LOADED; ADD ADDITIONAL PKGS ABOVE
-\usepackage[pdftex,pagebackref=false]{hyperref} % with basic options
-%\usepackage[pdftex,pagebackref=true]{hyperref}
-% N.B. pagebackref=true provides links back from the References to the body text. This can cause trouble for printing.
+\usepackage[pdftex,pagebackref=false]{hyperref}
 % define colours
 \definecolor{background-color}{gray}{0.98}
 \definecolor{steelblue}{rgb}{0.27, 0.51, 0.71}
@@ -51,10 +29,8 @@
 	pdfmenubar=true,        % show Acrobat's menu?
 	pdffitwindow=false,     % window fit to page when opened
 	pdfstartview={FitH},    % fits the width of the page to the window
-	pdftitle={Genetic Model},    % title: CHANGE THIS TEXT!
-	pdfauthor={Chris Salahub},    % author: CHANGE THIS TEXT! and uncomment this line
-	%pdfsubject={Statistics},  % subject: CHANGE THIS TEXT! and uncomment this line
-	%    pdfkeywords={keyword1} {key2} {key3}, % list of keywords, and uncomment this line if desired
+	pdftitle={A structural genomic model}, % pdf title
+	pdfauthor={Chris Salahub},    % author
 	pdfnewwindow=true,      % links in new window
 	colorlinks=true,        % false: boxed links; true: colored links
 	linkcolor=steelblue,         % color of internal links
@@ -62,28 +38,12 @@
 	filecolor=magenta,      % color of file links
 	urlcolor=cyan           % color of external links
 }
-\ifthenelse{\boolean{PrintVersion}}{   % for improved print quality, change some hyperref options
-	\hypersetup{	% override some previously defined hyperref options
-		%    colorlinks,%
-		citecolor=black,%
-		filecolor=black,%
-		linkcolor=black,%
-		urlcolor=black}
-}{} % end of ifthenelse (no else)
-
-%\usepackage[automake,toc,abbreviations]{glossaries-extra} % Exception to the rule of hyperref being the last add-on package
 
 % Page margins
-% uWaterloo thesis requirements specify a minimum of 1 inch (72pt) margin at the
-% top, bottom, and outside page edges and a 1.125 in. (81pt) gutter margin (on binding side). 
 \setlength{\marginparwidth}{0pt} % width of margin notes
-% N.B. If margin notes are used, you must adjust \textwidth, \marginparwidth
-% and \marginparsep so that the space left between the margin notes and page
-% edge is less than 15 mm (0.6 in.)
 \setlength{\marginparsep}{0pt} % width of space between body text and margin notes
 \setlength{\evensidemargin}{0.125in} % Adds 1/8 in. to binding side of all even pages when "twoside" is selected
 \setlength{\oddsidemargin}{0.125in} % Adds 1/8 in. to the left of all pages when "oneside" is selected,
-% and to the left of all odd pages when "twoside" is selected
 \setlength{\textwidth}{6.375in} % assuming US letter paper (8.5 in. x 11 in.) and margins as above
 \raggedbottom
 
@@ -91,21 +51,11 @@
 \renewcommand{\baselinestretch}{1} % line space setting
 
 % Commands
+
 % Code
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand*{\Rnsp}{\textsf{R}}
 \newcommand*{\R}{\textsf{R}$~$}
-\newcommand*{\Pythonnsp}{\textsf{Python}}
-\newcommand*{\Python}{\textsf{Python}$~$}
-\newcommand{\pkg}[1]{\textsf{#1}}
-\newcommand{\pkgsp}[1]{\textsf{#1}$~$}
-\algblock{Input}{EndInput}
-\algnotext{EndInput}
-\newcommand{\Desc}[2]{\State \makebox[2em][l]{#1}#2}
-
-% Theorem styles
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
 
 % vectors
 \newcommand{\ve}[1]{\mathbf{#1}}           % for vectors
@@ -115,22 +65,6 @@
 \newcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}              % for transpose
 \newcommand{\conj}[1]{{#1}^{\ast}}
 \newcommand{\norm}[1]{||{#1}||}              % norm
-\newcommand{\frob}[1]{\norm{#1}_F}
-\newcommand{\abs}[1]{\lvert{#1}\rvert}              % norm
-\newcommand*{\mvec}{\operatorname{vec}}
-\newcommand*{\trace}{\operatorname{trace}}
-\newcommand*{\rank}{\operatorname{rank}}
-\newcommand*{\diag}{\operatorname{diag}}
-\newcommand*{\vspan}{\operatorname{span}}
-\newcommand*{\rowsp}{\operatorname{rowsp}}
-\newcommand*{\colsp}{\operatorname{colsp}}
-\newcommand*{\svd}{\operatorname{svd}}
-\newcommand*{\edm}{\operatorname{edm}}  % euclidean distance matrix (D * D)
-\newcommand{\oneblock}[3]{\m{B}_{#1:#2:#3}}
-\newcommand{\stripe}[2]{\m{S}_{#1,#2}}
-
-% contingency tables
-\newcommand{\abdiff}{\delta_{AB}}
 
 % statistical
 \newcommand{\widebar}[1]{\overline{#1}}  
@@ -152,23 +86,14 @@
 \newcommand{\measureRange}{\mathcal{R}}
 \newcommand{\bigChi}{\mathcal{D}}
 \newcommand{\ind}[2]{I_{#2} \left( #1 \right)}
-%\newcommand{\ind}[1]{\mathds{1} \hspace{-0.1cm}\left( #1 \right)}
 \newcommand{\mutInf}{\mathcal{I}}
 
 % operators
-\newcommand{\Had}{\circ}
-\newcommand{\measureAssociation}{G}
 \DeclareMathOperator*{\lmin}{Minimize}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\arginf}{arg\,inf}
 \DeclareMathOperator*{\argsup}{arg\,sup}
-
-% Sets
-\newcommand*{\intersect}{\cap}
-\newcommand*{\union}{\cup}
-\let\oldemptyset\emptyset
-\let\emptyset\varnothing
 
 % Fields, Reals, etc. etc
 \newcommand{\field}[1]{\mathbb{#1}}
@@ -178,52 +103,58 @@
 \newcommand{\Complex}{\field{C}}
 \newcommand{\Rationals}{\field{Q}}
 
-% Editorial
-\newcommand{\needtocite}[1]{{\color{red} [Need to cite {#1} here]}}
-\newcommand{\comment}[1]{{\color{steelblue} COMMENT:  {#1}}}
-\newcommand{\TODO}[1]{{\color{brickred} TODO:  {#1}}}
-
-\title{A structural genetic model to derive genetic map distances and correlation from first principles.}
+\title{A structural model of genome-wide association studies.}
 \author{Christopher Salahub \\
-	\textit{University of Waterloo}}
+  \textit{University of Waterloo} \\
+  \href{mailto:csalahub@uwaterloo.ca}{csalahub@uwaterloo.ca}}
 
 \begin{document}
 	
 \maketitle
 
 \begin{abstract}
-A structural model of the genome incorporating a modern understanding of the genome and common practice in modern genome-wide association studies is devised. This model demonstrates that the Haldane map distance is a direct consequence of the structure of the genome as it is understood today. The model also supports the derivation of an expression for correlation, which is compared to data resulting from the BSB mouse cross. The correlation test plot is introduced for this comparison and indicates a close agreement of the model and reality. Chromosome 4 displays noteworthy departures which warrant further investigation.
+A structural genetic model incorporating a modern understanding of the genome and common practice in genome-wide association studies is derived mathematically. The model shows the Haldane map distance as a direct consequence of the structure of the genome. An expression for genetic correlation is derived under the model and compared to data resulting from the BSB mouse cross. A correlation test plot is introduced for this comparison and shows the close agreement of the model and empirical results. Noteworthy departures in this plot indicate regions which warrant further investigation.
 \end{abstract}
+
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\begin{center}
+  \textbf{Keywords}: \textit{genetics, genomics, association, correlation, map distance, genome-wide association studies}
+\end{center}
+\end{minipage}
+\end{center}
 
 \section{Introduction} \label{sec:intro}
 
-\begin{figure}[!ht]
+\begin{figure}[h]
   \begin{center}
   \includegraphics[scale = 1]{./img/modelDiagram.pdf}
-  \caption{A structural model of genomic studies.}
-  \label{fig:modelDiagram}
-\end{center}
+  \caption{A structural model of genomic association
+    studies.} \label{fig:modelDiagram}
+  \end{center}
 \end{figure}
 
-Genetic research today routinely considers the entirety of a \emph{genome}, that is all heritable material potentially passed to offspring as in \cite{doergeetal1997search}, to identify regions strongly related to measured traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Extracting useful results from markers and measured traits is a complicated task which has motivated decades of statistical and biological research. Interested individuals must sort through this voluminous research in order to understand genomics.
+Genetic research today routinely considers the entirety of a \emph{genome}, that is all heritable material potentially passed to offspring \cite{doergeetal1997search}, to identify regions strongly related to measured traits. The goal is to associate measured genome sequences, the \emph{genotype}, with physical characteristics, the \emph{phenotype}. Computational and methodological advances in the pursuit of these \emph{quantitative trait loci} (QTLs) have distinguished \emph{genomics} as its own field. Central to genomics is the \emph{genome-wide association study} (GWAS), where many \emph{markers}, sequences of nucleotides at known positions on the genome, are measured. Extracting useful results from markers and measured traits is a complicated task which has motivated decades of statistical and biological research. Interested individuals must sort through this voluminous research in order to understand genomics.
 
-To aid in this, Figure \ref{fig:modelDiagram} draws on the literature to present a structural model of the process of converting raw marker measurements into a form which can be used to identify QTLs. It identifies four key steps (\emph{selection}, \emph{annotation}, \emph{encoding}, and \emph{summarization}) between five increasingly abstract representations of the genome. By highlighting these steps and abstractions in plain language, this model provides a clear map to guide the understanding of GWAS. While it is no replacement surveys such as \cite{uffelmannetal2021gwas, tametal2019benefits} or the literature they outline, it supplies a guiding structural framework with exceptional explanatory power to facilitate understanding of papers in the field.
+To aid in this, Figure \ref{fig:modelDiagram}
+draws on the literature to present the structural model underlying the conversion of raw marker measurements into data to identify QTLs. The key steps of \emph{selection}, \emph{annotation}, \emph{encoding}, and \emph{summarization} are identified as maps between increasingly abstract representations of the genome. By highlighting these abstractions in plain language the model facilitates faster understanding of GWAS. While it is no replacement surveys such as \cite{uffelmannetal2021gwas, tametal2019benefits} or the literature they outline, it supplies a guiding structural framework of the field with exceptional explanatory power.
 
-The model starts with $\m{G}$, the whole genome of an individual organism. Genetic information is stored in DNA, a long molecule consisting of a sequence of four \emph{nucleotide bases}: guanine, cytosine, adenine, and thymine. A \emph{diplodic} individual inherits one version or \emph{variant} of a complete DNA sequence from each parent, and so has two copies in all \emph{somatic} (i.e. non-reproductive) cells. Though it can be represented as one long sequence, DNA is actually structured into \emph{chromosomes}, separate strands of DNA which contain only a part of the sequence. As most genetic research concerns diplodic species, this is implicitly assumed.
+The model starts with $\m{G}$, the whole genome of an individual organism. Genetic information is stored in DNA, a long molecule consisting of a sequence of four \emph{nucleotide bases}: guanine, cytosine, adenine, and thymine. A \emph{diplodic} individual inherits one version or \emph{variant} of a complete DNA sequence from each parent, and so has two copies in all \emph{somatic} (i.e. non-reproductive) cells. Though it can be represented as one long sequence, DNA is actually organized into \emph{chromosomes}, separate strands of DNA which contain only a part of the sequence. As most genetic research concerns diplodic species, this is implicitly assumed.
 
-It is usually not feasible or desirable to design a study around the measurement of all of $\m{G}$, and so the \emph{select} step chooses regions to measure. These regions are represented in $\m{S}$. Often $\m{S}$ consists of a series of \emph{single nucleotide polymorphisms} (SNPs), single nucleotide substitutions in a known sequence at a known position. In human studies this is supported by SNP databases such as \cite{NCBIdbSNP} which document hundreds of millions of common SNPs in the human genome. Only a small proportion of these are estimated to occur frequently enough in the population to be useful in a GWAS, perhaps 15 million according to \cite{koboldtetal2013next}. Modern SNP arrays can simultaneously identify roughly one million of these per array, see \cite{laframboise2009, tametal2019benefits}, and most GWAS will measure only one array of SNPs. \emph{Linkage disequilibrium}, effectively the correlation between regions of the genome, facilitates inference to regions outside of those selected in $\m{S}$. While third generation genome sequencing technologies allow for entire genomes to be sequenced, as noted in \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}, persistent high costs of next generation technologies and more than a decade of SNP array development leave arrays as the dominant measurement method.
+It is usually not feasible or desirable to design a study around the measurement of all of $\m{G}$, and so the \emph{select} step chooses regions to measure. These regions are represented by $\m{S}$. Often $\m{S}$ consists of a series of \emph{single nucleotide polymorphisms} (SNPs), single nucleotide substitutions in a known sequence at a known position. In human studies this is supported by SNP databases such as dbSNP \cite{NCBIdbSNP} which document hundreds of millions of common SNPs in the human genome, of which perhaps 15 million occur frequently enough in humans to be useful \cite{koboldtetal2013next}. SNPs are sequenced by means of arrays capable of identifying roughly one million of these simultaneously \cite{laframboise2009, tametal2019benefits}. Selection is therefore necessary, motivated by previous literature and \emph{linkage disequilibrium}, the correlation between markers and other regions of the genome. Linkage disequilibrium also facilitates inference to regions outside of those selected in $\m{S}$. While third generation genome sequencing technologies allow for entire genomes to be sequenced, their persistent high costs and more than a decade of SNP array development leave arrays as the dominant measurement method \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}.
 
-After selecting SNPs to obtain $\m{S}$, researchers must \emph{annotate} the raw data. The raw signal produced by a SNP array is fluorescence, with different degrees of fluorescence corresponding to a different genotypes. Converting the fluorescent areas of an array to a genotype is a challenging problem and has developed in tandem with the arrays themselves. Early models used non-parametric clustering techniques on the signal from several array sections, but more complex hidden Markov and Bayesian models have also been developed. \cite{laframboise2009} details some of these. Whatever method is used, the selected regions are assigned genotypes in $\m{T}$. Often these will be denoted with capital or lowercase letters at each SNP, as in \cite{siegmundyakir2007, visschergoddard2019}.
+After selecting SNPs to obtain $\m{S}$, the data must be \emph{annotated}. The raw signal produced by a SNP array is fluorescence, with different degrees of fluorescence corresponding to different genotypes. Converting the fluorescent areas of an array to a genotype is a challenging problem and has developed in tandem with the arrays themselves. Early models used non-parametric clustering techniques on the signal from several array sections, but more complex hidden Markov and Bayesian models have also been developed \cite{laframboise2009}. Whatever method is used, the selected regions are assigned genotypes in $\m{T}$. Often these are denoted with capital or lowercase letters at each SNP, as in \cite{siegmundyakir2007, visschergoddard2019}.
 
-Finally, relationships between $\m{T}$ and an observed trait or within $\m{T}$ itself are quantified by converting each annotated SNP to a number. To do this, GWAS first \emph{encode} each SNP variant with a numeric value and then \emph{summarize} the pairs at each location into a number. Typically no distinction is made between these steps: \cite{LanderBotstein1989, cheverud2001, siegmundyakir2007} detail the \emph{dominance} and \emph{additive} summaries by moving directly from a genotype to a numeric value. It is useful for clarity and full generality to separate the two distinct steps involved in this process, however.
+Finally, relationships between $\m{T}$ and an observed trait or within $\m{T}$ itself are quantified by converting each annotated SNP to a number. GWAS first \emph{encode} each SNP variant with a numeric value and then \emph{summarize} both variants at each location into a single value. Typically no distinction is made between these steps: the dominance and additive summaries often move directly from an annotated genotype to a numeric value \cite{LanderBotstein1989, cheverud2001, siegmundyakir2007}. It is useful for clarity and full generality to separate the two distinct steps involved in this process, however.
 
-This paper presents the details this structural model. By using mathematical notation for each abstraction, a framework with extraordinary explanatory power is devised. Section \ref{sec:theModel} provides an explanation of the model with all the necessary mathematical notation. The model is then used in a novel derivation of the Haldane \emph{map distance}, a common measure used to locate SNPs, in Section \ref{sec:derivingDists}. The utility of the model is further demonstrated in Section \ref{sec:correlation}, where it is used to derive the correlation between markers under classic genetic population settings. This results in an expression of the correlation between markers in any genetic study, which is simulated in Section \ref{sec:sim} under settings from the literature. Finally, Section \ref{sec:model2real} simulates the model and compares the results to theoretical expectations and experimental data in mice.
+This paper presents the details of the structural model outlined briefly in Section \ref{sec:intro}. By using mathematical notation for each abstraction, a framework with extraordinary explanatory power is devised. Section \ref{sec:theModel} provides an explanation of the model with all the necessary mathematical notation. The model is then used in a novel derivation of the Haldane \emph{map distance}, a common measure used to locate SNPs, in Section \ref{sec:derivingDists}. The utility of the model is further demonstrated in Section \ref{sec:correlation}, where it is used to derive the correlation between markers under classic genetic population settings. This results in an expression of the correlation between markers in any genetic study, which is simulated in Section \ref{sec:sim} under settings from the literature. Finally, Section \ref{sec:model2real} simulates the model and compares the results to theoretical expectations and experimental data in mice.
+
 
 \section{A structural genetic model} \label{sec:theModel}
 
 The structural model starts with
 $$\m{G} = [\ve{g}_1| \ve{g}_2], \text{ } \ve{g}_1, \ve{g}_2 \in \mathcal{B}^{N_P}$$
-where $\mathcal{B} = \{\text{adenine, guanine, cytosine, thymine}\}$ is the set of nucleotide bases and $N_P$ is the length of the genome. In humans $N_P \approx 3,234,830,000$. $\m{G}$ represents the whole genome of an individual, with all chromosomes placed sequentially in two adjacent columns corresponding to the maternally and paternally inherited variants. Thought both of these variants are complete double-stranded sequences of DNA, nucleotides pair uniquely. Adenine binds exclusively with thymine and guanine exclusively binds with cytosine. Therefore $\ve{g}_1$ and $\ve{g}_2$ record the pattern only for one of the two DNA strands for each column, the complementary strand is implied by this sequence and the unique binding of nucleotides.
+where $\mathcal{B} = \{\text{adenine, guanine, cytosine, thymine}\}$ is the set of nucleotide bases and $N_P$ is the length of the genome. In humans $N_P \approx 3,234,830,000$. $\m{G}$ represents the whole genome of an individual, with all chromosomes placed sequentially in two adjacent columns corresponding to the maternally and paternally inherited variants. Though both of these variants are complete double-stranded sequences of DNA, nucleotides pair uniquely. Adenine binds exclusively with thymine and guanine binds exclusively with cytosine. Therefore $\ve{g}_1$ and $\ve{g}_2$ record the pattern only for one of the two DNA strands for each column, the complementary strand is implied by this sequence and the unique binding of nucleotides.
 
 Rather than address the whole genome, GWAS typically deal with a selected subset of segments of interest. This is represented by
 $$\m{S} = [\ve{s}_1 | \ve{s}_2], \text{ } \ve{s}_1, \text{ } \ve{s}_2 \in \mathcal{B}^K$$
@@ -252,11 +183,11 @@ summarizing the individual's inherited variants. There are many common mappings 
   0, & \text{ otherwise}
 \end{cases}.\end{equation*} The additive map gives $\ve{z} \in \{0,1,2\}^M$ so $z_i$ is equal to the count of copies of $A$ at the $i^{\text{th}}$ marker across both of an individual's inherited variants.
 
-Figure \ref{fig:modelDiagram} displays this model, with descriptive names added to each mapping. In the first step, $\m{G} \rightarrow \m{S}$, we \textit{select} segments of the entire genome to obtain the marker sequences or interest. The next step, $\m{S} \rightarrow \m{T}$, \textit{annotates} the chosen markers by indicating which of the common alleles is present for that marker. These annotations are then converted to numeric values, or \textit{encoded}, in the step $\m{T} \rightarrow \m{X}$. Finally, we \textit{summarize} the matrix $\m{X}$ into a vector $\ve{z}$ with some row-wise operation.
+Figure \ref{fig:modelDiagram} displays this model, with descriptive names added to each mapping. In the first step, $\m{G} \rightarrow \m{S}$, segments of the genome are \textit{selected} to obtain the marker sequences or interest. The next step, $\m{S} \rightarrow \m{T}$, \textit{annotates} the chosen markers by indicating which of the common alleles is present for that marker. These annotations are then converted to numeric values, or \textit{encoded}, in the step $\m{T} \rightarrow \m{X}$. Finally, the matrix $\m{X}$ is \textit{summarized} into a vector $\ve{z}$ with some row-wise operation.
 
 \section{Deriving map distance} \label{sec:derivingDists}
 
-The structural model presented in Section \ref{sec:theModel} has incredible explanatory power beyond being a clear guide to GWAS data. With only a few assumptions, the model shows the Haldane map distance to be a corollary of the structure of DNA and mechanics of inheritance as understood today. This is in contrast to the typical derivation of map distance, which is based on a differential equation agnostic to the structure of the genome, as in \cite{kosambi1943estimation} and \cite{xu2013principles}. The derivation of the Haldane map is outlined here, starting with a simple sketch of sexual reproduction.
+The structural model presented in Section \ref{sec:theModel} is useful beyond being a clear guide to GWAS data. With only a few assumptions, it shows the Haldane map distance to be a corollary of the structure of DNA and mechanics of inheritance as understood today. This is in contrast to the typical derivation of map distance, which is agnostic to the structure of the genome and instead is based on Haldane's original differential equation from \cite{haldane1919}. Examples include \cite{kosambi1943estimation} and \cite{xu2013principles}. The derivation of the Haldane map using the model of Section \ref{sec:theModel} is outlined here, starting with a simple sketch of sexual reproduction.
 
 \subsection{Sexual reproduction} \label{subsec:crossingover}
 
@@ -270,26 +201,26 @@ The real mechanism is much more complex. During meiosis, the columns of $\m{M}$ 
 
 Independent assortment is a direct consequence of the structure of the genome in somatic cells. Each chromosome is a separate molecule and so when sex cells are created, the variant of one chromosome inherited by offspring is independent of other chromosomes inherited from the same parent. This means that either of the paternal and maternal variants of a chromosome is equally likely to be passed on regardless of which variant is passed on for another chromosome.
 
-Additionally, these variants may not be inherited identically as they appear in $\m{M}$ or $\m{F}$. There is a chance that the variants in a parent physically cross over each other while separating to form sex cells. Occasionally, this crossing results in a swap of the entire chromosome on either side of the cross, creating two completely new variants to pass on.
+Additionally, these variants may not be inherited identically as they appear in $\m{M}$ or $\m{F}$. There is a chance that the variants in a parent physically cross over each other while separating to form sex cells. Occasionally, this crossing results in a swap of the entire chromosome on either side of the cross, creating two completely new variants.
 
 \subsection{Modelling cross overs} \label{subsec:modelcrossing}
 
 Both crossing over and the independent assortment of chromosomes occur within each parental genome independently of the other parent, and so only one of the two needs to be considered in modeling cross overs. Suppose it is $\m{M}$.
 
-We start with the assumption that genetic recombination is totally independent between chromosomes. Specifically, chromosomes not only assort independently but crossing over occurs independently on each chromosome and will affect only that chromosome's variants. This assumption can be thought of as a slightly stronger version of independent assortment. Therefore consider a vector
+Start with the assumption that genetic recombination is totally independent between chromosomes. Specifically, chromosomes not only assort independently but crossing over occurs independently on each chromosome and will affect only that chromosome's variants. This assumption can be thought of as a slightly stronger version of independent assortment. Therefore consider a vector
 $$\ve{h} \in \{1, 2, \dots, C\}^{N_P}$$
 for $C \in \Naturals$ which denotes the chromosomal membership of each row of $\m{M}$. For simplicity, set $h_i \leq h_j$ for all $i \leq j$. In other words, all base pairs of a chromosome appear in adjacent rows with some specified ordering of the chromosomes. Assuming cross overs occur independently for each chromosome, a cross over in chromosome $c$, say, will affect only those rows of $\m{M}$ where $\ve{h} = c$. Start with the simplest case, where $\ve{h}$ is a vector of ones. This is the case of a single chromosome, which can be extended to the entire genome by considering every other chromosome in the same way.
 
-For this single chromosome, consider a cross over beginning at the $i^{\text{th}}$ base pair. This means the two variants of the chromosome physically cross at the $i^{\text{th}}$ base pair. Assume that the variants are always perfectly aligned so that the $i^{\text{th}}$ position on one variant will match with the $i^{\text{th}}$ on the other during a cross over. Each variant is consquently separated into two parts: the part up to, but not including, the $i^{\text{th}}$ base pair, and the part from the $i^{\text{th}}$ base pair until the end. These two parts are then swapped between the variants, so that the first part of one variant forms a new chromosome with the second part of the other. Whenever a cross over is said to ``begin at index $i$'', it will refer to this sort of crossing: a swap of the columns for the first $i-1$ rows of $\m{M}$. Introduce an indicator vector
+For this single chromosome, consider a cross over beginning at the $i^{\text{th}}$ base pair. This means the two variants of the chromosome physically cross at the $i^{\text{th}}$ base pair. Assuming the variants are always perfectly aligned so that the $i^{\text{th}}$ position on one variant will match with the $i^{\text{th}}$ on the other, each variant is consquently separated into two parts: the part up to, but not including, the $i^{\text{th}}$ base pair, and the part from the $i^{\text{th}}$ base pair until the end. These two parts are then swapped between the variants, so that the first part of one variant forms a new chromosome with the second part of the other. Whenever a cross over is said to ``begin at index $i$'', it will refer to this sort of crossing: a swap of the columns for the first $i-1$ rows of $\m{M}$ (or $\m{F}$). Introduce an indicator vector
 $$\ve{V} = \tr{(V_1, \dots, V_{N_P})}$$
 where
 \begin{equation} \label{eq:crossindicator}
 V_i = \begin{cases}
-  1 & \text{ if a cross over beginning at base pair } i \text{ occurs}, \\
+  1 & \text{ if a cross over at base pair } i \text{ occurs}, \\
   0 & \text{ otherwise},
 \end{cases}
 \end{equation}
-and define $\sv{\pi}$ so that $\pi_i = P(V_i = 1)$. This can be done without loss of generality, as the order of cross overs in time does not affect the final chromosome. Any chromosome, offspring, or sex cell for which any cross overs have occurred is called \textit{recombinant}.
+and define $\sv{\pi} = (\pi_1, \pi_2, \dots, \pi_{N_P})$ so that $\pi_i = P(V_i = 1)$. This can be done without loss of generality, as the order of cross overs in time does not affect the final chromosome. Any chromosome, offspring, or sex cell for which any cross overs have occurred is called \textit{recombinant}.
 
 As we rarely sequence the entire genome of an individual's somatic and sex cells, we will seldom see $\m{M}$ and its recombinant forms. Instead, just as $\m{S}$ is derived from $\m{G}$, $\m{M}_S$ and $\m{F}_S$ are derived from $\m{M}$ and $\m{F}$ respectively. Swaps of the markers of $\m{M}_S$ and $\m{F}_S$ as inferred from $\m{S}$ are then used to estimate the number of sex cells containing recombinant chromosomes. The proportion of sex cells produced with such a swap is called the \textit{recombination rate} for the pair of markers.
 
@@ -297,57 +228,55 @@ However, the recombination rate for a pair of markers tells us nothing of how ma
 
 \subsection{Simplifying assumptions} \label{subsec:simplify}
 
-Fortunately, if the recombination of two particular markers on the genome is all we care about, estimating individual $\pi_i$ values is unnecessary. Consider two such positions, $j$ and $k$ with $j < k$, and note that cross overs beginning at any of $j+1, j+2, \dots, k-1, k$ all result in these positions being split between variants. For identifiability assume that $\pi_j = \pi_{j+1} = \cdots = \pi_{k-1} = \pi_k = \pi_{j:k}$. Let $N_c$ be a random variable counting the number of cross overs beginning in the interval $\{j+1,j+2,\dots,k-1,k\}$. Then
+Fortunately, if the recombination of two particular markers on the genome is all that is of interest, estimating individual $\pi_i$ values is unnecessary. Consider two such marker positions, $j$ and $k$ with $j < k$, and note that cross overs beginning at any of $j+1, j+2, \dots, k-1, k$ all result in these positions being split between variants. For identifiability assume that $\pi_{j+1} = \pi_{j+2} = \cdots = \pi_{k-1} = \pi_k = \pi_{j:k}$. Let $N_c$ be a random variable counting the number of cross overs beginning in the interval $\{j+1,j+2,\dots,k-1,k\}$. Then
 $$P(N_c = n_c) = {k - j \choose n_c} \pi_{j:k}^{n_c} (1-\pi_{j:k})^{k - j - n_c}$$
-if we assume the cross overs occur independently. For convenience, let $r = k - j$ and $\pi = \pi_{j:k}$, which gives
+if cross overs occur independently. For convenience, let $r = k - j$ and $\pi = \pi_{j:k}$, which gives
 \begin{equation} \label{eq:binomialDist}
   P(N_c = n_c) = {r \choose n_c} \pi^{n_c} (1-\pi)^{r - n_c},
 \end{equation}
 where $r$ is a unitless count of base pairs between positions $j$ and $k$.
 
-Recall that $N_P \approx 3,234,830,000$ in humans. This large number of base pairs spread over the 23 human chromosomes means that two markers will typically be separated by a great number of base pairs, and so $r$ will be very large. Indeed, examples in \cite{nyholt2004}, \cite{Salyakina2005}, and \cite{Galwey2009} typically have thousands or tens of thousands of base pairs between marker locations. Therefore, consider the limit of this expression as $r \rightarrow \infty$:
+Recall that $N_P \approx 3,234,830,000$ in humans. This large number of base pairs spread over the 23 human chromosomes means that $j$ and $k$ will typically be separated by a great number of base pairs, and so $r$ will be very large. Indeed, examples in \cite{nyholt2004}, \cite{Salyakina2005}, and \cite{Galwey2009} have thousands or tens of thousands of base pairs between marker locations. Therefore, consider the limit of this expression as $r \rightarrow \infty$:
 $$\lim_{r \rightarrow \infty} P(N_c = n_c) = \lim_{r \rightarrow \infty} {r \choose n_c} \pi^{n_c} (1-\pi)^{r - n_c}.$$
 At this point, a substitution can be made:
 $$\pi = \frac{\beta d(j,k)}{r} := \frac{\beta d}{r},$$
-with $\beta, d(j,k) \in \Reals$. This substitution reparametrizes the probability $\pi$ with a rate parameter, $\beta$, a distance measure, $d(j,k)$, and the $r$ base pairs separating $j$ and $k$. As the units of $\beta$ and $d$ will always result in a unitless product, the choices of $\beta$ and $d$ are arbitrary. Any distance $d$ can be chosen and will invoke a corresponding $\beta$. If physical distance, for example in angstroms, were used, then $\beta$ would correspond to a rate of cross overs per unit length. One could alternatively use $d(j,k)=k-j$ and use a rate per base pair. This flexibility gives a great deal of freedom to choose a convenient set of units for measurement or understanding.
+with $\beta, d(j,k) \in \Reals$. This substitution reparametrizes the probability $\pi$ with a rate parameter, $\beta$, a distance measure, $d(j,k)$, and the $r$ base pairs separating $j$ and $k$. As the units of $\beta$ and $d$ will always result in a unitless product, their selection is arbitrary. Any distance $d$ can be chosen and will invoke a corresponding $\beta$. If physical distance, for example in angstroms, were used, then $\beta$ would correspond to a rate of cross overs per unit length. One could alternatively use $d(j,k)=k-j$ and use a rate per base pair. This flexibility gives a great deal of freedom to choose a convenient set of units for measurement or understanding.
 
 The substitution also leads to a substantial simplification, as
-\begin{equation} \label{eq:poissonlim}
-  \begin{split}
-    \lim_{r \rightarrow \infty} P(N_c = n_c) & = \lim_{r \rightarrow \infty} \frac{r(r-1)\dots (r-n_c+1)}{n_c!} \left ( \frac{\beta d}{r} \right )^{n_c} \left ( 1-\frac{\beta d}{r} \right )^{r - n_c} \\
-    & \\
-    & = \lim_{r \rightarrow \infty} \frac{r^{n_c} + O(r^{n_c-1})}{n_c!} \left ( \frac{\beta d}{r} \right )^{n_c} \left ( 1-\frac{\beta d}{r} \right )^{r - n_c} \\
-    & \\
-    & = \frac{(\beta d)^{n_c}}{n_c!} \lim_{r \rightarrow \infty} \frac{r^{n_c} + O(r^{n_c-1})}{r^{n_c}} \left ( 1-\frac{\beta d}{r} \right )^{r - n_c} \\
-    & \\
-    & = \frac{(\beta d)^{n_c}}{n_c!} e^{-\beta d}, \\
-  \end{split}
-\end{equation}
-\noindent which is the Poisson limit theorem for the binomial distribution.
+\begin{eqnarray} \label{eq:poissonlim}
+  & & \lim_{r \rightarrow \infty} {r \choose n_c} \left ( \frac{\beta d}{r} \right )^{n_c} \left ( 1-\frac{\beta d}{r} \right )^{r - n_c} \nonumber\\
+  & &  \nonumber \\
+  & = & \lim_{r \rightarrow \infty} \frac{r^{n_c} + O(r^{n_c-1})}{n_c!} \left ( \frac{\beta d}{r} \right )^{n_c} \left ( 1-\frac{\beta d}{r} \right )^{r - n_c} \nonumber\\
+  & & \nonumber \\
+  & = & \frac{(\beta d)^{n_c}}{n_c!} \lim_{r \rightarrow \infty} \frac{r^{n_c} + O(r^{n_c-1})}{r^{n_c}} \left ( 1-\frac{\beta d}{r} \right )^{r - n_c} \nonumber\\
+  & & \nonumber \\
+  & = & \frac{(\beta d)^{n_c}}{n_c!} e^{-\beta d} = \lim_{r \rightarrow \infty} P(N_c = n_c),
+\end{eqnarray}
+\noindent the Poisson limit approximation for the binomial distribution.
 
 Recall that if $N_c$ is odd, it will result in a swap of markers $j$ and $k$ between variants, while if $N_c$ is even, there will be no swap in the chromosome passed on. Define the recombination probability $p_r(d)$, which gives the probability of observing a swap for positions $j$ and $k$ with distance $d(j,k) := d$ between them. Then $p_r(d)$ is given by a sum of all odd terms from Equation \ref{eq:binomialDist}. Taking the simplification of Equation \ref{eq:poissonlim} gives
-\begin{equation} \label{eq:haldanemap}
-  \begin{split}
-    p_r(d) & = \sum_{l = 0}^{\infty} \frac{(\beta d)^{2l + 1}}{(2l + 1)!} e^{-\beta d} \\
-    & \\
-    & = e^{-\beta d} \sum_{l = 0}^{\infty} \frac{(\beta d)^{2l + 1}}{(2l + 1)!} \\
-    & \\
-    & = e^{-\beta d} \left ( \frac{e^{\beta d} - e^{- \beta d}}{2} \right ) \\
-    & \\
-    & = \frac{1}{2} \left ( 1 - e^{-2 \beta d} \right ) .\\
-  \end{split}
-\end{equation}
-A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of crossing over events gives us Haldane's formula for the \textit{map distance} in \textit{centiMorgans} or cM. By accounting for the structure of the genome and making a number of simplifying assumptions, the model from Section \ref{sec:theModel} gives a classic result of genetics without any reference to the population-level differential equation used in its original derivation. Indeed, it indicates this population level differential equation is a direct corollary of the structure of the genome. This powerful derivation can be taken a step further to compute new theoretical results.
+\begin{eqnarray} 
+  & & \sum_{l = 0}^{\infty} \frac{(\beta d)^{2l + 1}}{(2l + 1)!} e^{-\beta d} \nonumber \\
+  & & \nonumber \\
+  & = & e^{-\beta d} \sum_{l = 0}^{\infty} \frac{(\beta d)^{2l + 1}}{(2l + 1)!}  \nonumber \\
+  & & \nonumber \\
+  & = & e^{-\beta d} \left ( \frac{e^{\beta d} - e^{- \beta d}}{2} \right ) \nonumber \\
+  & & \nonumber \\
+  & = & \frac{1}{2} \left ( 1 - e^{-2 \beta d} \right ) = p_r(d). \label{eq:haldanemap}
+\end{eqnarray}
+A final substitution converts Equation \ref{eq:haldanemap} to a form familiar to researchers in genomics. Setting $\beta = \frac{1}{100}$ so that each each unit increase in $d$ corresponds to a 0.01 increase in the expected number of cross overs gives Haldane's formula for the \textit{map distance} in \textit{centiMorgans} or cM.
+
+By accounting for the structure of the genome and making a number of simplifying assumptions, the model from Section \ref{sec:theModel} gives this classic result of genetics without any reference to the population-level differential equation used in its original derivation. Indeed, it indicates this population level differential equation is a direct consequence of the structure of the genome. This powerful derivation can be taken a step further to compute a simple expression for genetic correlation.
 
 \section{Genetic correlation} \label{sec:correlation}
 
-\cite{cheverud2001, LiJi2005, Galwey2009} all present results based on the \emph{correlation between markers}. Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{sec:intro}. For these papers, the \emph{correlation between markers} refers to the observed correlation matrix of the vector $\ve{z}$ in a particular population. While the motivation of these authors is adjustment for multiple dependent testing, the importance of correlation in defining linkage disequilibrium makes the correlation structure of the genome a matter of general interest. Using the model of Section \ref{sec:theModel} and results of Section \ref{sec:derivingDists} this matrix can be determined analytically.
+\cite{cheverud2001, LiJi2005, Galwey2009} all present results based on the \emph{correlation between markers}. Recall $\ve{z}$ as depicted in Figure \ref{fig:modelDiagram} and described in the beginning of Section \ref{sec:intro}. For these papers, the correlation between markers refers to the observed correlation matrix of the vector $\ve{z}$ in a particular population. While the motivation of these authors is adjustment for multiple dependent testing, the importance of correlation in defining linkage disequilibrium makes the correlation structure of the genome a matter of general interest. This matrix can be determined analytically using the model of Section \ref{sec:theModel} and results of Section \ref{sec:derivingDists}.
 
-For clarity, let $\ve{z}$ indicate an instance of the random vector $\ve{Z} = \tr{(Z_1, Z_2, \dots, Z_M)}$. We let the random vector $\ve{Z}$ follow the distribution of the summarized values $\ve{z}$ in a particular population. This population may be real, as is the case when this modelling is used in practice, or purely hypothetical, as will be the case in the following analysis.
+For clarity, let $\ve{z}$ indicate an instance of the random vector $\ve{Z} = \tr{(Z_1, Z_2, \dots, Z_M)}$. Let the random vector $\ve{Z}$ follow the distribution of the summarized values $\ve{z}$ in a particular population. This population may be real, as is the case when this modelling is used in practice, or purely hypothetical, as will be the case in the following analysis.
 
 Return to the annotated matrix $\m{T}$ and consider two markers at row indices $j$ and $k$. Introduce $\ve{c}$, which is defined similarly to $\ve{h}$ earlier, but now indicates chromosomal membership for the markers in $\m{T}$ rather than the base pairs in $\m{G}$. As individual markers are not split over chromosomes, $\ve{c}$ is always unambiguously defined.
 
-There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, the assumptions of Section \ref{subsec:modelcrossing} dictate that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently alongside their respective chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in cM in Equation \ref{eq:haldanemap}. Denote the alleles of $j$ with $A$ and $a$ respectively and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that we can ignore all other markers on this chromosome in our analysis. Under this setting, we may consider a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
+There are two cases. Either $j$ and $k$ are on the same chromosome, that is $c_j = c_k$, or they are not, and so $c_j \neq c_k$. If these markers are not on the same chromosome, the assumptions of Section \ref{subsec:modelcrossing} dictate that there will be no correlation between $Z_j$ and $Z_k$, as these markers will assort independently alongside their respective chromosomes. If they are on the same chromosome, let $d(j,k) = d$ be the distance between them measured in cM as in Equation \ref{eq:haldanemap}. Denote the alleles of $j$ with $A$ and $a$ respectively and use $B$ and $b$ analogously for $k$. Assume that the pairwise association of these markers in the population is of interest, i.e. that all other markers on this chromosome can be ignored in analysis. This setting creates a radically simplified $\m{T}$, with 2 rows rather than $M$ and taking the form
 $$\m{T} = \begin{bmatrix}
   A & a \\
   b & B \\
@@ -357,126 +286,146 @@ $$\m{X} = \begin{bmatrix}
   x_{j1} & x_{j2} \\
   x_{k1} & x_{k2} \\
 \end{bmatrix},$$
-with all entries in $\{0,1\}$. As was the case for $\ve{z}$, we can treat these lowercase entries as realizations of random variables $X_{rs}$, $r \in \{j,k\}, s \in \{1,2\}$. Consider $Cor(Z_j, Z_k)$ for the population resulting from an arbitrary cross of two parents. Then $\m{X}$ implies a $\ve{Z}$ of
+with all entries in $\{0,1\}$. As was the case for $\ve{z}$, these lowercase entries are realizations of random variables $X_{rs}$, $r \in \{j,k\}, s \in \{1,2\}$. Then $\m{X}$ implies a $\ve{Z}$ of
 $$\ve{Z} = \begin{bmatrix} Z_j \\ Z_k \end{bmatrix} = \begin{bmatrix}
   X_{j1} + X_{j2} \\
   X_{k1} + X_{k2} \\
-\end{bmatrix}.$$
-The mechanics of sexual reproduction outlined in Section \ref{subsec:crossingover} and the genotype of the parents crossed to create $\m{X}$ determine the distribution of $Z_j$ and $Z_k$. Recall $\m{M}$ and $\m{F}$ introduced alongside sexual reproduction. Introduce simplified, annotated forms of these matrices here to represent the paternal and maternal encodings
-$$\m{F}_X = \begin{bmatrix}
+\end{bmatrix}$$
+under the additive map. Consider $Corr(Z_j, Z_k)$ for a population resulting from the sexual reproduction of two known parents.
+The mechanics of sexual reproduction outlined in Section \ref{subsec:crossingover} and the genotype of the parents reproducing to create $\m{X}$ determine the distribution of $Z_j$ and $Z_k$.
+
+From the matrices $\m{M}$ and $\m{F}$ introduced alongside sexual reproduction, take simplified, annotated forms of these matrices to represent the paternal and maternal encodings at $j$ and $k$. Explicitly,
+\begin{equation} \label{eq:parEncs}
+  \m{F}_X = \begin{bmatrix}
   f_{j1} & f_{j2} \\
   f_{k1} & f_{k2} \\
-\end{bmatrix}, \text{ and }
+\end{bmatrix} \text{ and }
 \m{M}_X = \begin{bmatrix}
   m_{j1} & m_{j2} \\
   m_{k1} & m_{k2} \\
-\end{bmatrix},$$
-where all entries are once again in $\{0,1\}$. Begin by assuming that $\m{F}_X$ and $\m{M}_X$ are known constants. There are theoretical populations where this is true such as the $F_2$ intercross, where $f_{11} = m_{11} = f_{21} = m_{21} = 1$ and $f_{12} = m_{12} = f_{22} = m_{22} = 0$. Further assume that the variation in $\ve{Z}$ results purely from the recombination by crossing over and independent assortment.
+\end{bmatrix},
+\end{equation}
+where all entries are once again in $\{0,1\}$. Assume that $\m{F}_X$ and $\m{M}_X$ are known.\footnote{There are theoretical populations where this is true such as the $F_2$ intercross, where $f_{j1} = m_{j1} = f_{k1} = m_{k1} = 1$ and $f_{j2} = m_{j2} = f_{k2} = m_{k2} = 0$.} Additionally, introduce the difference matrix
+\begin{equation} \label{eq:diffMatrix}
+  \sm{\Delta} = \begin{bmatrix}
+    f_{j1} - f_{j2} & m_{j1} - m_{j2} \\
+    f_{k1} - f_{k2} & m_{k1} - m_{k2} \\
+  \end{bmatrix} := \begin{bmatrix}
+    \delta_{jF} & \delta_{jM} \\
+    \delta_{kF} & \delta_{kM}
+  \end{bmatrix}.
+\end{equation}
+This matrix will be useful in representing the correlation between $Z_j$ and $Z_k$.
+Finally, assume that the variation in $\ve{Z}$ results purely from recombination by crossing over and independent assortment.
 
 Begin with the expectation of $\ve{Z}$. Assuming no preferential inheritance of either variant, $X_{j1}$ is equally likely to be either $f_{j1}$ or $f_{j2}$ and so takes a uniform distribution over these two possibilities. A similar logic for all other entries in $\m{X}$ applies, and so
-\begin{equation*}
-  \begin{split}
-    E[\ve{Z}] & = {\begin{bmatrix}
+\begin{eqnarray}
+    E[\ve{Z}] & = & {\begin{bmatrix}
         E[X_{j1}] + E[X_{j2}] \\
         E[X_{k1}] + E[X_{k2}] \\
-      \end{bmatrix}} \\
-    & \\
-    & = {\frac{1}{2}\begin{bmatrix}
+      \end{bmatrix}} \nonumber\\
+    & & \nonumber\\
+    & = & {\frac{1}{2}\begin{bmatrix}
         f_{j1} + f_{j2} + m_{j1} + m_{j2} \\
         f_{k1} + f_{k2} + m_{k1} + m_{k2} \\
-      \end{bmatrix}}, \\
-  \end{split}
-\end{equation*}
+      \end{bmatrix}}, \nonumber
+\end{eqnarray}
 from which it follows
-\begin{equation*}
-  \begin{split}
-    Var(Z_j) & = E[(X_{j1} + X_{j2})^2] - E[Z_j]^2 \\
-    & \\ 
-    & = \frac{1}{4}\left [ (f_{j1} + m_{j1})^2 + (f_{j2} + m_{j1})^2 + (f_{j1} + m_{j2})^2 + (f_{j2} + m_{j2})^2 \right ] \\
-    & \hspace{0.5cm} - \frac{1}{4}(f_{j1} + f_{j2} + m_{j1} + m_{j2})^2. \\
-  \end{split}
-\end{equation*}
+\begin{eqnarray}
+    Var(Z_j) & = & E[(X_{j1} + X_{j2})^2] - E[Z_j]^2 \nonumber\\
+    & & \nonumber\\ 
+    & = & \frac{1}{4} \Big[ (f_{j1} + m_{j1})^2 + (f_{j2} + m_{j1})^2 + (f_{j1} + m_{j2})^2 + (f_{j2} + m_{j2})^2  - (f_{j1} + f_{j2} + m_{j1} + m_{j2})^2 \Big]. \nonumber
+\end{eqnarray}
 This can be simplified to give
-\begin{equation} \label{eq:z1var}
-  Var(Z_j) = \frac{1}{4} \left [ (f_{j1} - f_{j2})^2 + (m_{j1} - m_{j2})^2 \right ].
-\end{equation}
+\begin{eqnarray} 
+  Var(Z_j) & = & \frac{1}{4} \left [ (f_{j1} - f_{j2})^2 + (m_{j1} - m_{j2})^2 \right ] \nonumber \\
+  & & \nonumber \\
+  & = & \frac{1}{4} \left [ \delta_{jF}^2 + \delta_{jM}^2 \right ]. \label{eq:z1var}
+\end{eqnarray}
 Analogously,
 \begin{equation} \label{eq:z2var}
-  Var(Z_k) = \frac{1}{4} \left [ (f_{k1} - f_{k2})^2 + (m_{k1} - m_{k2})^2 \right ].
+  Var(Z_k) = \frac{1}{4} \left [ \delta_{kF}^2 + \delta_{kM}^2 \right ].
 \end{equation}
 Considering the covariance:
-\begin{equation} \label{eq:covstep1}
-  \begin{split}
-    Cov(Z_j, Z_k) & = Cov(X_{j1} + X_{j2}, X_{k1} + X_{k2}) \\
-    & \\
-    & =  Cov(X_{j1}, X_{k1}) + Cov(X_{j1}, X_{k2}) + Cov(X_{j2}, X_{k1}) + Cov(X_{j2}, X_{k2}). \\
-  \end{split}
-\end{equation}
+\begin{eqnarray} 
+    Cov(Z_j, Z_k) & = & Cov(X_{j1} + X_{j2}, X_{k1} + X_{k2}) \nonumber\\
+    & & \nonumber \\
+    & = & Cov(X_{j1}, X_{k1}) + Cov(X_{j1}, X_{k2}) + Cov(X_{j2}, X_{k1}) + Cov(X_{j2}, X_{k2}). \label{eq:covstep1}
+\end{eqnarray}
 So the covariance is re-expressed as a sum of four terms, each of which can be considered in turn.
 
-This can be further simplified by considering $Cov(X_{j1}, X_{k2})$ and $Cov(X_{j2}, X_{k1})$. Both of these terms measure the covariance between values on the diagonals of $\m{X}$, that is the covariance between the maternally and paternally donated variants of the genome inherited from $\m{F}_X$ and $\m{M}_X$, respectively. These covariances therefore measure the amount of \emph{inbreeding} in a population, that is the degree to which parents tend to have the same genotype. In settings with unknown parents or when a population is being considered \cite{crowkimura1970intro} quantify these covariances with the coefficient $r$. With known parents, as in our case, these diagonal values are independent of each other and therefore uncorrelated. This can be confirmed by tedious algebra. Explicitly, $Cov(X_{j1}, X_{k2}) = Cov(X_{j2}, X_{k1}) = 0$. 
+$Cov(X_{j1}, X_{k2})$ and $Cov(X_{j2}, X_{k1})$ can be evaluated immediately. Both of these terms measure the covariance between values on the diagonals of $\m{X}$, that is the covariance between the maternally and paternally donated variants of the genome inherited from $\m{F}$ and $\m{M}$, respectively. These covariances therefore measure the amount of \emph{inbreeding} in a population, that is the degree to which parents tend to have the same genotype. \cite{crowkimura1970intro} quantify these covariances with a coefficient $r$ for general populations. With known parents, as in this case, these diagonal values are independent of each other and therefore uncorrelated. This can be confirmed by tedious algebra. Explicitly, $Cov(X_{j1}, X_{k2}) = Cov(X_{j2}, X_{k1}) = 0$. 
 
-The second pair of terms, $Cov(X_{j1}, X_{k1})$ and $Cov(X_{j2}, X_{k2})$, measure the covariance of encodings on the same variant, and so cannot be so easily dismissed. Instead, consider $Cov(X_{j1}, X_{k1})$ and expand:
+$Cov(X_{j1}, X_{k1})$ and $Cov(X_{j2}, X_{k2})$ measure the covariance of encodings on the same variant, and so cannot be so easily dismissed. Instead, consider $Cov(X_{j1}, X_{k1})$ and expand:
 $$Cov(X_{j1}, X_{k1}) = E[X_{j1} X_{k1}] - E[X_{j1}]E[X_{k1}].$$
 The equal probabiliy of inheritance of variants gives $E[X_{j1}] = \frac{1}{2}(f_{j1} + f_{j2})$ and $E[X_{k1}] = \frac{1}{2}(f_{k1} + f_{k2})$. Next consider $E[X_{j1} X_{k1}]$.
 
 There are four possible values of $X_{j1} X_{k1}$, corresponding to inheritance of either of the two parental variants with or without recombination. If no recombination occurs, an event with probability $1 - p_r(d)$, either $f_{j1} f_{k1}$ or $f_{j2} f_{k2}$ is inherited with equal probability. If a cross over between $j$ and $k$ leads to recombination, then either $f_{j1} f_{k2}$ or $f_{j2} f_{k1}$ is passed on with equal probability. Accounting for these four possibilities gives
-$$E[X_{j1} X_{k1}] = (1 - p_r(d)) \left ( \frac{1}{2} f_{j1} f_{k1} + \frac{1}{2} f_{j2} f_{k2} \right ) + p_r(d) \left ( \frac{1}{2} f_{j1} f_{k2} + \frac{1}{2} f_{j2} f_{k1} \right ).$$
+\begin{eqnarray}
+  E[X_{j1} X_{k1}] & = & (1 - p_r(d)) \left ( \frac{1}{2} f_{j1} f_{k1} + \frac{1}{2} f_{j2} f_{k2} \right ) + p_r(d) \left ( \frac{1}{2} f_{j1} f_{k2} + \frac{1}{2} f_{j2} f_{k1} \right ). \nonumber
+\end{eqnarray}
 Combining this with the expectations of $X_{j1}$ and $X_{k1}$ gives
-\begin{equation} \label{eq:covstep2}
-  \begin{split}
-    Cov(X_{j1}, X_{k1}) & = E[X_{j1} X_{k1}] - E[X_{j1}]E[X_{k1}] \\
-    & \\
-    & = (1 - p_r(d)) \left ( \frac{1}{2} f_{j1} f_{k1} + \frac{1}{2} f_{j2} f_{k2} \right ) + p_r(d) \left ( \frac{1}{2} f_{j2} f_{k1} + \frac{1}{2} f_{j1} f_{k2} \right ) \\
-    & \hspace{0.5cm} - \frac{1}{4} (f_{j1} + f_{j2})(f_{k1} + f_{k2}) \\
-    & \\
-    & = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (f_{j1}f_{k1} + f_{j2}f_{k2} - f_{j2}f_{k1} - f_{j1}f_{k2}) \\
-    & \\
-    & = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (f_{j1} - f_{j2})(f_{k1} - f_{k2}) .\\
-  \end{split}
-\end{equation}
-The same logic can be applied to $Cov(X_{j2}, X_{k2})$ to obtain
+\begin{eqnarray}
+    Cov(X_{j1}, X_{k1}) & = & E[X_{j1} X_{k1}] - E[X_{j1}]E[X_{k1}] \nonumber\\
+    & & \nonumber\\
+    & = & (1 - p_r(d)) \left ( \frac{1}{2} f_{j1} f_{k1} + \frac{1}{2} f_{j2} f_{k2} \right ) + p_r(d) \left ( \frac{1}{2} f_{j2} f_{k1} + \frac{1}{2} f_{j1} f_{k2} \right ) - \frac{1}{4} (f_{j1} + f_{j2})(f_{k1} + f_{k2}) \nonumber\\
+    & & \nonumber\\
+    & = & \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) \Big ( f_{j1}f_{k1} + f_{j2}f_{k2} - f_{j2}f_{k1} - f_{j1}f_{k2} \Big ) \nonumber\\
+    & & \nonumber\\
+    & = & \frac{ 1 - 2 p_r(d)}{4}  \delta_{jF} \delta_{kF}. \label{eq:covstep2}
+\end{eqnarray}
+The same logic gives
 \begin{equation} \label{eq:covstep3}
-  Cov(X_{j2}, X_{k2}) = \frac{1}{4} \left ( 1 - 2 p_r(d) \right ) (m_{j1} - m_{j2})(m_{k1} - m_{k2}).
+   Cov(X_{j2}, X_{k2}) = \frac{ 1 - 2 p_r(d)}{4}  \delta_{jM} \delta_{kM}.
 \end{equation}
 We obtain the covariance of $Z_j$ and $Z_k$ by adding the above and Equation \ref{eq:covstep1}. Substituting Equations \ref{eq:covstep2} and \ref{eq:covstep3} and $Cov(X_{j1}, X_{k2}) = Cov(X_{j2}, X_{k1}) = 0$ gives
 \begin{equation} \label{eq:cov}
-  Cov(Z_j, Z_k) = \frac{1}{4} (1 - 2 p_r(d)) \left [ (f_{j1} - f_{j2})(f_{k1} - f_{k2}) + (m_{j1} - m_{j2})(m_{k1} - m_{k2}) \right ].
+  Cov(Z_j, Z_k) = \frac{1 - 2 p_r(d)}{4} \Big [ \delta_{jF} \delta_{kF} + \delta_{jM} \delta_{kM} \Big ]. 
 \end{equation}
 Finally, Equations \ref{eq:z1var}, \ref{eq:z2var}, and \ref{eq:cov} can be combined to determine the correlation:
-\begin{equation} \label{eq:precorr}
-  \begin{split}
-    Corr(Z_j, Z_k) & = \frac{Cov(Z_j, Z_k)}{\sqrt{Var(Z_j) Var(Z_k)}}\\
-    & \\
-    & = \frac{ \frac{1}{4} (1 - 2 p_r(d)) \left [ (f_{j1} - f_{j2})(f_{k1} - f_{k2}) + (m_{j1} - m_{j2})(m_{k1} - m_{k2}) \right ] }{ \frac{1}{4} \sqrt{ \left [ (f_{j1} - f_{j2})^2 + (m_{j1} - m_{j2})^2 \right ] \left [ (f_{k1} - f_{k2})^2 + (m_{k1} - m_{k2})^2 \right ] }} \\
-    & \\
-    & = (1 - 2 p_r(d)) \frac{ (f_{j1} - f_{j2})(f_{k1} - f_{k2}) + (m_{j1} - m_{j2})(m_{k1} - m_{k2}) }{ \sqrt{ \left [ (f_{j1} - f_{j2})^2 + (m_{j1} - m_{j2})^2 \right ] \left [ (f_{k1} - f_{k2})^2 + (m_{k1} - m_{k2})^2 \right ] }} \\
-    & \\
-    & := (1 - 2 p_r(d)) \gamma .\\
-  \end{split}
+\begin{eqnarray} \label{eq:precorr}
+    & & \frac{Cov(Z_j, Z_k)}{\sqrt{Var(Z_j) Var(Z_k)}} \nonumber\\
+    & & \nonumber\\
+    & = & \frac{ (1 - 2 p_r(d)) \Big [ \delta_{jF} \delta_{kF} + \delta_{jM} \delta_{kM} \Big ] }{  \sqrt{ \big ( \delta_{jF}^2 + \delta_{jM}^2 \big ) \big ( \delta_{kF}^2 + \delta_{kM}^2 \big )}} \nonumber\\
+    & & \nonumber \\
+    & := & (1 - 2 p_r(d)) \gamma = Corr(Z_j, Z_k),
+\end{eqnarray}
+where
+\begin{equation} \label{eq:gammaDef}
+\gamma = \frac{ \Big [ \delta_{jF} \delta_{kF} + \delta_{jM} \delta_{kM} \Big ] }{  \sqrt{ \big ( \delta_{jF}^2 + \delta_{jM}^2 \big ) \big ( \delta_{kF}^2 + \delta_{kM}^2 \big )}}.
 \end{equation}
-So, the correlation is a product of $(1-2 p_r(d))$, which depends on the markers in question, and a factor $\gamma$, which depends on the parents being crossed. An even simpler expression is obtained by substituting the Haldane recombination probability from Equation \ref{eq:haldanemap} in place of $p_r(d)$:
-\begin{equation} \label{eq:corrdist}
-  \begin{split}
-    Corr(Z_j, Z_k) & = (1 - 2 p_r(d)) \gamma \\
-    & \\
-    & = \left ( 1 - 2 \left [ \frac{1}{2} \left ( 1 - e^{-2 \beta d} \right ) \right ] \right ) \gamma \\
-    & \\
-    & = \gamma e^{-2 \beta d}, \\
-  \end{split}
-\end{equation}
-and so using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(j,k)$ with an intercept $\gamma$ determined by the parents being crossed. Note that as $f_{rs}, m_{rs} \in \{0, 1\}$, the differences defining $\gamma$ are all either -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, though most of these are not unique. Indeed, across all 81 combinations
-$$\gamma \in \left \{-1, -\frac{1}{\sqrt{2}}, 0, \frac{1}{\sqrt{2}}, 1 \right \}.$$
-A number of population settings for $\gamma$ are of particular interest due to their use throughout history in mouse breeding experiments.
+So, the correlation is a product of $(1-2 p_r(d))$, which depends on the markers in question, and a factor $\gamma$, which depends on the known parents. An even simpler expression is obtained by substituting the Haldane recombination probability from Equation \ref{eq:haldanemap} in place of $p_r(d)$:
+\begin{eqnarray} \label{eq:corrdist}
+    Corr(Z_j, Z_k) & = & (1 - 2 p_r(d)) \gamma \nonumber\\
+    & & \nonumber\\
+    & = & \left ( 1 - 2 \left [ \frac{1}{2} \left ( 1 - e^{-2 \beta d} \right ) \right ] \right ) \gamma \nonumber\\
+    & & \nonumber\\
+    & = & \gamma e^{-2 \beta d},
+\end{eqnarray}
+and so using the Haldane map distance the correlation between $Z_j$ and $Z_k$ decays exponentially in $d(j,k)$ with an intercept $\gamma$ determined by the parents' annotated matrices. As the entries in $\m{M}_X$ and $\m{F}_X$ are all 0 or 1, the differences in $\sm{\Delta}$ are all -1, 0, or 1. There are therefore $3^4 = 81$ potential $\gamma$ values, though most of these are not unique. 17 of these are undefined, corresponding to cases where $Var(Z_j) = 0$ or $Var(Z_k) = 0$. Table \ref{tab:gammaSum} summarizes the frequency of different $\gamma$ values for the remaining 64 combinations.
+\begin{table}[!h]
+  \begin{center}
+  \begin{tabular}{rr} \hline
+    $\gamma$ & Frequency \\ \hline
+    $-1$ & 8 \\
+    $-\frac{1}{\sqrt{2}}$ & 16 \\
+    0 & 16 \\
+    $\frac{1}{\sqrt{2}}$ & 16 \\
+    1 & 8 \\ \hline
+  \end{tabular}
+  \caption{Frequency of $\gamma$ values across the 64 combinations for which correlation is defined} \label{tab:gammaSum}
+  \end{center}
+\end{table}
+Only five symmetrically-distributed values are possible. A number of population settings for $\gamma$ are of particular interest due to their use in mouse breeding experiments \cite{green1966}. These will be outlined individually.
 
-The first of these is the the \textit{$F_2$ intercross} design. \emph{Cross} here is short for sexual reproduction, not crossing over. This design considers the population resulting from the cross of $\m{M}_X$ and $\m{F}_X$ with
+The first of these is the the \textit{$F_2$ intercross} design. \emph{Cross} here is short for sexual reproduction, rather than crossing over. This design considers the population resulting from the cross of $\m{M}_X$ and $\m{F}_X$ with
 $$\m{F}_X = \m{M}_X = \begin{bmatrix}
   1 & 0 \\
   1 & 0 \\
 \end{bmatrix}.$$
-This corresponds to a setting where all the differences in $\gamma$ are 1 and so $\gamma_{\text{inter}} = 1$.
+In this setting all the differences in $\gamma$ are 1 and so $\gamma_{\text{inter}} = 1$.
 
-The next is the \textit{$F_2$ backcross}. Here we have a cross between $\m{M}_X$ and $\m{F}_X$ defined as
+The next is the \textit{$N_2$ backcross}. Here the cross is between $\m{M}_X$ and $\m{F}_X$ defined as
 $$\m{F}_X = \begin{bmatrix}
   f & f \\
   f & f \\
@@ -487,7 +436,7 @@ $$\m{F}_X = \begin{bmatrix}
 \end{bmatrix}.$$
 where $f \in \{0,1\}$. In this setting, both differences defined on $\m{F}_X$ are 0 while both of those defined on $\m{M}_X$ are 1. This gives $\gamma_{\text{back}} = 1$, the same as that of the intercross population.
 
-Other interesting cases without historical names involve
+Other interesting cases without historical basis involve
 $$\m{F}_X = \begin{bmatrix}
   0 & 1 \\
   1 & 0 \\
@@ -495,7 +444,7 @@ $$\m{F}_X = \begin{bmatrix}
   0 & 1 \\
   1 & 0 \\
 \end{bmatrix},$$
-as these can result in $\gamma < 0$, and so a negative correlation. For example, if we have
+as these can result in $\gamma < 0$, and so a negative correlation. For example, if
 $$\m{F}_X = \m{M}_X = \begin{bmatrix}
   0 & 1 \\
   1 & 0 \\
@@ -519,47 +468,14 @@ $$\m{F}_X = \begin{bmatrix}
 or
 $$\m{F}_X = \begin{bmatrix}
   0 & 1 \\
-  1 & 0 \\
-\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
   1 & 1 \\
+\end{bmatrix} \text{ and } \m{M}_X = \begin{bmatrix}
   0 & 0 \\
+  1 & 0 \\
 \end{bmatrix},$$
-for example.
+for example. Note that these negative values are somewhat arbitrary. The encoding of 1 or 0 for particular alleles at a marker is not prescribed, but is rather an analytical choice. Therefore in any of these cases the encoding could be switched to give a positive $\gamma$ of the same magnitude. 
 
-%However, the constraint that $f_{ij}, m_{ij} \in \{0, 1\}$ means that $\gamma$ can be rewritten slightly. Recognizing that the pairwise differences in Equation \ref{eq:precorr} are equivalent to indicators of inequality between terms. That is, $f_{11} - f_{12} = I_{f_{11} \neq f_{12}}$ and similarly for the other terms. $\gamma$ can be expressed as
-
-%$$\gamma =  \frac{ I_{f_{11} \neq f_{12}} I_{f_{21} \neq f_{22}} + I_{m_{11} \neq m_{12}}I_{m_{21} \neq m_{22}} }{ \sqrt{ \left ( I_{f_{11} \neq f_{12}} + I_{m_{11} \neq m_{12}} \right ) \left ( I_{f_{21} \neq f_{22}} + I_{m_{21} \neq m_{22}} \right ) }},$$
-
-%\noindent which, while not much easier to write, is conceptually clearer. The binary nature of each $f_{ij}$ and $m_{ij}$ leaves only 16 distinct crosses, and so 16 values of $\gamma$. These are enumerated in in Table \ref{tab:gamma}.
-
-%\begin{table}[!ht]
-%  \centering
-%  \caption{An enumeration of the possible values of the indicators and $\gamma$.}
-%  \label{tab:gamma}
-%  \begin{tabular}{|c c c c|c|} \hline
-%    $I_{f_{11} \neq f_{12}}$ & $I_{f_{21} \neq f_{22}}$ & $I_{m_{11} \neq m_{12}}$ & $I_{m_{21} \neq m_{22}}$ & $\gamma$ \\ \hline
-%    0 & 0 & 0 & 0 & 0 \\ \hline
-%    0 & 0 & 0 & 1 & 0 \\ \hline 
-%    0 & 0 & 1 & 0 & 0 \\ \hline
-%    0 & 0 & 1 & 1 & 1 \\ \hline
-%    0 & 1 & 0 & 0 & 0 \\ \hline
-%    0 & 1 & 0 & 1 & 0 \\ \hline
-%    0 & 1 & 1 & 0 & 0 \\ \hline
-%    0 & 1 & 1 & 1 & $1 / \sqrt{2}$ \\ \hline
-%    1 & 0 & 0 & 0 & 0 \\ \hline
-%    1 & 0 & 0 & 1 & 0 \\ \hline
-%    1 & 0 & 1 & 0 & 0 \\ \hline
-%    1 & 0 & 1 & 1 & $1 / \sqrt{2}$ \\ \hline
-%    1 & 1 & 0 & 0 & 1 \\ \hline
-%    1 & 1 & 0 & 1 & $1 / \sqrt{2}$ \\ \hline
-%    1 & 1 & 1 & 0 & $1 / \sqrt{2}$ \\ \hline
-%    1 & 1 & 1 & 1 & 1 \\ \hline
-%  \end{tabular}
-%\end{table}   
-
-%Surprisingly, many of the possible crosses admit a $\gamma$ value of zero, suggesting that for a slight majority of possible population designs, markers will be uncorrelated. A second critical observation is that, for the non-zero correlation populations, the structure is dictated by $1 - 2p_r(d)$, which may be modified by a factor of $\frac{1}{\sqrt{2}}$. This implies that the only relevant process for modelling correlation in this model is the probability of cross overs between given markers.
-
-Finally, these results can be extended to the whole genome. Recalling that $j$ and $k$ were restricted to be markers on the same chromosome, this pairwise result can be generalized to the correlation matrix of $\ve{Z}$ for the markers measured on an entire genome. For markers on the same chromosome correlations will be proportional to $1 - 2p_r(d)$, where $p_r(d)$ is the probability of recombination as a function of the distance between markers. Based on the independent assortment of different chromosomes, the correlations will be zero for any pair $j$ and $k$ not on the same chromosome.
+Finally, these results can be extended to the whole genome. Recalling that $j$ and $k$ were restricted to be markers on the same chromosome, this pairwise result can be generalized to the correlation matrix of $\ve{Z}$ for markers measured on different chromosomes. For markers on the same chromosome correlations will be proportional to $1 - 2p_r(d)$, where $p_r(d)$ is the probability of recombination as a function of the distance between markers. Based on the independent assortment of different chromosomes, the correlations will be zero for any pair $j$ and $k$ not on the same chromosome.
 
 In other words, if $c_j = c_k$, Equation \ref{eq:precorr} dictates the correlation between $Z_j$ and $Z_k$. On the other hand, if $c_j \neq c_k$ the correlation between $Z_j$ and $Z_k$ will be zero. This implies a block diagonal structure corresponding to the chromosomes with correlations dictated by the probability of recombination within each chromosome. Most generally
 \begin{equation} \label{eq:zcorr_gen}
@@ -572,16 +488,13 @@ and under the assumptions leading to the Haldane model Equation \ref{eq:corrdist
 
 \section{Simulating the model} \label{sec:sim}
 
-The correlation results of Equation \ref{eq:zcorr} are simulated by combining the model in Section \ref{sec:theModel} with the map distance derivation of Equation \ref{eq:haldanemap}. A structure which mirrors $\m{T}$ is first created. It consists of two columns of annotated biallelic markers which may be on separate chromosomes. Intra-chromosome distances for those on the same chromosome are specified together with a function to generate recombination probabilities given these distances. By default, these distances are cMs and probabilities are given by Equation \ref{eq:haldanemap}.
+The results of Equation \ref{eq:zcorr} are simulated by combining the model in Section \ref{sec:theModel} with the map distance derivation of Equation \ref{eq:haldanemap}. A structure which mirrors $\m{T}$ is first created. It consists of two columns of annotated biallelic markers which may be on separate chromosomes. Intra-chromosome distances for those on the same chromosome are specified together with a function to generate recombination probabilities given these distances. By default, these distances are cMs and probabilities are given by Equation \ref{eq:haldanemap}.
 
 A populaton can be generated from a pair of these matrices. For each individual offspring in the populuation, a few steps occur. First, cross overs are simulated using independently drawn Bernoulli random variables with probabilities given by the distances between markers. If a cross over occurs all intra-chromosomal rows of the parental matrix are swapped above the cross over index. Next the chromosomes of each offspring are selected from each parent independent of the selection of other chromosomes or the other parent. Simulating in this way creates dynamics consistent with the model in Section \ref{sec:theModel}. Each individual genome generated can then be encoded and summarized before the population-wide correlation matrix is computed.
 
-Previous literature motivates the particular simulation settings used here. \cite{cheverud2001} investigates the correlation between markers by simulating a single chromosome with equidistant markers. All combinations of chromosome lengths of 50, 75, and 100 cM with markers equidistant at 50, 25, 12.5, and 6.25 cM were simulated for populations of 500 $F_2$ intercross offspring. \cite{LanderBotstein1989} instead simulates twelve chromosomes of length 100 cM with markers every 20 cM along each for a population of 250 $F_2$ backcross offspring.
+Previous literature motivates the particular simulation settings used here. \cite{cheverud2001} investigates the correlation between markers by simulating a single chromosome with equidistant markers. All combinations of chromosome lengths of 50, 75, and 100 cM with markers equidistant at 50, 25, 12.5, and 6.25 cM were simulated for populations of 500 $F_2$ intercross offspring. \cite{LanderBotstein1989} instead simulates twelve chromosomes of length 100 cM with markers every 20 cM along each for a population of 250 $N_2$ backcross offspring.
 
-Departing from a reference to distances in cM or base pairs, \cite{LiJi2005} set their simulation scenarios using the genetic $r^2$ measure as defined in \cite{hillrobertson1968}, which is exactly Pearson's product moment correlation for the two by two contingency table case.
-%\begin{equation} \label{eq:rsq}
-%  r^2 = \frac{\left ( p_{AB} p_{ab} - p_{Ab} p_{aB} \right )^2}{{p_A (1 - p_A) p_B (1 - p_B)}} = \frac{\left ( p_{AB} - p_A p_B \right )^2}{p_A (1 - p_A) p_B (1 - p_B)},
-%\end{equation}
+Departing from a reference to distances in cM or base pairs, \cite{LiJi2005} set their simulation scenarios using the genetic $r^2$ measure as defined in \cite{hillrobertson1968}, which is exactly Pearson's product moment correlation for a two-by-two contingency table.
 This difference is meaningful, as \cite{siegmundyakir2007} note that $r^2$ is not constant over generations. After $k$ generations it is given by
 $$r_k^2 = \left [ 1 - p_r \right ]^{2k}  r^2_0$$
 for two markers with $r^2 = r^2_0$ initially and a probability of recombination of $p_r$. Unlike cM or base pairs, which are constant over generations, $r^2$ eventually goes to zero.
@@ -590,11 +503,11 @@ Nonetheless, \cite{LiJi2005} simulate 10 independent regions within each of whic
 
 The simulations of \cite{cheverud2001} and \cite{LanderBotstein1989} were recreated using the implementation detailed above. Specifically, these were the 100 cM chromosome with 6.25 cM separated markers of \cite{cheverud2001} and the twelve 100 cM chromosomes with 20 cM separated markers of \cite{LanderBotstein1989}. The resulting simulated correlation matrices and theoretical correlation matrices are visualized side by side using heatmaps in Figures \ref{fig:chevSims} and \ref{fig:LBSims}. In each heat map, the position of a square corresponds to the position of the corresponding correlation in the correlation matrix, and darker squares have a larger magnitude than lighter squares. Blue squares indicate negative correlation while red squares indicate a positive correlation.
 
-\begin{figure}[htp]
+\begin{figure}[h!]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.4\textwidth]{./img/chevSimTheory.png} &
-      \includegraphics[width = 0.4\textwidth]{./img/chevSim.png} \\
+      \includegraphics[scale=0.4]{./img/chevSimTheory.png} &
+      \includegraphics[scale=0.4]{./img/chevSim.png} \\
       {\footnotesize (a) Theoretical} &
       {\footnotesize (b) Simulated} \\
     \end{tabular}
@@ -603,76 +516,63 @@ The simulations of \cite{cheverud2001} and \cite{LanderBotstein1989} were recrea
   \label{fig:chevSims}
 \end{figure}
 
-Figure \ref{fig:chevSims}(a) displays a pattern of constant off-diagonal lines of decreasing value, as expected from Equation \ref{eq:haldanemap}. Roughly the same pattern is seen in Figure \ref{fig:chevSims}(b), though it is much noisier. Rather than having clear constant lines along each off-diagonal, Figure \ref{fig:chevSims}(b) has regions of similar values which occur across several off-diagonal lines. This leads to the appearance of large squares of more strongly related values, a pattern absent from Figure \ref{fig:chevSims}(a).
+Figure \ref{fig:chevSims}(a) displays a pattern of constant off-diagonal lines of decreasing value, as expected from Equation \ref{eq:haldanemap}. Roughly the same pattern is seen in Figure \ref{fig:chevSims}(b), though it is noisier. Rather than having clear constant lines along each off-diagonal, Figure \ref{fig:chevSims}(b) has regions of similar values which occur across several off-diagonal lines. This leads to the appearance of large squares of more strongly related values, a pattern absent from Figure \ref{fig:chevSims}(a).
 
-\begin{figure}[htp]
+\begin{figure}[h!]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.4\textwidth]{./img/LBSimTheory.png} &
-      \includegraphics[width = 0.4\textwidth]{./img/LBSim.png} \\
+      \includegraphics[scale=0.4]{./img/LBSimTheory.png} &
+      \includegraphics[scale=0.4]{./img/LBSim.png} \\
       {\footnotesize (a) Theoretical} &
       {\footnotesize (b) Simulated} \\
     \end{tabular}
   \end{center}
-  \caption{The correlation matrices of a population of 250 $F_2$ backcross offspring measured on twelve 100 cM chromosomes with markers 20 cM apart on each.}
+  \caption{The correlation matrices of a population of 250 $N_2$ backcross offspring measured on twelve 100 cM chromosomes with markers 20 cM apart on each.}
   \label{fig:LBSims}
 \end{figure}
 
-Figure \ref{fig:LBSims} displays the \cite{LanderBotstein1989} setting with the addition of guide lines to aid in reading the plot. These guide lines extend from labels on the top and left sides of the plot to indicate the chromosome of each marker. These lines create square borders along the diagonal which distinguish the intra-chromosome correlations within their borders from the inter-chromosome correlations outside of them. As suggested by Equation \ref{eq:haldanemap} and shown in Figure \ref{fig:LBSims}(a), Figure \ref{fig:LBSims}(b) has a stark block diagonal structure which agrees with these diagonal squares. The simulation therefore agrees very well with theory in this aspect. Within the chromosomes, there is also good agreement between Figure \ref{fig:LBSims}(a) and Figure \ref{fig:LBSims}(b). Both have decreasing correlations along the off-diagonal lines, with Figure \ref{fig:LBSims}(b) displaying similar departures from Figure \ref{fig:LBSims}(a) as Figure \ref{fig:chevSims}(b) does from Figure \ref{fig:chevSims}(a).
+Figure \ref{fig:LBSims} displays the setting of \cite{LanderBotstein1989} with the addition of guide lines to aid in reading the plot. These guide lines extend from labels on the top and left sides of the plot to indicate the chromosome of each marker. These lines create square borders along the diagonal which distinguish the intra-chromosome correlations within their borders from the inter-chromosome correlations outside of them. As suggested by Equation \ref{eq:haldanemap} and shown in Figure \ref{fig:LBSims}(a), Figure \ref{fig:LBSims}(b) has a stark block diagonal structure which agrees with these diagonal squares. The simulation therefore agrees very well with theory in this aspect. Within the chromosomes, there is also good agreement between Figure \ref{fig:LBSims}(a) and Figure \ref{fig:LBSims}(b). Both have decreasing correlations along the off-diagonal lines, with Figure \ref{fig:LBSims}(b) displaying similar departures from Figure \ref{fig:LBSims}(a) as Figure \ref{fig:chevSims}(b) does from Figure \ref{fig:chevSims}(a).
 
 A more interesting noise pattern is seen between chromosomes outside the blocks in Figure \ref{fig:LBSims}(b). Unlike the strictly positive correlations seen in Figure \ref{fig:chevSims}, both negative and positive correlations are observed. Though many chromosomes show consistent patterns between their markers, with all correlations either positive or negative as between chromosomes 9 and 6 or 11 and 12, many have more complicated relationships. Between chromosomes 7 and 3, for example, both negative and positive correlations are observed between markers which are larger than the smallest intra-chromosomal correlations within 2.
 
-%The patterns present in Figures \ref{fig:backsim} and \ref{fig:intersim} are exactly as expected from Section \ref{sec:correlation}. There is an almost perfect similarity between the backcross and intercross design, with only small local variations present between them, in particular for setting (a). All settings show a clear maximum along the main diagonal and a regular decay for off-diagonal elements. Indeed, setting (b) demonstrates how this decay is faster for more distantly spaced markers than nearer ones with its distinct fan pattern. Setting (c) additionally demonstrates the lack of correlation between different chromosomes with its striking block structure for both the backcross and the intercross.
+\subsection{Implementation}
 
-%Such simulations are a confirmation of the earlier analysis performed, but were much more time consuming than using the analytical results. This suggests that the current standard method of simulating large populations is a rather inefficient way of achieving the same result as the analytical prescription of Section \ref{sec:correlation}. Conveniently, the prescription ignores the particular setting: both the backcross and intercross behave identically when viewed through the lens of correlation.
+In order to make the above procedures repeatable, easily read, and flexible, the code for these simulations was implemented in \R using the S3 class system. The core construct was a class meant to reflect $\m{X}$.
 
-%\subsection{Implementation}
+Objects of the \code{genome} class are lists with two elements: \code{alleles} and \code{dists}. The \code{alleles} element is a list of two column matrices, where each matrix represents the value of $\m{X}$ for a particular chromosome. \code{dists} is a list of vectors of the same length as \code{alleles}. Each vector in \code{dists} gives the distances between the alleles in the corresponding element of \code{alleles}. A function called \code{abiogenesis} allows for the convenient creation of a genome through the specification of distances and allele values.
 
-%In order to make the above procedures repeatable, easily read, and flexible, the code for these simulations was implemented in \R using the S3 class system. The core construct was a class meant to reflect $\m{X}$.
+The function \code{sex} is then used to cross any pair of \code{genome} objects with the use of a \code{meiosis} helper function. \code{sex} accepts an arbitrary distance function which is passed to \code{meiosis} to convert the \code{dists} elements of the \code{genome}s into probabilities of crossing over. By default, the Haldane map distance conversion of Equation \ref{eq:haldanemap} is used. Random Bernoulli trials for each of these probabilities then determines the locations of cross over events, and sections of the columns of \code{alleles} are swapped accordingly.
 
-%Objects of the \code{genome} class are lists with two elements: \code{alleles} and \code{dists}. The \code{alleles} element is a list of two column matrices, where each matrix represents the value of $\m{X}$ for a particular chromosome. \code{dists} is a list of vectors of the same length as \code{alleles}. Each vector in \code{dists} gives the distances between the alleles in the corresponding element of \code{alleles}. A function called \code{abiogenesis} allows for the convenient creation of a genome through the specification of distances and allele values.
+The correlation of repeated swaps is then computed via \code{popCorrelation}. As the choice of scoring is at the discretion of the analyst, it accepts not only a list of \code{genome} objects representing the result of repeated crosses, but also a scoring function which accepts a single \code{genome} and returns a $\ve{z}$ value. By default, the additive scoring of $\ve{z} = \ve{x}_1 + \ve{x}_2$ is used.
 
-%The function \code{sex} is then used to cross any pair of \code{genome} objects with the use of a \code{meiosis} helper function. \code{sex} accepts an arbitrary distance function which is passed to \code{meiosis} to convert the \code{dists} elements of the \code{genome}s into probabilities of crossing over. By default, the Haldane map distance conversion of Equation \ref{eq:haldanemap} is used. Random Bernoulli trials for each of these probabilities then determines the locations of cross over events, and sections of the columns of \code{alleles} are swapped accordingly.
-
-%The correlation of repeated swaps is then computed via \code{popCorrelation}. As the choice of scoring is at the discretion of the analyst, it accepts not only a list of \code{genome} objects representing the result of repeated crosses, but also a scoring function which accepts a single \code{genome} and returns a $\ve{z}$ value. By default, the additive scoring of $\ve{z} = \ve{x}_1 + \ve{x}_2$ is used.
-
-%The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. 
+The score function generates the $\ve{z}$ values for each \code{genome} provided to \code{popCorrelation}, and correlations between the elements of these $\ve{z}$ are computed. Finally, the \code{image} wrapper \code{corrImg} displays a correlation matrix rearranged so that the main diagonal is consistent with the typical arrangement of correlation matrices. 
 
 \section{Comparing the model to reality} \label{sec:model2real}
 
 Though simulation confirms that population correlations generated under the model of Section \ref{sec:theModel} match the predictions of Equation \ref{eq:zcorr}, the true test of any model must involve empirical measurements. This requires data other than in \cite{LanderBotstein1989} and \cite{cheverud2001}, who only perform simulations.
 
-The Mouse Genome Database (MGD) of \cite{bultetal2019mouse} provides annotation data for more than a dozen mouse populations resulting from crosses of known breeds or \emph{strains}. The database also provides the references needed to determine cM distances between markers measured in these experiments. All of these resources are publicly provided at the Mouse Genome Informatics website: \href{www.informatics.jax.org}{www.informatics.jax.org}.
+The Mouse Genome Database (MGD) \cite{bultetal2019mouse} provides annotation data for more than a dozen mouse populations resulting from crosses of known breeds or \emph{strains}. The database also provides the references needed to determine cM distances between markers measured in these experiments. All of these resources are publicly provided at the Mouse Genome Informatics website: \href{www.informatics.jax.org}{www.informatics.jax.org}.
 
-Considering only those experiments with complete observations leaves several data sets. Two of these investigate an identical population setting: the \emph{BSB mouse cross} of \cite{fisleretal1993bsb}. BSB mice are those resulting from the $F_2$ backcross of the C57BL/6J and {\it Mus Spretus} mouse strains, detailed respectively in \cite{C57BL6J} and \cite{dejageretal2009mspretus}. The first of these crosses is the \emph{JAX BSB} cross of \cite{roweetal1994jaxbsb} and the second is the \emph{UCLA BSB} cross of \cite{welchetal1996uclabsb}. Both the JAX and UCLA BSB cross data were downloaded from \href{http://www.informatics.jax.org/downloads/reports/index.html}{http://www.informatics.jax.org/downloads/reports/index.html}.
-% The BSB cross was first introduced in \cite{fisleretal1993bsb} to investigate obesity and since used in research such as \cite{montagutellietal1996epistatic, cheverud2001, watkinsetal2008genomic}.
+Considering only those experiments with complete observations leaves several data sets. Two of these investigate an identical population setting: the \emph{BSB mouse cross} of \cite{fisleretal1993bsb}. BSB mice are those resulting from the $N_2$ backcross of the C57BL/6J and {\it Mus Spretus} mouse strains, detailed respectively in \cite{C57BL6J} and \cite{dejageretal2009mspretus}. The first of these crosses is the \emph{JAX BSB} cross of \cite{roweetal1994jaxbsb} and the second is the \emph{UCLA BSB} cross of \cite{welchetal1996uclabsb}. Both the JAX and UCLA BSB cross data were downloaded from the \href{www.informatics.jax.org/downloads/reports/index.html}{the Mouse Genome Database}.
 
 The data sets require further cleaning before being used, however. First, any markers which do not have a known position along a chromosome in cMs are removed from both data sets. Following that, any individual mice with incomplete data are excluded. For the JAX BSB data this leaves 94 mice annotated at 1496 markers while the UCLA BSB data has 66 mice annotated at 111 markers. The correlation matrices for these data sets are displayed in Figures \ref{fig:jaxbsb}(a) and \ref{fig:uclabsb}(a) respectively.
 
-\begin{figure}[htp]
+\begin{figure}[h!]
   \begin{center}
     \begin{tabular}{ccc}
-      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_sim.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_quant.png} \\
-      {\footnotesize (a) Experiment} &
-      {\footnotesize (b) Simulated example} &
-      {\footnotesize (c) Observed quantiles} \\                            
+      \includegraphics[scale = 0.26]{./img/jaxbsb.png} & \includegraphics[scale = 0.26]{./img/jaxbsb_sim.png} & \includegraphics[scale = 0.26]{./img/jaxbsb_quant.png} \\
+      {\footnotesize (a) Experiment} & {\footnotesize (b) Simulated example} & {\footnotesize (c) Observed quantiles}
     \end{tabular}
   \end{center}
   \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_JAX_BSB_Panel.rpt}{MGD JAX BSB cross} from \cite{roweetal1994jaxbsb}. (c) displays quantiles determined from 10,000 simulated crosses, those quantiles less than 250 are shaded blue and those greater than 9,750 are shaded red.}
   \label{fig:jaxbsb}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[h!]
   \begin{center}
     \begin{tabular}{ccc}
-      \includegraphics[width = 0.300\textwidth]{./img/uclabsb.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/uclabsb_sim.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/uclabsb_quant.png} \\
-      {\footnotesize (a) Experiment} &
-      {\footnotesize (b) Simulated example} &
-      {\footnotesize (c) Observed quantiles} \\
+      \includegraphics[scale = 0.26]{./img/uclabsb.png} & \includegraphics[scale = 0.26]{./img/uclabsb_sim.png} & \includegraphics[scale = 0.26]{./img/uclabsb_quant.png} \\
+      {\footnotesize (a) Experiment} & {\footnotesize (b) Simulated example} & {\footnotesize (c) Observed quantiles}
     \end{tabular}
   \end{center}
   \caption{Observed and simulated correlations for the \href{http://www.informatics.jax.org/downloads/reports/MGI_UCLA_BSB_Panel.rpt}{MGD UCLA BSB cross} from \cite{welchetal1996uclabsb}. (c) displays quantiles determined from 10,000 simulated crosses, those quantiles less than 250 are shaded blue and those greater than 9,750 are shaded red.}
@@ -683,109 +583,103 @@ To determine the expected distribution of these correlations, the cM positions o
 
 Qualitatively, the simulated examples show good agreement to experimental results. In both Figures \ref{fig:jaxbsb} and \ref{fig:uclabsb} the patterns of correlation between chromosomes are similar between experiment and simulation. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) additionally suggest that these patterns are little more than noise. The regions of unusually strong correlations shaded in red do not appear to follow any clear pattern, nor do the patterns of unusually weak correlations shaded in blue.
 
-The similarity continues within chromosomes. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) are generally not shaded within chromosomes. In particular, very little of the region close to the diagonal is shaded. The most noteworthy pattern in either sub-plot occurs in the corners of the diagonal squares indicating chromosomes in Figure \ref{fig:jaxbsb}(c). Many of these corners are shaded blue, suggesting these distant intra-chromosome correlations are less than might be expected in the JAX BSB cross in many cases. The pattern of shading is suggestive of block structures within chromosomes where contiguous sections are fit well by the model but may have more complex dynamics between them. 
+The similarity continues within chromosomes. Figures \ref{fig:jaxbsb}(c) and \ref{fig:uclabsb}(c) are generally not shaded within chromosomes. In particular, very little of the region close to the diagonal is shaded. The most noteworthy pattern in either sub-plot occurs in the corners of the diagonal squares indicating chromosomes in Figure \ref{fig:jaxbsb}(c). Many of these corners are shaded blue, suggesting these distant intra-chromosome correlations are less than might be expected. The pattern of shading is suggestive of block structures within chromosomes where contiguous sections are fit well by the model but may have more complex dynamics between them. 
 
-A likely explanation is the non-independence, or \emph{interference}, of cross overs. \cite{bromanetal2002crossover} evaluated the pattern of cross overs in the \cite{roweetal1994jaxbsb} experiment, the basis of the JAX BSB data. Their results suggest that cross overs are not fully independent. Most mouse chromosomes are much less than 100 cM in length, yet cross overs rarely occur within 20 cM of each other and fewer cross overs than expected tend to occur on the same chromosome. This interference will have little impact on the correlation between markers with short distances between them, as more than one cross over event is unlikely to occur in a short interval. Markers separated by longer distances are impacted by this observed interference to a greater extent, as the observed number of double cross overs will be less than expected. This increases chance that distant markers will be separated in meiosis by a single crossover, leading to a weaker correlation than predicted.
+A likely explanation is the non-independence, or \emph{interference}, of cross overs. \cite{bromanetal2002crossover} evaluated the pattern of cross overs in the cross of \cite{roweetal1994jaxbsb}, the basis of the JAX BSB data. Their results suggest that cross overs are not fully independent. Most mouse chromosomes are much less than 100 cM in length, yet cross overs rarely occur within 20 cM of each other and fewer cross overs than expected tend to occur on the same chromosome. This interference will have little impact on the correlation between markers with short distances between them, as more than one cross over event is unlikely to occur in a short interval. Markers separated by longer distances are impacted by this observed interference to a greater extent, as the observed number of double cross overs will be less than expected. This increases the chance that distant markers will be separated in meiosis by a single crossover, leading to a weaker correlation than predicted.
 
-That said, it is important not to over-interpret this pattern. It is not repeated in Figure \ref{fig:uclabsb} and the shading of quantiles has not been adjusted to account for the many multiple tests performed in each plot. In order to get a greater sense of this experimental departure from theory, the common markers measured between the UCLA BSB and JAX BSB data were identified and the correlation matrices computed for these common locations. Having two experimental replicates should reduce the impact of one unusual measurement. These correlations are displayed in Figure \ref{fig:bsbcommon}.
-\begin{figure}[htp]
+\begin{figure}[h!]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.300\textwidth]{./img/jaxbsb_common.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/uclabsb_common.png} \\
+      \includegraphics[scale = 0.35]{./img/jaxbsb_common.png} &
+      \includegraphics[scale = 0.35]{./img/uclabsb_common.png} \\
       {\footnotesize (a) JAX BSB data} &
-      {\footnotesize (b) UCLA BSB data} \\
+      {\footnotesize (b) UCLA BSB data}
     \end{tabular}
   \end{center}
-  \caption{Pairwise correlations for the common marker positions of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}.}
+  \caption{Pairwise correlations for the common marker positions of the JAX and UCLA BSB data.}
   \label{fig:bsbcommon}
 \end{figure}
-Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 have several.
 
-A more detailed exploration is given by further simulation. The common markers on chromosomes 2 and 4 were used to generate 10,000 simulated crosses of 80 mice, the average of the JAX and UCLA BSB cross populations. Correlation matrices were computed for each population. Additionally, 10,000 populations of each of the JAX and UCLA crosses were simulated independently, and the average of these correlation matrices computed for each pair. As the JAX and UCLA crosses were carried out far from each other years apart, these experiments are assumed to be independent.
+That said, it is important not to over-interpret this pattern. It is not repeated in Figure \ref{fig:uclabsb} and the shading of quantiles has not been adjusted to account for the many multiple tests performed in each plot. In order to get a greater sense of this experimental departure from theory, the common markers measured between the UCLA BSB and JAX BSB data were identified and the correlation matrices computed for these common locations. Having two experimental replicates should reduce the impact of one unusual measurement. These correlations are displayed in Figure \ref{fig:bsbcommon}. Most chromosomes have only one marker measured in common between these experiments, but chromosomes 2, 4, and 18 have several.
 
-For any pair of markers this gives two resulting distributions. One showing the distribution of correlation over repeated crosses and one showing the distribution of the correlations averaged across two populations. Both of these are compared to the JAX and UCLA data using the two-by-two layouts of Figure \ref{fig:2by2}.
-\begin{figure}[htp]
+These common markers motivated further simulation. The common markers on chromosomes 2, 4, and 18 were used to generate 10,000 simulated crosses of 80 mice, the average of the JAX and UCLA BSB cross populations. Correlation matrices were computed for each population. Additionally, 10,000 paired populations of each of the JAX and UCLA crosses were simulated independently, and the average of these correlation matrices computed for each pair. Independence was assumed because the experiments of \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb} were carried out years apart in different labs.
+
+\begin{figure}[h]
   \begin{center}
     \begin{tabular}{ccc}
-      \includegraphics[width = 0.25\textwidth]{./img/bsbCorr2by2.png} &
-      \includegraphics[width = 0.25\textwidth]{./img/bsbCorrTest2by2a.png} &
-      \includegraphics[width = 0.25\textwidth]{./img/bsbCorrTest2by2.png} \\
-      {\footnotesize (a) Distribution of correlations} &
-      {\footnotesize (b) JAX and BSB correlations against} &
-      {\footnotesize (c) JAX and BSB correlations against} \\
-      &
-      {\footnotesize simulated populations of 80} &
-      {\footnotesize paired populations of 66 and 94} \\
+      %\includegraphics[scale = 0.4]{../img/bsbCorr2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2.png} & \includegraphics[scale = 0.4]{../img/bsbCorrTest2by2a.png} \\
+      %{\footnotesize (a)} & {\footnotesize (b)} & {\footnotesize (c)} \\
+      \includegraphics[scale = 0.5]{./img/bsbCorr2by2.png} & \includegraphics[scale = 0.5]{./img/bsbCorrTest2by2.png} & \includegraphics[scale = 0.5]{./img/bsbCorrTest2by2a.png} \\
+      {\footnotesize (a) Correlation and distribution} & {\footnotesize (b) Mean quantile and distribution} & {\footnotesize (c) Mean quantile and mean distribution}
     \end{tabular}
   \end{center}
-  \caption{The pairwise units used to construct the correlation distribution and correlation test plots.}
+  \caption{The pairwise units of the correlation distribution and correlation test plots. (a) and (b) are based on 10,000 simulated populations of 80 individuals while (c) uses the means of 10,000 pairs of populations of 66 and 94.}
   \label{fig:2by2}
 \end{figure}
+
+For any pair of markers this gives two resulting distributions. One of the correlation over repeated crosses of an averaged population size and one showing the distribution of the correlations averaged across repeated crosses in two paired populations. Both of these are compared to the JAX and UCLA data using the two-by-two layouts of Figure \ref{fig:2by2}.
 Each subplot of Figure \ref{fig:2by2} consists of four cells. Along the diagonal, each cell provides one MGD marker symbol to display the pair of markers being compared, in this case Nppa and D4Mit14. Above the diagonal a distribution is displayed, in all cases the kernel density estimate (KDE) of the distribution of interest. Below the diagonal a numeric summary with some informative shading is displayed.
 
-Figure \ref{fig:2by2}(a) displays the KDE on a plot reflecting the range of possible correlations in the upper cell. The solid black line in this cell is drawn at the theoretical value predicted by Equation \ref{eq:haldanemap} and the dashed red line at the mean over all simulations. The lower cell reports the mean value of these correlations shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
+The upper cell of Figure \ref{fig:2by2}(a) displays the KDE of the averaged population size data on a plot reflecting the range of possible correlations. A solid black line in this cell is drawn at the theoretical value predicted by Equation \ref{eq:haldanemap} and a dashed red line at the mean correlation across all simulations. The lower cell reports this mean shaded with the divergent palette of Figures \ref{fig:chevSims} to \ref{fig:bsbcommon}.
 
-Figure \ref{fig:2by2}(b) displays the KDE in more detail by placing it in a plot with limits set by the estimate in the upper cell. Two solid lines are added at the correlations computed from the JAX and UCLA BSB data and a thicker red line is added at their mean, below which the density is shaded. The lower cell of Figure \ref{fig:2by2}(b) communicates the quantile of this red line, that is how many simulated correlations fall in the shaded region. As in Figures \ref{fig:uclabsb} and \ref{fig:jaxbsb}, this cell is shaded blue if the quantile is less than 250 and red if it is greater than 9,750.
+Figure \ref{fig:2by2}(b) displays this KDE in more detail by changing the bounds of the upper cell. Two solid lines are added at the correlations computed from the JAX and UCLA BSB data and a thicker red line is added at their mean, below which the density is shaded. The lower cell of Figure \ref{fig:2by2}(b) communicates the quantile of this red line, that is how many simulated correlations fall in the shaded region. As in Figures \ref{fig:uclabsb} and \ref{fig:jaxbsb}, this cell is shaded blue if the quantile is less than 250 and red if it is greater than 9,750.
 
-Figure \ref{fig:2by2}(c) is identical to \ref{fig:2by2}(b), but with a more appropriate KDE. To model the distribution of the mean of the JAX and UCLA correlations for a marker, 10,000 independent BSB crosses of both 66 and 94 mice were simulated. For each independent pair, the correlation is computed on both populations and averaged. This gives 10,000 realizations of the average correlation of the JAX and UCLA data under the model and so a more appropriate quantile value. Additional information is encoded by line type. The JAX correlation is marked with a dashed line while the UCLA data is marked with a dot-dashed line.
+Figure \ref{fig:2by2}(c) is identical to \ref{fig:2by2}(b), but with a more appropriate KDE. To model the distribution of the mean of the JAX and UCLA correlations for a pair of markers, 10,000 independent BSB crosses of both 66 and 94 mice were simulated. For each independent pair, the correlation is computed on both populations and averaged. This gives 10,000 realizations of the average correlation of the JAX and UCLA data under the model. Additional information is encoded by line type. The JAX correlation is marked with a dashed line while the UCLA data is marked with a dot-dashed line.
 
-Figure \ref{fig:2by2} facilitates a critical assessment of the model's fit for Nppa and D4Mit4. Figure \ref{fig:2by2}(a) reiterates the close agreement of simulation and theory: the simulated mean and the theoretical value are both at 0.95. Across all simulations, the KDE shows universally strong, positive correlations above 0.5. The experimental values do not seem out of the ordinary range of these simulated correlations in Figure \ref{fig:2by2}(b), nor does their mean. This suggests the model works well for this pair. Figure \ref{fig:2by2}(c) reinforces this conclusion. The quantile of the mean is near the centre to the distribution of analogous means of paired, independent populations.
+Figure \ref{fig:2by2} suggests the model fits well for Nppa and D4Mit4. Figure \ref{fig:2by2}(a) reiterates the close agreement of simulation and theory: the simulated mean and the theoretical value are both at 0.95. Across all simulations, the KDE shows universally strong, positive correlations above 0.5. The experimental values do not seem out of the ordinary range of these simulated correlations in Figure \ref{fig:2by2}(b), nor does their mean. This suggests the model works well for this pair. Figure \ref{fig:2by2}(c) reinforces this conclusion. The quantile of the mean is near the centre to the distribution of analogous means of paired, independent populations.
 
-The subplots of Figure \ref{fig:2by2} are expanded into larger displays by adding more markers along the diagonal, treating the original subplots as single pairwise units repeated over the larger array. Expanding to include all common markers on chromosomes 2 and 4 between the JAX and UCLA BSB data gives an eight by eight matrix. Along the diagonal, all eight marker symbols are displayed. For any cell, the corresponding pair of markers is found by tracing along its row and column until the diagonal is reached. Interpretation then follows as in the two-by-two case. In an array, the pattern across all markers can be seen at a glance, especially in the lower cells, which can then guide the inspection of specific pairs in more detail. Such an expansion of Figure \ref{fig:2by2}(a) gives the \emph{correlation distribution plot} of Figure \ref{fig:bsbcorrDist}, while for Figure \ref{fig:2by2}(c) the \emph{correlation test plot} of Figure \ref{fig:bsbcorrTest} results.
-
-\begin{figure}[htp]
+\begin{figure}[h]
   \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrDist.png}
+      \includegraphics[scale = 0.5]{./img/bsbCorrDist.png}
   \end{center}
   \caption{The \emph{correlation distribution plot} for 10,000 simulated BSB crosses of the common markers on chromosomes 2 and 4 in the JAX and UCLA data.}
   \label{fig:bsbcorrDist}
 \end{figure}
 
-In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are generally symmetric and unimodal with centres at the theoretical correlation. Indeed, the means of simulated correlations agree with theory to two decimals for all pairwise correlations. The shape and spread of the distribution of correlations seems highly dependent on the proximity of a pair of markers. Markers which are close together in cM and have a high correlation display very little variation across the simulations relative to markers which are further apart on the same chromosome or are on different chromosomes. Additionally, the KDEs of the close markers have separate peaks and roughness indicative of clusters of correlation values. Figure \ref{fig:bsbcorrTest} shows this as well, but it has been smoothed somewhat by averaging.
+The subplots of Figure \ref{fig:2by2} are expanded into larger displays by adding more markers along the diagonal so the original subplots become pairwise units repeated over a larger array. Expanding to include all common markers on chromosomes 2 and 4 between the JAX and UCLA BSB data gives an eight by eight matrix. Along the diagonal, all eight marker symbols are displayed. For any cell, the corresponding pair of markers is found by tracing along its row and column until the diagonal is reached. Interpretation then follows as in the two-by-two case. In an array, the pattern across all markers can be seen at a glance, especially in the lower cells, which can then guide the inspection of specific pairs in more detail. Such an expansion of Figure \ref{fig:2by2}(a) gives the \emph{correlation distribution plot} of Figure \ref{fig:bsbcorrDist}, while for Figure \ref{fig:2by2}(c) the \emph{correlation test plot} of Figure \ref{fig:bsbcorrTest} results.
 
-\begin{figure}[htp]
+\begin{figure}[h]
   \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTest.png}
+      \includegraphics[scale = 0.5]{./img/bsbCorrTest.png}
   \end{center}
-  \caption{The \emph{correlation test plot} for the JAX and UCLA BSB crosses. The upper cells show the distribution of 10,000 simulated averaged correlations between the JAX and UCLA BSB crosses. The experimental results are marked by black lines and their mean marked by a red line. The dashed line presents the  The bottom cells give the quantile of the corresponding mean over the 10,000 simulated crosses.}
+  \caption{The \emph{correlation test plot} for the JAX and UCLA BSB crosses. The upper cells show the distribution of 10,000 simulated averaged correlations between the JAX and UCLA BSB crosses. The experimental results are marked by black lines and their mean marked by a red line. The bottom cells give the quantile of the corresponding mean over the 10,000 simulated crosses.}
   \label{fig:bsbcorrTest}
 \end{figure}
 
-Of the twenty eight lower cells, six are shaded. The first of these, between markers D2Mit22 and a, is perhaps misleading. The observed quantiles are computed by counting the values less than or equal to that observed, but this pair has an observed mean correlation of 1. It is therefore necessarily larger than or equal to all other mean correlations, despite having an identical correlation as 291 simulated means. This shading should therefore be ignored, as the value is not so unusual.
+In Figure \ref{fig:bsbcorrDist}, the distributions of simulated correlations are generally symmetric and unimodal with centres at the theoretical correlation. Indeed, the means of simulated correlations agree with theory to two decimals for all pairwise correlations. The shape and spread of the distribution of correlations seems highly dependent on the proximity of a pair of markers. Markers which are close together in cM and have a high correlation display very little variation across the simulations relative to markers which are further apart on the same chromosome or are on different chromosomes. Additionally, the KDEs of the close markers have separate peaks and roughness indicative of clusters of correlation values. Figure \ref{fig:bsbcorrTest} shows this as well, but it has been smoothed somewhat by averaging.
 
-All of the remaining shaded cells, with lower correlations than expected, involve chromosome 4 alone. Moreoever, the black lines showing the independent experimental observations for these pairwise correlations are much less variable than other cells. They are almost identical between experiments. It was noted earlier in the discussing of Figure \ref{fig:jaxbsb} that the model used to compute these correlations does not account for cross over interference. The consistent departure of markers on chromosome 4 from the expectations of the model therefore suggests that chromosome 4 may experience stronger cross over intereference. This hypothesis is bolstered when chromosome 18 is added in Figure \ref{fig:bsbcorrTestBig}.
+Of the twenty eight lower cells of Figure \ref{fig:bsbcorrTest}, six are shaded. The first of these, between markers D2Mit22 and a, is perhaps misleading. The observed quantiles are computed by counting the values less than or equal to that observed, but this pair has an observed mean correlation of 1. It is therefore necessarily larger than or equal to all other mean correlations, despite having an identical value as 291 simulated means. This shading should therefore be ignored, as the value is not so unusual.
 
-\begin{figure}[htp]
+All of the remaining shaded cells, with lower correlations than expected, involve chromosome 4 alone. Moreoever, the lines showing the independent experimental observations for these pairwise correlations in tbe JAX and UCLA data are much less variable than other cells. They are almost identical between experiments. This consistent departure of markers on chromosome 4 from the expectations of the model therefore suggests that chromosome 4 may experience stronger cross over intereference than chromosome one. This hypothesis is bolstered when chromosome 18 is added in Figure \ref{fig:bsbcorrTestBig}.
+
+\begin{figure*}[htp]
   \begin{center}
-      \includegraphics[width = 0.7\textwidth]{./img/bsbCorrTestBig.png}
+      \includegraphics[scale = 0.5]{./img/bsbCorrTestBig.png}
   \end{center}
   \caption{Adding chromosome 18's three common markers to Figure \ref{fig:bsbcorrTest}.}
   \label{fig:bsbcorrTestBig}
-\end{figure}
+\end{figure*}
 
-It is harder to read the cells with chromosome 18 added, but only one cell within chromosome 18 is shaded. The shaded pair, D18Mit14 and D18Mit33, does not show the close agreement over experiments as do the significant pairs of chromosome 4. Chromosome 4 is therefore noteworthy for the poorer fit of the model to its correlations and the consistency of these correlations over independent experiments.
+While it is harder to read the cells with chromosome 18 added, only one cell within chromosome 18 is shaded. The shaded pair, D18Mit14 and D18Mit33, does not show the close agreement over experiments as does chromosome 4. Chromosome 4 is therefore noteworthy for the poorer fit of the model to its correlations and the consistency of these correlations over independent experiments.
 
 This demonstrates the value of the correlation test plot in Figure \ref{fig:bsbcorrTest} as a diagnostic. Repeated simulation under a model with no interference is used to create the distributions seen in the upper cells. Any departure from these distributions, especially a consistent departure over multiple experiments, shows where this model is inadequate. This suggests that these regions may have more cross over interference or generally more complex dynamics than others where the model fits well, and may be a priority for future measurement or research into more complicated inheritance patterns.
 
 \subsection{The impact of cross overs on correlation} \label{subsec:corrCountCO}
 
-Another complexity is the roughness noted in Figure \ref{fig:bsbcorrDist} and repeated to a lesser extent in Figure \ref{fig:bsbcorrTest}. In particular the pairs D2Mit22/a and Nppa/D4Mit14 seem to cluster around the same seven values across the population in Figure \ref{fig:bsbcorrDist}. This suggests the correlations for highly associated markers take several discrete values in a population. This is confirmed in Figure \ref{fig:discrete} with a KDE and bar plot of correlations between Nppa and D4Mit14 placed side-by-side.
+Another noteworthy feature is the roughness seen in Figure \ref{fig:2by2}(b) and repeated to a lesser extent in Figure \ref{fig:2by2}(c). A close inspection of the pairs D2Mit22/a and Nppa/D4Mit14 reveals that both seem to cluster around the same seven values across repeated simulation. This suggests the correlations for highly associated markers take several discrete values in a population. Figure \ref{fig:discrete} shows that the correlation distribution is much more complicated with a KDE and bar plot of correlations between Nppa and D4Mit14 across the 10,000 simulated populations of average size.
 
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.300\textwidth]{./img/strngDen.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/strngBarNoCol.png} \\
-      {\footnotesize (a) KDE} &
-      {\footnotesize (b) Bar plot} \\
+      \includegraphics[scale = 0.5]{./img/strngDen.png} & \includegraphics[scale = 0.5]{./img/strngBarNoCol.png} \\
+      {\footnotesize (a) KDE} & {\footnotesize (b) Bar plot}
     \end{tabular}
   \end{center}
   \caption{The distribution of the correlation between markers Nppa and D4Mit14 over 10,000 simulated BSB crosses.}
   \label{fig:discrete}
 \end{figure}
 
-The bar plot in Figure \ref{fig:discrete}(b) places lines with lengths proportional to the number of observed correlations with a given correlation at the corresponding point on the horizontal axis. Seven clear clusters are visible, and a handful of lines suggest a potential eighth. The first of these from the right is at 1, and is a single line rather than a collection of lines. The peaks of each of the following groups of lines correspond to the peaks in Figure \ref{fig:discrete}(a). This intriguing pattern can be explained by the features of the backcross being simulated and the equation for sample correlation.
+The bar plot in Figure \ref{fig:discrete}(b) places lines with lengths proportional to the number of simulated populations with a given correlation at the corresponding point on the horizontal axis. Seven clear clusters are visible, and a handful of lines suggest a potential eighth. The first of these from the right is at 1, and is a single line rather than a collection of lines. The peaks of each of the following groups of lines correspond to the peaks in Figure \ref{fig:discrete}(a). This intriguing pattern can be explained by the features of the backcross being simulated and the equation for sample correlation.
 
 Recall that these correlations result from the simulation of the BSB cross, a specific backcross. In general, the backcross of the marker summaries $Z_j$ and $Z_k$ under the additive map can be modelled by the sexual reproduction of the annotated matrices
 $$\m{F}_X = \begin{bmatrix}
@@ -796,53 +690,70 @@ $$\m{F}_X = \begin{bmatrix}
   1 & 0 \\
   1 & 0 \\
 \end{bmatrix}.$$
-Without loss of generality, take $f = 1$. In the absence of cross overs there are only two possible values for $\ve{z}$: $\tr{(1,1)}$ and $\tr{(2,2)}$. Both of these values of $\ve{z}$ are equally likely, as the inherited variants are independently donated by each parent. Regardless of which is inherited, $Z_{ij} = Z_{ik}$ for all of the offspring indexed by $i$ in a population of $n$ without cross overs. The correlation, given by
+Without loss of generality, take $f = 1$. In the absence of cross overs there are only two possible values for $\ve{z}$: $\tr{(1,1)}$ and $\tr{(2,2)}$. Both of these values of $\ve{z}$ are equally likely, as the inherited variants are independently donated by each parent. Regardless of which is inherited, $Z_{ij} = Z_{ik}$ for all of the offspring indexed by $i$ in a population of $n$ without cross overs. The observed sample correlation, given by
 \begin{equation} \label{eq:sampleCorr}
-Corr(Z_j, Z_k) = \frac{\sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j} \bar{z}_{k}}{\sqrt{ \left ( \sum_{i = 1}^n z_{ij}^2 - n \bar{z}_{j}^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}
+\frac{\sum_{i = 1}^n z_{ij} z_{ik} - n \bar{z}_{j} \bar{z}_{k}}{\sqrt{ \left ( \sum_{i = 1}^n z_{ij}^2 - n \bar{z}_{j}^2 \right ) \left ( \sum_{i = 1}^n z_{ik}^2 - n \bar{z}_{k}^2 \right )}}
 \end{equation}
 where $\bar{z}_l = \frac{1}{n} \sum_{i = 1}^n z_{il}$, is therefore always 1.
 
-Suppose $m$ cross overs occur and are inherited by the last $m$ offspring. Then there are $m$ individuals in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. For simplicity, let all cross overs lead to $\ve{z} = \tr{(1,2)}$. Take $Z_k$ as the \emph{reference marker} and assume the individuals with $\ve{z} = \tr{(1,2)}$ would have been $\ve{z} = \tr{(2,2)}$ without a cross over. Let
-\begin{equation*} \label{eq:refCorr}
-Corr_{ref} := \frac{ s_{jk}^* - n \bar{z}_{j}^* \bar{z}_{k}^*}{\sqrt{ \left ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}
-\end{equation*}
-As we cannot have more cross overs under this simplification than the reference marker, we must have
-$$m \leq n(\bar{z}_k^* - 1).$$
-The symmetry of this problem, however, means that this does not limit the coverage of possible populations. With $m$ cross overs as modelled here, any sum over $z_{ij}$ in this equation will change.
+Suppose $m$ cross overs occur and are inherited by the last $m$ offspring. Then there are $m$ recombinant individuals in the population with $\ve{z} = \tr{(1,2)}$ or $\ve{z} = \tr{(2,1)}$. Let $m_{12}$ be the count of $\tr{(1,2)}$ and $m_{21}$ be the count of $\tr{(2,1)}$. Take $Z_k$ as the \emph{reference marker} and assume the recombinant individuals would have taken that value at both markers without a cross over. That is, assume $\tr{(2,1)}$ individuals would have been $\tr{(1,1)}$ and $\tr{(1,2)}$ would have been $\tr{(2,2)}$ without recombination. Let
+\begin{eqnarray} 
+  r^2_{\text{ref}} & := & \frac{ s_{jk}^* - n \bar{z}_{j}^* \bar{z}_{k}^*}{\sqrt{ \big ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \big ) \big ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \big )}} \label{eq:refCorr} \\
+  & = & \frac{\widehat{\sigma}^2_{jk}}{\sqrt{ \widehat{\sigma}^2_{jj} \widehat{\sigma}^2_{kk} }} = 1\nonumber
+\end{eqnarray}
+represent all quantities without recombination.
+As there cannot be more cross overs than the corresponding number present in the reference marker
+$$m_{12} \leq n(\bar{z}_k^* - 1) \text{ and}$$
+$$m_{21} \leq n(2 - \bar{z}_k^*).$$
+With $m = m_{12} + m_{21}$ recombinant individuals, the sums over $z_{ij}$ in Equation \ref{eq:refCorr} will change. Sums over $z_{ik}$ will not change, as these are the reference values.
 
-The sum $\sum_{i = 1}^n z_{ji}$ decreases by $m$ since each crossed over term goes from 2 to 1. Therefore, the product $n \bar{z}_{j}$ will also decrease by $m$. Similarly, the sum $\sum_{i = 1}^n z_{ij}^2$
-will decrease by $3m$ as each crossed over term goes from 4 to 1. Finally, the sum $\sum_{i = 1}^n z_{ji} z_{ki},$ will decrease by $2m$, as in the reference case the crossed over terms are 4, but are now 2. Together, these change Equation \ref{eq:refCorr} to
-\begin{equation*}
-  \begin{split}\frac{ \left ( s^*_{jk} - 2m \right ) - \left( n \bar{z}_{j}^* - m \right ) \bar{z}_{k}^*}{\sqrt{ \left ( \left [ s_{jj}^* - 3m \right ] -  n \left [ \bar{z}_{j}^* - \frac{m}{n} \right ]^2 \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
-    \\
-    = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{j}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}} \\
-    \\
-    = \frac{ \left ( s_{jk}^* - n \bar{z}_j^* \bar{z}_k^* \right ) - m \left( 2 - \bar{z}_{k}^* \right )}{\sqrt{ \left ( \left [ s_{jj}^* - n (\bar{z}_j^*)^2 \right ] - m \left [ 3 - 2 \bar{z}_{k}^* + \frac{m}{n} \right ] \right ) \left ( s_{kk}^* - n (\bar{z}_{k}^*)^2 \right )}}. \\
-  \end{split}
-\end{equation*}
-Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{..}$ by construction, this can be further simplified to
-\begin{equation} \label{eq:crossedCorr}
-Corr(Z_j, Z_k) = \frac{ \left ( s_{..} - n \bar{z}^2 \right ) - m \left( 2 - \bar{z}^2 \right )}{\sqrt{ \left ( s_{..} - n \bar{z}^2 \right )^2 - m \left ( 3 - 2 \bar{z} + \frac{m}{n} \right )  \left ( s_{..} - n \bar{z}^2 \right ) }}. \\
+The impact can be considered on a term-wise basis. $z_{ij}$ increases by 1 if recombination changes marker $j$ in individual $i$ from 1 to 2, and decreases by one if recombination changes $j$ from 2 to 1. $z_{ij}^2$ increases or decreases by 3 for each $i$ analogously. As $k$ is the reference marker, it is assumed $z_{ij} = z_{ik}$ before recombination. Therefore $z_{ij} z_{ik}$ decreases by 2 if recombination changes $j$ from 2 to 1, and increases by 1 if recombination changes $j$ from 1 to 2.
+
+This means that, given the recombinant counts $m_{21}$ and $m_{12}$,
+\begin{itemize}
+\item $n \bar{z}_{j}^*$ increases by $m_{21} - m_{12}$,
+\item $s_{jj}^*$ increases by $3 ( m_{21} - m_{12} )$, and
+\item $s_{jk}^*$ increases by $m_{21} - 2 m_{12}$.
+\end{itemize}
+The numerator of Equation \ref{eq:refCorr} consequently becomes
+\begin{eqnarray}
+  & \left ( s^*_{jk} + m_{21} - 2 m_{12} \right ) - \left( n \bar{z}_{j}^* + m_{21} - m_{12} \right ) \bar{z}_{k}^* \nonumber\\
+  & = \left ( s^*_{jk} - n \bar{z}_{j}^* \bar{z}_{k}^* \right ) + m_{21}(1 - \bar{z}_k^*) - m_{12} (2 - \bar{z}_{k}^*) \nonumber\\
+  & = \widehat{\sigma}_{jk}^2 + m_{21} (1 - \bar{z}_k^*) - m_{12}( 2 -  \bar{z}_{k}^*) \nonumber \\
+  & = \widehat{\sigma}_{jk}^2 + \delta_m (1 - \bar{z}_k^* ) - m_{12}     
+\end{eqnarray}
+while the variance at marker $j$ changes to
+\begin{eqnarray}
+  & \left ( s_{jj}^* + 3\delta_m \right ) -  n \left ( \bar{z}_{j}^* + \frac{\delta_m}{n} \right )^2 \nonumber \\
+  & = \left ( s_{jj}^* - n (\bar{z}_{j}^*)^2 \right ) + 3 \delta_m - 2 \bar{z}_{j}^* \delta_m -  \frac{\delta_m^2}{n} \nonumber \\
+  & = \widehat{\sigma}_{jj}^2 + \delta_m \left ( 3 - 2 \bar{z}_j^* - \frac{\delta_m}{n} \right )
+\end{eqnarray}
+where $\delta_m = m_{21} - m_{12}$. Equation \ref{eq:refCorr} therefore becomes
+\begin{equation}
+  \frac{\widehat{\sigma}_{jk}^2 + \delta_m (1 - \bar{z}_k^* ) - m_{12}}{\sqrt{ \widehat{\sigma}_{kk}^2 \Big [ \widehat{\sigma}_{jj}^2 + \delta_m \left ( 3 - 2 \bar{z}_j^* - \frac{\delta_m}{n} \right ) \Big ]}}.
 \end{equation}
-The correlation is thereby shown to be changed primarily by the number of cross overs, but that the extent of this change is dictated by the mean additive score of the reference marker, $\bar{z}_k^*$. As $\bar{z}_k^* \in [1, 2]$, cross overs will always decrease the correlation, though the magnitude of this decrease will depend on $\bar{z}_k^*$ in a non-linear fashion.
+Noting that $\bar{z}_j^* = \bar{z}_k^* := \bar{z}_{\text{ref}}$ and $s_{jj}^* = s_{kk}^* = s_{jk}^* := s_{\text{ref}}$ by construction, this can be further simplified to
+\begin{equation} \label{eq:crossedCorr}
+  \frac{ \sigma_{jk}^2 + \delta_m \left(1 - \bar{z}_{\text{ref}}^2 \right ) - m_{12}}{\sqrt{ \widehat{\sigma}_{kk}^2 \Big [ \widehat{\sigma}_{jj}^2 + \delta_m \left ( 3 - 2 \bar{z}_{\text{ref}} - \frac{\delta_m}{n} \right ) \Big ] }}. \\
+\end{equation}
+The correlation is thereby shown to be changed primarily by the number of recombinant individuals, but that the extent of this change is dictated by the mean additive score of the reference marker, $\bar{z}_{\text{ref}} = \bar{z}_k^*$. Inherited cross overs will always decrease the correlation, though the magnitude of this decrease will depend on $\bar{z}_k^*$ in a non-linear fashion.
 
-Using the above, the correlations were computed for the cases of zero, one, two, three, and four cross overs for a selection of seven mean additive scores. Figure \ref{fig:bardetail} displays these settings with coloured lines laid under the bar plot of Figure \ref{fig:discrete}(b).
+Using the above, the correlations were computed for the cases of zero, one, two, three, and four recombinant individuals in a population of 80 for a selection of seven mean additive scores. Figure \ref{fig:bardetail} displays these settings with coloured lines laid under the bar plot of Figure \ref{fig:discrete}(b).
 \begin{figure}[htp]
   \begin{center}
     \begin{tabular}{cc}
-      \includegraphics[width = 0.300\textwidth]{./img/strngBar.png} &
-      \includegraphics[width = 0.300\textwidth]{./img/strngBarClose.png} \\
-      {\footnotesize (a) Coloured by count of cross overs} &
-      {\footnotesize (b) One cross over coloured by mean score} \\
+      \includegraphics[scale = 0.6]{./img/strngBarLndscp.png} & % change to a landscape form, drop 1
+      \includegraphics[scale = 0.5]{./img/strngBarClose.png} \\
+      {\footnotesize (a) Barplot of simulated correlations coloured} & {\footnotesize (b) One recombinant individual} \\
+      {\footnotesize by number of recombinant individuals.} & {\footnotesize coloured by mean additive score} \\
+      {\footnotesize 15.6\% of populations had a correlation of one.} & \\
+
     \end{tabular}
   \end{center}
   \caption{The distribution of the correlation between markers Nppa and D4Mit14 over 10,000 simulated BSB crosses.}
   \label{fig:bardetail}
 \end{figure}
-These theoretical lines match the values observed in the simulated distribution exactly. As can be deduced from the form of Equation \ref{eq:crossedCorr}, the correlation is dominantly impacted by the number of cross overs, the mean additive score of the reference marker changes the correlation by small amounts in comparison.
-
-The set up of Equation \ref{eq:crossedCorr} also suggests a stochastic way to model backcross data without simulating complete crosses as done here. Let $C$ be a random variable giving the count of cross overs in the population of size $n$. Then $C$ is binomially distributed with parameters $p_r(d)$ and $n$. Next, let $Z$ the be count of twos in the reference marker, which is binomially distributed with parameters $1/2$ and $n$ for this particular backcross. The count of twos in the non-reference marker is then given by $Y = Z - C$, the difference of these two binomial counts. 
-
+These theoretical lines match the values observed in the simulated distribution exactly. As can be deduced from the form of Equation \ref{eq:crossedCorr}, the correlation is dominantly impacted by the number of recombinant individuals, the mean additive score of the reference marker changes the correlation by small amounts in comparison.
 
 %\cite{cheverud2001} cites \cite{cheverudetal2001} in which two inbred mouse strains were crossed to breed an $F_2$ intercross population of 510 individuals. It is of particular interest because \cite{cheverud2001} reproduces the correlation matrix of $\ve{z}$ under the additive mapping for the population, providing the opportunity to compare Equation \ref{eq:zcorr} to observed correlations generated from a real cross. Figure \ref{fig:corr2real} displays this comparison.
 
@@ -954,18 +865,17 @@ The set up of Equation \ref{eq:crossedCorr} also suggests a stochastic way to mo
 
 \section{Conclusion} \label{sec:conclusion}
 
-We have presented here a structural model of genetic measurement incorporating a the current understanding of the genome and typical practice in GWAS. Using this model, the Haldane map distance was shown to be a direct corollary of the genome and mechanics of inheritance as they are currently understood. The model also supported a derivation of genetic correlation, or linkage disequilbrium, which facilitated a comparison of the model's predictions to observed data from \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}. These comparisons suggest the model fits well for most of the markers examined, and indicate chromosome 4 may have more genetic interference than others in the mouse genome.
+This work presents a structural model of genetic measurement incorporating the modern understanding of the genome and typical practice in GWAS. Using this model, the Haldane map distance is shown to be a direct consequence of the structure of the genome and mechanics of inheritance. The model also supports a derivation of genetic correlation, or linkage disequilbrium, which facilitates a comparison of the model's predictions to observed data from \cite{roweetal1994jaxbsb} and \cite{welchetal1996uclabsb}. These comparisons suggest the model fits well for most of the markers examined, and indicate chromosome 4 may have more genetic interference than others in the mouse genome.
 
-Some novel plot matrices were created to support this investigation. The correlation distribution and correlation test plot provide an enriched version of standard correlation matrices by displaying distributional information as well as point estimates. These plots do not scale as well as the standard correlation matrices, but provide an excellent view of the pairwise relationships for a moderate number of markers. Hopefully they inspire other researchers to develop further rich custom visualizations.
+Some novel plot matrices were created to support this investigation. The correlation distribution and correlation test plot provide an enriched version of standard correlation matrices by displaying distributional information as well as point estimates. These plots do not scale as well as the standard correlation matrices, but provide an excellent view of the pairwise relationships for a moderate number of markers.
 
-All of these results demonstrate the extraordinary explanatory power and clarity of this model. By separating the steps used to create useful genetic data in Figure \ref{fig:modelDiagram}, a rich framework is created. Each step contextualizes the next, tracing a clear path from a structural representation of the genome to the numeric values used in practice. Separated in this way, different methods might be considered for each step.
+All of these results demonstrate the extraordinary explanatory power and clarity of the model of Section \ref{sec:theModel}. By separating the steps used to create useful genetic data in Figure \ref{fig:modelDiagram}, a rich framework is created. Each step contextualizes the next, tracing a clear path from a structural representation of the genome to the numeric values used in practice. Separated in this way, different methods might be considered for each step.
 
-Selection and annotation are currently based on SNP microarrays as outlined in \cite{laframboise2009}, but as modern genome sequencing advances further as outlined in \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}, this may change. The problem of selection will remain important even if a full sequence can be obtained. Minimizing spurious associations would still require the careful choice of regions to compare, which will certainly be annotated for convenience and clarity.
+Selection and annotation are currently based on SNP microarrays as outlined in \cite{laframboise2009}, but as modern genome sequencing advances further this may change, see \cite{heatherchain2016sequencers, hasinetal2017multi, uffelmannetal2021gwas}. The problem of selection will remain important even if a full sequence can be obtained. Minimizing spurious associations would still require the careful choice of regions to compare, which will certainly be annotated for convenience and clarity.
 
 The remaining steps, which involve encoding and summarizing these annotated segments, may be skipped entirely. A plethora of categorical measures of association are outlined in literature such as \cite{goodmankruskal1979measures}. Any of these might be directly applied to annotated genetic data without the need for encoding or summarization.
 
-Finally, this work took a rather narrow view of potential encodings, summaries, and population settings. The model outlined here might immediately be applied to maps such as the dominance map on encoded markers, or to some of the known population settings outlined in Section \ref{sec:correlation} other than the backcross. Further generalization may be possible by treating $\m{F}_X$ and $\m{M}_X$ as random matrices with a known distribution rather than known constants, extending the results gained to a natural population rather than a specified cross.
-
+Finally, this work took a rather narrow view of potential encodings, summaries, and population settings. The model outlined here might immediately be applied to maps such as the dominance map on encoded markers, or to some of the known population settings outlined in Section \ref{sec:correlation} other than the backcross. Further generalization may be possible by treating $\m{F}_X$ and $\m{M}_X$ as random matrices with a known distribution rather than known constants, extending the results gained to a natural population rather than a specified cross. Such extensions may also prove insightful for the sample correlation as outlined in Section \ref{subsec:corrCountCO}.
 
 %This framework may not be limited to genomics. \cite{hasinetal2017multi} note the expansion of genome-wide methods to protein and RNA sequencing. In both of these cases, the framework above applies, but has less explanatory power. One might imagine investigating proteins using this framework to see which are relatively under or over-expressed
 
@@ -974,7 +884,7 @@ Finally, this work took a rather narrow view of potential encodings, summaries, 
 %Categorical measures of association, such as the $\chi^2$ test, could readily be applied to $\m{T}$, where each possible row combination is treated as a different category. Such measurement would likely be more computationally inefficient, but would entirely circumvent the last two steps of Figure \ref{fig:modelDiagram}. 
 
 
-\bibliographystyle{plainnat}
+\bibliographystyle{plain}
 \renewcommand*{\bibname}{References} % use title "References" for bibliography
 \bibliography{../Bibliography/fullbib}
 
