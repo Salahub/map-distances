@@ -183,6 +183,7 @@ Finally, relationships between $\m{T}$ and an observed trait or within $\m{T}$ i
 
 This paper presents the details of the structural model outlined briefly in Section \ref{sec:intro}. By using mathematical notation for each abstraction, a framework with extraordinary explanatory power is devised. Section \ref{sec:theModel} provides an explanation of the model with all the necessary mathematical notation. The model is then used in a novel derivation of the Haldane \emph{map distance}, a common measure used to locate SNPs, in Section \ref{sec:derivingDists}. The utility of the model is further demonstrated in Section \ref{sec:correlation}, where it is used to derive the correlation between markers under classic genetic population settings. This results in an expression of the correlation between markers in any genetic study, which is simulated in Section \ref{sec:sim} under settings from the literature. Finally, Section \ref{sec:model2real} simulates the model and compares the results to theoretical expectations and experimental data in mice.
 
+
 \section{A structural genetic model} \label{sec:theModel}
 
 The structural model starts with
@@ -217,7 +218,6 @@ summarizing the individual's inherited variants. There are many common mappings 
 \end{cases}.\end{equation*} The additive map gives $\ve{z} \in \{0,1,2\}^M$ so $z_i$ is equal to the count of copies of $A$ at the $i^{\text{th}}$ marker across both of an individual's inherited variants.
 
 Figure \ref{fig:modelDiagram} displays this model, with descriptive names added to each mapping. In the first step, $\m{G} \rightarrow \m{S}$, segments of the genome are \textit{selected} to obtain the marker sequences or interest. The next step, $\m{S} \rightarrow \m{T}$, \textit{annotates} the chosen markers by indicating which of the common alleles is present for that marker. These annotations are then converted to numeric values, or \textit{encoded}, in the step $\m{T} \rightarrow \m{X}$. Finally, the matrix $\m{X}$ is \textit{summarized} into a vector $\ve{z}$ with some row-wise operation.
-
 
 \section{Deriving map distance} \label{sec:derivingDists}
 
