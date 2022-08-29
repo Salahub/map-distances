@@ -1,0 +1,14 @@
+[The paper ...] contains useful
+information in re-deriving Haladane distance as a function of
+recombination and reviewing its relevance for linkage-based
+studies. However, since you stated that the journal's target for
+"review articles" isn't just a literature review or an encyclopedia
+reference, but rather a synthesis with suggestions for future
+approaches, questions, or directions for research, it probably would
+not be suitable.
+
+I'm not sure what you should suggest to the author
+for alternative target journals, it would probably make a good book
+chapter on Haldane distance in an encyclopedia-style multi-author
+reference.
+

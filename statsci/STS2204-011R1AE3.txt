@@ -1,0 +1,33 @@
+The author presents an article that mathematically relates correlation
+between quantitative traits (with a genetic basis) and genetic
+distance.
+It is not clear that this article contributes any concept, statistically
+or genetically, that has not already been researched and discussed
+for decades. Much of the text and formulae on crossovers and mapping
+functions are well established in the literature.
+
+While I concede that the exact relation between quantitative
+correlative and Haldane mapping, as formulated accurately in Section
+3, may not have been explicitly shown in literature, these can be
+viewed as minor byproducts of long-existing models built for
+quantitative trait mapping.  My criticisms are as follows-
+
+1a) The fact that genetic proximity (quantified by a Halden model or
+otherwise) between two genetic markers would result in higher
+correlation in quantitative phenotypes (which we already know are
+caused by such genes) is very obvious.
+This could have been argued with much less algebra. The exact
+mathematical form is less important, unless we can use it in a gene mapping
+devise -- i.e, find causal genes with the help of potentially nearby
+marker genes. The article never touches upon this point.
+1b) If gene-mapping is really of interest, a full fledged model with
+rigorous distributional assumptions (say Gaussian) on the traits would
+have been more apt. Exploratory correlation analysis can only help to
+validate such models, but cannot be an end in itself.
+
+
+2) I find the claim of a novel derivation of Haldane's mapping
+function in Section 2 to be inaccurate.  There already exists 
+extensive literature on Haldane’s function with derivation techniques that
+are minor variants of each other. I do not find the technique
+discussed in this article to be at all different from those.

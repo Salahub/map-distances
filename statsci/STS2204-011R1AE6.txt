@@ -1,0 +1,17 @@
+The paper was read by two expert referees, including one population
+geneticist and myself.
+
+We all three agree that the manuscript is an excellently written
+tutorial paper, introducing the setup of GWAS studies and deriving
+Haldane's formula. The paper is a delight to read.
+But we unfortunately all three agree that the manuscript is not
+suitable as an STS review paper. Please see the editorials by Rob Kass
+and George Casella -- both are linked on the STS homepage ("editorial policy").
+As both these former editors point out, a good STS review article
+should draw together knowledge and highlight the critical advances in
+a research area. It needs to be more than an (excellent) tutorial.
+
+I believe the manuscript might be excellent for a journal like The
+American Statistician, or any other journal that publishes good
+tutorials and reviews.
+

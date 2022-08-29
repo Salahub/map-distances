@@ -1,33 +1,31 @@
 (TeX-add-style-hook
- "genMod"
+ "TAS-template"
  (lambda ()
-   (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("natbib" "numbers") ("hyperref" "pdftex" "pagebackref=false")))
+   (TeX-add-to-alist 'LaTeX-provided-class-options
+                     '(("article" "12pt")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "url")
    (TeX-run-style-hooks
     "latex2e"
     "article"
-    "art10"
-    "amsthm"
-    "amsmath"
-    "amsfonts"
-    "amssymb"
-    "natbib"
-    "graphicx"
+    "art12"
     "bm"
     "float"
     "multirow"
     "caption"
     "color"
+    "amsmath"
+    "amssymb"
     "amstext"
+    "amsthm"
+    "amsfonts"
     "dsfont"
-    "hyperref")
+    "graphicx"
+    "enumerate"
+    "natbib"
+    "url")
    (TeX-add-symbols
     '("field" 1)
     '("ind" 2)
@@ -42,6 +40,7 @@
     '("sv" 1)
     '("ve" 1)
     '("code" 1)
+    "blind"
     "Rnsp"
     "R"
     "follows"
@@ -64,7 +63,8 @@
     "Integers"
     "Naturals"
     "Complex"
-    "Rationals")
+    "Rationals"
+    "spacingset")
    (LaTeX-add-labels
     "sec:intro"
     "fig:modelDiagram"
@@ -104,20 +104,8 @@
     "fig:bsbcorrDist"
     "fig:bsbcorrTest"
     "fig:bsbcorrTestBig"
-    "subsec:corrCountCO"
-    "fig:discrete"
-    "eq:sampleCorr"
-    "eq:refCorr"
-    "eq:crossedCorr"
-    "fig:bardetail"
     "sec:conclusion")
    (LaTeX-add-bibliographies
-    "../Bibliography/fullbib")
-   (LaTeX-add-color-definecolors
-    "background-color"
-    "steelblue"
-    "brickred"
-    "bluegray"
-    "amethyst"))
+    "../../Core/Bibliography/fullbib"))
  :latex)
 

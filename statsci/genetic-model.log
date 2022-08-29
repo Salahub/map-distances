@@ -1,7 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  19 MAY 2022 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.24)  2 JUL 2022 17:59
 entering extended mode
-**\input genetic-model.tex
- (genetic-model.tex (imsart.cls
+**./genetic-model.tex
+(genetic-model.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27> (imsart.cls
 Document Class: imsart 2021/11/07 driver class for package imsart.sty
 (C:\Users\Chris\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
@@ -813,7 +815,7 @@ Here is how much of TeX's memory you used:
  30420 multiletter control sequences out of 15000+600000
  472797 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,14n,80p,1385b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,14n,80p,1380b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
 /Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
